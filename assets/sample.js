@@ -1,7 +1,26 @@
 
 // 正文、界面、目录和提示同步切换；所有资源均为本地文件。
+// 使用原网站图标；旧页面和子目录入口也能加载本地图标。
+for(const [rel,file,type] of [['icon','Favicon.ico','image/x-icon'],['apple-touch-icon','Apple-touch-icon.png','image/png']]){
+ let icon=document.head.querySelector('link[rel="'+rel+'"]');
+ if(!icon){icon=document.createElement('link');icon.rel=rel;document.head.append(icon);}
+ icon.type=type;icon.href=(document.documentElement.dataset.wikiRoot||'.')+'/assets/theme/'+file;
+}
 let english=false;
 const toggle=document.querySelector('#sample-language');
+// 快捷按钮独立于置顶工具栏，所有页面均固定在视口右下角。
+let floatingTools=document.querySelector('.sample-floating-tools');
+if(!floatingTools){floatingTools=document.createElement('div');floatingTools.className='sample-floating-tools';document.body.append(floatingTools);}
+let backTop=document.querySelector('#sample-back-top');
+if(!backTop){backTop=document.createElement('button');backTop.id='sample-back-top';backTop.type='button';backTop.dataset.uiZh='回到顶部';backTop.dataset.uiEn='Back to top';floatingTools.append(backTop);}
+let homeControl=document.querySelector('#sample-home');
+if(!homeControl){homeControl=document.createElement('a');homeControl.id='sample-home';homeControl.dataset.uiZh='回到主页';homeControl.dataset.uiEn='Home';floatingTools.append(homeControl);}
+if(toggle)floatingTools.append(toggle);
+// 回到顶部时清除章节片段，并保留页面路径与当前语言参数。
+backTop.addEventListener('click',()=>{
+ if(location.hash)history.replaceState(null,'',location.pathname+location.search);
+ window.scrollTo({top:0,left:0,behavior:'instant'});
+});
 const controls=[];
 // 左上角站点图标链接到本地首页，并沿用正文的语言切换逻辑。
 const brand=document.querySelector('.sample-toolbar > strong');
@@ -13,6 +32,23 @@ if(brand){
  home.textContent=brand.textContent;
  brand.replaceWith(home);
 }
+// 旧页面的署名移到搜索右侧；增量更新保留的页面也使用相同位置。
+const searchForm=document.querySelector('#sample-search-form');
+if(searchForm&&!document.querySelector('.sample-authors')){
+ const authors=document.createElement('div');authors.className='sample-authors';
+ for(const author of document.querySelectorAll('footer .sample-author')){
+  const locale=author.closest('footer').dataset.language;
+  author.dataset.language=locale;author.hidden=locale==='en';
+  author.firstChild.textContent=locale==='zh'?'汉化与整理':'Translation & compilation';
+  author.querySelector('a').textContent=locale==='zh'?'狼色幽默·B站主页':'狼色幽默·Bilibili profile';
+  authors.append(author);
+ }
+ if(authors.childElementCount)searchForm.after(authors);
+}
+// 格式错误的 URL 片段不参与定位，避免打断阅读控件初始化。
+function decodeFragment(fragment){
+ try{return decodeURIComponent(fragment);}catch{return '';}
+}
 function collapseLabel(control){const closed=control.dataset.closed==='true';control.textContent=english?(closed?'Expand':'Collapse'):(closed?'展开':'收起');}
 function language(value,updateHash=true){
  english=value;document.documentElement.lang=english?'en':'zh-CN';
@@ -20,17 +56,21 @@ function language(value,updateHash=true){
  for(const n of document.querySelectorAll('[data-ui-zh]'))n.textContent=english?n.dataset.uiEn:n.dataset.uiZh;
  for(const n of document.querySelectorAll('[data-placeholder-zh]'))n.placeholder=english?n.dataset.placeholderEn:n.dataset.placeholderZh;
  toggle.textContent=english?'Chinese':'切换英文';toggle.setAttribute('aria-pressed',String(english));
- document.title=document.querySelector('#sample-title').textContent+(english?' · Valheim Offline Wiki':' · 英灵神殿离线维基');
+ document.title=document.querySelector('#sample-title').textContent+(english?' · Valheim Wiki':' · 英灵神殿维基');
+  // 按当前站点根目录返回首页，并保留阅读语言，兼容子目录部署和本地浏览。
+ const homeUrl=new URL((document.documentElement.dataset.wikiRoot||'.')+'/index.html',location.href);
+ if(english)homeUrl.searchParams.set('lang','en');
+ homeControl.href=homeUrl.href;
  for(const n of controls)collapseLabel(n);
  // 跳到其他本地页面时保留阅读语言。
  for(const a of document.querySelectorAll('a[href]')){
   const raw=a.getAttribute('href');if(!/^(?:\.\.\/|pages\/)?[a-z0-9-]+\.html(?:[?#]|$)/.test(raw))continue;
   const u=new URL(raw,location.href);if(english)u.searchParams.set('lang','en');else u.searchParams.delete('lang');
-  if(u.hash)u.hash='#'+(english?'en-':'')+decodeURIComponent(u.hash.slice(1)).replace(/^en-/,'');
+  if(u.hash){const fragment=decodeFragment(u.hash.slice(1));if(fragment)u.hash='#'+(english?'en-':'')+fragment.replace(/^en-/,'');}
   a.setAttribute('href',raw.split(/[?#]/)[0]+u.search+u.hash);
  }
  document.documentElement.style.scrollPaddingTop=(document.querySelector('.sample-toolbar').offsetHeight+12)+'px';
- const hash=decodeURIComponent(location.hash.slice(1));
+ const hash=decodeFragment(location.hash.slice(1));
  if(updateHash&&hash&&hash!=='sample-toc'){
   const target=(english?'en-':'')+hash.replace(/^en-/,'');
   if(document.getElementById(target))history.replaceState(null,'','#'+target);

@@ -119,3 +119,13 @@ body.skin-vector{background-color:#101a1e;background-image:linear-gradient(rgba(
 /* 首页图标保留站点标识外观，并支持键盘聚焦。 */
 .sample-toolbar > a.sample-brand{padding:0;border:0;border-radius:0;background:none;box-shadow:none;text-shadow:none;font-weight:bold;color:#e8d5b4!important}
 .sample-toolbar > a.sample-brand:hover{filter:brightness(1.22);text-decoration:none}
+/* 作者署名紧跟搜索区域；窄屏随工具栏自然换行。 */
+.sample-authors{display:flex;align-items:center;font-size:14px;line-height:1.6;white-space:nowrap}
+.sample-authors .sample-author{margin:0;display:flex;flex-direction:column;line-height:1.35}
+.sample-toolbar .sample-authors a{padding:0;border:0;background:none;text-decoration:underline}
+
+/* 快捷按钮固定在视口右下角，并避开移动设备的安全区域。 */
+.sample-floating-tools{position:fixed;right:max(20px,env(safe-area-inset-right));bottom:max(20px,env(safe-area-inset-bottom));z-index:120;display:flex;flex-direction:column;gap:8px;align-items:stretch}
+.sample-floating-tools button,.sample-floating-tools a{font:inherit;color:#fff;background:#713b20 url('theme/Valheim_button_texture.png') center/cover;border:1px solid #a87149;border-radius:5px;padding:10px 16px;cursor:pointer;box-shadow:0 3px 12px #0008;text-align:center;text-decoration:none}
+.sample-floating-tools :focus-visible{outline:2px solid #ffe0aa;outline-offset:2px}
+@media print{.sample-floating-tools{display:none!important}}
