@@ -1,0 +1,1486 @@
+<!doctype html><html data-wiki-root=".." lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>生物行为 · 英灵神殿离线维基</title><link rel="stylesheet" href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-0.css"><link rel="stylesheet" href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-1.css"><link rel="stylesheet" href="../assets/sample.css"><script defer src="../assets/search.js"></script><script defer src="../assets/sample.js"></script></head><body class="skin-vector"><nav class="sample-toolbar"><strong  data-ui-zh="英灵神殿 · 离线维基" data-ui-en="Valheim · Offline Wiki">英灵神殿 · 离线维基</strong><a href="creatures.html" data-local-page="true" data-ui-zh="生物" data-ui-en="Creatures">生物</a><a href="how-to-play.html" data-local-page="true" data-ui-zh="入门玩法" data-ui-en="How to play">入门玩法</a><a href="biomes.html" data-local-page="true" data-ui-zh="生物群系" data-ui-en="Biomes">生物群系</a><a href="weapons.html" data-local-page="true" data-ui-zh="武器" data-ui-en="Weapons">武器</a><a href="food.html" data-local-page="true" data-ui-zh="食物" data-ui-en="Food">食物</a><a href="armor.html" data-local-page="true" data-ui-zh="护甲" data-ui-en="Armor">护甲</a><a href="crafting.html" data-local-page="true" data-ui-zh="制作" data-ui-en="Crafting">制作</a><a href="building.html" data-local-page="true" data-ui-zh="建材" data-ui-en="Building">建材</a><button id="sample-language" aria-pressed="false">切换英文</button><a href="#sample-toc" data-ui-zh="本页目录" data-ui-en="Contents">本页目录</a><form id="sample-search-form" role="search"><label for=sample-search data-ui-zh="站内搜索" data-ui-en="Site search">站内搜索</label><input id="sample-search" type="search" autocomplete="off" data-placeholder-zh="输入中文或英文" data-placeholder-en="Search in Chinese or English" placeholder="输入中文或英文"><button type=submit data-ui-zh="搜索" data-ui-en="Search">搜索</button></form></nav><main class="sample-shell"><h1 id="sample-title" data-ui-zh="生物行为" data-ui-en="Creature AI">生物行为</h1><p class="sample-note" data-ui-zh="本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。" data-ui-en="This offline edition supports Chinese and English site search. Links marked ↗ require internet. Chinese uses the supplied glossary; each source revision is shown below.">本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。</p><section id="sample-search-results" aria-live="polite" hidden></section><nav id="sample-toc" class="sample-contents"><div data-language="zh"><a href="#mw-toc-heading">目录</a><a href="#Senses">感应</a><a href="#Sleeping">睡眠</a><a href="#Targeting">瞄准目标</a><a href="#Creatures">生物</a><a href="#Priority_structures">优先攻击的建筑</a><a href="#Other_structures">其他建筑</a><a href="#Dropping_aggro">失去敌意</a><a href="#Aggravation">激怒</a><a href="#Actions">行动</a><a href="#Fleeing">逃跑</a><a href="#Eating_food">进食</a><a href="#Circling_around_the_target">绕目标移动</a><a href="#Using_skills">使用技能</a><a href="#Following">跟随</a><a href="#Idle_movement">闲置时移动</a><a href="#Creature_data">生物数据</a></div><div data-language="en" hidden><a href="#en-mw-toc-heading">Contents</a><a href="#en-Senses">Senses</a><a href="#en-Sleeping">Sleeping</a><a href="#en-Targeting">Targeting</a><a href="#en-Creatures">Creatures</a><a href="#en-Priority_structures">Priority structures</a><a href="#en-Other_structures">Other structures</a><a href="#en-Dropping_aggro">Dropping aggro</a><a href="#en-Aggravation">Aggravation</a><a href="#en-Actions">Actions</a><a href="#en-Fleeing">Fleeing</a><a href="#en-Eating_food">Eating food</a><a href="#en-Circling_around_the_target">Circling around the target</a><a href="#en-Using_skills">Using skills</a><a href="#en-Following">Following</a><a href="#en-Idle_movement">Idle movement</a><a href="#en-Creature_data">Creature data</a></div></nav><section id="sample-zh" data-language="zh"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><p>本文详述<b>生物行为</b>，即决定<a href="creatures.html" title="生物">生物</a>寻找目标、移动、攻击及逃跑的逻辑。敌对生物用怪物人工智能，<a href="p-ba8af0f4802678da4aed.html" title="鹿">鹿</a>及<a href="p-593a88b963a3d3b392c7.html" title="野兔">野兔</a>等被动动物用较简单的动物人工智能。</p>
+<div style="clear:both;"></div>
+<div aria-labelledby="mw-toc-heading" class="toc" id="toc" role="navigation"><div class="toctitle" dir="ltr" lang="en"><h2 id="mw-toc-heading">目录</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Senses"><span class="tocnumber">1</span> <span class="toctext">感应</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Sleeping"><span class="tocnumber">1.1</span> <span class="toctext">睡眠</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="#Targeting"><span class="tocnumber">2</span> <span class="toctext">瞄准目标</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Creatures"><span class="tocnumber">2.1</span> <span class="toctext">生物</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Priority_structures"><span class="tocnumber">2.2</span> <span class="toctext">优先攻击的建筑</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Other_structures"><span class="tocnumber">2.3</span> <span class="toctext">其他建筑</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Dropping_aggro"><span class="tocnumber">3</span> <span class="toctext">失去敌意</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Aggravation"><span class="tocnumber">4</span> <span class="toctext">激怒</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Actions"><span class="tocnumber">5</span> <span class="toctext">行动</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="#Fleeing"><span class="tocnumber">5.1</span> <span class="toctext">逃跑</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="#Fleeing_towards_water"><span class="tocnumber">5.1.1</span> <span class="toctext">奔向水边</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#Leaving_and_despawning"><span class="tocnumber">5.1.2</span> <span class="toctext">离开并消失</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#Crown_of_Valheim"><span class="tocnumber">5.1.3</span> <span class="toctext">英灵神殿之冠</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="#Fleeing_from_the_target_when_avoiding_conflict"><span class="tocnumber">5.1.4</span> <span class="toctext">为避免冲突而逃离目标</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="#Fleeing_on_low_health"><span class="tocnumber">5.1.5</span> <span class="toctext">低生命值时逃跑</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="#Leaving_lava"><span class="tocnumber">5.1.6</span> <span class="toctext">离开熔岩</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="#Avoiding_fire"><span class="tocnumber">5.1.7</span> <span class="toctext">避免火</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href='#Fleeing_from_"no_monsters"_zones'><span class="tocnumber">5.1.8</span> <span class="toctext">逃离“无怪物”区域</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="#Fleeing_from_an_unreachable_target"><span class="tocnumber">5.1.9</span> <span class="toctext">逃离无法到达的目标</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-20"><a href="#Eating_food"><span class="tocnumber">5.2</span> <span class="toctext">进食</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#Circling_around_the_target"><span class="tocnumber">5.3</span> <span class="toctext">绕目标移动</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#Using_skills"><span class="tocnumber">5.4</span> <span class="toctext">使用技能</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#Following"><span class="tocnumber">5.5</span> <span class="toctext">跟随</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#Idle_movement"><span class="tocnumber">5.6</span> <span class="toctext">闲置时移动</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-25"><a href="#Creature_data"><span class="tocnumber">6</span> <span class="toctext">生物数据</span></a></li>
+</ul>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="Senses">感应</h2></div>
+<p>生物通过听觉或视觉察觉其他生物及玩家。</p>
+<ul><li><b>听觉：</b>目标在听觉范围内，且距离低于自身噪音范围时可被听见。地下城及室内听觉范围上限12米。</li>
+<li><b>视觉：</b>目标在视距乘潜行系数以内，且生物眼睛与目标间无遮挡时可被看见；蹲伏时检查目标中心。未警戒者只看前方视角范围，警戒者看全方向。<a href="p-803ba5ee8e70c4ee75f7.html" title="迷雾之地">迷雾之地</a>迷雾阻挡视线，除非有穿雾视觉。</li>
+<li>幽灵模式及调试飞行模式玩家既不被听见，也不被看见。</li></ul>
+<p>生物进入 <b>警戒</b> 的条件：
+</p>
+<ul><li>看见警戒范围乘目标潜行系数内的目标。</li>
+<li>受到伤害，同时将攻击者设为目标。</li>
+<li>弹体击中附近。除未警戒时会逃跑的生物外，也会锁定射手。</li>
+<li>处于追猎模式，该模式使其始终保持警戒。</li></ul>
+<p>警戒中的生物会奔跑而非步行。
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Sleeping">睡眠</h3></div>
+<p>睡眠中的<a href="p-3ae89e8a8fe1c4a5aec2.html" title="尸鬼">尸鬼</a>及<a href="p-1a234744f50cea328de9.html" title="石魔">石魔</a>等生物生成时即沉睡，醒前无动作。玩家进入唤醒范围、噪音传到，能被声音唤醒者最多50米，受伤或进入追猎模式时会醒。</p>
+<div class="mw-heading mw-heading2"><h2 id="Targeting">瞄准目标</h2></div>
+<p>玩家在50米内时怪物每2秒找新目标，否则每6秒。任一生物在32米内时，被动动物每2秒找威胁，否则每10秒。</p><p>追猎模式始终警戒。<a href="p-8d14f6e72de8f18ab1ee.html" title="事件">活动</a>生物，以及<a href="p-a8dc2a05596fceca7a2d.html" title="赤血灵鹿">赤血灵鹿</a>、<a href="p-ca3280d30e1fda946d1a.html" title="古树长老">古树长老</a>、<a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a>、<a href="p-483538232016e17e86f2.html" title="冰霜龙母">冰霜龙母</a>、<a href="p-398464ae70d7dad80188.html" title="亚格鲁斯">亚格鲁斯</a>及<a href="p-83b4009eb50d67eff316.html" title="堕落战士">堕落战士</a>都会追猎玩家。</p><p>追逐目标时，过去15秒未能攻击，会进入持续15秒的“无法攻击目标”模式，更易转而攻击建筑。</p>
+<div class="mw-heading mw-heading3"><h3 id="Creatures">生物</h3></div>
+<p>选择满足以下条件的最近生物或玩家：</p>
+<ul><li>目标处于<a href="p-aeaeee06ac36a10d7822.html" title="阵营">敌对</a>。</li>
+<li>能听见或看见目标。</li>
+<li>目标未处于睡眠状态。</li>
+<li>目标在驻守点警戒范围内，适用于奉命驻守的驯服生物。</li>
+<li>目标在玩家位置警戒范围内，适用于奉命跟随的驯服生物。</li></ul>
+<p>追猎模式找不到目标时，自动锁定200米内最近玩家，无需听见或看见。</p>
+<div class="mw-heading mw-heading3"><h3 id="Priority_structures">优先攻击的建筑</h3></div>
+<p>满足以下条件时，选择视距内最近的优先建筑，包括多数<a href="p-a6d7eeb25f1fe9854a8b.html" title="玩家基地">玩家基地</a>建筑、制作页全部构件、箱子及船：</p>
+<ul><li>没有生物目标，或“无法攻击目标”模式中目标不可达。</li>
+<li>生物能攻击建筑，例如<a href="p-53e9e085b2d11109d84b.html" title="杀人蜂">杀人蜂</a>不能。</li>
+<li>生物未被驯服。</li>
+<li>生物不是仍友好的<a href="p-d72ad0182bdbba9ec83f.html" title="矮人（种族）">矮人</a>，参见<a href="#Aggravation">激怒</a>。</li></ul>
+<p>建筑也必须能从生物眼睛位置看见。</p>
+<div class="mw-heading mw-heading3"><h3 id="Other_structures">其他建筑</h3></div>
+<p>满足以下条件时，随机选择10米内建筑：</p>
+<ul><li>生物处于“无法攻击目标”模式。</li>
+<li>目标生物是无法到达的玩家。</li>
+<li>生物处于警戒。</li>
+<li>没有建筑目标，或建筑目标不可达。</li>
+<li>生物能攻击建筑，例如<a href="p-53e9e085b2d11109d84b.html" title="杀人蜂">杀人蜂</a>不能。</li>
+<li>生物未被驯服。</li></ul>
+<div class="mw-heading mw-heading2"><h2 id="Dropping_aggro">失去敌意</h2></div>
+<p>以下情况下，生物会失去敌意：
+</p>
+<ul><li>已连续30秒未看见或听见目标。</li>
+<li>生物60秒未攻击。追猎模式锁定玩家时跳过此检查。</li>
+<li>距出生点超过最大追逐距离，且1秒未见或未听目标。无距离上限，或追猎模式锁定玩家时跳过。</li></ul>
+<p>失去敌意后移除警戒，追猎模式除外，忘记当前目标，重置未攻击计时。5秒后再次检查目标。</p>
+<div class="mw-heading mw-heading2"><h2 id="Aggravation">激怒</h2></div>
+<p><a href="p-d72ad0182bdbba9ec83f.html" title="矮人（种族）">矮人</a>、<a href="p-dbd9d3789af4697f7188.html" title="巫师扫帚">巫师扫帚</a>及<a href="p-5d22cb3356d717620a73.html" title="迷雾法弹">迷雾法弹</a>可被激怒，之前对玩家中立。以下情况激怒：</p>
+<ul><li>玩家伤害任一可激怒生物，20米内所有同类均被激怒、进入警戒。</li>
+<li>玩家伤害其阵营守护石保护对象超过规定次数，矮人为五次、巫师扫帚一次、迷雾法弹四次，或摧毁对象。影响守护石半径两倍内的对应阵营生物。</li></ul>
+<p>激怒后视玩家为敌，也可攻击玩家建筑。</p>
+<div class="mw-heading mw-heading2"><h2 id="Actions">行动</h2></div>
+<p>每次更新依次检查以下动作，执行首个符合条件者：</p>
+<ol><li>朝水域移动，适用于避开陆地的生物。</li>
+<li>离开并消失，夜间生物在白天，事件生物在事件结束后。</li>
+<li>非首领生物逃离穿<a href="p-b7ec07967c530f469258.html" title="英灵神殿之冠">英灵神殿之冠</a>的玩家。</li>
+<li>为避免冲突而逃离目标。</li>
+<li>低生命值时逃跑。</li>
+<li>离开<a href="p-09541df867b71f0f0f9a.html" title="熔岩">熔岩</a>。</li>
+<li>避开<a class="mw-redirect" href="p-0c874f581a4534f15f1e.html#Fire" title="火焰">火焰</a>。</li>
+<li>逃离“无怪物”区域。</li>
+<li>逃离无法到达的目标。</li>
+<li>进食。</li>
+<li>绕目标移动。</li>
+<li>按选定技能攻击、治疗或辅助。</li>
+<li>跟随玩家，仅限驯服生物。</li>
+<li>闲置时移动。</li></ol>
+<div class="mw-heading mw-heading3"><h3 id="Fleeing">逃跑</h3></div>
+<div class="mw-heading mw-heading4"><h4 id="Fleeing_towards_water">奔向水边</h4></div>
+<p>设为避开陆地的生物，未游泳时会寻找最深水域并逃去。适用于<a href="p-e27f3a289ceb40df4796.html" title="蚂蟥">蚂蟥</a>、<a href="p-bb01a030df624241707d.html" title="蛟龙">蛟龙</a>及<a href="p-0d054f347f0573e05e09.html" title="骨骺蛟龙">骨骺蛟龙</a>。</p><p>每0.5或2秒寻找水域，已找到后间隔更长。</p><p>检查4至20米内10个随机点。最低点低于水面则跑去，否则保持当前方向，此行为不使用寻路。</p>
+<div class="mw-heading mw-heading4"><h4 id="Leaving_and_despawning">离开并消失</h4></div>
+<p>白天需消失的生物，若无生物目标或看不见目标，会逃离最近玩家。仅限夜间<a href="p-60958b009a9e0b5dd0b6.html" title="生成区域">生成区域</a>生成者。开始驯服后禁用。</p><p><a href="p-8d14f6e72de8f18ab1ee.html" title="事件">事件</a>结束后，事件生物停止追猎。无目标且不再警戒时，远离最近玩家并消失。</p><p>寻找40米内最近玩家，找不到则消失；否则寻路至距玩家5米外，每次更新重算路径。</p>
+<div class="mw-heading mw-heading4"><h4 id="Crown_of_Valheim">英灵神殿之冠</h4></div>
+<p>目标玩家穿<a href="p-b7ec07967c530f469258.html" title="英灵神殿之冠">英灵神殿之冠</a>时，非首领生物逃跑而不攻击。</p>
+<div class="mw-heading mw-heading4"><h4 id="Fleeing_from_the_target_when_avoiding_conflict">为避免冲突而逃离目标</h4></div>
+<p>避战生物未警戒且目标在警戒范围外时，会逃离目标。适用于<a href="p-bf10a5ee1fab92a8db98.html" title="鬓猪">鬓猪</a>、<a href="p-6b27a97151bbf20fa8b0.html" title="蜥蜴精">蜥蜴精</a>及<a href="p-721cd45c909fba45b310.html" title="母鸡">母鸡</a>，不适用于事件等追猎模式生物。</p><p><a href="p-ba8af0f4802678da4aed.html" title="鹿">鹿</a>、<a href="p-593a88b963a3d3b392c7.html" title="野兔">野兔</a>及<a href="p-50ed6511896524fba31c.html" title="海豹">海豹</a>等被动动物总会逃离察觉到的生物，直到数秒未察觉威胁才解除警戒。</p>
+<div class="mw-heading mw-heading4"><h4 id="Fleeing_on_low_health">低生命值时逃跑</h4></div>
+<p>有低生命阈值的生物，生命低于阈值且近期受伤时逃离目标。<a href="p-42b0bedf2737ab2cba46.html" title="灰烬僵尸">灰烬僵尸</a>生命低于90%，且过去4秒受过伤时逃跑。</p>
+<div class="mw-heading mw-heading4"><h4 id="Leaving_lava">离开熔岩</h4></div>
+<p>站在<a href="p-09541df867b71f0f0f9a.html" title="熔岩">熔岩</a>的生物会离开，除非目标也在熔岩上方或内部。</p>
+<div class="mw-heading mw-heading4"><h4 id="Avoiding_fire">避免火</h4></div>
+<p>怕火的生物，包括<a href="p-bf10a5ee1fab92a8db98.html" title="鬓猪">鬓猪</a>、<a href="p-6b27a97151bbf20fa8b0.html" title="蜥蜴精">蜥蜴精</a>、<a href="p-721cd45c909fba45b310.html" title="母鸡">母鸡</a>、<a href="p-ba8af0f4802678da4aed.html" title="鹿">鹿</a>等被动动物，以及<a href="p-4c764cb6248ef9337fc1.html" title="影子">影子</a>：</p>
+<ul><li>不会随机游荡进火中。</li>
+<li>进入火源3米内会警戒、逃跑，之后继续逃6秒。</li>
+<li>逃跑时忘记当前目标。</li></ul>
+<p>避火生物，例如<a href="p-f4709a9359f1def796bc.html" title="灰矮人">灰矮人</a>、<a href="p-d1b08118de3909fa8022.html" title="灰宝宝">灰宝宝</a>、<a href="p-8c578ed3e9d5fec6f0f1.html" title="巨熊">巨熊</a>及<a href="p-9c02806a24a7117538a1.html" title="恶骨">恶骨</a>：</p>
+<ul><li>不会随机游荡进火中。</li>
+<li>进入火源3米范围时，会绕过火源而非穿过。
+<ul><li>因此攻击距离不足3米的生物，不攻击持<a href="p-dcc578acd71a7bf2c0e9.html" title="火把">火把</a>的玩家，而在周围移动。</li>
+<li>攻击距离超过3米者可远攻，攻击中进入逃离范围时会改变方向。</li></ul></li></ul>
+<p>驯服生物无视火源。
+</p>
+<div class="mw-heading mw-heading4"><h4 id='Fleeing_from_"no_monsters"_zones'>逃离“无怪物”区域</h4></div>
+<p>未驯服生物逃离“禁止怪物”区域内的目标。无目标时，进入边界7.5米内就会逃离区域。</p>
+<div class="mw-heading mw-heading4"><h4 id="Fleeing_from_an_unreachable_target">逃离无法到达的目标</h4></div>
+<p>30秒未攻击且过去20秒受伤时，生物逃离目标。多数怪物如此，但<a href="p-24bafb0b2477f80fafd0.html" title="软泥怪">软泥怪</a>、<a href="p-c781316c9ff4beaaf1e8.html" title="鬼魅">鬼魅</a>、<a href="p-c465c70b79b24e4f7c1b.html" title="邪蛛探索者">邪蛛探索者</a>、<a href="p-f2813a523c21f6654fc4.html" title="邪蝠">邪蝠</a>及多数首领不这样逃跑。</p>
+<div class="mw-heading mw-heading3"><h3 id="Eating_food">进食</h3></div>
+<p>能吃物品的生物，多数可驯服者，未警戒或无目标时每10秒在10米内找食物，走向最近可达食物。已驯服者仅饥饿时寻找。</p>
+<div class="mw-heading mw-heading3"><h3 id="Circling_around_the_target">绕目标移动</h3></div>
+<p>部分生物定期绕目标而不攻击。例如<a href="p-f4709a9359f1def796bc.html" title="灰矮人">灰矮人</a>、<a href="p-d1b08118de3909fa8022.html" title="灰宝宝">灰宝宝</a>每6秒，<a href="p-9d5ce60be807ae13498b.html" title="丑地精">丑地精</a>、<a href="p-81efe84f7d78a374de44.html" title="厄妖">厄妖</a>每8秒，<a href="p-be01beb2fff31a66abf2.html" title="平原牦牛">平原牦牛</a>、<a href="p-63af1f5974e26c125721.html" title="驼鹿">驼鹿</a>、<a href="p-d9750e42f4357d8a8d8a.html" title="灰烬刚鬣">灰烬刚鬣</a>每30秒。绕行持续数秒，默认5秒。</p><p><a href="p-ea858afbf837aae71461.html" title="狼">狼</a>、<a href="p-9d5ce60be807ae13498b.html" title="丑地精">丑地精</a>、<a href="p-6b27a97151bbf20fa8b0.html" title="蜥蜴精">蜥蜴精</a>及<a href="p-d72ad0182bdbba9ec83f.html" title="矮人（种族）">矮人</a>等许多生物，所有攻击冷却时也会绕目标。</p>
+<div class="mw-heading mw-heading3"><h3 id="Using_skills">使用技能</h3></div>
+<p>有目标时，每秒更新下一技能，选择条件如下：</p>
+<ul><li>攻击技能仅在目标处于最小及最大攻击距离间时可用。</li>
+<li>治疗技能仅在自身受伤，或视距内有受伤友军时可用，无需无遮挡视线。</li>
+<li>辅助技能仅在视距内有其他友军时可用，无需无遮挡视线。</li>
+<li>冷却中的技能不可用。</li>
+<li>仅限步行、游泳或飞行的技能，在运动模式不符时不可用。</li>
+<li>部分技能只能在特定生命值范围内、地下城内或迷雾中使用。</li></ul>
+<p>除非某个技能被标记为优先，否则从可用攻击中随机选择下一个技能。</p><p>若没有可用技能，则从无法触及目标的攻击技能中随机选择下一个技能，但排除因目标太近而无法使用的攻击。若仍无技能可选，则从全部攻击中随机选择，即使它们尚在冷却中；同样排除目标太近的攻击。</p><p>若下一个技能仍在冷却：
+</p>
+<ul><li>若生物设定为绕目标移动，就在随机移动距离内围绕目标转圈。</li>
+<li>朝目标移动，直至进入攻击范围，然后等待技能就绪。</li></ul>
+<p>若下一个技能已就绪：
+</p>
+<ul><li>建筑：朝目标移动，直至进入攻击范围且视线畅通，然后转向目标并攻击。</li>
+<li>隐藏的生物：前往目标最后出现的位置，到达后在附近随机移动。若15秒未攻击，则在接下来的15秒内优先攻击建筑。</li>
+<li>已察觉的生物：更新目标最后出现的位置，朝目标移动，直至进入攻击范围且视线畅通。部分生物会瞄准移动目标前方。目标进入警戒范围且视线畅通时，生物进入警戒；目标进入攻击范围时发动攻击。</li>
+<li>治疗与辅助：朝友方生物移动，进入攻击范围后使用技能。</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Following">跟随</h3></div>
+<p>收到跟随命令的驯服生物会走向玩家；距离超过10米时奔跑，进入3米范围后停下。</p>
+<div class="mw-heading mw-heading3"><h3 id="Idle_movement">闲置时移动</h3></div>
+<p>没有目标的生物会围绕一个中心点随机移动：若设有巡逻点，则以巡逻点为中心；若已驯服或正在狩猎，则以当前位置为中心；否则以出生点为中心。当它们与中心点的距离超过随机移动范围的两倍时，会跑回中心点。避水的生物不会游荡到水中，避火的生物不会游荡到火中。</p>
+<div class="mw-heading mw-heading2"><h2 id="Creature_data">生物数据</h2></div>
+<p>下表列出常见生物的AI数值。视角达到180°或以上，表示生物能看见所有方向；∞表示没有限制。</p>
+<div class="sample-table-scroll"><table class="wikitable sortable">
+<tbody><tr>
+<th>生物</th>
+<th>视距（米）</th>
+<th>视角（°）</th>
+<th>听觉距离（米）</th>
+<th>警戒距离（米）</th>
+<th>火焰</th>
+<th>绕行间隔（秒）</th>
+<th>最大追逐距离（米）
+</th></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-bf10a5ee1fab92a8db98.html" title="鬓猪"><img class="mw-file-element" data-file-height="931" data-file-width="992" decoding="async" height="28" loading="eager" src="../assets/35f291929cf370c701c9.png" width="30"/></a></span> <a href="p-bf10a5ee1fab92a8db98.html" title="鬓猪">鬓猪</a></td>
+<td>20</td>
+<td>90</td>
+<td>20</td>
+<td>6</td>
+<td>害怕对象</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-6b27a97151bbf20fa8b0.html" title="蜥蜴精"><img class="mw-file-element" data-file-height="785" data-file-width="1000" decoding="async" height="24" loading="eager" src="../assets/4af1eb1d52678fa39ea8.png" width="30"/></a></span> <a href="p-6b27a97151bbf20fa8b0.html" title="蜥蜴精">蜥蜴精</a></td>
+<td>20</td>
+<td>90</td>
+<td>20</td>
+<td>6</td>
+<td>害怕对象</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-ba8af0f4802678da4aed.html" title="鹿"><img class="mw-file-element" data-file-height="992" data-file-width="992" decoding="async" height="30" loading="eager" src="../assets/98f7819705c43bfd70d0.png" width="30"/></a></span> <a href="p-ba8af0f4802678da4aed.html" title="鹿">鹿</a></td>
+<td>25</td>
+<td>45</td>
+<td>15</td>
+<td>–</td>
+<td>害怕对象</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-d1b08118de3909fa8022.html" title="灰宝宝"><img class="mw-file-element" data-file-height="1000" data-file-width="1000" decoding="async" height="30" loading="eager" src="../assets/ad960773ad3065939c09.png" width="30"/></a></span> <a href="p-d1b08118de3909fa8022.html" title="灰宝宝">灰宝宝</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>避开对象</td>
+<td>6</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-f4709a9359f1def796bc.html" title="灰矮人"><img class="mw-file-element" data-file-height="1000" data-file-width="1000" decoding="async" height="30" loading="eager" src="../assets/6e7867feb42077b157d1.png" width="30"/></a></span> <a href="p-f4709a9359f1def796bc.html" title="灰矮人">灰矮人</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>避开对象</td>
+<td>6</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-ba16540902bdc96359b7.html" title="灰矮人暴徒"><img class="mw-file-element" data-file-height="1000" data-file-width="1000" decoding="async" height="30" loading="eager" src="../assets/417044c8d40495a94ed8.png" width="30"/></a></span> <a href="p-ba16540902bdc96359b7.html" title="灰矮人暴徒">灰矮人暴徒</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>15</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-f3aed59448e859ce563b.html" title="灰矮人萨满"><img class="mw-file-element" data-file-height="1000" data-file-width="1000" decoding="async" height="30" loading="eager" src="../assets/68ee5e73f22c59606f95.png" width="30"/></a></span> <a href="p-f3aed59448e859ce563b.html" title="灰矮人萨满">灰矮人萨满</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-9bac25686c53aa859d61.html" title="巨魔"><img class="mw-file-element" data-file-height="697" data-file-width="992" decoding="async" height="21" loading="eager" src="../assets/7f172db7257167fa4559.png" width="30"/></a></span> <a href="p-9bac25686c53aa859d61.html" title="巨魔">巨魔</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>200
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-ea5f6bdc79b884c397d6.html" title="骷髅怪"><img class="mw-file-element" data-file-height="992" data-file-width="992" decoding="async" height="30" loading="eager" src="../assets/ed326fc2eba1950c1a6f.png" width="30"/></a></span> <a href="p-ea5f6bdc79b884c397d6.html" title="骷髅怪">骷髅怪</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-df1bc4984a055e10b286.html" title="幽灵"><img class="mw-file-element" data-file-height="448" data-file-width="557" decoding="async" height="24" loading="eager" src="../assets/05f4d2a22b807ee822e7.png" width="30"/></a></span> <a href="p-df1bc4984a055e10b286.html" title="幽灵">幽灵</a></td>
+<td>30</td>
+<td>90</td>
+<td>30</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-8c578ed3e9d5fec6f0f1.html" title="巨熊"><img class="mw-file-element" data-file-height="441" data-file-width="565" decoding="async" height="23" loading="eager" src="../assets/139ab231792d92eecf6e.png" width="30"/></a></span> <a href="p-8c578ed3e9d5fec6f0f1.html" title="巨熊">巨熊</a></td>
+<td>25</td>
+<td>90</td>
+<td>15</td>
+<td>6</td>
+<td>避开对象</td>
+<td>9</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-3ae89e8a8fe1c4a5aec2.html" title="尸鬼"><img class="mw-file-element" data-file-height="992" data-file-width="992" decoding="async" height="30" loading="eager" src="../assets/26deab5019f5990a75f4.png" width="30"/></a></span> <a href="p-3ae89e8a8fe1c4a5aec2.html" title="尸鬼">尸鬼</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>10</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-b93909b5f83342167cf5.html" title="尸鬼精英"><img class="mw-file-element" data-file-height="992" data-file-width="992" decoding="async" height="30" loading="eager" src="../assets/948643961afc14542aa1.png" width="30"/></a></span> <a href="p-b93909b5f83342167cf5.html" title="尸鬼精英">尸鬼精英</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>10</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-24bafb0b2477f80fafd0.html" title="软泥怪"><img class="mw-file-element" data-file-height="1024" data-file-width="1024" decoding="async" height="30" loading="eager" src="../assets/7338998477235e8f888e.png" width="30"/></a></span> <a href="p-24bafb0b2477f80fafd0.html" title="软泥怪">软泥怪</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>∞</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-e27f3a289ceb40df4796.html" title="蚂蟥"><img class="mw-file-element" data-file-height="646" data-file-width="1000" decoding="async" height="19" loading="eager" src="../assets/f8ebd84d72d75bd84750.png" width="30"/></a></span> <a href="p-e27f3a289ceb40df4796.html" title="蚂蟥">蚂蟥</a></td>
+<td>30</td>
+<td>360</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>100
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-c781316c9ff4beaaf1e8.html" title="鬼魅"><img class="mw-file-element" data-file-height="1000" data-file-width="1000" decoding="async" height="30" loading="eager" src="../assets/d68c248c1aa4cf697b88.png" width="30"/></a></span> <a href="p-c781316c9ff4beaaf1e8.html" title="鬼魅">鬼魅</a></td>
+<td>40</td>
+<td>90</td>
+<td>∞</td>
+<td>30</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-55dbdbafa072275bf0d2.html" title="邪煞之树"><img class="mw-file-element" data-file-height="825" data-file-width="992" decoding="async" height="25" loading="eager" src="../assets/cb5acbe2ac2cddaa6b37.png" width="30"/></a></span> <a href="p-55dbdbafa072275bf0d2.html" title="邪煞之树">邪煞之树</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-ea858afbf837aae71461.html" title="狼"><img class="mw-file-element" data-file-height="1000" data-file-width="1000" decoding="async" height="30" loading="eager" src="../assets/835b870b8a76d2bcc49e.png" width="30"/></a></span> <a href="p-ea858afbf837aae71461.html" title="狼">狼</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-134c1125a5e029dae10d.html" title="芬里"><img class="mw-file-element" data-file-height="1210" data-file-width="967" decoding="async" height="38" loading="eager" src="../assets/5c2c6f425643159bba03.png" width="30"/></a></span> <a href="p-134c1125a5e029dae10d.html" title="芬里">芬里</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-2787ea728b28387177aa.html" title="狂信徒"><img class="mw-file-element" data-file-height="1339" data-file-width="1071" decoding="async" height="38" loading="eager" src="../assets/1e7b15dd69239361e2f8.png" width="30"/></a></span> <a href="p-2787ea728b28387177aa.html" title="狂信徒">狂信徒</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-724de16046651b352c27.html" title="巨狼"><img class="mw-file-element" data-file-height="691" data-file-width="864" decoding="async" height="24" loading="eager" src="../assets/3aa6e8ea405b67c0841b.png" width="30"/></a></span> <a href="p-724de16046651b352c27.html" title="巨狼">巨狼</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-6aed8812d68d8790c628.html" title="霜龙"><img class="mw-file-element" data-file-height="574" data-file-width="992" decoding="async" height="17" loading="eager" src="../assets/80ba67371b2adcb5eb05.png" width="30"/></a></span> <a href="p-6aed8812d68d8790c628.html" title="霜龙">霜龙</a></td>
+<td>40</td>
+<td>90</td>
+<td>∞</td>
+<td>30</td>
+<td>–</td>
+<td>–</td>
+<td>200
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-1a234744f50cea328de9.html" title="石魔"><img class="mw-file-element" data-file-height="992" data-file-width="992" decoding="async" height="30" loading="eager" src="../assets/af028b8bb60c8379a80f.png" width="30"/></a></span> <a href="p-1a234744f50cea328de9.html" title="石魔">石魔</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-f2813a523c21f6654fc4.html" title="邪蝠"><img class="mw-file-element" data-file-height="1101" data-file-width="1022" decoding="async" height="32" loading="eager" src="../assets/246b79e17a063bed90d5.png" width="30"/></a></span> <a href="p-f2813a523c21f6654fc4.html" title="邪蝠">邪蝠</a></td>
+<td>30</td>
+<td>180</td>
+<td>∞</td>
+<td>30</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-9d5ce60be807ae13498b.html" title="丑地精"><img class="mw-file-element" data-file-height="828" data-file-width="1000" decoding="async" height="25" loading="eager" src="../assets/657ba201027d588a80d9.png" width="30"/></a></span> <a href="p-9d5ce60be807ae13498b.html" title="丑地精">丑地精</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>8</td>
+<td>300
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-440f49671e99164315e3.html" title="丑地精狂战士"><img class="mw-file-element" data-file-height="793" data-file-width="1000" decoding="async" height="24" loading="eager" src="../assets/f1f89262a3aa685cbc4a.png" width="30"/></a></span> <a href="p-440f49671e99164315e3.html" title="丑地精狂战士">丑地精狂战士</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>300
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-12e29dba51068fb584d2.html" title="丑地精萨满"><img class="mw-file-element" data-file-height="1000" data-file-width="750" decoding="async" height="40" loading="eager" src="../assets/953882d2a3dbf88da77e.png" width="30"/></a></span> <a href="p-12e29dba51068fb584d2.html" title="丑地精萨满">丑地精萨满</a></td>
+<td>40</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>15</td>
+<td>300
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-53e9e085b2d11109d84b.html" title="杀人蜂"><img class="mw-file-element" data-file-height="832" data-file-width="992" decoding="async" height="25" loading="eager" src="../assets/aa06bab135f98c430d03.png" width="30"/></a></span> <a href="p-53e9e085b2d11109d84b.html" title="杀人蜂">杀人蜂</a></td>
+<td>30</td>
+<td>90</td>
+<td>30</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-be01beb2fff31a66abf2.html" title="平原牦牛"><img class="mw-file-element" data-file-height="846" data-file-width="992" decoding="async" height="26" loading="eager" src="../assets/4481bd429a8dba888083.png" width="30"/></a></span> <a href="p-be01beb2fff31a66abf2.html" title="平原牦牛">平原牦牛</a></td>
+<td>25</td>
+<td>90</td>
+<td>15</td>
+<td>6</td>
+<td>–</td>
+<td>30</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-66b06e996553a4e70d0f.html" title="焦油怪"><img class="mw-file-element" data-file-height="1817" data-file-width="2048" decoding="async" height="27" loading="eager" src="../assets/4b5f611ebf56da55830d.png" width="30"/></a></span> <a href="p-66b06e996553a4e70d0f.html" title="焦油怪">焦油怪</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>∞</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-9c02806a24a7117538a1.html" title="恶骨"><img class="mw-file-element" data-file-height="416" data-file-width="599" decoding="async" height="21" loading="eager" src="../assets/7036cdeb68a1bc224606.png" width="30"/></a></span> <a href="p-9c02806a24a7117538a1.html" title="恶骨">恶骨</a></td>
+<td>25</td>
+<td>90</td>
+<td>15</td>
+<td>6</td>
+<td>避开对象</td>
+<td>9</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-c465c70b79b24e4f7c1b.html" title="邪蛛探索者"><img class="mw-file-element" data-file-height="845" data-file-width="1057" decoding="async" height="24" loading="eager" src="../assets/464b72a1a563073759e4.png" width="30"/></a></span> <a href="p-c465c70b79b24e4f7c1b.html" title="邪蛛探索者">邪蛛探索者</a></td>
+<td>30</td>
+<td>120</td>
+<td>∞</td>
+<td>30</td>
+<td>–</td>
+<td>10</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-d638ee2f46a405dd2f5c.html" title="邪蛛士兵"><img class="mw-file-element" data-file-height="983" data-file-width="1193" decoding="async" height="25" loading="eager" src="../assets/1a2d4bee997325b01d1e.png" width="30"/></a></span> <a href="p-d638ee2f46a405dd2f5c.html" title="邪蛛士兵">邪蛛士兵</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>30</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-98c95268220bddfe87be.html" title="壁虱幼虫"><img class="mw-file-element" data-file-height="1252" data-file-width="1003" decoding="async" height="37" loading="eager" src="../assets/d2e032fec085c2609629.png" width="30"/></a></span> <a href="p-98c95268220bddfe87be.html" title="壁虱幼虫">壁虱幼虫</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-f018cb729d59b13d1f4e.html" title="加尔"><img class="mw-file-element" data-file-height="1125" data-file-width="899" decoding="async" height="38" loading="eager" src="../assets/64354ee333d13c4d2f34.png" width="30"/></a></span> <a href="p-f018cb729d59b13d1f4e.html" title="加尔">加尔</a></td>
+<td>40</td>
+<td>90</td>
+<td>∞</td>
+<td>30</td>
+<td>–</td>
+<td>30</td>
+<td>200
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-dc042adbdecb49bc4de4.html" title="矮人刺客"><img class="mw-file-element" data-file-height="839" data-file-width="798" decoding="async" height="32" loading="eager" src="../assets/5f81c00be58419fa5248.png" width="30"/></a></span> <a href="p-dc042adbdecb49bc4de4.html" title="矮人刺客">矮人刺客</a></td>
+<td>40</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>15</td>
+<td>300
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-e91837e0deb55a18a7c9.html" title="灰烬战士"><img class="mw-file-element" data-file-height="1469" data-file-width="1174" decoding="async" height="38" loading="eager" src="../assets/60f15434a1996051df9f.png" width="30"/></a></span> <a href="p-e91837e0deb55a18a7c9.html" title="灰烬战士">灰烬战士</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-42b0bedf2737ab2cba46.html" title="灰烬僵尸"><img class="mw-file-element" data-file-height="1452" data-file-width="1161" decoding="async" height="38" loading="eager" src="../assets/3dd70c37e151108c3115.png" width="30"/></a></span> <a href="p-42b0bedf2737ab2cba46.html" title="灰烬僵尸">灰烬僵尸</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>7</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-d9750e42f4357d8a8d8a.html" title="灰烬刚鬣"><img class="mw-file-element" data-file-height="813" data-file-width="1017" decoding="async" height="24" loading="eager" src="../assets/50250a27e6080363377a.png" width="30"/></a></span> <a href="p-d9750e42f4357d8a8d8a.html" title="灰烬刚鬣">灰烬刚鬣</a></td>
+<td>35</td>
+<td>150</td>
+<td>30</td>
+<td>10</td>
+<td>–</td>
+<td>30</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-871cf7476fc46f9cf444.html" title="灰烬之鹫"><img class="mw-file-element" data-file-height="897" data-file-width="1123" decoding="async" height="24" loading="eager" src="../assets/7d4e692c296f62788c13.png" width="30"/></a></span> <a href="p-871cf7476fc46f9cf444.html" title="灰烬之鹫">灰烬之鹫</a></td>
+<td>30</td>
+<td>180</td>
+<td>∞</td>
+<td>30</td>
+<td>避开对象</td>
+<td>20</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-c4785ba17e12c3aaa027.html" title="摩根"><img class="mw-file-element" data-file-height="474" data-file-width="527" decoding="async" height="27" loading="eager" src="../assets/10022546e7ddd97b4935.png" width="30"/></a></span> <a href="p-c4785ba17e12c3aaa027.html" title="摩根">摩根</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>30</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-73a1e307b3c18141bf70.html" title="堕落女武神"><img class="mw-file-element" data-file-height="428" data-file-width="583" decoding="async" height="22" loading="eager" src="../assets/b62f54fe52f795b90441.png" width="30"/></a></span> <a href="p-73a1e307b3c18141bf70.html" title="堕落女武神">堕落女武神</a></td>
+<td>30</td>
+<td>180</td>
+<td>∞</td>
+<td>50</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-bb01a030df624241707d.html" title="蛟龙"><img class="mw-file-element" data-file-height="742" data-file-width="594" decoding="async" height="37" loading="eager" src="../assets/c475783d41ae7b93db03.png" width="30"/></a></span> <a href="p-bb01a030df624241707d.html" title="蛟龙">蛟龙</a></td>
+<td>50</td>
+<td>360</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>300
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-81efe84f7d78a374de44.html" title="厄妖"><img class="mw-file-element" data-file-height="562" data-file-width="444" decoding="async" height="38" loading="eager" src="../assets/69a042100aac687fab8d.png" width="30"/></a></span> <a href="p-81efe84f7d78a374de44.html" title="厄妖">厄妖</a></td>
+<td>50</td>
+<td>180</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>8</td>
+<td>300
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-e2b3f27d6fca99302aa8.html" title="无眼者"><img class="mw-file-element" data-file-height="463" data-file-width="539" decoding="async" height="26" loading="eager" src="../assets/971e9b580cf441ef15c8.png" width="30"/></a></span> <a href="p-e2b3f27d6fca99302aa8.html" title="无眼者">无眼者</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>8</td>
+<td>300
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-5b85dd09166fd038e337.html" title="巨人战士"><img class="mw-file-element" data-file-height="589" data-file-width="423" decoding="async" height="42" loading="eager" src="../assets/e0d21a0b3317e785dbfb.png" width="30"/></a></span> <a href="p-5b85dd09166fd038e337.html" title="巨人战士">巨人战士</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-f11d50d821c9fe22ce51.html" title="巨人巫师"><img class="mw-file-element" data-file-height="548" data-file-width="455" decoding="async" height="36" loading="eager" src="../assets/8374fd0df4338370e651.png" width="30"/></a></span> <a href="p-f11d50d821c9fe22ce51.html" title="巨人巫师">巨人巫师</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>300
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-1976a5863e7c98dd63a0.html" title="灰巨人"><img class="mw-file-element" data-file-height="524" data-file-width="476" decoding="async" height="33" loading="eager" src="../assets/ea89745b26f769e2394d.png" width="30"/></a></span> <a href="p-1976a5863e7c98dd63a0.html" title="灰巨人">灰巨人</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>30</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-63af1f5974e26c125721.html" title="驼鹿"><img class="mw-file-element" data-file-height="512" data-file-width="487" decoding="async" height="32" loading="eager" src="../assets/c8231e83e57f28610b88.png" width="30"/></a></span> <a href="p-63af1f5974e26c125721.html" title="驼鹿">驼鹿</a></td>
+<td>25</td>
+<td>90</td>
+<td>15</td>
+<td>6</td>
+<td>–</td>
+<td>30</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-e3a26b909f3580155e06.html" title="巨魔长老"><img class="mw-file-element" data-file-height="498" data-file-width="501" decoding="async" height="30" loading="eager" src="../assets/e04da56792daa8b8cb29.png" width="30"/></a></span> <a href="p-e3a26b909f3580155e06.html" title="巨魔长老">巨魔长老</a></td>
+<td>300</td>
+<td>90</td>
+<td>∞</td>
+<td>90</td>
+<td>–</td>
+<td>–</td>
+<td>500
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-f5ba0df5cb44d1d22726.html" title="丑地精俘虏"><img class="mw-file-element" data-file-height="479" data-file-width="521" decoding="async" height="28" loading="eager" src="../assets/74240d872f5727318b32.png" width="30"/></a></span> <a href="p-f5ba0df5cb44d1d22726.html" title="丑地精俘虏">丑地精俘虏</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>8</td>
+<td>300
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-13fdc5f43095033d7619.html" title="被囚禁的矮人"><img class="mw-file-element" data-file-height="545" data-file-width="458" decoding="async" height="36" loading="eager" src="../assets/85015ce76fd5463264dc.png" width="30"/></a></span> <a href="p-13fdc5f43095033d7619.html" title="被囚禁的矮人">被囚禁的矮人</a></td>
+<td>40</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>避开对象</td>
+<td>15</td>
+<td>300
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-83b4009eb50d67eff316.html" title="堕落战士"><img class="mw-file-element" data-file-height="575" data-file-width="434" decoding="async" height="40" loading="eager" src="../assets/d8181b466e5efcc55a93.png" width="30"/></a></span> <a href="p-83b4009eb50d67eff316.html" title="堕落战士">堕落战士</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>10</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-4c764cb6248ef9337fc1.html" title="影子"><img class="mw-file-element" data-file-height="512" data-file-width="512" decoding="async" height="30" loading="eager" src="../assets/fc2cebb513989c8b1bb7.png" width="30"/></a></span> <a href="p-4c764cb6248ef9337fc1.html" title="影子">影子</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>0.5</td>
+<td>害怕对象</td>
+<td>–</td>
+<td>–
+</td></tr></tbody></table></div>
+<div class="sample-table-scroll"><table class="navbox mw-collapsible mw-collapsed" data-collapsetext="Hide" data-expandtext="Show"><tbody><tr class="navbox-title"><th colspan="2" scope="col"><div class="navbox-title-pad navbox-title-padleft navbox-title-padright"><a href="p-edd2287afad9be012dee.html" title="分类：游戏机制">机制</a></div></th></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">攻略</th><td class="navbox-list"><div class="hlist"><a href="how-to-play.html" title="入门玩法">入门玩法</a> • <a href="p-58565db394dcbacc0ec7.html" title="流程攻略">流程攻略</a> • <a href="p-e70bc5798f8391942dd6.html" title="敌对生物攻略">敌对生物攻略</a> • <a href="p-19e667dbe36cd74e7c1b.html" title="被动生物攻略">被动生物攻略</a> • <a href="p-afc73fba07d15f960daf.html" title="首领攻略">首领攻略</a> • <a href="p-a1b6af2b7d7d4bfef86e.html" title="专用服务器">专用服务器</a> • <a href="p-c3af076f92c5ed8dcb0d.html" title="故障排查">故障排查</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">玩家</th><td class="navbox-list"><div class="hlist"><a href="p-64aee8c6cbd026d9ea92.html" title="玩家">玩家</a> • <a href="p-55898449eb74fb2e348d.html" title="生命值">生命值</a> • <a href="p-cc350ea3393968f7cd7c.html" title="耐力">耐力</a> • <a href="p-332e6a85b4285ff8858c.html" title="埃达之能">埃达之能</a> • <a href="p-2608729251008c9658e7.html" title="血怒">血怒</a> • <a href="p-fcd6fea72de7e6c09ca2.html" title="死亡">死亡</a> • <a href="p-b8e0a74433a1176e439f.html" title="遗弃者能力">遗弃者能力</a> • <a href="p-66d0f523a379b2de6f8d.html" title="技能">技能</a> • <a href="p-f57eddb4e027139d853f.html" title="状态效果">状态效果</a> • <a href="p-5954d0c13f55417f74fb.html" title="移动速度">移动速度</a> • <a href="p-ed1a5a81b8121ad13a87.html" title="魔法">魔法</a> • <a href="p-79cea8ff2ba190bbb1bd.html" title="钓鱼">钓鱼</a> • <a href="p-e9d7b76127dca2c7d07e.html" title="乘骑">乘骑</a> • <a href="p-12ff393b061d94ebc405.html" title="睡眠">睡眠</a> • <a href="p-25521701981e1ad3ad97.html" title="表情">表情</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">战斗</th><td class="navbox-list"><div class="hlist"><a href="p-0c874f581a4534f15f1e.html" title="伤害">伤害类型</a> • <a href="p-e931ec535f307a5c6add.html" title="伤害机制">伤害机制</a> • <a href="p-bb0db9f7893c418a1de3.html" title="击退">击退</a> • <a href="p-aeaeee06ac36a10d7822.html" title="阵营">阵营</a> • <a href="p-4e7c41331a4464ad6e07.html" title="生物感知">生物感知</a> • <a class="mw-selflink selflink">生物行为</a> • <a href="p-37015441396c962e2e96.html" title="掉落物">掉落物</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">生成</th><td class="navbox-list"><div class="hlist"><a href="p-36ff87e1502da8a1d740.html" title="生成机制">生成机制</a> • <a href="p-3a6396c120925fdde8d2.html" title="生成点">生成点</a> • <a href="p-60958b009a9e0b5dd0b6.html" title="生成区域">生成区域</a> • <a href="p-8d14f6e72de8f18ab1ee.html" title="事件">事件</a> • <a href="p-47373e84723cece15749.html" title="生物等级">生物等级</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">建材</th><td class="navbox-list"><div class="hlist"><a href="building.html" title="建材">建材</a> • <a href="p-99b60de679e8976fc592.html" title="建筑稳定性">建筑稳定性</a> • <a href="p-fa8d84566676ee2ee662.html" title="遮蔽">遮蔽</a> • <a href="p-040d4645676f60263590.html" title="舒适度">舒适度</a> • <a href="p-a6d7eeb25f1fe9854a8b.html" title="玩家基地">玩家基地</a> • <a href="p-29b52bfcccd01518e9de.html" title="烟雾">烟雾</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">界面</th><td class="navbox-list"><div class="hlist"><a href="p-758f487fe8e9fcc59cec.html" title="物品栏">物品栏</a> • <a class="mw-redirect" href="crafting.html" title="制作菜单">制作菜单</a> • <a href="p-be176b0015c424b78e9f.html" title="地图">地图</a> • <a href="p-c40c747ee79e90e16e46.html" title="状态界面">状态界面</a> • <a href="p-799c269135742a36ae48.html" title="控制">控制</a> • <a href="p-2ef15ac2866f955969bd.html" title="开发者控制台">开发者控制台</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">世界</th><td class="navbox-list"><div class="hlist"><a href="p-9e471951a1b4106e54be.html" title="环境">环境</a> • <a href="p-8a27b0cad26bc97071ab.html" title="世界修改器">世界修改器</a> • <a href="p-2af8986090a5b9ad83ec.html" title="世界种子">世界种子</a> • <a href="p-577cfab98de598e55bee.html" title="世界进度标记">世界进度标记</a> • <a href="p-a53aa373c5e23e694a54.html" title="区域">区域</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">杂项</th><td class="navbox-list"><div class="hlist"><a href="p-74cf2bc63fe122206c82.html" title="成就">成就</a> • <a href="p-1964260e2e296c33c3f3.html" title="季节活动">季节活动</a> • <a href="p-6eb00b4b2614a144d41c.html" title="音乐">音乐</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">开发</th><td class="navbox-list"><div class="hlist"><a href="p-a6df11e706c514f13d6f.html" title="版本历史">版本历史</a> • <a href="p-4696ff19d71c753885a5.html" title="未来内容">未来内容</a></div></td></tr></tbody></table></div>
+
+
+
+</div></section><section id="sample-en" data-language="en" hidden><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><p>This page details the <b>creature AI</b>, the logic that decides how <a href="creatures.html" title="Creatures">creatures</a> find targets, move, attack and flee. Hostile creatures use the monster AI, while passive animals such as <a href="p-ba8af0f4802678da4aed.html" title="Deer">Deer</a> and <a href="p-593a88b963a3d3b392c7.html" title="Hare">Hares</a> use a simpler animal AI.
+</p>
+<div style="clear:both;"></div>
+<div aria-labelledby="mw-toc-heading" class="toc" id="en-toc" role="navigation"><div class="toctitle" dir="ltr" lang="en"><h2 id="en-mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#en-Senses"><span class="tocnumber">1</span> <span class="toctext">Senses</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#en-Sleeping"><span class="tocnumber">1.1</span> <span class="toctext">Sleeping</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="#en-Targeting"><span class="tocnumber">2</span> <span class="toctext">Targeting</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#en-Creatures"><span class="tocnumber">2.1</span> <span class="toctext">Creatures</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#en-Priority_structures"><span class="tocnumber">2.2</span> <span class="toctext">Priority structures</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#en-Other_structures"><span class="tocnumber">2.3</span> <span class="toctext">Other structures</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#en-Dropping_aggro"><span class="tocnumber">3</span> <span class="toctext">Dropping aggro</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#en-Aggravation"><span class="tocnumber">4</span> <span class="toctext">Aggravation</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#en-Actions"><span class="tocnumber">5</span> <span class="toctext">Actions</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="#en-Fleeing"><span class="tocnumber">5.1</span> <span class="toctext">Fleeing</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="#en-Fleeing_towards_water"><span class="tocnumber">5.1.1</span> <span class="toctext">Fleeing towards water</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#en-Leaving_and_despawning"><span class="tocnumber">5.1.2</span> <span class="toctext">Leaving and despawning</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#en-Crown_of_Valheim"><span class="tocnumber">5.1.3</span> <span class="toctext">Crown of Valheim</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="#en-Fleeing_from_the_target_when_avoiding_conflict"><span class="tocnumber">5.1.4</span> <span class="toctext">Fleeing from the target when avoiding conflict</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="#en-Fleeing_on_low_health"><span class="tocnumber">5.1.5</span> <span class="toctext">Fleeing on low health</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="#en-Leaving_lava"><span class="tocnumber">5.1.6</span> <span class="toctext">Leaving lava</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="#en-Avoiding_fire"><span class="tocnumber">5.1.7</span> <span class="toctext">Avoiding fire</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href='#en-Fleeing_from_"no_monsters"_zones'><span class="tocnumber">5.1.8</span> <span class="toctext">Fleeing from "no monsters" zones</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="#en-Fleeing_from_an_unreachable_target"><span class="tocnumber">5.1.9</span> <span class="toctext">Fleeing from an unreachable target</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-20"><a href="#en-Eating_food"><span class="tocnumber">5.2</span> <span class="toctext">Eating food</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#en-Circling_around_the_target"><span class="tocnumber">5.3</span> <span class="toctext">Circling around the target</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#en-Using_skills"><span class="tocnumber">5.4</span> <span class="toctext">Using skills</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#en-Following"><span class="tocnumber">5.5</span> <span class="toctext">Following</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#en-Idle_movement"><span class="tocnumber">5.6</span> <span class="toctext">Idle movement</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-25"><a href="#en-Creature_data"><span class="tocnumber">6</span> <span class="toctext">Creature data</span></a></li>
+</ul>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="en-Senses">Senses</h2></div>
+<p>A creature notices another creature or player by hearing or seeing it.
+</p>
+<ul><li><b>Hearing:</b> the target is heard if it is within the creature's hear range and closer than the target's own noise range. Inside dungeons and other interiors, the hear range is capped at 12 meters.</li>
+<li><b>Sight:</b> the target is seen if it is within the creature's view range multiplied by the target's stealth factor, and nothing blocks the line between the creature's eyes and the target (the target's center when it is crouching). A creature that is not alerted only sees targets within its view angle to either side of the direction it faces; an alerted creature sees in all directions. Mist blocks sight in the <a href="p-803ba5ee8e70c4ee75f7.html" title="Mistlands">Mistlands</a> unless the creature has mist vision.</li>
+<li>Players in ghost mode or debug fly mode can be neither heard nor seen.</li></ul>
+<p>A creature becomes <b>alerted</b> when:
+</p>
+<ul><li>It sees its target within its alert range, multiplied by the target's stealth factor.</li>
+<li>It takes damage. It also targets the attacker.</li>
+<li>A projectile hits near it. Unless it is a creature that flees when not alerted, it also targets the shooter.</li>
+<li>It is in hunt mode, which keeps it alerted at all times.</li></ul>
+<p>Alerted creatures run instead of walk.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Sleeping">Sleeping</h3></div>
+<p>Some creatures, such as sleeping <a href="p-3ae89e8a8fe1c4a5aec2.html" title="Draugr">Draugr</a> and <a href="p-1a234744f50cea328de9.html" title="Stone Golem">Stone Golems</a>, spawn asleep. A sleeping creature does nothing until it wakes up, which happens when a player comes within its wake-up range, when a player's noise reaches it (for creatures that wake up from noise, up to 50 meters), when it takes damage, or when it is in hunt mode.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="en-Targeting">Targeting</h2></div>
+<p>Monsters look for a new target every 2 seconds if a player is within 50 meters, otherwise every 6 seconds. Passive animals look for threats every 2 seconds if any creature is within 32 meters, otherwise every 10 seconds.
+</p><p>In hunt mode, the creature is always alerted. <a href="p-8d14f6e72de8f18ab1ee.html" title="Events">Event</a> creatures hunt players, and so do <a href="p-a8dc2a05596fceca7a2d.html" title="Eikthyr">Eikthyr</a>, <a href="p-ca3280d30e1fda946d1a.html" title="The Elder">The Elder</a>, <a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a>, <a href="p-483538232016e17e86f2.html" title="Moder">Moder</a>, <a href="p-398464ae70d7dad80188.html" title="Yagluth">Yagluth</a> and <a href="p-83b4009eb50d67eff316.html" title="Fallen Warrior">Fallen Warriors</a>.
+</p><p>If the creature doesn't manage to attack during the last 15 seconds while chasing a target, it will enter the "Unable to attack the target" mode for 15 seconds, which makes structure targeting more likely.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Creatures">Creatures</h3></div>
+<p>The closest creature or player with following conditions is selected as the target:
+</p>
+<ul><li>The target is <a href="p-aeaeee06ac36a10d7822.html" title="Factions">hostile</a>.</li>
+<li>The target can be heard or seen.</li>
+<li>The target is not sleeping.</li>
+<li>The target is within the alert range of the stay location (for tamed creatures that are commanded to stay still).</li>
+<li>The target is within the alert range of the player location (for tamed creatures that are commanded to follow).</li></ul>
+<p>If the creature is in hunt mode and can't find a target, it will automatically target the closest player within 200 meters. This doesn't require hearing or seeing the player.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Priority_structures">Priority structures</h3></div>
+<p>The closest priority structure (most <a href="p-a6d7eeb25f1fe9854a8b.html" title="Player base">Player base</a> structures, everything in crafting tab, chests and boats) within the creature view range is selected as the target if:
+</p>
+<ul><li>No target creature or the target creature can't be reached (when in "Unable to attack the target" mode).</li>
+<li>The creature can target structures (for example <a href="p-53e9e085b2d11109d84b.html" title="Deathsquito">Deathsquitos</a> can't).</li>
+<li>The creature is not tamed.</li>
+<li>The creature is not a <a href="p-d72ad0182bdbba9ec83f.html" title="Dvergr (race)">Dvergr</a> that is still friendly (see <a href="#en-Aggravation">Aggravation</a>).</li></ul>
+<p>The structure must also be visible from the creature's eyes.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Other_structures">Other structures</h3></div>
+<p>Random structure within 10 meters is selected as the target if:
+</p>
+<ul><li>The creature is in "Unable to attack the target" mode.</li>
+<li>Target creature is a player that can't be reached.</li>
+<li>The creature is alerted.</li>
+<li>No target structure or the target structure can't be reached.</li>
+<li>The creature can target structures (for example <a href="p-53e9e085b2d11109d84b.html" title="Deathsquito">Deathsquitos</a> can't).</li>
+<li>The creature is not tamed.</li></ul>
+<div class="mw-heading mw-heading2"><h2 id="en-Dropping_aggro">Dropping aggro</h2></div>
+<p>Creatures drop aggro in following conditions:
+</p>
+<ul><li>The target hasn't been seen or heard for 30 seconds.</li>
+<li>The creature hasn't attacked for 60 seconds. This is skipped when a creature in hunt mode is targeting a player.</li>
+<li>The creature is farther from its spawn point than its maximum chase distance and the target hasn't been seen or heard for 1 second. This is skipped for creatures with no maximum chase distance and also when a creature in hunt mode is targeting a player.</li></ul>
+<p>When dropping aggro, creatures lose the alerted status (unless in hunt mode) and forget their current target. This also resets the timer for not attacking. The next target check will be done after 5 seconds.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="en-Aggravation">Aggravation</h2></div>
+<p><a href="p-d72ad0182bdbba9ec83f.html" title="Dvergr (race)">Dvergr</a>, <a href="p-dbd9d3789af4697f7188.html" title="Kvastur">Kvastur</a> and <a href="p-5d22cb3356d717620a73.html" title="Mistile">Mistiles</a> are aggravatable: they are neutral towards players until aggravated. They become aggravated when:
+</p>
+<ul><li>A player damages any aggravatable creature. All aggravatable creatures within 20 meters become aggravated and alerted.</li>
+<li>A player damages an object protected by their faction's ward more than a set number of times (five for Dvergr, once for Kvastur, four for Mistiles), or destroys one. This affects the creatures of that faction within twice the ward's radius.</li></ul>
+<p>Aggravated creatures treat players as enemies and can target player structures.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="en-Actions">Actions</h2></div>
+<p>Following actions are checked in order every update. The first one that applies is performed:
+</p>
+<ol><li>Moving towards water (creatures that avoid land).</li>
+<li>Leaving and despawning (night creatures during the day, event creatures after the event).</li>
+<li>Fleeing from a player wearing the <a href="p-b7ec07967c530f469258.html" title="Crown of Valheim">Crown of Valheim</a> (non-boss creatures).</li>
+<li>Fleeing from the target when avoiding conflict.</li>
+<li>Fleeing on low health.</li>
+<li>Leaving <a href="p-09541df867b71f0f0f9a.html" title="Lava">lava</a>.</li>
+<li>Avoiding <a class="mw-redirect" href="p-0c874f581a4534f15f1e.html#Fire" title="Fire">fire</a>.</li>
+<li>Fleeing from "no monsters" zones.</li>
+<li>Fleeing from an unreachable target.</li>
+<li>Eating food.</li>
+<li>Circling around the target.</li>
+<li>Attacking, healing or supporting, depending on the selected skill.</li>
+<li>Following a player (tamed only).</li>
+<li>Idle movement.</li></ol>
+<div class="mw-heading mw-heading3"><h3 id="en-Fleeing">Fleeing</h3></div>
+<div class="mw-heading mw-heading4"><h4 id="en-Fleeing_towards_water">Fleeing towards water</h4></div>
+<p>Creatures that are set to avoid land and are not swimming, will try to find the deepest water and flee towards it. This behavior is enabled for <a href="p-e27f3a289ceb40df4796.html" title="Leech">Leeches</a>, <a href="p-bb01a030df624241707d.html" title="Serpent">Serpents</a> and the <a href="p-0d054f347f0573e05e09.html" title="Bonemaw">Bonemaw</a>.
+</p><p>The water is searched every 0.5 or 2 seconds (longer interval when water has been found already).
+</p><p>The creature checks 10 random points from 4 to 20 meters. If the lowest point is below water level, the creature will run towards it. If no sufficient point is found, the creature keeps the current direction. Pathfinding is not used for this behavior.
+</p>
+<div class="mw-heading mw-heading4"><h4 id="en-Leaving_and_despawning">Leaving and despawning</h4></div>
+<p>During day time, creatures that are set to despawn during the day will flee from the nearest player if they aren't targeting a creature or they don't have line of sight to the target. This behavior is enabled for creatures that are spawned from night-time only <a href="p-60958b009a9e0b5dd0b6.html" title="Spawn zones">spawn zones</a>. This behavior is disabled for creatures that have started taming process.
+</p><p>After an <a href="p-8d14f6e72de8f18ab1ee.html" title="Events">event</a> ends, creatures that are spawned from the event stop hunting. Once they have no target and are no longer alerted, they walk away from the nearest player and despawn.
+</p><p>The creature finds the closest player within 40 meters. If no player is found, the creature disappears. Otherwise the creature uses pathfinding to move 5 meters away from the player. The pathfinding is refreshed every tick.
+</p>
+<div class="mw-heading mw-heading4"><h4 id="en-Crown_of_Valheim">Crown of Valheim</h4></div>
+<p>When the target is a player wearing the <a href="p-b7ec07967c530f469258.html" title="Crown of Valheim">Crown of Valheim</a>, non-boss creatures flee from that player instead of attacking.
+</p>
+<div class="mw-heading mw-heading4"><h4 id="en-Fleeing_from_the_target_when_avoiding_conflict">Fleeing from the target when avoiding conflict</h4></div>
+<p>Creatures that avoid conflict flee from their target when they are not alerted and the target is outside their alert range. This behavior is enabled for <a href="p-bf10a5ee1fab92a8db98.html" title="Boar">Boars</a>, <a href="p-6b27a97151bbf20fa8b0.html" title="Neck">Necks</a> and <a href="p-721cd45c909fba45b310.html" title="Hen">Hens</a>. It does not apply to creatures in hunt mode, such as those spawned by events.
+</p><p>Passive animals such as <a href="p-ba8af0f4802678da4aed.html" title="Deer">Deer</a>, <a href="p-593a88b963a3d3b392c7.html" title="Hare">Hares</a> and <a href="p-50ed6511896524fba31c.html" title="Seal">Seals</a> always flee from any creature they sense. They stay alerted until they have not sensed a threat for a few seconds.
+</p>
+<div class="mw-heading mw-heading4"><h4 id="en-Fleeing_on_low_health">Fleeing on low health</h4></div>
+<p>Creatures with a low health threshold flee from the target when their health drops below it and they have been hurt recently. <a href="p-42b0bedf2737ab2cba46.html" title="Charred Twitcher">Charred Twitchers</a> flee below 90% health if they have been hurt within the last 4 seconds.
+</p>
+<div class="mw-heading mw-heading4"><h4 id="en-Leaving_lava">Leaving lava</h4></div>
+<p>Creatures standing in <a href="p-09541df867b71f0f0f9a.html" title="Lava">lava</a> move out of it, unless their target is also above or in lava.
+</p>
+<div class="mw-heading mw-heading4"><h4 id="en-Avoiding_fire">Avoiding fire</h4></div>
+<p>Creatures that are afraid of fire (<a href="p-bf10a5ee1fab92a8db98.html" title="Boar">Boars</a>, <a href="p-6b27a97151bbf20fa8b0.html" title="Neck">Necks</a>, <a href="p-721cd45c909fba45b310.html" title="Hen">Hens</a>, <a href="p-ba8af0f4802678da4aed.html" title="Deer">Deer</a> and other passive animals, and <a href="p-4c764cb6248ef9337fc1.html" title="Shadow">Shadows</a>):
+</p>
+<ul><li>Do not randomly wander into fire.</li>
+<li>Become alerted and flee when they get within 3 meters of a fire source, and keep fleeing for 6 seconds afterwards.</li>
+<li>Forget their current target while fleeing.</li></ul>
+<p>Creatures that avoid fire (for example <a href="p-f4709a9359f1def796bc.html" title="Greydwarf">Greydwarfs</a>, <a href="p-d1b08118de3909fa8022.html" title="Greyling">Greylings</a>, <a href="p-8c578ed3e9d5fec6f0f1.html" title="Bear">Bears</a> and <a href="p-9c02806a24a7117538a1.html" title="Vile">Viles</a>):
+</p>
+<ul><li>Do not randomly wander into fire.</li>
+<li>When within 3 meters of a fire source, move around it instead of passing through.
+<ul><li>This means creatures with less than a 3-meter attack range do not attack a player holding a <a href="p-dcc578acd71a7bf2c0e9.html" title="Torch">Torch</a> and move around them instead.</li>
+<li>Creatures with more than a 3-meter attack range can attack from far away, if they enter the flee range during an attack they will change the attack direction.</li></ul></li></ul>
+<p>Tamed creatures ignore fire.
+</p>
+<div class="mw-heading mw-heading4"><h4 id='en-Fleeing_from_"no_monsters"_zones'>Fleeing from "no monsters" zones</h4></div>
+<p>Untamed creatures flee from targets that are inside a "no monsters" zone. Without a target, they flee from the zone when they get within 7.5 meters of its bounds.
+</p>
+<div class="mw-heading mw-heading4"><h4 id="en-Fleeing_from_an_unreachable_target">Fleeing from an unreachable target</h4></div>
+<p>Creatures flee from the target when they haven't attacked for 30 seconds and have taken damage during the last 20 seconds. This behavior is enabled for most monsters; creatures such as <a href="p-24bafb0b2477f80fafd0.html" title="Blob">Blobs</a>, <a href="p-c781316c9ff4beaaf1e8.html" title="Wraith">Wraiths</a>, <a href="p-c465c70b79b24e4f7c1b.html" title="Seeker">Seekers</a>, <a href="p-f2813a523c21f6654fc4.html" title="Bat">Bats</a> and most bosses don't flee this way.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Eating_food">Eating food</h3></div>
+<p>Creatures that eat items (mostly tameable creatures) look for food every 10 seconds when they are not alerted or don't have a target. They search within 10 meters and walk to the closest reachable item they can eat. Tamed creatures only look for food when hungry.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Circling_around_the_target">Circling around the target</h3></div>
+<p>Some creatures periodically circle around their target instead of attacking. For example, <a href="p-f4709a9359f1def796bc.html" title="Greydwarf">Greydwarfs</a> and <a href="p-d1b08118de3909fa8022.html" title="Greyling">Greylings</a> circle every 6 seconds, <a href="p-9d5ce60be807ae13498b.html" title="Fuling">Fulings</a> and <a href="p-81efe84f7d78a374de44.html" title="Elaking">Elakings</a> every 8 seconds, and <a href="p-be01beb2fff31a66abf2.html" title="Lox">Lox</a>, <a href="p-63af1f5974e26c125721.html" title="Moose">Moose</a> and <a href="p-d9750e42f4357d8a8d8a.html" title="Asksvin">Asksvin</a> every 30 seconds. The circling lasts a few seconds (5 by default).
+</p><p>Many creatures, such as <a href="p-ea858afbf837aae71461.html" title="Wolf">Wolves</a>, <a href="p-9d5ce60be807ae13498b.html" title="Fuling">Fulings</a>, <a href="p-6b27a97151bbf20fa8b0.html" title="Neck">Necks</a> and <a href="p-d72ad0182bdbba9ec83f.html" title="Dvergr (race)">Dvergr</a>, also circle around the target while all their attacks are on cooldown.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Using_skills">Using skills</h3></div>
+<p>Creatures update their next skill every second when they have a target. Following conditions are used for the selection:
+</p>
+<ul><li>Attack skills are only available if the target is within the minimum and maximum attack range.</li>
+<li>Healing skills are only available when the creature is hurt or there is a hurt friendly creature within the vision range (line of sight is not required).</li>
+<li>Support skills are only available when there is another friendly creature within the vision range (line of sight is not required).</li>
+<li>Skills which are on cooldown won't be available.</li>
+<li>Skills which are only usable when walking, swimming or flying won't be available when in the wrong mode.</li>
+<li>Some skills are only usable within a health range, inside dungeons, or inside mist.</li></ul>
+<p>The next skill is randomly selected from the available attacks, unless one of the skills is marked as priority.
+</p><p>If no skills are available, then the next skill is randomly selected from attack skills that can't reach the target (excluding attacks where the target is too close). If still no skill, then the next skill is randomly selected from all attacks, even if they are on cooldown (excluding attacks where the target is too close).
+</p><p>If the next skill is on cooldown:
+</p>
+<ul><li>Circulate around the target within random move distance, if the creature is set to circle around the target.</li>
+<li>Move towards the target until within attack range and wait until the skill is ready.</li></ul>
+<p>If the next skill is ready:
+</p>
+<ul><li>Structures: Move towards the target until within attack range and there is line of sight. Then rotate towards the target and attack.</li>
+<li>Hidden creatures: Move towards the last known location. When reached, randomly move around the location. After 15 seconds of not attacking, prioritize structures for 15 seconds.</li>
+<li>Detected creatures: Update last known location. Move towards the target until within attack range and there is line of sight. Some creatures aim ahead of a moving target. Become alerted when the target is within alert range and there is line of sight. Attack the target when target is within the attack range.</li>
+<li>Healing and support: Move towards the friendly creature and use the skill when within attack range.</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Following">Following</h3></div>
+<p>Tamed creatures that are commanded to follow walk towards the player, run when more than 10 meters away and stop within 3 meters.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Idle_movement">Idle movement</h3></div>
+<p>Creatures without a target randomly move around a center point: their patrol point (if set), their current location (if tamed or hunting) or their spawn location. When further than twice their random movement range from the center point, they run back towards it. Creatures that avoid water do not wander into water, and those that avoid fire do not wander into fire.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="en-Creature_data">Creature data</h2></div>
+<p>The following table lists the AI values of common creatures. A view angle of 180° or more means the creature sees in all directions. ∞ means no limit.
+</p>
+<div class="sample-table-scroll"><table class="wikitable sortable">
+<tbody><tr>
+<th>Creature</th>
+<th>View range (m)</th>
+<th>View angle (°)</th>
+<th>Hear range (m)</th>
+<th>Alert range (m)</th>
+<th>Fire</th>
+<th>Circles every (s)</th>
+<th>Max chase (m)
+</th></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-bf10a5ee1fab92a8db98.html" title="Boar"><img class="mw-file-element" data-file-height="931" data-file-width="992" decoding="async" height="28" loading="eager" src="../assets/35f291929cf370c701c9.png" width="30"/></a></span> <a href="p-bf10a5ee1fab92a8db98.html" title="Boar">Boar</a></td>
+<td>20</td>
+<td>90</td>
+<td>20</td>
+<td>6</td>
+<td>Afraid</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-6b27a97151bbf20fa8b0.html" title="Neck"><img class="mw-file-element" data-file-height="785" data-file-width="1000" decoding="async" height="24" loading="eager" src="../assets/4af1eb1d52678fa39ea8.png" width="30"/></a></span> <a href="p-6b27a97151bbf20fa8b0.html" title="Neck">Neck</a></td>
+<td>20</td>
+<td>90</td>
+<td>20</td>
+<td>6</td>
+<td>Afraid</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-ba8af0f4802678da4aed.html" title="Deer"><img class="mw-file-element" data-file-height="992" data-file-width="992" decoding="async" height="30" loading="eager" src="../assets/98f7819705c43bfd70d0.png" width="30"/></a></span> <a href="p-ba8af0f4802678da4aed.html" title="Deer">Deer</a></td>
+<td>25</td>
+<td>45</td>
+<td>15</td>
+<td>–</td>
+<td>Afraid</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-d1b08118de3909fa8022.html" title="Greyling"><img class="mw-file-element" data-file-height="1000" data-file-width="1000" decoding="async" height="30" loading="eager" src="../assets/ad960773ad3065939c09.png" width="30"/></a></span> <a href="p-d1b08118de3909fa8022.html" title="Greyling">Greyling</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>Avoids</td>
+<td>6</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-f4709a9359f1def796bc.html" title="Greydwarf"><img class="mw-file-element" data-file-height="1000" data-file-width="1000" decoding="async" height="30" loading="eager" src="../assets/6e7867feb42077b157d1.png" width="30"/></a></span> <a href="p-f4709a9359f1def796bc.html" title="Greydwarf">Greydwarf</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>Avoids</td>
+<td>6</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-ba16540902bdc96359b7.html" title="Greydwarf Brute"><img class="mw-file-element" data-file-height="1000" data-file-width="1000" decoding="async" height="30" loading="eager" src="../assets/417044c8d40495a94ed8.png" width="30"/></a></span> <a href="p-ba16540902bdc96359b7.html" title="Greydwarf Brute">Greydwarf Brute</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>15</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-f3aed59448e859ce563b.html" title="Greydwarf Shaman"><img class="mw-file-element" data-file-height="1000" data-file-width="1000" decoding="async" height="30" loading="eager" src="../assets/68ee5e73f22c59606f95.png" width="30"/></a></span> <a href="p-f3aed59448e859ce563b.html" title="Greydwarf Shaman">Greydwarf Shaman</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-9bac25686c53aa859d61.html" title="Troll"><img class="mw-file-element" data-file-height="697" data-file-width="992" decoding="async" height="21" loading="eager" src="../assets/7f172db7257167fa4559.png" width="30"/></a></span> <a href="p-9bac25686c53aa859d61.html" title="Troll">Troll</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>200
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-ea5f6bdc79b884c397d6.html" title="Skeleton"><img class="mw-file-element" data-file-height="992" data-file-width="992" decoding="async" height="30" loading="eager" src="../assets/ed326fc2eba1950c1a6f.png" width="30"/></a></span> <a href="p-ea5f6bdc79b884c397d6.html" title="Skeleton">Skeleton</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-df1bc4984a055e10b286.html" title="Ghost"><img class="mw-file-element" data-file-height="448" data-file-width="557" decoding="async" height="24" loading="eager" src="../assets/05f4d2a22b807ee822e7.png" width="30"/></a></span> <a href="p-df1bc4984a055e10b286.html" title="Ghost">Ghost</a></td>
+<td>30</td>
+<td>90</td>
+<td>30</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-8c578ed3e9d5fec6f0f1.html" title="Bear"><img class="mw-file-element" data-file-height="441" data-file-width="565" decoding="async" height="23" loading="eager" src="../assets/139ab231792d92eecf6e.png" width="30"/></a></span> <a href="p-8c578ed3e9d5fec6f0f1.html" title="Bear">Bear</a></td>
+<td>25</td>
+<td>90</td>
+<td>15</td>
+<td>6</td>
+<td>Avoids</td>
+<td>9</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-3ae89e8a8fe1c4a5aec2.html" title="Draugr"><img class="mw-file-element" data-file-height="992" data-file-width="992" decoding="async" height="30" loading="eager" src="../assets/26deab5019f5990a75f4.png" width="30"/></a></span> <a href="p-3ae89e8a8fe1c4a5aec2.html" title="Draugr">Draugr</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>10</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-b93909b5f83342167cf5.html" title="Draugr Elite"><img class="mw-file-element" data-file-height="992" data-file-width="992" decoding="async" height="30" loading="eager" src="../assets/948643961afc14542aa1.png" width="30"/></a></span> <a href="p-b93909b5f83342167cf5.html" title="Draugr Elite">Draugr Elite</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>10</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-24bafb0b2477f80fafd0.html" title="Blob"><img class="mw-file-element" data-file-height="1024" data-file-width="1024" decoding="async" height="30" loading="eager" src="../assets/7338998477235e8f888e.png" width="30"/></a></span> <a href="p-24bafb0b2477f80fafd0.html" title="Blob">Blob</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>∞</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-e27f3a289ceb40df4796.html" title="Leech"><img class="mw-file-element" data-file-height="646" data-file-width="1000" decoding="async" height="19" loading="eager" src="../assets/f8ebd84d72d75bd84750.png" width="30"/></a></span> <a href="p-e27f3a289ceb40df4796.html" title="Leech">Leech</a></td>
+<td>30</td>
+<td>360</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>100
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-c781316c9ff4beaaf1e8.html" title="Wraith"><img class="mw-file-element" data-file-height="1000" data-file-width="1000" decoding="async" height="30" loading="eager" src="../assets/d68c248c1aa4cf697b88.png" width="30"/></a></span> <a href="p-c781316c9ff4beaaf1e8.html" title="Wraith">Wraith</a></td>
+<td>40</td>
+<td>90</td>
+<td>∞</td>
+<td>30</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-55dbdbafa072275bf0d2.html" title="Abomination"><img class="mw-file-element" data-file-height="825" data-file-width="992" decoding="async" height="25" loading="eager" src="../assets/cb5acbe2ac2cddaa6b37.png" width="30"/></a></span> <a href="p-55dbdbafa072275bf0d2.html" title="Abomination">Abomination</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-ea858afbf837aae71461.html" title="Wolf"><img class="mw-file-element" data-file-height="1000" data-file-width="1000" decoding="async" height="30" loading="eager" src="../assets/835b870b8a76d2bcc49e.png" width="30"/></a></span> <a href="p-ea858afbf837aae71461.html" title="Wolf">Wolf</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-134c1125a5e029dae10d.html" title="Fenring"><img class="mw-file-element" data-file-height="1210" data-file-width="967" decoding="async" height="38" loading="eager" src="../assets/5c2c6f425643159bba03.png" width="30"/></a></span> <a href="p-134c1125a5e029dae10d.html" title="Fenring">Fenring</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-2787ea728b28387177aa.html" title="Cultist"><img class="mw-file-element" data-file-height="1339" data-file-width="1071" decoding="async" height="38" loading="eager" src="../assets/1e7b15dd69239361e2f8.png" width="30"/></a></span> <a href="p-2787ea728b28387177aa.html" title="Cultist">Cultist</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-724de16046651b352c27.html" title="Ulv"><img class="mw-file-element" data-file-height="691" data-file-width="864" decoding="async" height="24" loading="eager" src="../assets/3aa6e8ea405b67c0841b.png" width="30"/></a></span> <a href="p-724de16046651b352c27.html" title="Ulv">Ulv</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-6aed8812d68d8790c628.html" title="Drake"><img class="mw-file-element" data-file-height="574" data-file-width="992" decoding="async" height="17" loading="eager" src="../assets/80ba67371b2adcb5eb05.png" width="30"/></a></span> <a href="p-6aed8812d68d8790c628.html" title="Drake">Drake</a></td>
+<td>40</td>
+<td>90</td>
+<td>∞</td>
+<td>30</td>
+<td>–</td>
+<td>–</td>
+<td>200
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-1a234744f50cea328de9.html" title="Stone Golem"><img class="mw-file-element" data-file-height="992" data-file-width="992" decoding="async" height="30" loading="eager" src="../assets/af028b8bb60c8379a80f.png" width="30"/></a></span> <a href="p-1a234744f50cea328de9.html" title="Stone Golem">Stone Golem</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-f2813a523c21f6654fc4.html" title="Bat"><img class="mw-file-element" data-file-height="1101" data-file-width="1022" decoding="async" height="32" loading="eager" src="../assets/246b79e17a063bed90d5.png" width="30"/></a></span> <a href="p-f2813a523c21f6654fc4.html" title="Bat">Bat</a></td>
+<td>30</td>
+<td>180</td>
+<td>∞</td>
+<td>30</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-9d5ce60be807ae13498b.html" title="Fuling"><img class="mw-file-element" data-file-height="828" data-file-width="1000" decoding="async" height="25" loading="eager" src="../assets/657ba201027d588a80d9.png" width="30"/></a></span> <a href="p-9d5ce60be807ae13498b.html" title="Fuling">Fuling</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>8</td>
+<td>300
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-440f49671e99164315e3.html" title="Fuling Berserker"><img class="mw-file-element" data-file-height="793" data-file-width="1000" decoding="async" height="24" loading="eager" src="../assets/f1f89262a3aa685cbc4a.png" width="30"/></a></span> <a href="p-440f49671e99164315e3.html" title="Fuling Berserker">Fuling Berserker</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>300
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-12e29dba51068fb584d2.html" title="Fuling Shaman"><img class="mw-file-element" data-file-height="1000" data-file-width="750" decoding="async" height="40" loading="eager" src="../assets/953882d2a3dbf88da77e.png" width="30"/></a></span> <a href="p-12e29dba51068fb584d2.html" title="Fuling Shaman">Fuling Shaman</a></td>
+<td>40</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>15</td>
+<td>300
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-53e9e085b2d11109d84b.html" title="Deathsquito"><img class="mw-file-element" data-file-height="832" data-file-width="992" decoding="async" height="25" loading="eager" src="../assets/aa06bab135f98c430d03.png" width="30"/></a></span> <a href="p-53e9e085b2d11109d84b.html" title="Deathsquito">Deathsquito</a></td>
+<td>30</td>
+<td>90</td>
+<td>30</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-be01beb2fff31a66abf2.html" title="Lox"><img class="mw-file-element" data-file-height="846" data-file-width="992" decoding="async" height="26" loading="eager" src="../assets/4481bd429a8dba888083.png" width="30"/></a></span> <a href="p-be01beb2fff31a66abf2.html" title="Lox">Lox</a></td>
+<td>25</td>
+<td>90</td>
+<td>15</td>
+<td>6</td>
+<td>–</td>
+<td>30</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-66b06e996553a4e70d0f.html" title="Growth"><img class="mw-file-element" data-file-height="1817" data-file-width="2048" decoding="async" height="27" loading="eager" src="../assets/4b5f611ebf56da55830d.png" width="30"/></a></span> <a href="p-66b06e996553a4e70d0f.html" title="Growth">Growth</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>∞</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-9c02806a24a7117538a1.html" title="Vile"><img class="mw-file-element" data-file-height="416" data-file-width="599" decoding="async" height="21" loading="eager" src="../assets/7036cdeb68a1bc224606.png" width="30"/></a></span> <a href="p-9c02806a24a7117538a1.html" title="Vile">Vile</a></td>
+<td>25</td>
+<td>90</td>
+<td>15</td>
+<td>6</td>
+<td>Avoids</td>
+<td>9</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-c465c70b79b24e4f7c1b.html" title="Seeker"><img class="mw-file-element" data-file-height="845" data-file-width="1057" decoding="async" height="24" loading="eager" src="../assets/464b72a1a563073759e4.png" width="30"/></a></span> <a href="p-c465c70b79b24e4f7c1b.html" title="Seeker">Seeker</a></td>
+<td>30</td>
+<td>120</td>
+<td>∞</td>
+<td>30</td>
+<td>–</td>
+<td>10</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-d638ee2f46a405dd2f5c.html" title="Seeker Soldier"><img class="mw-file-element" data-file-height="983" data-file-width="1193" decoding="async" height="25" loading="eager" src="../assets/1a2d4bee997325b01d1e.png" width="30"/></a></span> <a href="p-d638ee2f46a405dd2f5c.html" title="Seeker Soldier">Seeker Soldier</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>30</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-98c95268220bddfe87be.html" title="Tick"><img class="mw-file-element" data-file-height="1252" data-file-width="1003" decoding="async" height="37" loading="eager" src="../assets/d2e032fec085c2609629.png" width="30"/></a></span> <a href="p-98c95268220bddfe87be.html" title="Tick">Tick</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-f018cb729d59b13d1f4e.html" title="Gjall"><img class="mw-file-element" data-file-height="1125" data-file-width="899" decoding="async" height="38" loading="eager" src="../assets/64354ee333d13c4d2f34.png" width="30"/></a></span> <a href="p-f018cb729d59b13d1f4e.html" title="Gjall">Gjall</a></td>
+<td>40</td>
+<td>90</td>
+<td>∞</td>
+<td>30</td>
+<td>–</td>
+<td>30</td>
+<td>200
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-dc042adbdecb49bc4de4.html" title="Dvergr Rogue"><img class="mw-file-element" data-file-height="839" data-file-width="798" decoding="async" height="32" loading="eager" src="../assets/5f81c00be58419fa5248.png" width="30"/></a></span> <a href="p-dc042adbdecb49bc4de4.html" title="Dvergr Rogue">Dvergr Rogue</a></td>
+<td>40</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>15</td>
+<td>300
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-e91837e0deb55a18a7c9.html" title="Charred Warrior"><img class="mw-file-element" data-file-height="1469" data-file-width="1174" decoding="async" height="38" loading="eager" src="../assets/60f15434a1996051df9f.png" width="30"/></a></span> <a href="p-e91837e0deb55a18a7c9.html" title="Charred Warrior">Charred Warrior</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-42b0bedf2737ab2cba46.html" title="Charred Twitcher"><img class="mw-file-element" data-file-height="1452" data-file-width="1161" decoding="async" height="38" loading="eager" src="../assets/3dd70c37e151108c3115.png" width="30"/></a></span> <a href="p-42b0bedf2737ab2cba46.html" title="Charred Twitcher">Charred Twitcher</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>7</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-d9750e42f4357d8a8d8a.html" title="Asksvin"><img class="mw-file-element" data-file-height="813" data-file-width="1017" decoding="async" height="24" loading="eager" src="../assets/50250a27e6080363377a.png" width="30"/></a></span> <a href="p-d9750e42f4357d8a8d8a.html" title="Asksvin">Asksvin</a></td>
+<td>35</td>
+<td>150</td>
+<td>30</td>
+<td>10</td>
+<td>–</td>
+<td>30</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-871cf7476fc46f9cf444.html" title="Volture"><img class="mw-file-element" data-file-height="897" data-file-width="1123" decoding="async" height="24" loading="eager" src="../assets/7d4e692c296f62788c13.png" width="30"/></a></span> <a href="p-871cf7476fc46f9cf444.html" title="Volture">Volture</a></td>
+<td>30</td>
+<td>180</td>
+<td>∞</td>
+<td>30</td>
+<td>Avoids</td>
+<td>20</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-c4785ba17e12c3aaa027.html" title="Morgen"><img class="mw-file-element" data-file-height="474" data-file-width="527" decoding="async" height="27" loading="eager" src="../assets/10022546e7ddd97b4935.png" width="30"/></a></span> <a href="p-c4785ba17e12c3aaa027.html" title="Morgen">Morgen</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>30</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-73a1e307b3c18141bf70.html" title="Fallen Valkyrie"><img class="mw-file-element" data-file-height="428" data-file-width="583" decoding="async" height="22" loading="eager" src="../assets/b62f54fe52f795b90441.png" width="30"/></a></span> <a href="p-73a1e307b3c18141bf70.html" title="Fallen Valkyrie">Fallen Valkyrie</a></td>
+<td>30</td>
+<td>180</td>
+<td>∞</td>
+<td>50</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-bb01a030df624241707d.html" title="Serpent"><img class="mw-file-element" data-file-height="742" data-file-width="594" decoding="async" height="37" loading="eager" src="../assets/c475783d41ae7b93db03.png" width="30"/></a></span> <a href="p-bb01a030df624241707d.html" title="Serpent">Serpent</a></td>
+<td>50</td>
+<td>360</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>300
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-81efe84f7d78a374de44.html" title="Elaking"><img class="mw-file-element" data-file-height="562" data-file-width="444" decoding="async" height="38" loading="eager" src="../assets/69a042100aac687fab8d.png" width="30"/></a></span> <a href="p-81efe84f7d78a374de44.html" title="Elaking">Elaking</a></td>
+<td>50</td>
+<td>180</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>8</td>
+<td>300
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-e2b3f27d6fca99302aa8.html" title="Eyeless One"><img class="mw-file-element" data-file-height="463" data-file-width="539" decoding="async" height="26" loading="eager" src="../assets/971e9b580cf441ef15c8.png" width="30"/></a></span> <a href="p-e2b3f27d6fca99302aa8.html" title="Eyeless One">Eyeless One</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>8</td>
+<td>300
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-5b85dd09166fd038e337.html" title="Krigen"><img class="mw-file-element" data-file-height="589" data-file-width="423" decoding="async" height="42" loading="eager" src="../assets/e0d21a0b3317e785dbfb.png" width="30"/></a></span> <a href="p-5b85dd09166fd038e337.html" title="Krigen">Krigen</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-f11d50d821c9fe22ce51.html" title="Hexen"><img class="mw-file-element" data-file-height="548" data-file-width="455" decoding="async" height="36" loading="eager" src="../assets/8374fd0df4338370e651.png" width="30"/></a></span> <a href="p-f11d50d821c9fe22ce51.html" title="Hexen">Hexen</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>–</td>
+<td>300
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-1976a5863e7c98dd63a0.html" title="Barka"><img class="mw-file-element" data-file-height="524" data-file-width="476" decoding="async" height="33" loading="eager" src="../assets/ea89745b26f769e2394d.png" width="30"/></a></span> <a href="p-1976a5863e7c98dd63a0.html" title="Barka">Barka</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>30</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-63af1f5974e26c125721.html" title="Moose"><img class="mw-file-element" data-file-height="512" data-file-width="487" decoding="async" height="32" loading="eager" src="../assets/c8231e83e57f28610b88.png" width="30"/></a></span> <a href="p-63af1f5974e26c125721.html" title="Moose">Moose</a></td>
+<td>25</td>
+<td>90</td>
+<td>15</td>
+<td>6</td>
+<td>–</td>
+<td>30</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-e3a26b909f3580155e06.html" title="Gammeltroll"><img class="mw-file-element" data-file-height="498" data-file-width="501" decoding="async" height="30" loading="eager" src="../assets/e04da56792daa8b8cb29.png" width="30"/></a></span> <a href="p-e3a26b909f3580155e06.html" title="Gammeltroll">Gammeltroll</a></td>
+<td>300</td>
+<td>90</td>
+<td>∞</td>
+<td>90</td>
+<td>–</td>
+<td>–</td>
+<td>500
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-f5ba0df5cb44d1d22726.html" title="Captive Fuling"><img class="mw-file-element" data-file-height="479" data-file-width="521" decoding="async" height="28" loading="eager" src="../assets/74240d872f5727318b32.png" width="30"/></a></span> <a href="p-f5ba0df5cb44d1d22726.html" title="Captive Fuling">Captive Fuling</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>–</td>
+<td>8</td>
+<td>300
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-13fdc5f43095033d7619.html" title="Imprisoned Dvergr"><img class="mw-file-element" data-file-height="545" data-file-width="458" decoding="async" height="36" loading="eager" src="../assets/85015ce76fd5463264dc.png" width="30"/></a></span> <a href="p-13fdc5f43095033d7619.html" title="Imprisoned Dvergr">Imprisoned Dvergr</a></td>
+<td>40</td>
+<td>90</td>
+<td>∞</td>
+<td>20</td>
+<td>Avoids</td>
+<td>15</td>
+<td>300
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-83b4009eb50d67eff316.html" title="Fallen Warrior"><img class="mw-file-element" data-file-height="575" data-file-width="434" decoding="async" height="40" loading="eager" src="../assets/d8181b466e5efcc55a93.png" width="30"/></a></span> <a href="p-83b4009eb50d67eff316.html" title="Fallen Warrior">Fallen Warrior</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>10</td>
+<td>–</td>
+<td>–</td>
+<td>–
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a href="p-4c764cb6248ef9337fc1.html" title="Shadow"><img class="mw-file-element" data-file-height="512" data-file-width="512" decoding="async" height="30" loading="eager" src="../assets/fc2cebb513989c8b1bb7.png" width="30"/></a></span> <a href="p-4c764cb6248ef9337fc1.html" title="Shadow">Shadow</a></td>
+<td>30</td>
+<td>90</td>
+<td>∞</td>
+<td>0.5</td>
+<td>Afraid</td>
+<td>–</td>
+<td>–
+</td></tr></tbody></table></div>
+<div class="sample-table-scroll"><table class="navbox mw-collapsible mw-collapsed" data-collapsetext="Hide" data-expandtext="Show"><tbody><tr class="navbox-title"><th colspan="2" scope="col"><div class="navbox-title-pad navbox-title-padleft navbox-title-padright"><a href="p-edd2287afad9be012dee.html" title="Category:Mechanics">Mechanics</a></div></th></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Guides</th><td class="navbox-list"><div class="hlist"><a href="how-to-play.html" title="How to play">How to play</a> • <a href="p-58565db394dcbacc0ec7.html" title="Progression guide">Progression guide</a> • <a href="p-e70bc5798f8391942dd6.html" title="Aggressive creature strategies">Aggressive creature strategies</a> • <a href="p-19e667dbe36cd74e7c1b.html" title="Passive creature strategies">Passive creature strategies</a> • <a href="p-afc73fba07d15f960daf.html" title="Boss strategies">Boss strategies</a> • <a href="p-a1b6af2b7d7d4bfef86e.html" title="Dedicated servers">Dedicated servers</a> • <a href="p-c3af076f92c5ed8dcb0d.html" title="Troubleshooting">Troubleshooting</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Player</th><td class="navbox-list"><div class="hlist"><a href="p-64aee8c6cbd026d9ea92.html" title="Player">Player</a> • <a href="p-55898449eb74fb2e348d.html" title="Health">Health</a> • <a href="p-cc350ea3393968f7cd7c.html" title="Stamina">Stamina</a> • <a href="p-332e6a85b4285ff8858c.html" title="Eitr">Eitr</a> • <a href="p-2608729251008c9658e7.html" title="Adrenaline">Adrenaline</a> • <a href="p-fcd6fea72de7e6c09ca2.html" title="Death">Death</a> • <a href="p-b8e0a74433a1176e439f.html" title="Forsaken power">Forsaken power</a> • <a href="p-66d0f523a379b2de6f8d.html" title="Skills">Skills</a> • <a href="p-f57eddb4e027139d853f.html" title="Status effects">Status effects</a> • <a href="p-5954d0c13f55417f74fb.html" title="Movement speed">Movement speed</a> • <a href="p-ed1a5a81b8121ad13a87.html" title="Magic">Magic</a> • <a href="p-79cea8ff2ba190bbb1bd.html" title="Fishing">Fishing</a> • <a href="p-e9d7b76127dca2c7d07e.html" title="Riding">Riding</a> • <a href="p-12ff393b061d94ebc405.html" title="Sleeping">Sleeping</a> • <a href="p-25521701981e1ad3ad97.html" title="Emotes">Emotes</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Combat</th><td class="navbox-list"><div class="hlist"><a href="p-0c874f581a4534f15f1e.html" title="Damage">Damage types</a> • <a href="p-e931ec535f307a5c6add.html" title="Damage mechanics">Damage mechanics</a> • <a href="p-bb0db9f7893c418a1de3.html" title="Knockback">Knockback</a> • <a href="p-aeaeee06ac36a10d7822.html" title="Factions">Factions</a> • <a href="p-4e7c41331a4464ad6e07.html" title="Creature senses">Creature senses</a> • <a class="mw-selflink selflink">Creature AI</a> • <a href="p-37015441396c962e2e96.html" title="Drops">Drops</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Spawning</th><td class="navbox-list"><div class="hlist"><a href="p-36ff87e1502da8a1d740.html" title="Spawning mechanics">Spawning mechanics</a> • <a href="p-3a6396c120925fdde8d2.html" title="Spawn points">Spawn points</a> • <a href="p-60958b009a9e0b5dd0b6.html" title="Spawn zones">Spawn zones</a> • <a href="p-8d14f6e72de8f18ab1ee.html" title="Events">Events</a> • <a href="p-47373e84723cece15749.html" title="Creature level">Creature level</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Building</th><td class="navbox-list"><div class="hlist"><a href="building.html" title="Building">Building</a> • <a href="p-99b60de679e8976fc592.html" title="Building stability">Building stability</a> • <a href="p-fa8d84566676ee2ee662.html" title="Cover">Cover</a> • <a href="p-040d4645676f60263590.html" title="Comfort">Comfort</a> • <a href="p-a6d7eeb25f1fe9854a8b.html" title="Player base">Player base</a> • <a href="p-29b52bfcccd01518e9de.html" title="Smoke">Smoke</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">UI</th><td class="navbox-list"><div class="hlist"><a href="p-758f487fe8e9fcc59cec.html" title="Inventory">Inventory</a> • <a class="mw-redirect" href="crafting.html" title="Crafting menu">Crafting menu</a> • <a href="p-be176b0015c424b78e9f.html" title="Map">Map</a> • <a href="p-c40c747ee79e90e16e46.html" title="HUD">HUD</a> • <a href="p-799c269135742a36ae48.html" title="Controls">Controls</a> • <a href="p-2ef15ac2866f955969bd.html" title="Developer console">Developer console</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">World</th><td class="navbox-list"><div class="hlist"><a href="p-9e471951a1b4106e54be.html" title="Environment">Environment</a> • <a href="p-8a27b0cad26bc97071ab.html" title="World Modifiers">World Modifiers</a> • <a href="p-2af8986090a5b9ad83ec.html" title="World seed">World seed</a> • <a href="p-577cfab98de598e55bee.html" title="Global Keys">Global Keys</a> • <a href="p-a53aa373c5e23e694a54.html" title="Zones">Zones</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Misc</th><td class="navbox-list"><div class="hlist"><a href="p-74cf2bc63fe122206c82.html" title="Achievements">Achievements</a> • <a href="p-1964260e2e296c33c3f3.html" title="Seasonal events">Seasonal events</a> • <a href="p-6eb00b4b2614a144d41c.html" title="Music">Music</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Development</th><td class="navbox-list"><div class="hlist"><a href="p-a6df11e706c514f13d6f.html" title="Version history">Version history</a> • <a href="p-4696ff19d71c753885a5.html" title="Future content">Future content</a></div></td></tr></tbody></table></div>
+
+
+
+</div></section><footer data-language="zh">来源：<a href="https://valheim.weirdgloop.org/w/Creature_AI">生物行为原文（需联网）</a>；保存修订号 58021。中文为本地译文。<p>原站内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名—非商业性使用—相同方式共享 3.0（CC BY-NC-SA 3.0）</a>许可；<a href="https://meta.weirdgloop.org/w/Licensing">可能适用额外条款</a>。背景与装饰素材来自原版维基，并已保存到本地。</p></footer><footer data-language="en" hidden>Source: <a href="https://valheim.weirdgloop.org/w/Creature_AI">Creature AI original (online)</a>; saved revision 58021. Chinese is a local translation. <p>Content on this site is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a>; <a href="https://meta.weirdgloop.org/w/Licensing">additional terms may apply</a>. Backgrounds and decorative assets from the original wiki are stored locally.</p></footer></main></body></html>

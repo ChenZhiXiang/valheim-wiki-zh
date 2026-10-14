@@ -1,0 +1,315 @@
+<!doctype html><html data-wiki-root=".." lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>建筑稳定性 · 英灵神殿离线维基</title><link rel="stylesheet" href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-0.css"><link rel="stylesheet" href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-1.css"><link rel="stylesheet" href="../assets/sample.css"><script defer src="../assets/search.js"></script><script defer src="../assets/sample.js"></script></head><body class="skin-vector"><nav class="sample-toolbar"><strong  data-ui-zh="英灵神殿 · 离线维基" data-ui-en="Valheim · Offline Wiki">英灵神殿 · 离线维基</strong><a href="creatures.html" data-local-page="true" data-ui-zh="生物" data-ui-en="Creatures">生物</a><a href="how-to-play.html" data-local-page="true" data-ui-zh="入门玩法" data-ui-en="How to play">入门玩法</a><a href="biomes.html" data-local-page="true" data-ui-zh="生物群系" data-ui-en="Biomes">生物群系</a><a href="weapons.html" data-local-page="true" data-ui-zh="武器" data-ui-en="Weapons">武器</a><a href="food.html" data-local-page="true" data-ui-zh="食物" data-ui-en="Food">食物</a><a href="armor.html" data-local-page="true" data-ui-zh="护甲" data-ui-en="Armor">护甲</a><a href="crafting.html" data-local-page="true" data-ui-zh="制作" data-ui-en="Crafting">制作</a><a href="building.html" data-local-page="true" data-ui-zh="建材" data-ui-en="Building">建材</a><button id="sample-language" aria-pressed="false">切换英文</button><a href="#sample-toc" data-ui-zh="本页目录" data-ui-en="Contents">本页目录</a><form id="sample-search-form" role="search"><label for=sample-search data-ui-zh="站内搜索" data-ui-en="Site search">站内搜索</label><input id="sample-search" type="search" autocomplete="off" data-placeholder-zh="输入中文或英文" data-placeholder-en="Search in Chinese or English" placeholder="输入中文或英文"><button type=submit data-ui-zh="搜索" data-ui-en="Search">搜索</button></form></nav><main class="sample-shell"><h1 id="sample-title" data-ui-zh="建筑稳定性" data-ui-en="Building stability">建筑稳定性</h1><p class="sample-note" data-ui-zh="本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。" data-ui-en="This offline edition supports Chinese and English site search. Links marked ↗ require internet. Chinese uses the supplied glossary; each source revision is shown below.">本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。</p><section id="sample-search-results" aria-live="polite" hidden></section><nav id="sample-toc" class="sample-contents"><div data-language="zh"><a href="#mw-toc-heading">目录</a><a href="#Materials">材料</a><a href="#Support">支撑</a><a href="#Single_Parent">单个支撑构件</a><a href="#Multiple_Parents">多个支撑构件</a><a href="#Dynamic_stability">动态稳定性</a></div><div data-language="en" hidden><a href="#en-mw-toc-heading">Contents</a><a href="#en-Materials">Materials</a><a href="#en-Support">Support</a><a href="#en-Single_Parent">Single Parent</a><a href="#en-Multiple_Parents">Multiple Parents</a><a href="#en-Dynamic_stability">Dynamic stability</a></div></nav><section id="sample-zh" data-language="zh"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><p><i>英灵神殿</i>的<a href="building.html" title="建材">建筑系统</a>采用稳定性机制，鼓励较合理的建筑设计并影响玩法。放置的<a href="p-d9f073bb0bf0c12222c2.html" title="分类：建筑结构">建筑构件</a>若不够稳定就会坍塌。稳定性主要取决于材料、位置、朝向及所连接的其他构件。</p><p>在机制上，构件稳定性用一个称为“<i>支撑</i>”的数值表示。系统计算并检查它，以决定构件是否应该断裂。支撑值越高，越稳定，越不容易损毁。</p><p>支撑系统与现实材料受力不同，更像管道中压力的传递，或从地面和树木流入构件的魔法力量。例如，一根横梁能够支撑的其他构件数量没有上限。</p>
+<div aria-labelledby="mw-toc-heading" class="toc" id="toc" role="navigation"><div class="toctitle" dir="ltr" lang="en"><h2 id="mw-toc-heading">目录</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Materials"><span class="tocnumber">1</span> <span class="toctext">材料</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Support"><span class="tocnumber">2</span> <span class="toctext">支撑</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Single_Parent"><span class="tocnumber">2.1</span> <span class="toctext">单个支撑构件</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Multiple_Parents"><span class="tocnumber">2.2</span> <span class="toctext">多个支撑构件</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Dynamic_stability"><span class="tocnumber">3</span> <span class="toctext">动态稳定性</span></a></li>
+</ul>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="Materials">材料</h2></div>
+<p>每种<a href="p-d9f073bb0bf0c12222c2.html" title="分类：建筑结构">建筑构件</a>都由以下某种材料制成：</p>
+<div class="sample-table-scroll"><table class="wikitable">
+<caption>建筑材料
+</caption>
+<tbody><tr>
+<th>名称</th>
+<th>前缀</th>
+<th>MaxSupport</th>
+<th>MinSupport</th>
+<th>VerticalLoss</th>
+<th>HorizontalLoss
+</th></tr>
+<tr>
+<td>木材</td>
+<td><a href="p-d057af8097a581c26f5b.html" title="木制结构">木材</a>, <a href="p-e63ff73150cfd999c308.html" title="茅草屋顶">茅草屋顶</a>, <a href="p-a4921a11df946d8c75a8.html" title="木瓦屋顶">木瓦屋顶</a>, <a href="p-af2529873547caa541ad.html" title="黑木结构">暗木头</a>, <a href="p-43700dd2ec1925d21636.html" title="灰木结构">灰烬之木</a></td>
+<td>100</td>
+<td>10</td>
+<td>1/8</td>
+<td>1/5
+</td></tr>
+<tr>
+<td>硬木头</td>
+<td><a href="p-07db9f275666957d3c1e.html" title="原木结构">原木</a> （圆木）</td>
+<td>140</td>
+<td>10</td>
+<td>1/10</td>
+<td>1/6
+</td></tr>
+<tr>
+<td>巨木
+</td>
+<td><a href="p-e173b37c3b90457e7735.html" title="极北木结构">巨木</a>
+</td>
+<td>200
+</td>
+<td>10
+</td>
+<td>1/13
+</td>
+<td>1/5
+</td></tr>
+<tr>
+<td>石头</td>
+<td><a href="p-7a5f6212333582eb45f4.html" title="石制结构">石头</a></td>
+<td>1000</td>
+<td>100</td>
+<td>1/8</td>
+<td>1/1
+</td></tr>
+<tr>
+<td>铁</td>
+<td><a href="p-45fafafd3c1c7371c274.html" title="铁木结构">铁木</a>, <a href="p-d38169043f8a6b4bbe48.html" title="铁笼结构">笼子</a>, <a class="mw-redirect" href="p-f208264029838269c9d4.html" title="矮人金属墙">矮人 金属</a>, <a href="p-6024244b9b6c775a5607.html" title="焰金属结构">焰金属</a></td>
+<td>1500</td>
+<td>20</td>
+<td>1/13</td>
+<td>1/13
+</td></tr>
+<tr>
+<td>大理石</td>
+<td><a href="p-41fa6c475731105f8d1e.html" title="黑大理石">黑大理石</a></td>
+<td>1500</td>
+<td>100</td>
+<td>1/8</td>
+<td>1/2
+</td></tr>
+<tr>
+<td>灰石</td>
+<td><a href="p-710442950fccf29da37f.html" title="灰石">灰石</a></td>
+<td>2000</td>
+<td>100</td>
+<td>1/10</td>
+<td>1/3
+</td></tr></tbody></table></div>
+<p>构件材料的属性会影响稳定性。</p>
+<ul><li><b>MaxSupport</b>：构件可达到的最大支撑值。直接接触地面、岩石或树木时，会获得此值。即使放在支撑值远高于自身上限的物体上，也只会达到此上限，例如将木材放在充分支撑的石材上。</li>
+<li><b>MinSupport</b>：构件的最小支撑值。支撑值小于或等于此值时，构件会损毁。</li>
+<li><b>垂直损失/ 水平损失</b>：影响构件放在其他构件上而非直接接地时，支撑值损失多少的系数。</li></ul>
+<div class="mw-heading mw-heading2"><h2 id="Support">支撑</h2></div>
+<p>构件表面任何部分，包括边缘和角，与另一物体表面接触时，就称为与其“<i>接触</i>”。直接接地时，支撑值设为材料的MaxSupport值；不接触任何物体时，支撑值为零并会损毁。只与其他建筑构件接触时，这些构件称为“<i>支撑构件</i>”，支撑值由一系列复杂公式计算，取决于以下因素：</p>
+<ul><li>其材料</li>
+<li>各支撑构件的支撑值</li>
+<li>它与各支撑构件的距离，通常按中点或重心计算</li>
+<li>相对于支撑构件的位置</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Single_Parent">单个支撑构件</h3></div>
+<p>计算只有一个支撑构件的构件支撑值之前，须先计算<i>距离</i>和<i>角度损失</i>。二者都取决于两个构件中点的相对位置。</p><p>两个构件中心之间的距离用标准的<a class="external text sample-online" data-online="true" href="https://en.wikipedia.org/wiki/Pythagorean_theorem" rel="noopener noreferrer" target="_blank">勾股定理</a>计算。不过，多数计算会额外加入0.1米的修正距离。通常可用以下公式：</p>
+<pre>Distance = SquareRoot( ([component's height]/2 + [parent's height]/2)<sup>2</sup> 
+                     + ([component's width]/2 + [parent's width]/2)<sup>2</sup> ) + 0.1
+</pre>
+<p>例如，4m原木立柱高4米、宽0米，2m原木横梁宽2米、高0米。将2m原木横梁放在4m原木立柱上，形成“Г”形时，二者中心距离为2.336米。</p><p>角度损失根据构件中点与支撑构件“<i>支撑点</i>”之间的角度，在VerticalLoss和HorizontalLoss之间插值计算。支撑点通常是构件连接的位置，但并非总是如此。公式如下：</p>
+<pre>Angle = cos<sup>-1</sup>( 1 - [height above support point] / [distance to support point] ) / π/2
+</pre>
+<p><sup>注意：公式中的“距离”不包括 0.1 米的“修正因子”。</sup></p><p>简而言之,这意味着:
+</p>
+<ul><li>一个构件正好位于另一个上方时，使用VerticalLoss值</li>
+<li>两个构件水平连接时，使用HorizontalLoss值</li>
+<li>其他情况的损失介于垂直损失与水平损失之间，取决于角度。例如，连续45°屋顶的每个后续构件，系数为(HorizontalLoss + VerticalLoss) / 2；26°屋顶则为0.7 * HorizontalLoss + 0.3 * VerticalLoss。</li></ul>
+<p><br/>
+</p>
+<pre>AngledLoss = [HorizontalLoss] * [Angle] + [VerticalLoss] * (1 - [Angle])
+</pre>
+<p>得到距离和角度损失后，即可按以下公式计算支撑值：</p>
+<pre>Support = [parent's support] * (1 - [AngledLoss] * [Distance])
+</pre>
+<p>例如，将一根2m木立柱放在另一根已接地的2m木立柱上，可代入以下数值：</p>
+<pre>Distance = 2.1 = SquareRoot( (2/2 + 2/2)<sup>2</sup> + (0/2 + 0/2)<sup>2</sup> ) + 0.1
+Angle = 1 = cos<sup>-1</sup>( 1 - 1 / 1 ) / π/2
+AngledLoss = 0.2 = 0.2 * 1 + 0.125 * (1 - 1)
+Support = 58 = 100 * (1 - 0.2 * 2.1)
+</pre>
+<p>使用1米立柱时，支撑值变化如下：
+</p>
+<pre>Distance = 1.1 = SquareRoot( (1/2 + 1/2)<sup>2</sup> + (0/2 + 0/2)<sup>2</sup> ) + 0.1
+Angle = 1 = cos<sup>-1</sup>( 1 - 1 / 1 ) / π/2
+AngledLoss = 0.2 = 0.2 * 1 + 0.125 * (1 - 1)
+Support = 78 = 100 * (1 - 0.2 * 1.1)
+</pre>
+<p>不过，这样只向上延伸1米。计算每2米的损失时，需要应用两次损失，即将数值平方，结果为60,84。比使用2米立柱略高，但差距很小。</p>
+<div class="mw-heading mw-heading3"><h3 id="Multiple_Parents">多个支撑构件</h3></div>
+<p>构件连接多个支撑构件时，各支撑构件的贡献按单支撑方法分别计算，但总支撑值并非简单相加。</p><p>若两个支撑点相对于当前构件的夹角大于100度，并且都位于构件中点下方至少0.05米，它们就会<i>共同</i><i>支撑</i>该构件。任意一对支撑构件都可共同提供支撑，即使其中之一或两者已与其他构件共同支撑它。计算类似单支撑，但无论角度如何都只使用VerticalLoss，并取两个支撑值的平均值。支撑构件A和B的公式如下：</p>
+<pre>MutualSupport = ( [Parent A's support] * (1 - [VerticalLoss] * [Distance to A]) 
+                + [Parent B's support] * (1 - [VerticalLoss] * [Distance to B]) ) / 2 
+</pre>
+<p>计算完所有单支撑和双支撑后，取其中最高值作为构件的最终支撑值。</p><p>这一机制可用于建造悬空石地板。单支撑情况下，石材的HorizontalLoss为1，即100%损失，因此无法水平延伸。但只在角落放置金属支撑，就可能建成7x7块、共49块、尺寸14x14米的石地板网格。注意，这种结构依赖整体完整性，移除任何一块都可能导致大面积坍塌。</p>
+<div class="mw-heading mw-heading2"><h2 id="Dynamic_stability">动态稳定性</h2></div>
+<p>支撑不足的构件不会立即损毁，因为支撑值需要通过迭代计算，在整座建筑中传播，最后才会稳定。</p><p>构件刚放置时，支撑值设为材料的MaxSupport值；之后每0.5秒*根据支撑构件的当前值重新计算。例如，只放在另一构件上而未接触其他物体的新构件，常会短暂提高下方构件的支撑值，因为下方构件将它视为支撑值已满的支撑来源。但随着新构件的支撑值下降，其影响会消失，因为下方构件已有其他更好的支撑。</p><p><sup>*每0.5秒最多重新计算50个构件。因此，构件很多的区域可能需要更长时间。</sup></p>
+<hr/>
+<p><b>归属</b>
+</p><p>所有公式和数值均从《英灵神殿》源代码推导，具体来自“<i>WearNTear.GetMaterialProperties</i>”和“<i>WearNTear.UpdateSupport</i>”函数。</p>
+<div class="sample-table-scroll"><table class="navbox mw-collapsible mw-collapsed" data-collapsetext="Hide" data-expandtext="Show"><tbody><tr class="navbox-title"><th colspan="2" scope="col"><div class="navbox-title-pad navbox-title-padleft navbox-title-padright"><a href="p-edd2287afad9be012dee.html" title="分类：游戏机制">机制</a></div></th></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">攻略</th><td class="navbox-list"><div class="hlist"><a href="how-to-play.html" title="入门玩法">入门玩法</a> • <a href="p-58565db394dcbacc0ec7.html" title="流程攻略">流程攻略</a> • <a href="p-e70bc5798f8391942dd6.html" title="敌对生物攻略">敌对生物攻略</a> • <a href="p-19e667dbe36cd74e7c1b.html" title="被动生物攻略">被动生物攻略</a> • <a href="p-afc73fba07d15f960daf.html" title="首领攻略">首领攻略</a> • <a href="p-a1b6af2b7d7d4bfef86e.html" title="专用服务器">专用服务器</a> • <a href="p-c3af076f92c5ed8dcb0d.html" title="故障排查">故障排查</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">玩家</th><td class="navbox-list"><div class="hlist"><a href="p-64aee8c6cbd026d9ea92.html" title="玩家">玩家</a> • <a href="p-55898449eb74fb2e348d.html" title="生命值">生命值</a> • <a href="p-cc350ea3393968f7cd7c.html" title="耐力">耐力</a> • <a href="p-332e6a85b4285ff8858c.html" title="埃达之能">埃达之能</a> • <a href="p-2608729251008c9658e7.html" title="血怒">血怒</a> • <a href="p-fcd6fea72de7e6c09ca2.html" title="死亡">死亡</a> • <a href="p-b8e0a74433a1176e439f.html" title="遗弃者能力">遗弃者能力</a> • <a href="p-66d0f523a379b2de6f8d.html" title="技能">技能</a> • <a href="p-f57eddb4e027139d853f.html" title="状态效果">状态效果</a> • <a href="p-5954d0c13f55417f74fb.html" title="移动速度">移动速度</a> • <a href="p-ed1a5a81b8121ad13a87.html" title="魔法">魔法</a> • <a href="p-79cea8ff2ba190bbb1bd.html" title="钓鱼">钓鱼</a> • <a href="p-e9d7b76127dca2c7d07e.html" title="乘骑">乘骑</a> • <a href="p-12ff393b061d94ebc405.html" title="睡眠">睡眠</a> • <a href="p-25521701981e1ad3ad97.html" title="表情">表情</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">战斗</th><td class="navbox-list"><div class="hlist"><a href="p-0c874f581a4534f15f1e.html" title="伤害">伤害类型</a> • <a href="p-e931ec535f307a5c6add.html" title="伤害机制">伤害机制</a> • <a href="p-bb0db9f7893c418a1de3.html" title="击退">击退</a> • <a href="p-aeaeee06ac36a10d7822.html" title="阵营">阵营</a> • <a href="p-4e7c41331a4464ad6e07.html" title="生物感知">生物感知</a> • <a href="p-5ac03ba6efdc56d5b7b5.html" title="生物行为">生物行为</a> • <a href="p-37015441396c962e2e96.html" title="掉落物">掉落物</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">生成</th><td class="navbox-list"><div class="hlist"><a href="p-36ff87e1502da8a1d740.html" title="生成机制">生成机制</a> • <a href="p-3a6396c120925fdde8d2.html" title="生成点">生成点</a> • <a href="p-60958b009a9e0b5dd0b6.html" title="生成区域">生成区域</a> • <a href="p-8d14f6e72de8f18ab1ee.html" title="事件">事件</a> • <a href="p-47373e84723cece15749.html" title="生物等级">生物等级</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">建材</th><td class="navbox-list"><div class="hlist"><a href="building.html" title="建材">建材</a> • <a class="mw-selflink selflink">建筑稳定性</a> • <a href="p-fa8d84566676ee2ee662.html" title="遮蔽">遮蔽</a> • <a href="p-040d4645676f60263590.html" title="舒适度">舒适度</a> • <a href="p-a6d7eeb25f1fe9854a8b.html" title="玩家基地">玩家基地</a> • <a href="p-29b52bfcccd01518e9de.html" title="烟雾">烟雾</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">界面</th><td class="navbox-list"><div class="hlist"><a href="p-758f487fe8e9fcc59cec.html" title="物品栏">物品栏</a> • <a class="mw-redirect" href="crafting.html" title="制作菜单">制作菜单</a> • <a href="p-be176b0015c424b78e9f.html" title="地图">地图</a> • <a href="p-c40c747ee79e90e16e46.html" title="状态界面">状态界面</a> • <a href="p-799c269135742a36ae48.html" title="控制">控制</a> • <a href="p-2ef15ac2866f955969bd.html" title="开发者控制台">开发者控制台</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">世界</th><td class="navbox-list"><div class="hlist"><a href="p-9e471951a1b4106e54be.html" title="环境">环境</a> • <a href="p-8a27b0cad26bc97071ab.html" title="世界修改器">世界修改器</a> • <a href="p-2af8986090a5b9ad83ec.html" title="世界种子">世界种子</a> • <a href="p-577cfab98de598e55bee.html" title="世界进度标记">世界进度标记</a> • <a href="p-a53aa373c5e23e694a54.html" title="区域">区域</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">杂项</th><td class="navbox-list"><div class="hlist"><a href="p-74cf2bc63fe122206c82.html" title="成就">成就</a> • <a href="p-1964260e2e296c33c3f3.html" title="季节活动">季节活动</a> • <a href="p-6eb00b4b2614a144d41c.html" title="音乐">音乐</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">开发</th><td class="navbox-list"><div class="hlist"><a href="p-a6df11e706c514f13d6f.html" title="版本历史">版本历史</a> • <a href="p-4696ff19d71c753885a5.html" title="未来内容">未来内容</a></div></td></tr></tbody></table></div>
+
+
+
+</div></section><section id="sample-en" data-language="en" hidden><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><p>The <a href="building.html" title="Building">construction system</a> in <i>Valheim</i> implements a stability mechanic to encourage more realistic buildings and drive gameplay. If the player places a <a href="p-d9f073bb0bf0c12222c2.html" title="Category:Building structures">building piece</a> that is not sufficiently stable, it will collapse. Stability is primarily dictated by a piece's material, its position and orientation, and the pieces to which it is attached.
+</p><p>Mechanically, the stability of a component is described by a number called its "<i>support</i>". This number is calculated and then checked to determine whether the component should break. A higher support value indicates more stability and less likelihood of breakage.
+</p><p>The support system does not work like it does with real materials and resembles more how pressure propagates in a plumbing system. Or a magic force coming from ground and trees and flowing through the building pieces. For example, there is no limit on how many other pieces a single beam could support.
+</p>
+<div aria-labelledby="mw-toc-heading" class="toc" id="en-toc" role="navigation"><div class="toctitle" dir="ltr" lang="en"><h2 id="en-mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#en-Materials"><span class="tocnumber">1</span> <span class="toctext">Materials</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#en-Support"><span class="tocnumber">2</span> <span class="toctext">Support</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#en-Single_Parent"><span class="tocnumber">2.1</span> <span class="toctext">Single Parent</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#en-Multiple_Parents"><span class="tocnumber">2.2</span> <span class="toctext">Multiple Parents</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#en-Dynamic_stability"><span class="tocnumber">3</span> <span class="toctext">Dynamic stability</span></a></li>
+</ul>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="en-Materials">Materials</h2></div>
+<p>Each <a href="p-d9f073bb0bf0c12222c2.html" title="Category:Building structures">building structure</a> is made of one of several materials:
+</p>
+<div class="sample-table-scroll"><table class="wikitable">
+<caption>Building Materials
+</caption>
+<tbody><tr>
+<th>Name</th>
+<th>Prefixes</th>
+<th>MaxSupport</th>
+<th>MinSupport</th>
+<th>VerticalLoss</th>
+<th>HorizontalLoss
+</th></tr>
+<tr>
+<td>Wood</td>
+<td><a href="p-d057af8097a581c26f5b.html" title="Wood Structures">Wood</a>, <a href="p-e63ff73150cfd999c308.html" title="Thatch Roofs">Thatch roof</a>, <a href="p-a4921a11df946d8c75a8.html" title="Shingle Roofs">Shingle roof</a>, <a href="p-af2529873547caa541ad.html" title="Darkwood Structures">Darkwood</a>, <a href="p-43700dd2ec1925d21636.html" title="Ashwood Structures">Ashwood</a></td>
+<td>100</td>
+<td>10</td>
+<td>1/8</td>
+<td>1/5
+</td></tr>
+<tr>
+<td>Hardwood</td>
+<td><a href="p-07db9f275666957d3c1e.html" title="Log Structures">Log</a> (core wood)</td>
+<td>140</td>
+<td>10</td>
+<td>1/10</td>
+<td>1/6
+</td></tr>
+<tr>
+<td>Timberwood
+</td>
+<td><a href="p-e173b37c3b90457e7735.html" title="Timber Structures">Timberwood</a>
+</td>
+<td>200
+</td>
+<td>10
+</td>
+<td>1/13
+</td>
+<td>1/5
+</td></tr>
+<tr>
+<td>Stone</td>
+<td><a href="p-7a5f6212333582eb45f4.html" title="Stone Structures">Stone</a></td>
+<td>1000</td>
+<td>100</td>
+<td>1/8</td>
+<td>1/1
+</td></tr>
+<tr>
+<td>Iron</td>
+<td><a href="p-45fafafd3c1c7371c274.html" title="Wood Iron Structures">Wood iron</a>, <a href="p-d38169043f8a6b4bbe48.html" title="Cage Structures">Cage</a>, <a class="mw-redirect" href="p-f208264029838269c9d4.html" title="Dvergr metal wall">Dvergr metal</a>, <a href="p-6024244b9b6c775a5607.html" title="Flametal Structures">Flametal</a></td>
+<td>1500</td>
+<td>20</td>
+<td>1/13</td>
+<td>1/13
+</td></tr>
+<tr>
+<td>Marble</td>
+<td><a href="p-41fa6c475731105f8d1e.html" title="Black Marble">Black Marble</a></td>
+<td>1500</td>
+<td>100</td>
+<td>1/8</td>
+<td>1/2
+</td></tr>
+<tr>
+<td>Ashstone</td>
+<td><a href="p-710442950fccf29da37f.html" title="Grausten">Grausten</a></td>
+<td>2000</td>
+<td>100</td>
+<td>1/10</td>
+<td>1/3
+</td></tr></tbody></table></div>
+<p>The properties of the component's material influence its stability.
+</p>
+<ul><li><b>MaxSupport</b>: The maximum support value that a component can have. This is the support it will have if it is placed directly on the ground (or on natural features like rocks and trees). It will also be capped at this value if it is placed on something with a much higher support value (e.g. wood on well-supported stone).</li>
+<li><b>MinSupport</b>: The minimum support value a component can have. If its support is less than or equal to this value, the item will break.</li>
+<li><b>VerticalLoss / HorizontalLoss</b>: factors that influence how much support is lost for components that are built on other components rather than directly on the ground.</li></ul>
+<div class="mw-heading mw-heading2"><h2 id="en-Support">Support</h2></div>
+<p>A component is "<i>in contact</i>" with something when any part of its surface (including edges and corners) touches part of that other item's surface. When a component is directly in contact with the ground, its support is set to its material's MaxSupport value. When a component is not in contact with any other object, its support value will be zero and it will break. When a component is in contact only with other building components (called "<i>parents</i>"), its support will be calculated by a complex series of formula depending on the following factors:
+</p>
+<ul><li>Its material</li>
+<li>The support values of each parent</li>
+<li>The distances between it and each parent (distances are generally calculated from midpoints or centers of mass)</li>
+<li>Its position relative to its parents</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Single_Parent">Single Parent</h3></div>
+<p>Before the support value can be calculated for a component that is supported by a single parent, two other values need to be calculated: <i>distance</i> and <i>angled loss</i>. Both values depend on the relative locations of the two components' midpoints.
+</p><p>The distance is calculated between centers of two pieces, using the standard <a class="external text sample-online" data-online="true" href="https://en.wikipedia.org/wiki/Pythagorean_theorem" rel="noopener noreferrer" target="_blank">Pythagorean method</a>. However, a "fudge factor" of 0.1 meters is added to the distance for most calculations. Distance can generally be calculated with the following formula:
+</p>
+<pre>Distance = SquareRoot( ([component's height]/2 + [parent's height]/2)<sup>2</sup> 
+                     + ([component's width]/2 + [parent's width]/2)<sup>2</sup> ) + 0.1
+</pre>
+<p>For example, a Log pole 4m has a height of 4 meters and a width of 0, and a Log beam 2m has a width of 2 meters and a height of 0, so if a Log beam 2m is placed on a Log pole 4m (making a Г-shape), the distance between them will be 2.336 meters.
+</p><p>The angled loss is calculated by interpolating between VerticalLoss and HorizontalLoss based on the angle between the component's midpoint and its parent's "<i>support point</i>". The parent's support point is usually (but not always) the point where the component is attached. Angled loss uses the following formula:
+</p>
+<pre>Angle = cos<sup>-1</sup>( 1 - [height above support point] / [distance to support point] ) / π/2
+</pre>
+<p><sup>NOTE: the "distance" in this formula does <i>not</i> include the 0.1 meter "fudge factor".</sup>
+</p><p>In simple terms, this means:
+</p>
+<ul><li>when one piece is exactly above another, VerticalLoss value is used</li>
+<li>when two pieces are connected horizontally, HorizontalLoss value is used</li>
+<li>for all other situations the loss is somewhere between vertical and horizontal depending on how steep is the angle. E.g. in a strip of 45° roof, each next piece the coefficient would be (HorizontalLoss + VerticalLoss) / 2, for 26° it's 0.7 * HorizontalLoss + 0.3 * VerticalLoss</li></ul>
+<p><br/>
+</p>
+<pre>AngledLoss = [HorizontalLoss] * [Angle] + [VerticalLoss] * (1 - [Angle])
+</pre>
+<p>Once the distance and angled loss are obtained, the support can be calculated as follows:
+</p>
+<pre>Support = [parent's support] * (1 - [AngledLoss] * [Distance])
+</pre>
+<p>For example, for the simple case of a Wood Pole 2m on top of another Wood Pole 2m that is on the ground, we can plug in the values as follows:
+</p>
+<pre>Distance = 2.1 = SquareRoot( (2/2 + 2/2)<sup>2</sup> + (0/2 + 0/2)<sup>2</sup> ) + 0.1
+Angle = 1 = cos<sup>-1</sup>( 1 - 1 / 1 ) / π/2
+AngledLoss = 0.2 = 0.2 * 1 + 0.125 * (1 - 1)
+Support = 58 = 100 * (1 - 0.2 * 2.1)
+</pre>
+<p>If we use 1-meter poles, the support will go as:
+</p>
+<pre>Distance = 1.1 = SquareRoot( (1/2 + 1/2)<sup>2</sup> + (0/2 + 0/2)<sup>2</sup> ) + 0.1
+Angle = 1 = cos<sup>-1</sup>( 1 - 1 / 1 ) / π/2
+AngledLoss = 0.2 = 0.2 * 1 + 0.125 * (1 - 1)
+Support = 78 = 100 * (1 - 0.2 * 1.1)
+</pre>
+<p>But obviously we go only 1 meter up this way, so if we need to calculate loss per 2 meters, we need to apply loss twice (square the number), which result in 60,84. Slightly more than using 2-meter poles, but the win is insignificant.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Multiple_Parents">Multiple Parents</h3></div>
+<p>If a component is attached to multiple parents, the support from each individual parent is computed as in the single parent method, but total support is not just a sum of all parents. 
+</p><p>If two parents' support points are more than 100 degrees opposite each other (relative to the component) and are both below (at least 0.05 meters lower) the component's midpoint, the parents <i>support</i> the component <i>together</i>. Any pair of parents can support a component together, even if one or both parents are already supporting the component with another parent. The support for a component is calculated similarly to single support, except that only VerticalLoss is used, regardless of the angle, and the two support values are averaged. Thus, the formula for Parent A and Parent B would be:
+</p>
+<pre>MutualSupport = ( [Parent A's support] * (1 - [VerticalLoss] * [Distance to A]) 
+                + [Parent B's support] * (1 - [VerticalLoss] * [Distance to B]) ) / 2 
+</pre>
+<p>Once all supports—single and double—have been calculated, the maximum support from all of them is chosen as the final support value for the component.
+</p><p>A practical use of that feature is building non-ground stone floors. In a single support case, it is impossible to extend horizontally with stone, because HorizontalLoss for stone is 1 (i.e. 100% loss). But it is e.g. possible to build as big as 7x7 (49 blocks, 14x14 in meters) grid with stone floor pieces and metal support only on corners. Keep in mind that such structure holds together only as a whole, removing any block result in significant part of the structure falling apart.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="en-Dynamic_stability">Dynamic stability</h2></div>
+<p>Components do not break immediately, even if they are not properly supported. This is because support calculations are iterative, and must propagate throughout a structure before settling to their final values.
+</p><p>When placed, a component's support is set to its Material's MaxSupport value. Then, every 0.5 seconds*, its support is calculated based on the current support values of its parents. This means, for example, that placing a component on another component but not touching anything else will often briefly raise the support value of its parent, because its parent views the component as a parent with a maxed support value. However, as the support value of the child component drops, it will cease to have an effect on the parent (because the parent is already better supported by other components).
+</p><p><sup>*A maximum of 50 components are recalculated every 0.5 seconds. Thus, in an area with many components, it may take longer.</sup>
+</p>
+<hr/>
+<p><b>Attribution</b>
+</p><p>All formulas and values were derived from the source code of Valheim, specifically the "<i>WearNTear.GetMaterialProperties</i>" and "<i>WearNTear.UpdateSupport</i>" functions.
+</p>
+<div class="sample-table-scroll"><table class="navbox mw-collapsible mw-collapsed" data-collapsetext="Hide" data-expandtext="Show"><tbody><tr class="navbox-title"><th colspan="2" scope="col"><div class="navbox-title-pad navbox-title-padleft navbox-title-padright"><a href="p-edd2287afad9be012dee.html" title="Category:Mechanics">Mechanics</a></div></th></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Guides</th><td class="navbox-list"><div class="hlist"><a href="how-to-play.html" title="How to play">How to play</a> • <a href="p-58565db394dcbacc0ec7.html" title="Progression guide">Progression guide</a> • <a href="p-e70bc5798f8391942dd6.html" title="Aggressive creature strategies">Aggressive creature strategies</a> • <a href="p-19e667dbe36cd74e7c1b.html" title="Passive creature strategies">Passive creature strategies</a> • <a href="p-afc73fba07d15f960daf.html" title="Boss strategies">Boss strategies</a> • <a href="p-a1b6af2b7d7d4bfef86e.html" title="Dedicated servers">Dedicated servers</a> • <a href="p-c3af076f92c5ed8dcb0d.html" title="Troubleshooting">Troubleshooting</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Player</th><td class="navbox-list"><div class="hlist"><a href="p-64aee8c6cbd026d9ea92.html" title="Player">Player</a> • <a href="p-55898449eb74fb2e348d.html" title="Health">Health</a> • <a href="p-cc350ea3393968f7cd7c.html" title="Stamina">Stamina</a> • <a href="p-332e6a85b4285ff8858c.html" title="Eitr">Eitr</a> • <a href="p-2608729251008c9658e7.html" title="Adrenaline">Adrenaline</a> • <a href="p-fcd6fea72de7e6c09ca2.html" title="Death">Death</a> • <a href="p-b8e0a74433a1176e439f.html" title="Forsaken power">Forsaken power</a> • <a href="p-66d0f523a379b2de6f8d.html" title="Skills">Skills</a> • <a href="p-f57eddb4e027139d853f.html" title="Status effects">Status effects</a> • <a href="p-5954d0c13f55417f74fb.html" title="Movement speed">Movement speed</a> • <a href="p-ed1a5a81b8121ad13a87.html" title="Magic">Magic</a> • <a href="p-79cea8ff2ba190bbb1bd.html" title="Fishing">Fishing</a> • <a href="p-e9d7b76127dca2c7d07e.html" title="Riding">Riding</a> • <a href="p-12ff393b061d94ebc405.html" title="Sleeping">Sleeping</a> • <a href="p-25521701981e1ad3ad97.html" title="Emotes">Emotes</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Combat</th><td class="navbox-list"><div class="hlist"><a href="p-0c874f581a4534f15f1e.html" title="Damage">Damage types</a> • <a href="p-e931ec535f307a5c6add.html" title="Damage mechanics">Damage mechanics</a> • <a href="p-bb0db9f7893c418a1de3.html" title="Knockback">Knockback</a> • <a href="p-aeaeee06ac36a10d7822.html" title="Factions">Factions</a> • <a href="p-4e7c41331a4464ad6e07.html" title="Creature senses">Creature senses</a> • <a href="p-5ac03ba6efdc56d5b7b5.html" title="Creature AI">Creature AI</a> • <a href="p-37015441396c962e2e96.html" title="Drops">Drops</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Spawning</th><td class="navbox-list"><div class="hlist"><a href="p-36ff87e1502da8a1d740.html" title="Spawning mechanics">Spawning mechanics</a> • <a href="p-3a6396c120925fdde8d2.html" title="Spawn points">Spawn points</a> • <a href="p-60958b009a9e0b5dd0b6.html" title="Spawn zones">Spawn zones</a> • <a href="p-8d14f6e72de8f18ab1ee.html" title="Events">Events</a> • <a href="p-47373e84723cece15749.html" title="Creature level">Creature level</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Building</th><td class="navbox-list"><div class="hlist"><a href="building.html" title="Building">Building</a> • <a class="mw-selflink selflink">Building stability</a> • <a href="p-fa8d84566676ee2ee662.html" title="Cover">Cover</a> • <a href="p-040d4645676f60263590.html" title="Comfort">Comfort</a> • <a href="p-a6d7eeb25f1fe9854a8b.html" title="Player base">Player base</a> • <a href="p-29b52bfcccd01518e9de.html" title="Smoke">Smoke</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">UI</th><td class="navbox-list"><div class="hlist"><a href="p-758f487fe8e9fcc59cec.html" title="Inventory">Inventory</a> • <a class="mw-redirect" href="crafting.html" title="Crafting menu">Crafting menu</a> • <a href="p-be176b0015c424b78e9f.html" title="Map">Map</a> • <a href="p-c40c747ee79e90e16e46.html" title="HUD">HUD</a> • <a href="p-799c269135742a36ae48.html" title="Controls">Controls</a> • <a href="p-2ef15ac2866f955969bd.html" title="Developer console">Developer console</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">World</th><td class="navbox-list"><div class="hlist"><a href="p-9e471951a1b4106e54be.html" title="Environment">Environment</a> • <a href="p-8a27b0cad26bc97071ab.html" title="World Modifiers">World Modifiers</a> • <a href="p-2af8986090a5b9ad83ec.html" title="World seed">World seed</a> • <a href="p-577cfab98de598e55bee.html" title="Global Keys">Global Keys</a> • <a href="p-a53aa373c5e23e694a54.html" title="Zones">Zones</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Misc</th><td class="navbox-list"><div class="hlist"><a href="p-74cf2bc63fe122206c82.html" title="Achievements">Achievements</a> • <a href="p-1964260e2e296c33c3f3.html" title="Seasonal events">Seasonal events</a> • <a href="p-6eb00b4b2614a144d41c.html" title="Music">Music</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Development</th><td class="navbox-list"><div class="hlist"><a href="p-a6df11e706c514f13d6f.html" title="Version history">Version history</a> • <a href="p-4696ff19d71c753885a5.html" title="Future content">Future content</a></div></td></tr></tbody></table></div>
+
+
+
+</div></section><footer data-language="zh">来源：<a href="https://valheim.weirdgloop.org/w/Building_stability">建筑稳定性原文（需联网）</a>；保存修订号 59499。中文为本地译文。<p>原站内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名—非商业性使用—相同方式共享 3.0（CC BY-NC-SA 3.0）</a>许可；<a href="https://meta.weirdgloop.org/w/Licensing">可能适用额外条款</a>。背景与装饰素材来自原版维基，并已保存到本地。</p></footer><footer data-language="en" hidden>Source: <a href="https://valheim.weirdgloop.org/w/Building_stability">Building stability original (online)</a>; saved revision 59499. Chinese is a local translation. <p>Content on this site is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a>; <a href="https://meta.weirdgloop.org/w/Licensing">additional terms may apply</a>. Backgrounds and decorative assets from the original wiki are stored locally.</p></footer></main></body></html>

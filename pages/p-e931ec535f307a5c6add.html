@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html data-wiki-root=".." lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>伤害机制 · 英灵神殿离线维基</title><link href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-0.css" rel="stylesheet"/><link href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-1.css" rel="stylesheet"/><link href="../assets/sample.css" rel="stylesheet"/><script defer="" src="../assets/search.js"></script><script defer="" src="../assets/sample.js"></script></head><body class="skin-vector"><nav class="sample-toolbar"><strong data-ui-en="Valheim · Offline Wiki" data-ui-zh="英灵神殿 · 离线维基">英灵神殿 · 离线维基</strong><a data-local-page="true" data-ui-en="Creatures" data-ui-zh="生物" href="creatures.html">生物</a><a data-local-page="true" data-ui-en="How to play" data-ui-zh="入门玩法" href="how-to-play.html">入门玩法</a><a data-local-page="true" data-ui-en="Biomes" data-ui-zh="生物群系" href="biomes.html">生物群系</a><a data-local-page="true" data-ui-en="Weapons" data-ui-zh="武器" href="weapons.html">武器</a><a data-local-page="true" data-ui-en="Food" data-ui-zh="食物" href="food.html">食物</a><a data-local-page="true" data-ui-en="Armor" data-ui-zh="护甲" href="armor.html">护甲</a><a data-local-page="true" data-ui-en="Crafting" data-ui-zh="制作" href="crafting.html">制作</a><a data-local-page="true" data-ui-en="Building" data-ui-zh="建材" href="building.html">建材</a><button aria-pressed="false" id="sample-language">切换英文</button><a data-ui-en="Contents" data-ui-zh="本页目录" href="#sample-toc">本页目录</a><form id="sample-search-form" role="search"><label data-ui-en="Site search" data-ui-zh="站内搜索" for="sample-search">站内搜索</label><input autocomplete="off" data-placeholder-en="Search in Chinese or English" data-placeholder-zh="输入中文或英文" id="sample-search" placeholder="输入中文或英文" type="search"/><button data-ui-en="Search" data-ui-zh="搜索" type="submit">搜索</button></form></nav><main class="sample-shell"><h1 data-ui-en="Damage mechanics" data-ui-zh="伤害机制" id="sample-title">伤害机制</h1><p class="sample-note" data-ui-en="This offline edition supports Chinese and English site search. Links marked ↗ require internet. Chinese uses the supplied glossary; each source revision is shown below." data-ui-zh="本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。">本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。</p><section aria-live="polite" hidden="" id="sample-search-results"></section><nav class="sample-contents" id="sample-toc"><div data-language="zh"><a href="#mw-toc-heading">目录</a><a href="#Damage">伤害</a><a href="#Listed_damage">面板伤害</a><a href="#Skill_factor">技能系数</a><a href="#Backstab_bonus">背刺加成</a><a href="#Stagger_bonus">踉跄加成</a><a href="#Attack_bonus">攻击加成</a><a href="#Multitarget_penalty">多目标惩罚</a><a href="#Damage_type_modifier">伤害类型修正</a><a href="#Armor">护甲</a><a href="#Blocking">格挡</a><a href="#Dodging">闪避</a></div><div data-language="en" hidden=""><a href="#en-mw-toc-heading">Contents</a><a href="#en-Damage">Damage</a><a href="#en-Listed_damage">Listed damage</a><a href="#en-Skill_factor">Skill factor</a><a href="#en-Backstab_bonus">Backstab bonus</a><a href="#en-Stagger_bonus">Stagger bonus</a><a href="#en-Attack_bonus">Attack bonus</a><a href="#en-Multitarget_penalty">Multitarget penalty</a><a href="#en-Damage_type_modifier">Damage type modifier</a><a href="#en-Armor">Armor</a><a href="#en-Blocking">Blocking</a><a href="#en-Dodging">Dodging</a></div></nav><section data-language="zh" id="sample-zh"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><p>本页包含当前所有战斗机制和数值。
+</p>
+<div aria-labelledby="mw-toc-heading" class="toc" id="toc" role="navigation"><div class="toctitle" dir="ltr" lang="en"><h2 id="mw-toc-heading">目录</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Damage"><span class="tocnumber">1</span> <span class="toctext">伤害</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Listed_damage"><span class="tocnumber">1.1</span> <span class="toctext">面板伤害</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Skill_factor"><span class="tocnumber">1.2</span> <span class="toctext">技能系数</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Backstab_bonus"><span class="tocnumber">1.3</span> <span class="toctext">背刺加成</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Stagger_bonus"><span class="tocnumber">1.4</span> <span class="toctext">踉跄加成</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Attack_bonus"><span class="tocnumber">1.5</span> <span class="toctext">攻击加成</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Multitarget_penalty"><span class="tocnumber">1.6</span> <span class="toctext">多目标惩罚</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Damage_type_modifier"><span class="tocnumber">1.7</span> <span class="toctext">伤害类型修正</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#Armor"><span class="tocnumber">2</span> <span class="toctext">护甲</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Blocking"><span class="tocnumber">3</span> <span class="toctext">格挡</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Dodging"><span class="tocnumber">4</span> <span class="toctext">闪避</span></a></li>
+</ul>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="Damage">伤害</h2></div>
+<p>伤害按以下公式计算：
+</p><p><math class="mwe-math-element mwe-math-element-inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mrow data-mjx-texclass="ORD"><mtext>伤害</mtext></mrow><mo stretchy="false">=</mo><mrow data-mjx-texclass="ORD"><mtext>面板伤害</mtext></mrow><mo stretchy="false">×</mo><mrow data-mjx-texclass="ORD"><mtext>技能系数</mtext></mrow><mo stretchy="false">×</mo><mrow data-mjx-texclass="ORD"><mtext>乘数</mtext></mrow></mstyle></mrow></math>
+</p><p><math class="mwe-math-element mwe-math-element-inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mrow data-mjx-texclass="ORD"><mtext>面板伤害</mtext></mrow><mo stretchy="false">=</mo><mrow data-mjx-texclass="ORD"><mtext>武器面板数值</mtext></mrow><mo stretchy="false">+</mo><mrow data-mjx-texclass="ORD"><mtext>弹药面板数值</mtext></mrow></mstyle></mrow></math>
+</p><p>技能系数：<math class="mwe-math-element mwe-math-element-inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mrow data-mjx-texclass="ORD"><mtext>skill factor</mtext></mrow><mo stretchy="false">=</mo><mrow data-mjx-texclass="ORD"><mo data-mjx-texclass="OPEN">{</mo><mtable><mtr><mtd><mrow data-mjx-texclass="ORD"><mtable><mtr><mtd class="mwe-math-columnalign-r"><mrow data-mjx-texclass="ORD"><mtext>players:</mtext></mrow></mtd><mtd class="mwe-math-columnalign-l"><mspace width="1em"></mspace><mi>min</mi><mo>⁡</mo><mo stretchy="false">(</mo><mo stretchy="false">[</mo><mn>0.25</mn><mo stretchy="false">⋯</mo><mn>0.55</mn><mo stretchy="false">]</mo><mo stretchy="false">+</mo><mn>0.006</mn><mo stretchy="false">⋅</mo><mrow data-mjx-texclass="ORD"><mtext>skill level</mtext></mrow><mo>,</mo><mn>1.0</mn><mo stretchy="false">)</mo></mtd></mtr><mtr><mtd class="mwe-math-columnalign-r"><mrow data-mjx-texclass="ORD"><mtext>enemies:</mtext></mrow></mtd><mtd class="mwe-math-columnalign-l"><mspace width="1em"></mspace><mrow data-mjx-texclass="ORD"><msqrt><mrow data-mjx-texclass="ORD"><mn>0.75</mn><mo stretchy="false">⋯</mo><mn>1.0</mn></mrow></msqrt></mrow></mtd></mtr></mtable></mrow></mtd></mtr></mtable><mo data-mjx-texclass="CLOSE" fence="true" stretchy="true" symmetric="true">}</mo></mrow></mstyle></mrow></math>。其中players表示玩家，enemies表示敌人，skill level表示技能等级。</p><p>伤害倍率：<math class="mwe-math-element mwe-math-element-inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mrow data-mjx-texclass="ORD"><mtext>multipliers</mtext></mrow><mo stretchy="false">=</mo><mrow data-mjx-texclass="ORD"><mtext>backstab bonus</mtext></mrow><mo stretchy="false">×</mo><mrow data-mjx-texclass="ORD"><mtext>stagger bonus</mtext></mrow><mo stretchy="false">×</mo><mrow data-mjx-texclass="ORD"><mtext>attack bonus</mtext></mrow><mo stretchy="false">×</mo><mrow data-mjx-texclass="ORD"><mtext>multitarget penalty</mtext></mrow><mo stretchy="false">×</mo><mrow data-mjx-texclass="ORD"><mtext>damage type modifier</mtext></mrow></mstyle></mrow></math>，即背刺加成×踉跄加成×攻击加成×多目标惩罚×伤害类型修正。</p><p>承受伤害的计算公式：<math class="mwe-math-element mwe-math-element-inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mrow data-mjx-texclass="ORD"><mtext>damage taken</mtext></mrow><mo stretchy="false">=</mo><mrow data-mjx-texclass="ORD"><mo data-mjx-texclass="OPEN">{</mo><mtable><mtr><mtd class="mwe-math-columnalign-l"><mrow data-mjx-texclass="ORD"><mtext>damage</mtext></mrow><mo stretchy="false">−</mo><mrow data-mjx-texclass="ORD"><mtext>armor</mtext></mrow><mo>,</mo></mtd><mtd class="mwe-math-columnalign-l"><mrow data-mjx-texclass="ORD"><mtext>if armor</mtext></mrow><mo>&lt;</mo><mrow data-mjx-texclass="ORD"><mfrac><mrow data-mjx-texclass="ORD"><mrow data-mjx-texclass="ORD"><mtext>damage</mtext></mrow></mrow><mrow data-mjx-texclass="ORD"><mn>2</mn></mrow></mfrac></mrow></mtd></mtr><mtr><mtd class="mwe-math-columnalign-l"><msup><mrow data-mjx-texclass="ORD"><mtext>damage</mtext></mrow><mrow data-mjx-texclass="ORD"><mn>2</mn></mrow></msup><mo lspace="0" rspace="0">/</mo><mo stretchy="false">(</mo><mn>4</mn><mo stretchy="false">×</mo><mrow data-mjx-texclass="ORD"><mtext>armor</mtext></mrow><mo stretchy="false">)</mo><mo>,</mo></mtd><mtd class="mwe-math-columnalign-l"><mrow data-mjx-texclass="ORD"><mtext>if armor</mtext></mrow><mo stretchy="false">≥</mo><mrow data-mjx-texclass="ORD"><mfrac><mrow data-mjx-texclass="ORD"><mrow data-mjx-texclass="ORD"><mtext>damage</mtext></mrow></mrow><mrow data-mjx-texclass="ORD"><mn>2</mn></mrow></mfrac></mrow></mtd></mtr></mtable><mo data-mjx-texclass="CLOSE" fence="true" stretchy="true" symmetric="true"></mo></mrow></mstyle></mrow></math>。其中damage表示伤害，armor表示护甲。</p><p>注意: 只有玩家有护甲.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Listed_damage">面板伤害</h3></div>
+<p>武器说明中，黄色括号前的橙色数字表示面板伤害。弓的伤害按弓与弹药的面板伤害之和计算。</p><p>部分武器具有多种伤害类型，例如弓及其弹药，或同时造成穿刺和劈砍伤害的刀。此时先分别对各类伤害应用抗性，再对总伤害应用护甲减免。</p><p>例如，攻击造成100火焰伤害和100钝击伤害，目标具有火焰抗性和75护甲。抗性先将火焰伤害减至50，再由75护甲将150总伤害减至75。最终受到25火焰伤害和50钝击伤害。</p><p>生物的最低伤害=0.75×伤害。应先应用这一修正，再计算护甲、格挡及其他修正。</p>
+<div class="mw-heading mw-heading3"><h3 id="Skill_factor">技能系数</h3></div>
+<figure typeof="mw:File/Thumb"><a class="mw-file-description" href="../assets/43157f8c04c17c805ecf.png"><img class="mw-file-element" data-file-height="447" data-file-width="578" decoding="async" height="309" loading="eager" src="../assets/43157f8c04c17c805ecf.png" width="400"/></a><figcaption>此图展示不同武器技能等级下的最高、最低及预期平均伤害。</figcaption></figure>
+<p>武器说明的黄色括号内显示伤害范围，由相应技能系数的最小值和最大值分别乘以面板伤害得出。</p>
+<ul><li>最低伤害随技能等级线性增长：技能等级0时为武器伤害的25%，技能等级100时为85%。</li>
+<li>最高伤害随技能等级线性增长：技能等级0时为武器伤害的55%，技能等级75及以上时为100%。</li></ul>
+<p>因此:
+</p>
+<ul><li>平均伤害随技能等级线性增长：技能等级0时为武器伤害的40%，技能等级75时为85%，技能等级100时为92.5%。</li></ul>
+<p>这相当于在75级之前，每升一级平均伤害提高1.5%；此后每级提高0.75%。</p>
+<div class="mw-heading mw-heading3"><h3 id="Backstab_bonus">背刺加成</h3></div>
+<p>攻击未察觉敌人时会应用背刺加成。伤害倍率显示在武器说明中，范围为2x至6x。</p><p>敌人受到背刺后，会获得5分钟背刺免疫。玩家始终免疫背刺。</p>
+<div class="mw-heading mw-heading3"><h3 id="Stagger_bonus">踉跄加成</h3></div>
+<p>积累足够的<a class="mw-redirect" href="p-0c874f581a4534f15f1e.html" title="伤害类型">失衡效果</a>或成功弹反攻击会造成踉跄。踉跄中的敌人无法行动，并受到双倍伤害。玩家也会踉跄，但不会因此受到额外伤害。</p><p><a class="mw-redirect" href="p-0c874f581a4534f15f1e.html" title="伤害类型">物理</a>和<a class="mw-redirect" href="p-0c874f581a4534f15f1e.html#Lightning" title="伤害类型">闪电</a>伤害会造成踉跄。部分攻击会造成更多踉跄积累。</p><p>每种敌人的踉跄持续时间不同，取决于动画速度。</p>
+<div class="mw-heading mw-heading3"><h3 id="Attack_bonus">攻击加成</h3></div>
+<p>具有连击的武器，其第三次命中造成双倍伤害。</p><p>大多数<a class="" href="weapons.html" title="武器">次要攻击</a>的伤害也会提高或降低，倍率范围为0.5x至3x。</p><p>目标200米内每增加一名玩家，敌人的伤害提高4%。</p>
+<div class="mw-heading mw-heading3"><h3 id="Multitarget_penalty">多目标惩罚</h3></div>
+<p>对于适用此机制的攻击类型，同时命中多个实体会降低攻击伤害。伤害倍率可按以下公式计算：</p><p><math class="mwe-math-element mwe-math-element-inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mrow data-mjx-texclass="ORD"><mtext>乘数</mtext></mrow><mo stretchy="false">=</mo><mrow data-mjx-texclass="ORD"><mfrac><mrow data-mjx-texclass="ORD"><mn>4</mn></mrow><mrow data-mjx-texclass="ORD"><mrow data-mjx-texclass="ORD"><mn>3</mn><mo stretchy="false">×</mo><mrow data-mjx-texclass="ORD"><mtext>目标</mtext></mrow></mrow></mrow></mfrac></mrow></mstyle></mrow></math>
+</p>
+<ul><li>2目标 :66.7%</li>
+<li>3目标 :44.4%</li>
+<li>4目标 :33.3%</li>
+<li>5目标 :26.7%</li></ul>
+<p>不过，总伤害会比命中单个目标时高33.3%。</p><p>树木、岩石和地面也算有效目标，即使所用工具无法损伤它们。因此，攻击高处的敌人时经常会造成较低伤害。镐的命中范围与地面相交时，伤害同样会降低，即使敲击岩石时镐并不会影响地面。</p><p>大多数玩家武器受到多目标惩罚，例外包括<a href="p-5919dcd44e227bc472bf.html" title="剑">剑</a>的单手主攻击、双手武器<a href="p-98348a90362db8bb804d.html" title="棍棒">棍棒</a>、<a href="p-d3efea7f66cbc49b1b9c.html" title="长柄武器">长柄武器</a>的次要攻击，以及<a href="p-56a7d40e60030e0c3e48.html" title="斧">斧</a>的双手主攻击。</p><p>大多数近战生物不受多目标惩罚；例外包括但不限于灰矮人、骷髅和狼。玩家可以利用此机制应对这些生物。例如，站在树旁，使强力攻击的伤害降低33%，从而<a href="p-f778a33133e5c30bebdb.html" title="格挡">弹反</a>原本无法承受的攻击。</p>
+<div class="mw-heading mw-heading3"><h3 id="Damage_type_modifier">伤害类型修正</h3></div>
+<p>所有攻击都有伤害类型。敌人对不同伤害类型可能具有弱点、抗性或免疫。玩家也可能因状态效果和装备而具有弱点或抗性。弱点与抗性的修正如下：</p>
+<ul><li>极弱：200%伤害</li>
+<li>弱点：150%伤害</li>
+<li>中立 :100% 伤害</li>
+<li>轻微抗性: 75% 伤害</li>
+<li>抗性: 50% 伤害</li>
+<li>超强抗性: 25% 伤害</li>
+<li>免疫: 0% 伤害</li></ul>
+<p>更多信息请参阅<a class="mw-redirect" href="p-0c874f581a4534f15f1e.html" title="伤害类型">伤害类型</a>。</p>
+<div class="mw-heading mw-heading2"><h2 id="Armor">护甲</h2></div>
+<p>护甲会减少受到的所有<a class="mw-redirect" href="p-0c874f581a4534f15f1e.html" title="伤害类型">伤害类型</a>。</p><p>护甲低于原始伤害的一半时，损失生命值=伤害-护甲。若护甲<i>高于</i>伤害的一半，则损失生命值=(Damage / (Armor*4)) * Damage，其中Damage表示伤害，Armor表示护甲。</p>
+<figure class="mw-halign-none" typeof="mw:File/Thumb"><a class="mw-file-description" href="../assets/a55223810aca004f3536.png"><img alt="" class="mw-file-element" data-file-height="152" data-file-width="583" decoding="async" height="94" loading="eager" src="../assets/a55223810aca004f3536.png" width="359"/></a><figcaption>展示实际承受伤害计算方式的游戏代码。</figcaption></figure><p><br/></p><figure class="mw-halign-none" typeof="mw:File/Thumb"><a class="mw-file-description" href="../assets/a7f1f02827771af6d325.png"><img alt="" class="mw-file-element" data-file-height="442" data-file-width="522" decoding="async" height="339" loading="eager" src="../assets/a7f1f02827771af6d325.png" width="400"/></a><figcaption>此图展示受到100伤害的攻击时，不同护甲值对应的实际伤害，用于说明收益递减的转折点。</figcaption></figure><p>从有效生命值的角度看，这一“收益递减”公式仍然公平：承受多少次攻击才死亡，会以相同速率增加，因此每一点护甲的价值相同。下表展示了这一点：</p><div class="sample-table-scroll"><table class="wikitable">
+<caption>生命值100、受到40伤害时不同护甲值的示例。
+</caption>
+<tbody><tr>
+<td>护甲
+</td>
+<td>损失生命值
+</td>
+<td>死亡所需命中次数
+</td></tr>
+<tr>
+<td>0
+</td>
+<td>40
+</td>
+<td>2.5
+</td></tr>
+<tr>
+<td>10
+</td>
+<td>30
+</td>
+<td>3.333
+</td></tr>
+<tr>
+<td>20
+</td>
+<td>20
+</td>
+<td>5
+</td></tr>
+<tr>
+<td>30
+</td>
+<td>13.333
+</td>
+<td>7.5
+</td></tr>
+<tr>
+<td>40
+</td>
+<td>10
+</td>
+<td>10
+</td></tr>
+<tr>
+<td>50
+</td>
+<td>8
+</td>
+<td>12.5
+</td></tr>
+<tr>
+<td>60
+</td>
+<td>6.666
+</td>
+<td>15
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading2"><h2 id="Blocking">格挡</h2></div>
+<div class="hatnote searchaux" role="note"><i>主条目： <a href="p-f778a33133e5c30bebdb.html" title="格挡">格挡</a></i></div>
+<p>格挡使用护甲公式减少受到的伤害。</p><p>格挡相比闪避具有以下优点：
+</p>
+<ul><li>格挡消耗较少耐力，弹反时甚至不消耗耐力。</li>
+<li>格挡无需精确把握时机。</li>
+<li>弹反会造成踉跄，使伤害翻倍。</li></ul>
+<div class="mw-heading mw-heading2"><h2 id="Dodging">闪避</h2></div>
+<p>闪避使玩家短暂无敌，能够避开大多数伤害来源。</p><p>闪避的基础耐力消耗为15，受多种效果修正：</p>
+<ul><li><a href="p-59ca9b71a893dcb072a7.html" title="闪避(技能)">闪避(技能)</a>最多可使耐力消耗降低至-50%。</li>
+<li>成功闪避攻击会返还一半耐力消耗，返还量会计入各项修正。</li>
+<li>装备的速度惩罚会等比例增加耐力消耗。例如，-20%的速度惩罚会带来+20%的耐力消耗。</li>
+<li>穿戴<a href="p-41136f1d37fb4fb91554.html" title="灰烬刚鬣披风">灰烬刚鬣披风</a>提供-15%的消耗修正，食用<a href="p-43a4282d378106764bd4.html" title="狂战之酒">狂战之酒</a>提供-80%的消耗修正。</li></ul>
+<p>处于<a href="p-b202ed35c97590189d71.html" title="超重">超重</a>状态时无法闪避。</p><p>闪避相比格挡具有以下优点：
+</p>
+<ul><li>没有伤害限制。</li>
+<li>应对多个敌人时，耐力消耗相同。</li>
+<li>可选择方向来调整位置。</li>
+<li>可应对来自任何方向的攻击。</li>
+<li>能避开大多数无法格挡的攻击。</li></ul>
+<div class="sample-table-scroll"><table class="navbox mw-collapsible mw-collapsed" data-collapsetext="Hide" data-expandtext="Show"><tbody><tr class="navbox-title"><th colspan="2" scope="col"><div class="navbox-title-pad navbox-title-padleft navbox-title-padright"><a href="p-edd2287afad9be012dee.html" title="分类：游戏机制">机制</a></div></th></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">攻略</th><td class="navbox-list"><div class="hlist"><a href="how-to-play.html" title="入门玩法">入门玩法</a> • <a href="p-58565db394dcbacc0ec7.html" title="流程攻略">流程攻略</a> • <a href="p-e70bc5798f8391942dd6.html" title="敌对生物攻略">敌对生物攻略</a> • <a href="p-19e667dbe36cd74e7c1b.html" title="被动生物攻略">被动生物攻略</a> • <a href="p-afc73fba07d15f960daf.html" title="首领攻略">首领攻略</a> • <a href="p-a1b6af2b7d7d4bfef86e.html" title="专用服务器">专用服务器</a> • <a href="p-c3af076f92c5ed8dcb0d.html" title="故障排查">故障排查</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">玩家</th><td class="navbox-list"><div class="hlist"><a href="p-64aee8c6cbd026d9ea92.html" title="玩家">玩家</a> • <a href="p-55898449eb74fb2e348d.html" title="生命值">生命值</a> • <a href="p-cc350ea3393968f7cd7c.html" title="耐力">耐力</a> • <a href="p-332e6a85b4285ff8858c.html" title="埃达之能">埃达之能</a> • <a href="p-2608729251008c9658e7.html" title="血怒">血怒</a> • <a href="p-fcd6fea72de7e6c09ca2.html" title="死亡">死亡</a> • <a href="p-b8e0a74433a1176e439f.html" title="遗弃者能力">遗弃者能力</a> • <a href="p-66d0f523a379b2de6f8d.html" title="技能">技能</a> • <a href="p-f57eddb4e027139d853f.html" title="状态效果">状态效果</a> • <a href="p-5954d0c13f55417f74fb.html" title="移动速度">移动速度</a> • <a href="p-ed1a5a81b8121ad13a87.html" title="魔法">魔法</a> • <a href="p-79cea8ff2ba190bbb1bd.html" title="钓鱼">钓鱼</a> • <a href="p-e9d7b76127dca2c7d07e.html" title="乘骑">乘骑</a> • <a href="p-12ff393b061d94ebc405.html" title="睡眠">睡眠</a> • <a href="p-25521701981e1ad3ad97.html" title="表情">表情</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">战斗</th><td class="navbox-list"><div class="hlist"><a href="p-0c874f581a4534f15f1e.html" title="伤害">伤害类型</a> • <a class="mw-selflink selflink">伤害机制</a> • <a href="p-bb0db9f7893c418a1de3.html" title="击退">击退</a> • <a href="p-aeaeee06ac36a10d7822.html" title="阵营">阵营</a> • <a href="p-4e7c41331a4464ad6e07.html" title="生物感知">生物感知</a> • <a href="p-5ac03ba6efdc56d5b7b5.html" title="生物行为">生物行为</a> • <a href="p-37015441396c962e2e96.html" title="掉落物">掉落物</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">生成</th><td class="navbox-list"><div class="hlist"><a href="p-36ff87e1502da8a1d740.html" title="生成机制">生成机制</a> • <a href="p-3a6396c120925fdde8d2.html" title="生成点">生成点</a> • <a href="p-60958b009a9e0b5dd0b6.html" title="生成区域">生成区域</a> • <a href="p-8d14f6e72de8f18ab1ee.html" title="事件">事件</a> • <a href="p-47373e84723cece15749.html" title="生物等级">生物等级</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">建材</th><td class="navbox-list"><div class="hlist"><a href="building.html" title="建材">建材</a> • <a href="p-99b60de679e8976fc592.html" title="建筑稳定性">建筑稳定性</a> • <a href="p-fa8d84566676ee2ee662.html" title="遮蔽">遮蔽</a> • <a href="p-040d4645676f60263590.html" title="舒适度">舒适度</a> • <a href="p-a6d7eeb25f1fe9854a8b.html" title="玩家基地">玩家基地</a> • <a href="p-29b52bfcccd01518e9de.html" title="烟雾">烟雾</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">界面</th><td class="navbox-list"><div class="hlist"><a href="p-758f487fe8e9fcc59cec.html" title="物品栏">物品栏</a> • <a class="mw-redirect" href="crafting.html" title="制作菜单">制作菜单</a> • <a href="p-be176b0015c424b78e9f.html" title="地图">地图</a> • <a href="p-c40c747ee79e90e16e46.html" title="状态界面">状态界面</a> • <a href="p-799c269135742a36ae48.html" title="控制">控制</a> • <a href="p-2ef15ac2866f955969bd.html" title="开发者控制台">开发者控制台</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">世界</th><td class="navbox-list"><div class="hlist"><a href="p-9e471951a1b4106e54be.html" title="环境">环境</a> • <a href="p-8a27b0cad26bc97071ab.html" title="世界修改器">世界修改器</a> • <a href="p-2af8986090a5b9ad83ec.html" title="世界种子">世界种子</a> • <a href="p-577cfab98de598e55bee.html" title="世界进度标记">世界进度标记</a> • <a href="p-a53aa373c5e23e694a54.html" title="区域">区域</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">杂项</th><td class="navbox-list"><div class="hlist"><a href="p-74cf2bc63fe122206c82.html" title="成就">成就</a> • <a href="p-1964260e2e296c33c3f3.html" title="季节活动">季节活动</a> • <a href="p-6eb00b4b2614a144d41c.html" title="音乐">音乐</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">开发</th><td class="navbox-list"><div class="hlist"><a href="p-a6df11e706c514f13d6f.html" title="版本历史">版本历史</a> • <a href="p-4696ff19d71c753885a5.html" title="未来内容">未来内容</a></div></td></tr></tbody></table></div>
+</div></section><section data-language="en" hidden="" id="sample-en"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><p>This page contains all current combat mechanics and stats.
+</p>
+<div aria-labelledby="mw-toc-heading" class="toc" id="en-toc" role="navigation"><div class="toctitle" dir="ltr" lang="en"><h2 id="en-mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#en-Damage"><span class="tocnumber">1</span> <span class="toctext">Damage</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#en-Listed_damage"><span class="tocnumber">1.1</span> <span class="toctext">Listed damage</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#en-Skill_factor"><span class="tocnumber">1.2</span> <span class="toctext">Skill factor</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#en-Backstab_bonus"><span class="tocnumber">1.3</span> <span class="toctext">Backstab bonus</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#en-Stagger_bonus"><span class="tocnumber">1.4</span> <span class="toctext">Stagger bonus</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#en-Attack_bonus"><span class="tocnumber">1.5</span> <span class="toctext">Attack bonus</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#en-Multitarget_penalty"><span class="tocnumber">1.6</span> <span class="toctext">Multitarget penalty</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#en-Damage_type_modifier"><span class="tocnumber">1.7</span> <span class="toctext">Damage type modifier</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#en-Armor"><span class="tocnumber">2</span> <span class="toctext">Armor</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#en-Blocking"><span class="tocnumber">3</span> <span class="toctext">Blocking</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#en-Dodging"><span class="tocnumber">4</span> <span class="toctext">Dodging</span></a></li>
+</ul>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="en-Damage">Damage</h2></div>
+<p>Damage is calculated with the following formula:
+</p><p><math class="mwe-math-element mwe-math-element-inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mrow data-mjx-texclass="ORD"><mtext>damage</mtext></mrow><mo stretchy="false">=</mo><mrow data-mjx-texclass="ORD"><mtext>listed damage</mtext></mrow><mo stretchy="false">×</mo><mrow data-mjx-texclass="ORD"><mtext>skill factor</mtext></mrow><mo stretchy="false">×</mo><mrow data-mjx-texclass="ORD"><mtext>multipliers</mtext></mrow></mstyle></mrow></math>
+</p><p><math class="mwe-math-element mwe-math-element-inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mrow data-mjx-texclass="ORD"><mtext>listed damage</mtext></mrow><mo stretchy="false">=</mo><mrow data-mjx-texclass="ORD"><mtext>listed weapon value</mtext></mrow><mo stretchy="false">+</mo><mrow data-mjx-texclass="ORD"><mtext>listed ammo value</mtext></mrow></mstyle></mrow></math>
+</p><p><math class="mwe-math-element mwe-math-element-inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mrow data-mjx-texclass="ORD"><mtext>skill factor</mtext></mrow><mo stretchy="false">=</mo><mrow data-mjx-texclass="ORD"><mo data-mjx-texclass="OPEN">{</mo><mtable><mtr><mtd><mrow data-mjx-texclass="ORD"><mtable><mtr><mtd class="mwe-math-columnalign-r"><mrow data-mjx-texclass="ORD"><mtext>players:</mtext></mrow></mtd><mtd class="mwe-math-columnalign-l"><mspace width="1em"></mspace><mi>min</mi><mo>⁡</mo><mo stretchy="false">(</mo><mo stretchy="false">[</mo><mn>0.25</mn><mo stretchy="false">⋯</mo><mn>0.55</mn><mo stretchy="false">]</mo><mo stretchy="false">+</mo><mn>0.006</mn><mo stretchy="false">⋅</mo><mrow data-mjx-texclass="ORD"><mtext>skill level</mtext></mrow><mo>,</mo><mn>1.0</mn><mo stretchy="false">)</mo></mtd></mtr><mtr><mtd class="mwe-math-columnalign-r"><mrow data-mjx-texclass="ORD"><mtext>enemies:</mtext></mrow></mtd><mtd class="mwe-math-columnalign-l"><mspace width="1em"></mspace><mrow data-mjx-texclass="ORD"><msqrt><mrow data-mjx-texclass="ORD"><mn>0.75</mn><mo stretchy="false">⋯</mo><mn>1.0</mn></mrow></msqrt></mrow></mtd></mtr></mtable></mrow></mtd></mtr></mtable><mo data-mjx-texclass="CLOSE" fence="true" stretchy="true" symmetric="true">}</mo></mrow></mstyle></mrow></math>
+</p><p><math class="mwe-math-element mwe-math-element-inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mrow data-mjx-texclass="ORD"><mtext>multipliers</mtext></mrow><mo stretchy="false">=</mo><mrow data-mjx-texclass="ORD"><mtext>backstab bonus</mtext></mrow><mo stretchy="false">×</mo><mrow data-mjx-texclass="ORD"><mtext>stagger bonus</mtext></mrow><mo stretchy="false">×</mo><mrow data-mjx-texclass="ORD"><mtext>attack bonus</mtext></mrow><mo stretchy="false">×</mo><mrow data-mjx-texclass="ORD"><mtext>multitarget penalty</mtext></mrow><mo stretchy="false">×</mo><mrow data-mjx-texclass="ORD"><mtext>damage type modifier</mtext></mrow></mstyle></mrow></math>
+</p><p><math class="mwe-math-element mwe-math-element-inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mrow data-mjx-texclass="ORD"><mtext>damage taken</mtext></mrow><mo stretchy="false">=</mo><mrow data-mjx-texclass="ORD"><mo data-mjx-texclass="OPEN">{</mo><mtable><mtr><mtd class="mwe-math-columnalign-l"><mrow data-mjx-texclass="ORD"><mtext>damage</mtext></mrow><mo stretchy="false">−</mo><mrow data-mjx-texclass="ORD"><mtext>armor</mtext></mrow><mo>,</mo></mtd><mtd class="mwe-math-columnalign-l"><mrow data-mjx-texclass="ORD"><mtext>if armor</mtext></mrow><mo>&lt;</mo><mrow data-mjx-texclass="ORD"><mfrac><mrow data-mjx-texclass="ORD"><mrow data-mjx-texclass="ORD"><mtext>damage</mtext></mrow></mrow><mrow data-mjx-texclass="ORD"><mn>2</mn></mrow></mfrac></mrow></mtd></mtr><mtr><mtd class="mwe-math-columnalign-l"><msup><mrow data-mjx-texclass="ORD"><mtext>damage</mtext></mrow><mrow data-mjx-texclass="ORD"><mn>2</mn></mrow></msup><mo lspace="0" rspace="0">/</mo><mo stretchy="false">(</mo><mn>4</mn><mo stretchy="false">×</mo><mrow data-mjx-texclass="ORD"><mtext>armor</mtext></mrow><mo stretchy="false">)</mo><mo>,</mo></mtd><mtd class="mwe-math-columnalign-l"><mrow data-mjx-texclass="ORD"><mtext>if armor</mtext></mrow><mo stretchy="false">≥</mo><mrow data-mjx-texclass="ORD"><mfrac><mrow data-mjx-texclass="ORD"><mrow data-mjx-texclass="ORD"><mtext>damage</mtext></mrow></mrow><mrow data-mjx-texclass="ORD"><mn>2</mn></mrow></mfrac></mrow></mtd></mtr></mtable><mo data-mjx-texclass="CLOSE" fence="true" stretchy="true" symmetric="true"></mo></mrow></mstyle></mrow></math>
+</p><p>Note: Only players have armor.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Listed_damage">Listed damage</h3></div>
+<p>On the weapon tooltip the orange number shows the listed damage (before the yellow parentheses). Damage from bows is calculated from the sum of listed bow and ammo damage.
+</p><p>Some weapons have multiple types of damage (such as bows with their ammo or knives with both pierce and slash). In these cases, the resistances are applied separately to each damage type and then the armor is applied to the total damage.
+</p><p>For example 100 fire damage and 100 blunt damage with fire resist and 75 armor. First the resistance reduces fire damage to 50 and then 75 armor reduces the 150 total damage to 75. Final damage would be 25 fire and 50 blunt.
+</p><p>Minimum damage from a creature =<math class="mwe-math-element mwe-math-element-inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="false" scriptlevel="0"><mrow data-mjx-texclass="ORD"><msqrt><mn>0.75</mn></msqrt></mrow><mo stretchy="false">×</mo><mrow data-mjx-texclass="ORD"><mtext>damage</mtext></mrow></mstyle></mrow></math>.  This modifier should be applied to the damage before taking armor, blocking, and other modifiers into account.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Skill_factor">Skill factor</h3></div>
+<figure typeof="mw:File/Thumb"><a class="mw-file-description" href="../assets/43157f8c04c17c805ecf.png"><img class="mw-file-element" data-file-height="447" data-file-width="578" decoding="async" height="309" loading="eager" src="../assets/43157f8c04c17c805ecf.png" width="400"/></a><figcaption>Graphic depicting the maximum, minimum and expected average damage depending on the weapon skill level.</figcaption></figure>
+<p>On the weapon tooltip a damage range is shown in yellow parentheses. This is determined by the minimum and maximum value of the related skill factor multiplied with the listed damage.
+</p>
+<ul><li>Minimum damage increases linearly from 25% of weapon damage at skill level 0 to 85% of weapon damage at skill level 100.</li>
+<li>Maximum damage increases linearly from 55% of weapon damage at skill level 0 to 100% of weapon damage at skill level 75 and above.</li></ul>
+<p>Consequently:
+</p>
+<ul><li>Average damage increases linearly from 40% of weapon damage at skill level 0 to 85% of weapon damage at skill level 75, and to 92.5% of weapon damage at level 100.</li></ul>
+<p>This correspond to a 1.5% increase of the average damage per level up to level 75, and 0.75% after.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Backstab_bonus">Backstab bonus</h3></div>
+<p>Backstab bonus is applied when attacking unaware enemies. The damage multiplier is shown on the weapon tooltip (from 2x to 6x).
+</p><p>Backstabbing an enemy gives it a backstab immunity for 5 minutes. Players are immune to backstab.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Stagger_bonus">Stagger bonus</h3></div>
+<p>Staggering is caused either by enough <a class="mw-redirect" href="p-0c874f581a4534f15f1e.html" title="Damage types">Staggering</a> or by successfully parrying an attack. While staggered, the enemy is unable to act and takes double damage. Players can also get staggered but they won't take extra damage.
+</p><p>Staggering is caused by <a class="mw-redirect" href="p-0c874f581a4534f15f1e.html" title="Damage types">Physical</a> and <a class="mw-redirect" href="p-0c874f581a4534f15f1e.html#Lightning" title="Damage types">Lightning</a> damage. Some attacks cause increased Staggering.
+</p><p>Duration of the stagger is different for every enemy and depends on the animation speed.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Attack_bonus">Attack bonus</h3></div>
+<p>Weapons with an attack chain deal double damage on the third hit.
+</p><p>Most <a class="" href="weapons.html" title="Weapons">secondary attacks</a> also deal increased or reduced damage (from 0.5x to 3x).
+</p><p>Enemies deal 4% more damage for each additional player within 200 meters of the target.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Multitarget_penalty">Multitarget penalty</h3></div>
+<p>If applicable for the attack type, hitting multiple entities reduces the damage of the attack. The damage multiplier can be calculated with
+</p><p><math class="mwe-math-element mwe-math-element-inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mrow data-mjx-texclass="ORD"><mtext>multiplier</mtext></mrow><mo stretchy="false">=</mo><mrow data-mjx-texclass="ORD"><mfrac><mrow data-mjx-texclass="ORD"><mn>4</mn></mrow><mrow data-mjx-texclass="ORD"><mrow data-mjx-texclass="ORD"><mn>3</mn><mo stretchy="false">×</mo><mrow data-mjx-texclass="ORD"><mtext>targets</mtext></mrow></mrow></mrow></mfrac></mrow></mstyle></mrow></math>
+</p>
+<ul><li>2 targets: 66.7%</li>
+<li>3 targets: 44.4%</li>
+<li>4 targets: 33.3%</li>
+<li>5 targets: 26.7%</li></ul>
+<p>However the total damage will be 33.3% higher than when hitting a single target.
+</p><p>Trees, rocks, and ground also count as a valid target, even if not using tools that can damage them. This often causes reduced damage when attacking enemies on a higher ground. Pickaxes also deal reduced damage when the hitbox intersects the ground, even though hitting rock makes the ground unaffected by the pickaxe.
+</p><p>Most player weapons have the multitarget penalty; exceptions are <a href="p-5919dcd44e227bc472bf.html" title="Swords">Swords</a> (one-handed primary attack), <a href="p-98348a90362db8bb804d.html" title="Clubs">Clubs</a> (two-handed), <a href="p-d3efea7f66cbc49b1b9c.html" title="Polearms">Polearms</a> (secondary attack) and <a href="p-56a7d40e60030e0c3e48.html" title="Axes">Axes</a> (two-handed primary attack).
+</p><p>Most melee creatures do not have the multitarget penalty; exceptions include but not limited to: Greydwarfs, Skeletons, Wolves. Players can take advantage of this mechanic against these creatures. For example, to <a href="p-f778a33133e5c30bebdb.html" title="Blocking">parry</a> a strong attack that the player otherwise couldn't, by standing next to a tree to reduce the damage by 33%.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Damage_type_modifier">Damage type modifier</h3></div>
+<p>All attacks have a damage type. Enemies have weakness, resistance or immunity against different damage types. Players may also have weaknesses or resistances depending on their status effects and gear. The modifier for weakness and resistance is as follows:
+</p>
+<ul><li>Very weak: 200% damage</li>
+<li>Weak: 150% damage</li>
+<li>Neutral: 100% damage</li>
+<li>Slightly Resistant: 75% damage</li>
+<li>Resistant: 50% damage</li>
+<li>Very resistant: 25% damage</li>
+<li>Immune: 0% damage</li></ul>
+<p>See <a class="mw-redirect" href="p-0c874f581a4534f15f1e.html" title="Damage types">Damage types</a> for more info.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="en-Armor">Armor</h2></div>
+<p>Armor reduces damage taken from all <a class="mw-redirect" href="p-0c874f581a4534f15f1e.html" title="Damage types">damage types</a>.
+</p><p>If armor is less than half of raw damage, <code>
+health lost = damage - armor
+</code>
+But if armor is <i>more</i> than half of the damage, <code>health lost = (Damage / (Armor*4)) * Damage</code>
+</p>
+<figure class="mw-halign-none" typeof="mw:File/Thumb"><a class="mw-file-description" href="../assets/a55223810aca004f3536.png"><img alt="" class="mw-file-element" data-file-height="152" data-file-width="583" decoding="async" height="94" loading="eager" src="../assets/a55223810aca004f3536.png" width="359"/></a><figcaption>Game code depicting how the damage taken is calculated.</figcaption></figure><p><br/></p><figure class="mw-halign-none" typeof="mw:File/Thumb"><a class="mw-file-description" href="../assets/a7f1f02827771af6d325.png"><img alt="" class="mw-file-element" data-file-height="442" data-file-width="522" decoding="async" height="339" loading="eager" src="../assets/a7f1f02827771af6d325.png" width="400"/></a><figcaption>Graphic depicting the damage taken for a 100 damage hit with variable armor, meant to illustrate the point of diminishing returns.</figcaption></figure><p>The formula for "diminishing returns" is still fair from the perspective of effective HP. That is, the number of "hits" until death increases at the same rate, so each point of armor is worth as much as the next. The below table illustrates this:
+</p><div class="sample-table-scroll"><table class="wikitable">
+<caption>Example of armor values with 100 hp and receiving 40 damage.
+</caption>
+<tbody><tr>
+<td>Armor
+</td>
+<td>Health Lost
+</td>
+<td>Hits until death
+</td></tr>
+<tr>
+<td>0
+</td>
+<td>40
+</td>
+<td>2.5
+</td></tr>
+<tr>
+<td>10
+</td>
+<td>30
+</td>
+<td>3.333
+</td></tr>
+<tr>
+<td>20
+</td>
+<td>20
+</td>
+<td>5
+</td></tr>
+<tr>
+<td>30
+</td>
+<td>13.333
+</td>
+<td>7.5
+</td></tr>
+<tr>
+<td>40
+</td>
+<td>10
+</td>
+<td>10
+</td></tr>
+<tr>
+<td>50
+</td>
+<td>8
+</td>
+<td>12.5
+</td></tr>
+<tr>
+<td>60
+</td>
+<td>6.666
+</td>
+<td>15
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading2"><h2 id="en-Blocking">Blocking</h2></div>
+<div class="hatnote searchaux" role="note"><i>Main article: <a href="p-f778a33133e5c30bebdb.html" title="Blocking">Blocking</a></i></div>
+<p>Blocking reduces received damage by using the armor formula.
+</p><p>Blocking has some benefits over dodging:
+</p>
+<ul><li>Blocking uses less stamina (or no stamina when parrying).</li>
+<li>Blocking does not require precise timing.</li>
+<li>Parrying causes stagger which doubles the damage.</li></ul>
+<div class="mw-heading mw-heading2"><h2 id="en-Dodging">Dodging</h2></div>
+<p>Dodging turns the player briefly invulnerable, allowing to ignore most sources of damage.
+</p><p>Dodging uses a base 15 Stamina, modified by various effects:
+</p>
+<ul><li><a href="p-59ca9b71a893dcb072a7.html" title="Dodge (skill)">Dodge (skill)</a> reduces the stamina cost down to -50%.</li>
+<li>Dodging an attack returns half the stamina cost, taking modifiers into account.</li>
+<li>Gear speed penalty increases the stamina cost by the same amount. For example, having -20% speed penalty gives +20% stamina cost.</li>
+<li>Wearing an <a href="p-41136f1d37fb4fb91554.html" title="Asksvin Cloak">Asksvin Cloak</a> reduces by -15%, consuming a <a href="p-43a4282d378106764bd4.html" title="Berserkir Mead">Berserkir Mead</a> by -80%.</li></ul>
+<p>Dodge cannot be performed while <a href="p-b202ed35c97590189d71.html" title="Encumbered">Encumbered</a>.
+</p><p>Dodging has some benefits over blocking:
+</p>
+<ul><li>No damage limit.</li>
+<li>Works against multiple enemies with the same stamina usage.</li>
+<li>Allows repositioning by choosing the direction.</li>
+<li>Works against attacks from any direction.</li>
+<li>Dodging works against most attacks that cannot be blocked.</li></ul>
+<div class="sample-table-scroll"><table class="navbox mw-collapsible mw-collapsed" data-collapsetext="Hide" data-expandtext="Show"><tbody><tr class="navbox-title"><th colspan="2" scope="col"><div class="navbox-title-pad navbox-title-padleft navbox-title-padright"><a href="p-edd2287afad9be012dee.html" title="Category:Mechanics">Mechanics</a></div></th></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Guides</th><td class="navbox-list"><div class="hlist"><a href="how-to-play.html" title="How to play">How to play</a> • <a href="p-58565db394dcbacc0ec7.html" title="Progression guide">Progression guide</a> • <a href="p-e70bc5798f8391942dd6.html" title="Aggressive creature strategies">Aggressive creature strategies</a> • <a href="p-19e667dbe36cd74e7c1b.html" title="Passive creature strategies">Passive creature strategies</a> • <a href="p-afc73fba07d15f960daf.html" title="Boss strategies">Boss strategies</a> • <a href="p-a1b6af2b7d7d4bfef86e.html" title="Dedicated servers">Dedicated servers</a> • <a href="p-c3af076f92c5ed8dcb0d.html" title="Troubleshooting">Troubleshooting</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Player</th><td class="navbox-list"><div class="hlist"><a href="p-64aee8c6cbd026d9ea92.html" title="Player">Player</a> • <a href="p-55898449eb74fb2e348d.html" title="Health">Health</a> • <a href="p-cc350ea3393968f7cd7c.html" title="Stamina">Stamina</a> • <a href="p-332e6a85b4285ff8858c.html" title="Eitr">Eitr</a> • <a href="p-2608729251008c9658e7.html" title="Adrenaline">Adrenaline</a> • <a href="p-fcd6fea72de7e6c09ca2.html" title="Death">Death</a> • <a href="p-b8e0a74433a1176e439f.html" title="Forsaken power">Forsaken power</a> • <a href="p-66d0f523a379b2de6f8d.html" title="Skills">Skills</a> • <a href="p-f57eddb4e027139d853f.html" title="Status effects">Status effects</a> • <a href="p-5954d0c13f55417f74fb.html" title="Movement speed">Movement speed</a> • <a href="p-ed1a5a81b8121ad13a87.html" title="Magic">Magic</a> • <a href="p-79cea8ff2ba190bbb1bd.html" title="Fishing">Fishing</a> • <a href="p-e9d7b76127dca2c7d07e.html" title="Riding">Riding</a> • <a href="p-12ff393b061d94ebc405.html" title="Sleeping">Sleeping</a> • <a href="p-25521701981e1ad3ad97.html" title="Emotes">Emotes</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Combat</th><td class="navbox-list"><div class="hlist"><a href="p-0c874f581a4534f15f1e.html" title="Damage">Damage types</a> • <a class="mw-selflink selflink">Damage mechanics</a> • <a href="p-bb0db9f7893c418a1de3.html" title="Knockback">Knockback</a> • <a href="p-aeaeee06ac36a10d7822.html" title="Factions">Factions</a> • <a href="p-4e7c41331a4464ad6e07.html" title="Creature senses">Creature senses</a> • <a href="p-5ac03ba6efdc56d5b7b5.html" title="Creature AI">Creature AI</a> • <a href="p-37015441396c962e2e96.html" title="Drops">Drops</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Spawning</th><td class="navbox-list"><div class="hlist"><a href="p-36ff87e1502da8a1d740.html" title="Spawning mechanics">Spawning mechanics</a> • <a href="p-3a6396c120925fdde8d2.html" title="Spawn points">Spawn points</a> • <a href="p-60958b009a9e0b5dd0b6.html" title="Spawn zones">Spawn zones</a> • <a href="p-8d14f6e72de8f18ab1ee.html" title="Events">Events</a> • <a href="p-47373e84723cece15749.html" title="Creature level">Creature level</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Building</th><td class="navbox-list"><div class="hlist"><a href="building.html" title="Building">Building</a> • <a href="p-99b60de679e8976fc592.html" title="Building stability">Building stability</a> • <a href="p-fa8d84566676ee2ee662.html" title="Cover">Cover</a> • <a href="p-040d4645676f60263590.html" title="Comfort">Comfort</a> • <a href="p-a6d7eeb25f1fe9854a8b.html" title="Player base">Player base</a> • <a href="p-29b52bfcccd01518e9de.html" title="Smoke">Smoke</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">UI</th><td class="navbox-list"><div class="hlist"><a href="p-758f487fe8e9fcc59cec.html" title="Inventory">Inventory</a> • <a class="mw-redirect" href="crafting.html" title="Crafting menu">Crafting menu</a> • <a href="p-be176b0015c424b78e9f.html" title="Map">Map</a> • <a href="p-c40c747ee79e90e16e46.html" title="HUD">HUD</a> • <a href="p-799c269135742a36ae48.html" title="Controls">Controls</a> • <a href="p-2ef15ac2866f955969bd.html" title="Developer console">Developer console</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">World</th><td class="navbox-list"><div class="hlist"><a href="p-9e471951a1b4106e54be.html" title="Environment">Environment</a> • <a href="p-8a27b0cad26bc97071ab.html" title="World Modifiers">World Modifiers</a> • <a href="p-2af8986090a5b9ad83ec.html" title="World seed">World seed</a> • <a href="p-577cfab98de598e55bee.html" title="Global Keys">Global Keys</a> • <a href="p-a53aa373c5e23e694a54.html" title="Zones">Zones</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Misc</th><td class="navbox-list"><div class="hlist"><a href="p-74cf2bc63fe122206c82.html" title="Achievements">Achievements</a> • <a href="p-1964260e2e296c33c3f3.html" title="Seasonal events">Seasonal events</a> • <a href="p-6eb00b4b2614a144d41c.html" title="Music">Music</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Development</th><td class="navbox-list"><div class="hlist"><a href="p-a6df11e706c514f13d6f.html" title="Version history">Version history</a> • <a href="p-4696ff19d71c753885a5.html" title="Future content">Future content</a></div></td></tr></tbody></table></div>
+</div></section><footer data-language="zh">来源：<a href="https://valheim.weirdgloop.org/w/Damage_mechanics">伤害机制原文（需联网）</a>；保存修订号 59833。中文为本地译文。<p>原站内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名—非商业性使用—相同方式共享 3.0（CC BY-NC-SA 3.0）</a>许可；<a href="https://meta.weirdgloop.org/w/Licensing">可能适用额外条款</a>。背景与装饰素材来自原版维基，并已保存到本地。</p></footer><footer data-language="en" hidden="">Source: <a href="https://valheim.weirdgloop.org/w/Damage_mechanics">Damage mechanics original (online)</a>; saved revision 59833. Chinese is a local translation. <p>Content on this site is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a>; <a href="https://meta.weirdgloop.org/w/Licensing">additional terms may apply</a>. Backgrounds and decorative assets from the original wiki are stored locally.</p></footer></main></body></html>

@@ -1,0 +1,526 @@
+<!doctype html><html data-wiki-root=".." lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>数据标识 · 英灵神殿离线维基</title><link rel="stylesheet" href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-0.css"><link rel="stylesheet" href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-1.css"><link rel="stylesheet" href="../assets/sample.css"><script defer src="../assets/search.js"></script><script defer src="../assets/sample.js"></script></head><body class="skin-vector"><nav class="sample-toolbar"><strong  data-ui-zh="英灵神殿 · 离线维基" data-ui-en="Valheim · Offline Wiki">英灵神殿 · 离线维基</strong><a href="creatures.html" data-local-page="true" data-ui-zh="生物" data-ui-en="Creatures">生物</a><a href="how-to-play.html" data-local-page="true" data-ui-zh="入门玩法" data-ui-en="How to play">入门玩法</a><a href="biomes.html" data-local-page="true" data-ui-zh="生物群系" data-ui-en="Biomes">生物群系</a><a href="weapons.html" data-local-page="true" data-ui-zh="武器" data-ui-en="Weapons">武器</a><a href="food.html" data-local-page="true" data-ui-zh="食物" data-ui-en="Food">食物</a><a href="armor.html" data-local-page="true" data-ui-zh="护甲" data-ui-en="Armor">护甲</a><a href="crafting.html" data-local-page="true" data-ui-zh="制作" data-ui-en="Crafting">制作</a><a href="building.html" data-local-page="true" data-ui-zh="建材" data-ui-en="Building">建材</a><button id="sample-language" aria-pressed="false">切换英文</button><a href="#sample-toc" data-ui-zh="本页目录" data-ui-en="Contents">本页目录</a><form id="sample-search-form" role="search"><label for=sample-search data-ui-zh="站内搜索" data-ui-en="Site search">站内搜索</label><input id="sample-search" type="search" autocomplete="off" data-placeholder-zh="输入中文或英文" data-placeholder-en="Search in Chinese or English" placeholder="输入中文或英文"><button type=submit data-ui-zh="搜索" data-ui-en="Search">搜索</button></form></nav><main class="sample-shell"><h1 id="sample-title" data-ui-zh="数据标识" data-ui-en="Data IDs">数据标识</h1><p class="sample-note" data-ui-zh="本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。" data-ui-en="This offline edition supports Chinese and English site search. Links marked ↗ require internet. Chinese uses the supplied glossary; each source revision is shown below.">本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。</p><section id="sample-search-results" aria-live="polite" hidden></section><nav id="sample-toc" class="sample-contents"><div data-language="zh"><a href="#mw-toc-heading">目录</a><a href="#Base_AI">基础AI</a><a href="#Bed">床铺</a><a href="#Beehive">蜂房</a><a href="#Character">角色</a><a href="#Container">容器</a><a href="#CookingStation">CookingStation</a><a href="#Corpse">尸体</a><a href="#CreatureSpawner">CreatureSpawner</a><a href="#Destructible">可破坏物</a><a href="#Door">门</a><a href="#DungeonGenerator">DungeonGenerator</a><a href="#Fermenter">发酵桶</a><a href="#Fireplace">火炉</a><a href="#Fish">鱼</a><a href="#FishingFloat">FishingFloat</a><a href="#Humanoid">人形生物</a><a href="#ItemDrop">ItemDrop</a><a href="#ItemStand">itemstand</a><a href="#Leviathan">利维坦</a><a href="#LiquidVolume">LiquidVolume</a><a href="#LocationProxy">LocationProxy</a><a href="#MapTable">MapTable</a><a href="#MineRock">MineRock</a><a href="#MineRock5">MineRock5</a><a href="#MonsterAI">MonsterAI</a><a href="#Pickable">可拾取</a><a href="#PickableItem">PickableItem</a><a href="#Piece">建筑部件</a><a href="#Plant">植物</a><a href="#Player">玩家</a><a href="#PrivateArea">PrivateArea</a><a href="#Procreation">繁殖</a><a href="#Ragdoll">布娃娃物理模型</a><a href="#RandomFlyingBird">RandomFlyingBird</a><a href="#Saddle">马鞍</a><a href="#SEMan">SEMan</a><a href="#Ship">船舶</a><a href="#ShipConstructor">ShipConstructor</a><a href="#Sign">告示牌</a><a href="#SpawnSystem">SpawnSystem</a><a href="#Smelter">冶炼炉</a><a href="#Tameable">可驯服</a><a href="#Teleport">远程传送</a><a href="#TeleportWorld">TeleportWorld</a><a href="#TerrainComp">TerrainComp</a><a href="#Tombstone">墓碑</a><a href="#TreeBase">TreeBase</a><a href="#TreeLog">TreeLog</a><a href="#VisEquipment">VisEquipment</a><a href="#WearNTear">WearNTear</a><a href="#ZNetView">ZNetView</a><a href="#ZSyncTranform">ZSyncTranform</a></div><div data-language="en" hidden><a href="#en-mw-toc-heading">Contents</a><a href="#en-Base_AI">Base AI</a><a href="#en-Bed">Bed</a><a href="#en-Beehive">Beehive</a><a href="#en-Character">Character</a><a href="#en-Container">Container</a><a href="#en-CookingStation">CookingStation</a><a href="#en-Corpse">Corpse</a><a href="#en-CreatureSpawner">CreatureSpawner</a><a href="#en-Destructible">Destructible</a><a href="#en-Door">Door</a><a href="#en-DungeonGenerator">DungeonGenerator</a><a href="#en-Fermenter">Fermenter</a><a href="#en-Fireplace">Fireplace</a><a href="#en-Fish">Fish</a><a href="#en-FishingFloat">FishingFloat</a><a href="#en-Humanoid">Humanoid</a><a href="#en-ItemDrop">ItemDrop</a><a href="#en-ItemStand">ItemStand</a><a href="#en-Leviathan">Leviathan</a><a href="#en-LiquidVolume">LiquidVolume</a><a href="#en-LocationProxy">LocationProxy</a><a href="#en-MapTable">MapTable</a><a href="#en-MineRock">MineRock</a><a href="#en-MineRock5">MineRock5</a><a href="#en-MonsterAI">MonsterAI</a><a href="#en-Pickable">Pickable</a><a href="#en-PickableItem">PickableItem</a><a href="#en-Piece">Piece</a><a href="#en-Plant">Plant</a><a href="#en-Player">Player</a><a href="#en-PrivateArea">PrivateArea</a><a href="#en-Procreation">Procreation</a><a href="#en-Ragdoll">Ragdoll</a><a href="#en-RandomFlyingBird">RandomFlyingBird</a><a href="#en-Saddle">Saddle</a><a href="#en-SEMan">SEMan</a><a href="#en-Ship">Ship</a><a href="#en-ShipConstructor">ShipConstructor</a><a href="#en-Sign">Sign</a><a href="#en-SpawnSystem">SpawnSystem</a><a href="#en-Smelter">Smelter</a><a href="#en-Tameable">Tameable</a><a href="#en-Teleport">Teleport</a><a href="#en-TeleportWorld">TeleportWorld</a><a href="#en-TerrainComp">TerrainComp</a><a href="#en-Tombstone">Tombstone</a><a href="#en-TreeBase">TreeBase</a><a href="#en-TreeLog">TreeLog</a><a href="#en-VisEquipment">VisEquipment</a><a href="#en-WearNTear">WearNTear</a><a href="#en-ZNetView">ZNetView</a><a href="#en-ZSyncTranform">ZSyncTranform</a></div></nav><section id="sample-zh" data-language="zh"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><p>本页列出存档中持久化数据的内部标识符，对模组作者及部分模组可能有用。另见<a href="p-72c882b758975bacd53f.html" title="物品ID">物品ID</a>。</p>
+<div aria-labelledby="mw-toc-heading" class="toc" id="toc" role="navigation"><div class="toctitle" dir="ltr" lang="en"><h2 id="mw-toc-heading">目录</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Base_AI"><span class="tocnumber">1</span> <span class="toctext">基础AI</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Bed"><span class="tocnumber">2</span> <span class="toctext">床铺</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Beehive"><span class="tocnumber">3</span> <span class="toctext">蜂房</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Character"><span class="tocnumber">4</span> <span class="toctext">角色</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Container"><span class="tocnumber">5</span> <span class="toctext">容器</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#CookingStation"><span class="tocnumber">6</span> <span class="toctext">CookingStation</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Corpse"><span class="tocnumber">7</span> <span class="toctext">尸体</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#CreatureSpawner"><span class="tocnumber">8</span> <span class="toctext">CreatureSpawner</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Destructible"><span class="tocnumber">9</span> <span class="toctext">可破坏物</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Door"><span class="tocnumber">10</span> <span class="toctext">门</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#DungeonGenerator"><span class="tocnumber">11</span> <span class="toctext">DungeonGenerator</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Fermenter"><span class="tocnumber">12</span> <span class="toctext">发酵桶</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#Fireplace"><span class="tocnumber">13</span> <span class="toctext">火炉</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="#Fish"><span class="tocnumber">14</span> <span class="toctext">鱼</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="#FishingFloat"><span class="tocnumber">15</span> <span class="toctext">FishingFloat</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="#Humanoid"><span class="tocnumber">16</span> <span class="toctext">人形生物</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="#ItemDrop"><span class="tocnumber">17</span> <span class="toctext">ItemDrop</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="#ItemStand"><span class="tocnumber">18</span> <span class="toctext">itemstand</span></a></li>
+<li class="toclevel-1 tocsection-19"><a href="#Leviathan"><span class="tocnumber">19</span> <span class="toctext">利维坦</span></a></li>
+<li class="toclevel-1 tocsection-20"><a href="#LiquidVolume"><span class="tocnumber">20</span> <span class="toctext">LiquidVolume</span></a></li>
+<li class="toclevel-1 tocsection-21"><a href="#LocationProxy"><span class="tocnumber">21</span> <span class="toctext">LocationProxy</span></a></li>
+<li class="toclevel-1 tocsection-22"><a href="#MapTable"><span class="tocnumber">22</span> <span class="toctext">MapTable</span></a></li>
+<li class="toclevel-1 tocsection-23"><a href="#MineRock"><span class="tocnumber">23</span> <span class="toctext">MineRock</span></a></li>
+<li class="toclevel-1 tocsection-24"><a href="#MineRock5"><span class="tocnumber">24</span> <span class="toctext">MineRock5</span></a></li>
+<li class="toclevel-1 tocsection-25"><a href="#MonsterAI"><span class="tocnumber">25</span> <span class="toctext">MonsterAI</span></a></li>
+<li class="toclevel-1 tocsection-26"><a href="#Pickable"><span class="tocnumber">26</span> <span class="toctext">可拾取</span></a></li>
+<li class="toclevel-1 tocsection-27"><a href="#PickableItem"><span class="tocnumber">27</span> <span class="toctext">PickableItem</span></a></li>
+<li class="toclevel-1 tocsection-28"><a href="#Piece"><span class="tocnumber">28</span> <span class="toctext">建筑部件</span></a></li>
+<li class="toclevel-1 tocsection-29"><a href="#Plant"><span class="tocnumber">29</span> <span class="toctext">植物</span></a></li>
+<li class="toclevel-1 tocsection-30"><a href="#Player"><span class="tocnumber">30</span> <span class="toctext">玩家</span></a></li>
+<li class="toclevel-1 tocsection-31"><a href="#PrivateArea"><span class="tocnumber">31</span> <span class="toctext">PrivateArea</span></a></li>
+<li class="toclevel-1 tocsection-32"><a href="#Procreation"><span class="tocnumber">32</span> <span class="toctext">繁殖</span></a></li>
+<li class="toclevel-1 tocsection-33"><a href="#Ragdoll"><span class="tocnumber">33</span> <span class="toctext">布娃娃物理模型</span></a></li>
+<li class="toclevel-1 tocsection-34"><a href="#RandomFlyingBird"><span class="tocnumber">34</span> <span class="toctext">RandomFlyingBird</span></a></li>
+<li class="toclevel-1 tocsection-35"><a href="#Saddle"><span class="tocnumber">35</span> <span class="toctext">马鞍</span></a></li>
+<li class="toclevel-1 tocsection-36"><a href="#SEMan"><span class="tocnumber">36</span> <span class="toctext">SEMan</span></a></li>
+<li class="toclevel-1 tocsection-37"><a href="#Ship"><span class="tocnumber">37</span> <span class="toctext">船舶</span></a></li>
+<li class="toclevel-1 tocsection-38"><a href="#ShipConstructor"><span class="tocnumber">38</span> <span class="toctext">ShipConstructor</span></a></li>
+<li class="toclevel-1 tocsection-39"><a href="#Sign"><span class="tocnumber">39</span> <span class="toctext">告示牌</span></a></li>
+<li class="toclevel-1 tocsection-40"><a href="#SpawnSystem"><span class="tocnumber">40</span> <span class="toctext">SpawnSystem</span></a></li>
+<li class="toclevel-1 tocsection-41"><a href="#Smelter"><span class="tocnumber">41</span> <span class="toctext">冶炼炉</span></a></li>
+<li class="toclevel-1 tocsection-42"><a href="#Tameable"><span class="tocnumber">42</span> <span class="toctext">可驯服</span></a></li>
+<li class="toclevel-1 tocsection-43"><a href="#Teleport"><span class="tocnumber">43</span> <span class="toctext">远程传送</span></a></li>
+<li class="toclevel-1 tocsection-44"><a href="#TeleportWorld"><span class="tocnumber">44</span> <span class="toctext">TeleportWorld</span></a></li>
+<li class="toclevel-1 tocsection-45"><a href="#TerrainComp"><span class="tocnumber">45</span> <span class="toctext">TerrainComp</span></a></li>
+<li class="toclevel-1 tocsection-46"><a href="#Tombstone"><span class="tocnumber">46</span> <span class="toctext">墓碑</span></a></li>
+<li class="toclevel-1 tocsection-47"><a href="#TreeBase"><span class="tocnumber">47</span> <span class="toctext">TreeBase</span></a></li>
+<li class="toclevel-1 tocsection-48"><a href="#TreeLog"><span class="tocnumber">48</span> <span class="toctext">TreeLog</span></a></li>
+<li class="toclevel-1 tocsection-49"><a href="#VisEquipment"><span class="tocnumber">49</span> <span class="toctext">VisEquipment</span></a></li>
+<li class="toclevel-1 tocsection-50"><a href="#WearNTear"><span class="tocnumber">50</span> <span class="toctext">WearNTear</span></a></li>
+<li class="toclevel-1 tocsection-51"><a href="#ZNetView"><span class="tocnumber">51</span> <span class="toctext">ZNetView</span></a></li>
+<li class="toclevel-1 tocsection-52"><a href="#ZSyncTranform"><span class="tocnumber">52</span> <span class="toctext">ZSyncTranform</span></a></li>
+</ul>
+</div>
+<div class="mw-heading mw-heading3"><h3 id="Base_AI">基础AI</h3></div>
+<ul><li>huntplayer（布尔值）</li>
+<li>spawnpoint（Vector3D，三维向量）</li>
+<li>patrolPoint（Vector3D，三维向量）</li>
+<li>patrol（布尔值）</li>
+<li>spawntime（长整型时间刻度）</li>
+<li>lastWorldTime（长整型时间刻度）</li>
+<li>haveTarget（布尔值）</li>
+<li>alert（布尔值）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Bed">床铺</h3></div>
+<ul><li>owner（长整型玩家ID）</li>
+<li>ownerName（字符串）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Beehive">蜂房</h3></div>
+<ul><li>lastTime（长整型时间刻度）</li>
+<li>level（整数）</li>
+<li>product（浮点数）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Character">角色</h3></div>
+<ul><li>max_health（浮点数）</li>
+<li>noise（浮点数）</li>
+<li>level（整数）</li>
+<li>tiltrot（四元数）</li>
+<li>BodyVelocity（Vector3D，三维向量）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Container">容器</h3></div>
+<ul><li>addedDefaultItems（布尔值）</li>
+<li>InUse（布尔值）</li>
+<li>items（base64编码）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="CookingStation">CookingStation</h3></div>
+<ul><li>StartTime（长整型时间刻度）</li>
+<li>fuel（浮点数）</li>
+<li>slot{ID}（字符串）</li>
+<li>slot{ID}（浮点数）</li>
+<li>slotstatus{ID}（0 = 生，1 = 熟，2 = 焦）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Corpse">尸体</h3></div>
+<ul><li>timeOfDeath（长整型时间刻度）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="CreatureSpawner">CreatureSpawner</h3></div>
+<ul><li>alive_time（长整型时间刻度）</li>
+<li>spawn_id（长整型实体ID）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Destructible">可破坏物</h3></div>
+<ul><li>health（浮点数）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Door">门</h3></div>
+<ul><li>state（1 = 打开，0 = 关闭，-1 = 向反方向打开）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="DungeonGenerator">DungeonGenerator</h3></div>
+<ul><li>rooms（整数）</li>
+<li>room{index}（整数）</li>
+<li>room{index]_pos（Vector3D，三维向量）</li>
+<li>room{index}_rot（四元数）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Fermenter">发酵桶</h3></div>
+<ul><li>Content（字符串）</li>
+<li>StartTime（长整型时间刻度）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Fireplace">火炉</h3></div>
+<ul><li>fuel（浮点数）</li>
+<li>lastTime（长整型时间刻度）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Fish">鱼</h3></div>
+<ul><li>spawnpoint（Vector3D，三维向量）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="FishingFloat">FishingFloat</h3></div>
+<ul><li>RodOwner（长整型玩家ID）</li>
+<li>CatchId（长整型物品ID）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Humanoid">人形生物</h3></div>
+<ul><li>IsBlocking（布尔值）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="ItemDrop">ItemDrop</h3></div>
+<ul><li>SpawnTime（长整型时间刻度）</li>
+<li>durability（浮点数）</li>
+<li>stack（整数）</li>
+<li>quality（整数）</li>
+<li>variant（整数）</li>
+<li>crafterID（长整型玩家ID）</li>
+<li>crafterName（字符串）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="ItemStand">itemstand</h3></div>
+<ul><li>item（字符串）</li>
+<li>variant（整数）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Leviathan">利维坦</h3></div>
+<ul><li>submerged（布尔值）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="LiquidVolume">LiquidVolume</h3></div>
+<ul><li>LiquidData（复合数据）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="LocationProxy">LocationProxy</h3></div>
+<ul><li>location (long location ID)</li>
+<li>seed（整数）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="MapTable">MapTable</h3></div>
+<ul><li>data（字节数组）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="MineRock">MineRock</h3></div>
+<ul><li>Health（浮点数）</li>
+<li>Health0（浮点数）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="MineRock5">MineRock5</h3></div>
+<ul><li>health（base64编码字符串）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="MonsterAI">MonsterAI</h3></div>
+<ul><li>DespawnInDay（布尔值）</li>
+<li>EventCreature（布尔值）</li>
+<li>sleeping（布尔值）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Pickable">可拾取</h3></div>
+<ul><li>picked（布尔值）</li>
+<li>picked_time（长整型时间刻度）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="PickableItem">PickableItem</h3></div>
+<ul><li>itemPrefab（长整型物品ID）</li>
+<li>itemStack（整数）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Piece">建筑部件</h3></div>
+<ul><li>creator（长整型玩家ID）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Plant">植物</h3></div>
+<ul><li>plantTime（长整型时间刻度）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Player">玩家</h3></div>
+<ul><li>Stealth（浮点数）</li>
+<li>stamina（浮点数）</li>
+<li>DebugFly（布尔值）</li>
+<li>playerID（长整型玩家ID）</li>
+<li>playerName（字符串）</li>
+<li>wakeup（布尔值）</li>
+<li>dead（布尔值）</li>
+<li>dodgeinv（布尔值）</li>
+<li>baseValue（整数）</li>
+<li>pvp（布尔值）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="PrivateArea">PrivateArea</h3></div>
+<ul><li>permitted（整数）</li>
+<li>pu_id{index}（长整型玩家ID）</li>
+<li>pu_name{index}（字符串）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Procreation">繁殖</h3></div>
+<ul><li>lovePoints（整数）</li>
+<li>pregnant（布尔值）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Ragdoll">布娃娃物理模型</h3></div>
+<ul><li>Hue（浮点数）</li>
+<li>Saturation（浮点数）</li>
+<li>Value（浮点数）</li>
+<li>InitVel（Vector3D，三维向量）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="RandomFlyingBird">RandomFlyingBird</h3></div>
+<ul><li>spawnpoint（Vector3D，三维向量）</li>
+<li>landed（布尔值）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Saddle">马鞍</h3></div>
+<ul><li>user（长整型玩家ID）</li>
+<li>stamina（浮点数）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="SEMan">SEMan</h3></div>
+<ul><li>seAttrib（&amp;1=抗寒，&amp;2=双倍撞击伤害，&amp;4=航行能力）。</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Ship">船舶</h3></div>
+<ul><li>rudder（浮点数）</li>
+<li>forward（1 = 倒退，0 = 停止，2 = 慢速，3 = 半帆，4 = 全帆）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="ShipConstructor">ShipConstructor</h3></div>
+<ul><li>spawntime（长整型时间刻度）</li>
+<li>done（布尔值）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Sign">告示牌</h3></div>
+<ul><li>text（字符串）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="SpawnSystem">SpawnSystem</h3></div>
+<ul><li>b_{creature}{index}（长整型时间刻度）</li>
+<li>e_{creature}{index}（长整型时间刻度）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Smelter">冶炼炉</h3></div>
+<ul><li>fuel（浮点数）</li>
+<li>accTime（浮点数）</li>
+<li>bakeTimer（浮点数）</li>
+<li>StartTime（长整型时间刻度）</li>
+<li>SpawnOre（字符串）</li>
+<li>SpawnAmount（整数）</li>
+<li>queued（整数）</li>
+<li>item{index}（字符串）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Tameable">可驯服</h3></div>
+<ul><li>TamedName（字符串）</li>
+<li>TameTimeLeft（浮点数）</li>
+<li>TameLastFeeding（长整型时间刻度）</li>
+<li>HaveSaddle（布尔值）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Teleport">远程传送</h3></div>
+<ul><li>target（标识符）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="TeleportWorld">TeleportWorld</h3></div>
+<ul><li>tag（字符串）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="TerrainComp">TerrainComp</h3></div>
+<ul><li>TCData（字节数据）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Tombstone">墓碑</h3></div>
+<ul><li>timeOfDeath（长整型时间刻度）</li>
+<li>SpawnPoint（Vector3D，三维向量）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="TreeBase">TreeBase</h3></div>
+<ul><li>health（浮点数）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="TreeLog">TreeLog</h3></div>
+<ul><li>health（浮点数）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="VisEquipment">VisEquipment</h3></div>
+<ul><li>ModelIndex（整数）</li>
+<li>SkinColor（Vector3D颜色向量）</li>
+<li>HairColor（Vector3D颜色向量）</li>
+<li>RightItem（长整型物品ID）</li>
+<li>RightItemVariant（整数）</li>
+<li>RightBackItem（长整型物品ID）</li>
+<li>RightBackItemVariant（整数）</li>
+<li>LeftItem（长整型物品ID）</li>
+<li>LeftItemVariant（整数）</li>
+<li>LeftBackItem（长整型物品ID）</li>
+<li>LeftBackItemVariant（整数）</li>
+<li>ChestItem（长整型物品ID）</li>
+<li>LegItem（长整型物品ID）</li>
+<li>HelmetItem（长整型物品ID）</li>
+<li>ShoulderItem（长整型物品ID）</li>
+<li>ShoulderItemVariant（整数）</li>
+<li>BeardItem（字符串）</li>
+<li>HairItem（字符串）</li>
+<li>UtilityItem（长整型物品ID）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="WearNTear">WearNTear</h3></div>
+<ul><li>health（浮点数）</li>
+<li>support（浮点数）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="ZNetView">ZNetView</h3></div>
+<ul><li>scale（Vector3D，三维向量）</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="ZSyncTranform">ZSyncTranform</h3></div>
+<ul><li>vel（Vector3D，三维向量）</li>
+<li>scale（Vector3D，三维向量）</li>
+<li>body_vel（Vector3D，三维向量）</li>
+<li>body_avel（Vector3D，三维向量）</li>
+<li>relPos（Vector3D，三维向量）</li>
+<li>attachJoint（字符串）</li>
+<li>parentID（长整型实体ID）</li></ul>
+<p><br/>
+</p>
+
+
+
+</div></section><section id="sample-en" data-language="en" hidden><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><p>This page contains internal IDs for data that gets persisted in the save files. This can be useful for mod creators and some mods. See also: <a href="p-72c882b758975bacd53f.html" title="Item IDs">Item IDs</a>.
+</p>
+<div aria-labelledby="mw-toc-heading" class="toc" id="en-toc" role="navigation"><div class="toctitle" dir="ltr" lang="en"><h2 id="en-mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#en-Base_AI"><span class="tocnumber">1</span> <span class="toctext">Base AI</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#en-Bed"><span class="tocnumber">2</span> <span class="toctext">Bed</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#en-Beehive"><span class="tocnumber">3</span> <span class="toctext">Beehive</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#en-Character"><span class="tocnumber">4</span> <span class="toctext">Character</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#en-Container"><span class="tocnumber">5</span> <span class="toctext">Container</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#en-CookingStation"><span class="tocnumber">6</span> <span class="toctext">CookingStation</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#en-Corpse"><span class="tocnumber">7</span> <span class="toctext">Corpse</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#en-CreatureSpawner"><span class="tocnumber">8</span> <span class="toctext">CreatureSpawner</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#en-Destructible"><span class="tocnumber">9</span> <span class="toctext">Destructible</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#en-Door"><span class="tocnumber">10</span> <span class="toctext">Door</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#en-DungeonGenerator"><span class="tocnumber">11</span> <span class="toctext">DungeonGenerator</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#en-Fermenter"><span class="tocnumber">12</span> <span class="toctext">Fermenter</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#en-Fireplace"><span class="tocnumber">13</span> <span class="toctext">Fireplace</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="#en-Fish"><span class="tocnumber">14</span> <span class="toctext">Fish</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="#en-FishingFloat"><span class="tocnumber">15</span> <span class="toctext">FishingFloat</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="#en-Humanoid"><span class="tocnumber">16</span> <span class="toctext">Humanoid</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="#en-ItemDrop"><span class="tocnumber">17</span> <span class="toctext">ItemDrop</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="#en-ItemStand"><span class="tocnumber">18</span> <span class="toctext">ItemStand</span></a></li>
+<li class="toclevel-1 tocsection-19"><a href="#en-Leviathan"><span class="tocnumber">19</span> <span class="toctext">Leviathan</span></a></li>
+<li class="toclevel-1 tocsection-20"><a href="#en-LiquidVolume"><span class="tocnumber">20</span> <span class="toctext">LiquidVolume</span></a></li>
+<li class="toclevel-1 tocsection-21"><a href="#en-LocationProxy"><span class="tocnumber">21</span> <span class="toctext">LocationProxy</span></a></li>
+<li class="toclevel-1 tocsection-22"><a href="#en-MapTable"><span class="tocnumber">22</span> <span class="toctext">MapTable</span></a></li>
+<li class="toclevel-1 tocsection-23"><a href="#en-MineRock"><span class="tocnumber">23</span> <span class="toctext">MineRock</span></a></li>
+<li class="toclevel-1 tocsection-24"><a href="#en-MineRock5"><span class="tocnumber">24</span> <span class="toctext">MineRock5</span></a></li>
+<li class="toclevel-1 tocsection-25"><a href="#en-MonsterAI"><span class="tocnumber">25</span> <span class="toctext">MonsterAI</span></a></li>
+<li class="toclevel-1 tocsection-26"><a href="#en-Pickable"><span class="tocnumber">26</span> <span class="toctext">Pickable</span></a></li>
+<li class="toclevel-1 tocsection-27"><a href="#en-PickableItem"><span class="tocnumber">27</span> <span class="toctext">PickableItem</span></a></li>
+<li class="toclevel-1 tocsection-28"><a href="#en-Piece"><span class="tocnumber">28</span> <span class="toctext">Piece</span></a></li>
+<li class="toclevel-1 tocsection-29"><a href="#en-Plant"><span class="tocnumber">29</span> <span class="toctext">Plant</span></a></li>
+<li class="toclevel-1 tocsection-30"><a href="#en-Player"><span class="tocnumber">30</span> <span class="toctext">Player</span></a></li>
+<li class="toclevel-1 tocsection-31"><a href="#en-PrivateArea"><span class="tocnumber">31</span> <span class="toctext">PrivateArea</span></a></li>
+<li class="toclevel-1 tocsection-32"><a href="#en-Procreation"><span class="tocnumber">32</span> <span class="toctext">Procreation</span></a></li>
+<li class="toclevel-1 tocsection-33"><a href="#en-Ragdoll"><span class="tocnumber">33</span> <span class="toctext">Ragdoll</span></a></li>
+<li class="toclevel-1 tocsection-34"><a href="#en-RandomFlyingBird"><span class="tocnumber">34</span> <span class="toctext">RandomFlyingBird</span></a></li>
+<li class="toclevel-1 tocsection-35"><a href="#en-Saddle"><span class="tocnumber">35</span> <span class="toctext">Saddle</span></a></li>
+<li class="toclevel-1 tocsection-36"><a href="#en-SEMan"><span class="tocnumber">36</span> <span class="toctext">SEMan</span></a></li>
+<li class="toclevel-1 tocsection-37"><a href="#en-Ship"><span class="tocnumber">37</span> <span class="toctext">Ship</span></a></li>
+<li class="toclevel-1 tocsection-38"><a href="#en-ShipConstructor"><span class="tocnumber">38</span> <span class="toctext">ShipConstructor</span></a></li>
+<li class="toclevel-1 tocsection-39"><a href="#en-Sign"><span class="tocnumber">39</span> <span class="toctext">Sign</span></a></li>
+<li class="toclevel-1 tocsection-40"><a href="#en-SpawnSystem"><span class="tocnumber">40</span> <span class="toctext">SpawnSystem</span></a></li>
+<li class="toclevel-1 tocsection-41"><a href="#en-Smelter"><span class="tocnumber">41</span> <span class="toctext">Smelter</span></a></li>
+<li class="toclevel-1 tocsection-42"><a href="#en-Tameable"><span class="tocnumber">42</span> <span class="toctext">Tameable</span></a></li>
+<li class="toclevel-1 tocsection-43"><a href="#en-Teleport"><span class="tocnumber">43</span> <span class="toctext">Teleport</span></a></li>
+<li class="toclevel-1 tocsection-44"><a href="#en-TeleportWorld"><span class="tocnumber">44</span> <span class="toctext">TeleportWorld</span></a></li>
+<li class="toclevel-1 tocsection-45"><a href="#en-TerrainComp"><span class="tocnumber">45</span> <span class="toctext">TerrainComp</span></a></li>
+<li class="toclevel-1 tocsection-46"><a href="#en-Tombstone"><span class="tocnumber">46</span> <span class="toctext">Tombstone</span></a></li>
+<li class="toclevel-1 tocsection-47"><a href="#en-TreeBase"><span class="tocnumber">47</span> <span class="toctext">TreeBase</span></a></li>
+<li class="toclevel-1 tocsection-48"><a href="#en-TreeLog"><span class="tocnumber">48</span> <span class="toctext">TreeLog</span></a></li>
+<li class="toclevel-1 tocsection-49"><a href="#en-VisEquipment"><span class="tocnumber">49</span> <span class="toctext">VisEquipment</span></a></li>
+<li class="toclevel-1 tocsection-50"><a href="#en-WearNTear"><span class="tocnumber">50</span> <span class="toctext">WearNTear</span></a></li>
+<li class="toclevel-1 tocsection-51"><a href="#en-ZNetView"><span class="tocnumber">51</span> <span class="toctext">ZNetView</span></a></li>
+<li class="toclevel-1 tocsection-52"><a href="#en-ZSyncTranform"><span class="tocnumber">52</span> <span class="toctext">ZSyncTranform</span></a></li>
+</ul>
+</div>
+<div class="mw-heading mw-heading3"><h3 id="en-Base_AI">Base AI</h3></div>
+<ul><li>huntplayer (boolean)</li>
+<li>spawnpoint (Vector3D)</li>
+<li>patrolPoint (Vector3D)</li>
+<li>patrol (boolean)</li>
+<li>spawntime (long ticks)</li>
+<li>lastWorldTime (long ticks)</li>
+<li>haveTarget (boolean)</li>
+<li>alert (boolean)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Bed">Bed</h3></div>
+<ul><li>owner (long player ID)</li>
+<li>ownerName (string)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Beehive">Beehive</h3></div>
+<ul><li>lastTime (long ticks)</li>
+<li>level (int)</li>
+<li>product (float)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Character">Character</h3></div>
+<ul><li>max_health (float)</li>
+<li>noise (float)</li>
+<li>level (int)</li>
+<li>tiltrot (Quaternion)</li>
+<li>BodyVelocity (Vector3D)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Container">Container</h3></div>
+<ul><li>addedDefaultItems (boolean)</li>
+<li>InUse (boolean)</li>
+<li>items (base64)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-CookingStation">CookingStation</h3></div>
+<ul><li>StartTime (long ticks)</li>
+<li>fuel (float)</li>
+<li>slot{ID} (string)</li>
+<li>slot{ID} (float)</li>
+<li>slotstatus{ID} (0 = raw, 1 = cooked, 2 = burnt)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Corpse">Corpse</h3></div>
+<ul><li>timeOfDeath (long ticks)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-CreatureSpawner">CreatureSpawner</h3></div>
+<ul><li>alive_time (long ticks)</li>
+<li>spawn_id (long entity ID)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Destructible">Destructible</h3></div>
+<ul><li>health (float)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Door">Door</h3></div>
+<ul><li>state (1 = opened, 0 = closed, -1 = opened opposite)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-DungeonGenerator">DungeonGenerator</h3></div>
+<ul><li>rooms (int)</li>
+<li>room{index} (int)</li>
+<li>room{index]_pos (Vector3D)</li>
+<li>room{index}_rot (Quaternion)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Fermenter">Fermenter</h3></div>
+<ul><li>Content (string)</li>
+<li>StartTime (long ticks)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Fireplace">Fireplace</h3></div>
+<ul><li>fuel (float)</li>
+<li>lastTime (long ticks)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Fish">Fish</h3></div>
+<ul><li>spawnpoint (Vector3D)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-FishingFloat">FishingFloat</h3></div>
+<ul><li>RodOwner (long player ID)</li>
+<li>CatchId (long item ID)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Humanoid">Humanoid</h3></div>
+<ul><li>IsBlocking (boolean)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-ItemDrop">ItemDrop</h3></div>
+<ul><li>SpawnTime (long ticks)</li>
+<li>durability (float)</li>
+<li>stack (int)</li>
+<li>quality (int)</li>
+<li>variant (int)</li>
+<li>crafterID (long player ID)</li>
+<li>crafterName (string)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-ItemStand">ItemStand</h3></div>
+<ul><li>item (string)</li>
+<li>variant (int)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Leviathan">Leviathan</h3></div>
+<ul><li>submerged (boolean)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-LiquidVolume">LiquidVolume</h3></div>
+<ul><li>LiquidData (complex)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-LocationProxy">LocationProxy</h3></div>
+<ul><li>location (long location ID)</li>
+<li>seed (int)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-MapTable">MapTable</h3></div>
+<ul><li>data (byte array)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-MineRock">MineRock</h3></div>
+<ul><li>Health (float)</li>
+<li>Health0 (float)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-MineRock5">MineRock5</h3></div>
+<ul><li>health (base64 encoded string)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-MonsterAI">MonsterAI</h3></div>
+<ul><li>DespawnInDay (boolean)</li>
+<li>EventCreature (boolean)</li>
+<li>sleeping (boolean)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Pickable">Pickable</h3></div>
+<ul><li>picked (boolean)</li>
+<li>picked_time (long ticks)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-PickableItem">PickableItem</h3></div>
+<ul><li>itemPrefab (long item ID)</li>
+<li>itemStack (int)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Piece">Piece</h3></div>
+<ul><li>creator (long player ID)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Plant">Plant</h3></div>
+<ul><li>plantTime (long ticks)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Player">Player</h3></div>
+<ul><li>Stealth (float)</li>
+<li>stamina (float)</li>
+<li>DebugFly (boolean)</li>
+<li>playerID (long player ID)</li>
+<li>playerName (string)</li>
+<li>wakeup (boolean)</li>
+<li>dead (boolean)</li>
+<li>dodgeinv (boolean)</li>
+<li>baseValue (int)</li>
+<li>pvp (boolean)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-PrivateArea">PrivateArea</h3></div>
+<ul><li>permitted (int)</li>
+<li>pu_id{index} (long player ID)</li>
+<li>pu_name{index} (string)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Procreation">Procreation</h3></div>
+<ul><li>lovePoints (int)</li>
+<li>pregnant (boolean)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Ragdoll">Ragdoll</h3></div>
+<ul><li>Hue (float)</li>
+<li>Saturation (float)</li>
+<li>Value (float)</li>
+<li>InitVel (Vector3D)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-RandomFlyingBird">RandomFlyingBird</h3></div>
+<ul><li>spawnpoint (Vector3D)</li>
+<li>landed (boolean)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Saddle">Saddle</h3></div>
+<ul><li>user (long player ID)</li>
+<li>stamina (float)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-SEMan">SEMan</h3></div>
+<ul><li>seAttrib (&amp;1 = cold resistance, &amp;2 = double impact damage, &amp;4 = sailing power)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Ship">Ship</h3></div>
+<ul><li>rudder (float)</li>
+<li>forward (1 = back, 0 = stop, 2 = slow, 3 = half, 4 = full)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-ShipConstructor">ShipConstructor</h3></div>
+<ul><li>spawntime (long ticks)</li>
+<li>done (boolean)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Sign">Sign</h3></div>
+<ul><li>text (string)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-SpawnSystem">SpawnSystem</h3></div>
+<ul><li>b_{creature}{index} (long ticks)</li>
+<li>e_{creature}{index} (long ticks)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Smelter">Smelter</h3></div>
+<ul><li>fuel (float)</li>
+<li>accTime (float)</li>
+<li>bakeTimer (float)</li>
+<li>StartTime (long ticks)</li>
+<li>SpawnOre (string)</li>
+<li>SpawnAmount (int)</li>
+<li>queued (int)</li>
+<li>item{index} (string)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Tameable">Tameable</h3></div>
+<ul><li>TamedName (string)</li>
+<li>TameTimeLeft (float)</li>
+<li>TameLastFeeding (long ticks)</li>
+<li>HaveSaddle (boolean)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Teleport">Teleport</h3></div>
+<ul><li>target (id)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-TeleportWorld">TeleportWorld</h3></div>
+<ul><li>tag (string)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-TerrainComp">TerrainComp</h3></div>
+<ul><li>TCData (bytes)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Tombstone">Tombstone</h3></div>
+<ul><li>timeOfDeath (long ticks)</li>
+<li>SpawnPoint (Vector3D)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-TreeBase">TreeBase</h3></div>
+<ul><li>health (float)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-TreeLog">TreeLog</h3></div>
+<ul><li>health (float)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-VisEquipment">VisEquipment</h3></div>
+<ul><li>ModelIndex (int)</li>
+<li>SkinColor (Vector3D Color)</li>
+<li>HairColor (Vector3D Color)</li>
+<li>RightItem (long item ID)</li>
+<li>RightItemVariant (int)</li>
+<li>RightBackItem (long item ID)</li>
+<li>RightBackItemVariant (int)</li>
+<li>LeftItem (long item ID)</li>
+<li>LeftItemVariant (int)</li>
+<li>LeftBackItem (long item ID)</li>
+<li>LeftBackItemVariant (int)</li>
+<li>ChestItem (long item ID)</li>
+<li>LegItem (long item ID)</li>
+<li>HelmetItem (long item ID)</li>
+<li>ShoulderItem (long item ID)</li>
+<li>ShoulderItemVariant (int)</li>
+<li>BeardItem (string)</li>
+<li>HairItem (string)</li>
+<li>UtilityItem (long item ID)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-WearNTear">WearNTear</h3></div>
+<ul><li>health (float)</li>
+<li>support (float)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-ZNetView">ZNetView</h3></div>
+<ul><li>scale (Vector3D)</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-ZSyncTranform">ZSyncTranform</h3></div>
+<ul><li>vel (Vector3D)</li>
+<li>scale (Vector3D)</li>
+<li>body_vel (Vector3D)</li>
+<li>body_avel (Vector3D)</li>
+<li>relPos (Vector3D)</li>
+<li>attachJoint (string)</li>
+<li>parentID (long entity ID)</li></ul>
+<p><br/>
+</p>
+
+
+
+</div></section><footer data-language="zh">来源：<a href="https://valheim.weirdgloop.org/w/Data_IDs">数据标识原文（需联网）</a>；保存修订号 55211。中文为本地译文。<p>原站内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名—非商业性使用—相同方式共享 3.0（CC BY-NC-SA 3.0）</a>许可；<a href="https://meta.weirdgloop.org/w/Licensing">可能适用额外条款</a>。背景与装饰素材来自原版维基，并已保存到本地。</p></footer><footer data-language="en" hidden>Source: <a href="https://valheim.weirdgloop.org/w/Data_IDs">Data IDs original (online)</a>; saved revision 55211. Chinese is a local translation. <p>Content on this site is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a>; <a href="https://meta.weirdgloop.org/w/Licensing">additional terms may apply</a>. Backgrounds and decorative assets from the original wiki are stored locally.</p></footer></main></body></html>

@@ -1,0 +1,1811 @@
+<!doctype html><html data-wiki-root=".." lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>开发者控制台 · 英灵神殿离线维基</title><link rel="stylesheet" href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-0.css"><link rel="stylesheet" href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-1.css"><link rel="stylesheet" href="../assets/sample.css"><script defer src="../assets/search.js"></script><script defer src="../assets/sample.js"></script></head><body class="skin-vector"><nav class="sample-toolbar"><strong  data-ui-zh="英灵神殿 · 离线维基" data-ui-en="Valheim · Offline Wiki">英灵神殿 · 离线维基</strong><a href="creatures.html" data-local-page="true" data-ui-zh="生物" data-ui-en="Creatures">生物</a><a href="how-to-play.html" data-local-page="true" data-ui-zh="入门玩法" data-ui-en="How to play">入门玩法</a><a href="biomes.html" data-local-page="true" data-ui-zh="生物群系" data-ui-en="Biomes">生物群系</a><a href="weapons.html" data-local-page="true" data-ui-zh="武器" data-ui-en="Weapons">武器</a><a href="food.html" data-local-page="true" data-ui-zh="食物" data-ui-en="Food">食物</a><a href="armor.html" data-local-page="true" data-ui-zh="护甲" data-ui-en="Armor">护甲</a><a href="crafting.html" data-local-page="true" data-ui-zh="制作" data-ui-en="Crafting">制作</a><a href="building.html" data-local-page="true" data-ui-zh="建材" data-ui-en="Building">建材</a><button id="sample-language" aria-pressed="false">切换英文</button><a href="#sample-toc" data-ui-zh="本页目录" data-ui-en="Contents">本页目录</a><form id="sample-search-form" role="search"><label for=sample-search data-ui-zh="站内搜索" data-ui-en="Site search">站内搜索</label><input id="sample-search" type="search" autocomplete="off" data-placeholder-zh="输入中文或英文" data-placeholder-en="Search in Chinese or English" placeholder="输入中文或英文"><button type=submit data-ui-zh="搜索" data-ui-en="Search">搜索</button></form></nav><main class="sample-shell"><h1 id="sample-title" data-ui-zh="开发者控制台" data-ui-en="Developer console">开发者控制台</h1><p class="sample-note" data-ui-zh="本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。" data-ui-en="This offline edition supports Chinese and English site search. Links marked ↗ require internet. Chinese uses the supplied glossary; each source revision is shown below.">本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。</p><section id="sample-search-results" aria-live="polite" hidden></section><nav id="sample-toc" class="sample-contents"><div data-language="zh"><a href="#mw-toc-heading">目录</a><a href="#Enabling_the_console">启用控制台</a><a href="#Commands">命令</a><a href="#Player_commands">玩家命令</a><a href="#Emotes">表情</a><a href="#Admin_commands">管理员命令</a><a href="#Cheat_commands">作弊命令</a><a href="#Debug_mode">调试模式</a></div><div data-language="en" hidden><a href="#en-mw-toc-heading">Contents</a><a href="#en-Enabling_the_console">Enabling the console</a><a href="#en-Commands">Commands</a><a href="#en-Player_commands">Player commands</a><a href="#en-Emotes">Emotes</a><a href="#en-Admin_commands">Admin commands</a><a href="#en-Cheat_commands">Cheat commands</a><a href="#en-Debug_mode">Debug mode</a></div></nav><section id="sample-zh" data-language="zh"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><figure class="mw-default-size" typeof="mw:File/Thumb"><a class="mw-file-description" href="../assets/f16b5d1f35a073ec2fb5.webp"><img class="mw-file-element" data-file-height="1080" data-file-width="1920" decoding="async" height="169" loading="eager" src="../assets/f16b5d1f35a073ec2fb5.webp" width="300"/></a><figcaption>开发者控制台，显示help命令输出。</figcaption></figure>
+<p><b>开发者控制台</b>，简称<b>控制台</b>，是输入文本<a href="#Commands">命令</a>的游戏内界面，用于调试、作弊和服务器管理。</p>
+<div aria-labelledby="mw-toc-heading" class="toc" id="toc" role="navigation"><div class="toctitle" dir="ltr" lang="en"><h2 id="mw-toc-heading">目录</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Enabling_the_console"><span class="tocnumber">1</span> <span class="toctext">启用控制台</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Commands"><span class="tocnumber">2</span> <span class="toctext">命令</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Player_commands"><span class="tocnumber">2.1</span> <span class="toctext">玩家命令</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Emotes"><span class="tocnumber">2.2</span> <span class="toctext">表情</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Admin_commands"><span class="tocnumber">2.3</span> <span class="toctext">管理员命令</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Cheat_commands"><span class="tocnumber">3</span> <span class="toctext">作弊命令</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Debug_mode"><span class="tocnumber">3.1</span> <span class="toctext">调试模式</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="Enabling_the_console">启用控制台</h2></div>
+<p>使用控制台命令前，必须启用控制台。不同游戏版本有不同方法，也可在设置中启用。</p><p><b><u>Steam</u></b>
+</p>
+<ol><li>在Steam游戏库中右键点击英灵神殿。</li>
+<li>选择属性.</li>
+<li>在“常规”选项卡中找到“启动选项”字段。</li>
+<li>在其中输入“-console”。</li>
+<li>关闭 该窗口。</li>
+<li>在游戏中按F5打开控制台窗口。</li></ol>
+<p><u><b>PC Game Pass</b></u>
+</p>
+<ol><li>进入游戏安装文件夹，通常为<i>C:\XboxGames\Valheim\Content</i>。</li>
+<li>在该文件夹中,查找 <i>Valheim.exe</i>.</li>
+<li>右键点击Valheim.exe，选择“创建快捷方式”。</li>
+<li>将快捷方式拖到桌面或其他所需位置。</li>
+<li>右键点击快捷方式，选择“属性”。</li>
+<li>在快捷方式选项卡的目标字段末尾添加“-console”。</li>
+<li>点击应用,然后单击“确定”。</li>
+<li>通过该快捷方式启动游戏。</li>
+<li>在游戏中按F5打开控制台窗口。</li></ol>
+<p><u><b>Xbox Game Pass</b></u>
+</p>
+<ol><li>在游戏中同时按住LB + RB + MENU。</li>
+<li>按A调出键盘。</li></ol>
+<p><b><u>macOS（App Store）</u></b>
+</p>
+<ol><li>用TextEdit或类似编辑器创建文本文件，命名valheim.sh，放在系统合适位置。</li>
+<li>打开文件，输入：#!bin/bash /Applications/Valheim.app/Contents/MacOS/Valheim -console。</li>
+<li>运行valheim.sh，以启用控制台的方式启动英灵神殿。</li>
+<li>在游戏中按F5打开控制台窗口</li></ol>
+<p>注意：这些说明适用于App Store购买者。通过Steam运行时，使用上面的Steam说明。</p><p><u><b>GeForce Now</b></u>
+</p>
+<ol><li>在Steam客户端或网站启用家庭共享模式，说明见<a class="external text sample-online" data-online="true" href="https://help.steampowered.com/en/faqs/view/6B1A-66BE-E911-3D98" rel="noopener noreferrer" target="_blank">Steam</a>。<b>不要将英灵神殿加入白名单</b></li>
+<li>使用GeForce Now打开英灵神殿。</li>
+<li>输入步骤1设置的PIN，即可进入GFN中的Steam客户端。</li>
+<li>按上文Steam版本的说明启用控制台。</li>
+<li>开始 该游戏。</li>
+<li>每次会话都需这样操作，因为结束后设置会重置。</li></ol>
+<div class="mw-heading mw-heading2"><h2 id="Commands">命令</h2></div>
+<div class="mw-heading mw-heading3"><h3 id="Player_commands">玩家命令</h3></div>
+<p>玩家命令无需<b>devcommands</b>，可在聊天窗口使用。输入“/”并按Tab显示可用命令。</p>
+<div class="sample-table-scroll"><table class="mw-collapsible mw-collapsed wikitable sortable" data-collapsetext="Hide commands" data-expandtext="Show commands">
+<tbody><tr>
+<th>命令</th>
+<th>效果</th>
+<th>说明
+</th></tr>
+<tr>
+<td>成就</td>
+<td>显示玩家成就信息</td>
+<td>-
+</td></tr>
+<tr>
+<td>bind [keycode] [command]</td>
+<td>将自定义命令绑定至一个 <a class="external text sample-online" data-online="true" href="https://docs.unity3d.com/ScriptReference/KeyCode.html" rel="noopener noreferrer" target="_blank">Unity键码</a>.</td>
+<td>举个例子。 <code><b>bind mouse4 cheer</b></code> 按下mouse4时，玩家会执行欢呼动作。可绑定多个命令，包括devcommands。
+</td></tr>
+<tr>
+<td>clear</td>
+<td>清空控制台窗口。</td>
+<td>-
+</td></tr>
+<tr>
+<td>clearpopups</td>
+<td>停止当前所有解锁界面提示</td>
+<td>-
+</td></tr>
+<tr>
+<td>cr</td>
+<td>卸载未使用的资源</td>
+<td>默认每20分钟执行一次，此命令会强制立即重新卸载。
+</td></tr>
+<tr>
+<td>死亡</td>
+<td>使角色死亡</td>
+<td>-
+</td></tr>
+<tr>
+<td>exclusivefullscreen</td>
+<td>将窗口模式切换为独占全屏，或切回无边框模式</td>
+<td>-
+</td></tr>
+<tr>
+<td>ffsmooth</td>
+<td>自由飞行平滑度</td>
+<td>-
+</td></tr>
+<tr>
+<td>freefly</td>
+<td>自由飞行拍照（相机）模式</td>
+<td>-
+</td></tr>
+<tr>
+<td>filtercraft [name]</td>
+<td>按文本片段筛选制作列表</td>
+<td>-
+</td></tr>
+<tr>
+<td>fov [number]</td>
+<td>更改视野角度
+</td></tr>
+<tr>
+<td>getstat</td>
+<td>获取指定统计数据</td>
+<td>-
+</td></tr>
+<tr>
+<td>hidebetatext</td>
+<td>切换 beta 文本可见度 。</td>
+<td>-
+</td></tr>
+<tr>
+<td>help [page] [pages = 5]</td>
+<td>显示该可用命令。</td>
+<td>可选参数可用于仅显示部分命令。例如，“help 2 4”显示第二个四分之一部分。
+</td></tr>
+<tr>
+<td>info</td>
+<td>输出当前系统信息</td>
+<td>-
+</td></tr>
+<tr>
+<td>inventoryclean</td>
+<td>丢弃背包中处于无效位置的所有物品</td>
+<td>-
+</td></tr>
+<tr>
+<td>lodbias [number]</td>
+<td>设置服务器的绘制距离。</td>
+<td>数值可设为1至7。
+</td></tr>
+<tr>
+<td>maxfps [FPS]</td>
+<td>设置帧率上限</td>
+<td>
+</td></tr>
+<tr>
+<td>nomap</td>
+<td>切换地图可见度。</td>
+<td>若在服务器端执行，还会切换nomap设置 <a href="p-577cfab98de598e55bee.html" title="世界进度标记">全局键</a>.
+</td></tr>
+<tr>
+<td>noportals</td>
+<td>切换传送门.</td>
+<td>若在服务器端执行，会切换noportals设置 <a href="p-577cfab98de598e55bee.html" title="世界进度标记">全局键</a>.
+</td></tr>
+<tr>
+<td>optterrain</td>
+<td>将附近区域中旧版地形修改（更新0.150.3之前）全部转换为新系统。</td>
+<td>-
+</td></tr>
+<tr>
+<td>ping</td>
+<td>向服务器发送探测请求以测量延迟。</td>
+<td>-
+</td></tr>
+<tr>
+<td>printbinds</td>
+<td>输出当前自定义命令绑定。</td>
+<td>-
+</td></tr>
+<tr>
+<td>printseeds</td>
+<td>输出附近地牢的种子和位置。</td>
+<td>-
+</td></tr>
+<tr>
+<td>resetbinds</td>
+<td>删除全部 自定义命令绑定。</td>
+<td>-
+</td></tr>
+<tr>
+<td>resetknownitems</td>
+<td>重置角色已知的物品和配方</td>
+<td>-
+</td></tr>
+<tr>
+<td>resetplayerprefs</td>
+<td>重置保存的设置和变量（不会重置游戏存档）</td>
+<td>-
+</td></tr>
+<tr>
+<td>resetsharedmap</td>
+<td>从制图桌移除共享地图数据。</td>
+<td>-
+</td></tr>
+<tr>
+<td>resetspawn</td>
+<td>重置出生位置。</td>
+<td>-
+</td></tr>
+<tr>
+<td>resetworldkeys [name]</td>
+<td>将所有世界修改器恢复默认值</td>
+<td>-
+</td></tr>
+<tr>
+<td>respawn</td>
+<td>使角色死亡。</td>
+<td>-
+</td></tr>
+<tr>
+<td>restartparty</td>
+<td>重启PlayFab Party网络。</td>
+<td>-
+</td></tr>
+<tr>
+<td>s</td>
+<td>以喊话形式发送聊天消息。</td>
+<td>-
+</td></tr>
+<tr>
+<td>say</td>
+<td>发送聊天消息。</td>
+<td>-
+</td></tr>
+<tr>
+<td>setworldmodifier [name] [value]</td>
+<td>设置世界修改器的值</td>
+<td>-
+</td></tr>
+<tr>
+<td>setworldpreset [name]</td>
+<td>将所有世界修改器重置为指定名称的预设</td>
+<td>-
+</td></tr>
+<tr>
+<td>sortcraft [type]</td>
+<td>按设置对制作列表排序</td>
+<td>-
+</td></tr>
+<tr>
+<td>tutorialreset</td>
+<td>重置已看过的教程消息。</td>
+<td>-
+</td></tr>
+<tr>
+<td>tutorialtoggle</td>
+<td>切换是否显示教程。</td>
+<td>-
+</td></tr>
+<tr>
+<td>unbind [keycode]</td>
+<td>清除指定Unity键码上的所有自定义命令绑定。</td>
+<td>-
+</td></tr>
+<tr>
+<td>W [player name]</td>
+<td>向玩家发送私聊消息。</td>
+<td>-
+</td></tr>
+<tr>
+<td>xb:version</td>
+<td>输出此构建所用的Mercurial哈希集合</td>
+<td>-
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading3"><h3 id="Emotes">表情</h3></div>
+<p>表情动作命令无需<b>devcommands</b>，可在聊天窗口使用。</p>
+<div class="sample-table-scroll"><table class="mw-collapsible mw-collapsed wikitable sortable" data-collapsetext="Hide commands" data-expandtext="Show commands">
+<tbody><tr>
+<th>图标</th>
+<th>名称</th>
+<th>命令
+</th></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/e34bd688382fbf825326.png"><img class="mw-file-element" data-file-height="125" data-file-width="128" decoding="async" height="63" loading="eager" src="../assets/e34bd688382fbf825326.png" width="64"/></a></span></td>
+<td>挥手</td>
+<td>/wave
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/075629605ed934cff6d7.png"><img class="mw-file-element" data-file-height="128" data-file-width="128" decoding="async" height="64" loading="eager" src="../assets/075629605ed934cff6d7.png" width="64"/></a></span></td>
+<td>坐下</td>
+<td>/sit
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/ac0e199b4035b826c86e.png"><img class="mw-file-element" data-file-height="123" data-file-width="128" decoding="async" height="62" loading="eager" src="../assets/ac0e199b4035b826c86e.png" width="64"/></a></span></td>
+<td>挑衅</td>
+<td>/challenge
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/e81b8cb5928f60f43a1a.png"><img class="mw-file-element" data-file-height="128" data-file-width="106" decoding="async" height="77" loading="eager" src="../assets/e81b8cb5928f60f43a1a.png" width="64"/></a></span></td>
+<td>欢呼</td>
+<td>/cheer
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/2e006c2ff2e28d9786b6.png"><img class="mw-file-element" data-file-height="123" data-file-width="128" decoding="async" height="62" loading="eager" src="../assets/2e006c2ff2e28d9786b6.png" width="64"/></a></span></td>
+<td>别别别</td>
+<td>/nonono
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/8d8dd4023f6cb71c19be.png"><img class="mw-file-element" data-file-height="124" data-file-width="128" decoding="async" height="62" loading="eager" src="../assets/8d8dd4023f6cb71c19be.png" width="64"/></a></span></td>
+<td>大拇哥</td>
+<td>/thumbsup
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/5f95eee450070ddd57b9.png"><img class="mw-file-element" data-file-height="121" data-file-width="126" decoding="async" height="61" loading="eager" src="../assets/5f95eee450070ddd57b9.png" width="64"/></a></span></td>
+<td>/point</td>
+<td>/point
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/5ca2e64d0aa776dfc0b8.png"><img class="mw-file-element" data-file-height="128" data-file-width="128" decoding="async" height="64" loading="eager" src="../assets/5ca2e64d0aa776dfc0b8.png" width="64"/></a></span></td>
+<td>飞吻</td>
+<td>/blowkiss
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/a054abfccf38c14b3503.png"><img class="mw-file-element" data-file-height="128" data-file-width="123" decoding="async" height="67" loading="eager" src="../assets/a054abfccf38c14b3503.png" width="64"/></a></span></td>
+<td>弓</td>
+<td>/bow
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/5058fc0fbce3e4578d95.png"><img class="mw-file-element" data-file-height="127" data-file-width="128" decoding="async" height="64" loading="eager" src="../assets/5058fc0fbce3e4578d95.png" width="64"/></a></span></td>
+<td>蜷缩</td>
+<td>/cower
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/f6aba51fa6faefc31f62.png"><img class="mw-file-element" data-file-height="128" data-file-width="126" decoding="async" height="65" loading="eager" src="../assets/f6aba51fa6faefc31f62.png" width="64"/></a></span></td>
+<td>哭泣</td>
+<td>/cry
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/8799227b73c78e0b5249.png"><img class="mw-file-element" data-file-height="128" data-file-width="122" decoding="async" height="67" loading="eager" src="../assets/8799227b73c78e0b5249.png" width="64"/></a></span></td>
+<td>沮丧</td>
+<td>/despair
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/7ba4c859e0adf583a0ec.png"><img class="mw-file-element" data-file-height="128" data-file-width="128" decoding="async" height="64" loading="eager" src="../assets/7ba4c859e0adf583a0ec.png" width="64"/></a></span></td>
+<td>炫耀</td>
+<td>/flex
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/2e65c9cc2e52e9c9d8d0.png"><img class="mw-file-element" data-file-height="128" data-file-width="101" decoding="async" height="81" loading="eager" src="../assets/2e65c9cc2e52e9c9d8d0.png" width="64"/></a></span></td>
+<td>呼唤</td>
+<td>/comehere
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/04702d85e16242813f42.png"><img class="mw-file-element" data-file-height="127" data-file-width="128" decoding="async" height="64" loading="eager" src="../assets/04702d85e16242813f42.png" width="64"/></a></span></td>
+<td>甩头</td>
+<td>/headbang
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/d00630edf1dbd6083275.png"><img class="mw-file-element" data-file-height="128" data-file-width="111" decoding="async" height="74" loading="eager" src="../assets/d00630edf1dbd6083275.png" width="64"/></a></span></td>
+<td>跪下</td>
+<td>/kneel
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/9afe9096b34f757d1a76.png"><img class="mw-file-element" data-file-height="128" data-file-width="128" decoding="async" height="64" loading="eager" src="../assets/9afe9096b34f757d1a76.png" width="64"/></a></span></td>
+<td>大笑</td>
+<td>/laugh
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/00cd140543a761b8422d.png"><img class="mw-file-element" data-file-height="120" data-file-width="128" decoding="async" height="60" loading="eager" src="../assets/00cd140543a761b8422d.png" width="64"/></a></span></td>
+<td>咆哮</td>
+<td>/roar
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/be11ccb8f3e12ff2d8b8.png"><img class="mw-file-element" data-file-height="104" data-file-width="128" decoding="async" height="52" loading="eager" src="../assets/be11ccb8f3e12ff2d8b8.png" width="64"/></a></span></td>
+<td>耸肩</td>
+<td>/shrug
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/3b5c6e3c9a85caf17e72.png"><img class="mw-file-element" data-file-height="128" data-file-width="92" decoding="async" height="89" loading="eager" src="../assets/3b5c6e3c9a85caf17e72.png" width="64"/></a></span></td>
+<td>跳舞</td>
+<td>/dance
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/877389d0680f4db2999c.png"><img class="mw-file-element" data-file-height="92" data-file-width="128" decoding="async" height="46" loading="eager" src="../assets/877389d0680f4db2999c.png" width="64"/></a></span></td>
+<td>放松</td>
+<td>/relax
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/c13ab66690b74af36391.png"><img class="mw-file-element" data-file-height="128" data-file-width="128" decoding="async" height="64" loading="eager" src="../assets/c13ab66690b74af36391.png" width="64"/></a></span></td>
+<td>举杯</td>
+<td>/toast
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/7310b683e5693ec9f02a.png"><img class="mw-file-element" data-file-height="123" data-file-width="124" decoding="async" height="63" loading="eager" src="../assets/7310b683e5693ec9f02a.png" width="64"/></a></span></td>
+<td>休憩</td>
+<td>/rest
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/675c94dd91cc297c1c68.png"><img class="mw-file-element" data-file-height="126" data-file-width="109" decoding="async" height="74" loading="eager" src="../assets/675c94dd91cc297c1c68.png" width="64"/></a></span></td>
+<td>摇摆</td>
+<td>/vibe
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading3"><h3 id="Admin_commands">管理员命令</h3></div>
+<p>各种管理员工具。<b>仅当玩家的SteamID64或跨平台玩家ID位于管理员列表中时可用。</b></p>
+<div class="sample-table-scroll"><table class="mw-collapsible mw-collapsed wikitable sortable" data-collapsetext="Hide commands" data-expandtext="Show commands">
+<tbody><tr>
+<th>命令</th>
+<th>效果</th>
+<th>说明
+</th></tr>
+<tr>
+<td>ban [name/ip/userID]</td>
+<td>封禁指定用户。</td>
+<td>-
+</td></tr>
+<tr>
+<td>banned</td>
+<td>显示所有被封禁用户的完整列表。</td>
+<td>-
+</td></tr>
+<tr>
+<td>kick [name/ip/userID]</td>
+<td>踢出指定用户。</td>
+<td>-
+</td></tr>
+<tr>
+<td>resetworldkeys</td>
+<td>将所有世界修改器恢复默认值。</td>
+<td>这不会重置游戏进度键。
+</td></tr>
+<tr>
+<td>save</td>
+<td>强制游戏保存。</td>
+<td>-
+</td></tr>
+<tr>
+<td>setworldmodifier [name] [value]</td>
+<td>设置世界修改器滑块的值</td>
+<td>-
+</td></tr>
+<tr>
+<td>setworldpreset [name]</td>
+<td>将所有世界修改器重置为指定名称的预设。</td>
+<td>-
+</td></tr>
+<tr>
+<td>unban [name/ip/userID]</td>
+<td>解除指定用户的封禁。</td>
+<td>-
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading2"><h2 id="Cheat_commands">作弊命令</h2></div>
+<p>输入<b>devcommands</b>并回车启用作弊命令，输入<b>devcommands</b>并再次回车关闭。<b>作弊命令仅适用于单人或手动托管模式，无法在专用服务器上使用。</b></p>
+<div class="sample-table-scroll"><table class="mw-collapsible mw-collapsed wikitable sortable" data-collapsetext="Hide commands" data-expandtext="Show commands">
+<tbody><tr>
+<th>命令</th>
+<th>效果</th>
+<th>说明
+</th></tr>
+<tr>
+<td>addstatus [name]</td>
+<td>添加一个 <a href="p-f57eddb4e027139d853f.html" title="状态效果">状态效果</a>.</td>
+<td>例如：Rested（休息充分）、Burning（燃烧）、SoftDeath（软死亡）、Wet（潮湿）等。
+</td></tr>
+<tr>
+<td>aggravate</td>
+<td>激怒20米范围内的中立生物。</td>
+<td>-
+</td></tr>
+<tr>
+<td>altbioms</td>
+<td>列出各生物群系及其修正项</td>
+<td>-
+</td></tr>
+<tr>
+<td>beard [beard#]</td>
+<td>永久改变您的胡须.</td>
+<td>不带参数执行此命令会移除胡须。
+</td></tr>
+<tr>
+<td>biomeinfo</td>
+<td>显示当前生物群系区块的信息</td>
+<td>-
+</td></tr>
+<tr>
+<td>clearstatus</td>
+<td>删除任何 <a href="p-f57eddb4e027139d853f.html" title="状态效果">状态效果</a> （有益和有害）。</td>
+<td>-
+</td></tr>
+<tr>
+<td>cinematic</td>
+<td>[name] 播放过场动画</td>
+<td>-
+</td></tr>
+<tr>
+<td>dpsdebug</td>
+<td>切换每秒伤害调试信息的输出。</td>
+<td>-
+</td></tr>
+<tr>
+<td>env [env]</td>
+<td>设置调试环境。</td>
+<td>变量：Clear, Twilight_Clear, Misty, Darklands_dark, Heath clear, DeepForest Mist, GDKing, Rain, LightRain, ThunderStorm, Eikthyr, GoblinKing, nofogts, SwampRain, Bonemass, Snow, Twilight_Snow, Twilight_SnowStorm, SnowStorm, Moder, Ashrain, Crypt, SunkenCrypt。
+</td></tr>
+<tr>
+<td>exploremap</td>
+<td>显示整张地图。</td>
+<td>-
+</td></tr>
+<tr>
+<td>event [name]</td>
+<td>启动指定名称的 <a href="p-8d14f6e72de8f18ab1ee.html" title="事件">事件</a>.</td>
+<td>-
+</td></tr>
+<tr>
+<td>ffsmooth 1</td>
+<td>为自由摄像机添加平滑移动。</td>
+<td>“ffsmooth 0”会将平滑移动重置为普通移动。
+</td></tr>
+<tr>
+<td>forcedelete [radius=5] [*name]</td>
+<td>移除指定半径内的物体（最大50米）。</td>
+<td>若指定ID，则只移除ID中包含该名称的物体。以下物体永远不会被移除：玩家、墓碑、女武神、 <a class="mw-redirect" href="p-e009a867f990f58b163a.html" title="地点（POI）">兴趣点</a> （地点）、地牢及其房间、指引石、初始神庙中的首领石碑。
+</td></tr>
+<tr>
+<td>find [text] [pingmax]</td>
+<td>寻找匹配物体，并在地图上标示其位置。</td>
+<td>Pingmax默认为1；若更大，则改为在地图上放置标记。
+</td></tr>
+<tr>
+<td>findtp [text]</td>
+<td>寻找匹配物体，并将玩家传送至最近的匹配项。</td>
+<td>-
+</td></tr>
+<tr>
+<td>findbiome</td>
+<td>在地图上标记所有类型或所含修正项匹配搜索字符串的生物群系的中心</td>
+<td>-
+</td></tr>
+<tr>
+<td>findbiometp</td>
+<td>查找最近的匹配搜索条件的生物群系，并传送至该处</td>
+<td>-
+</td></tr>
+<tr>
+<td>fly</td>
+<td>切换该飞行模式。</td>
+<td>与调试模式相同：启用调试后按Z。
+</td></tr>
+<tr>
+<td>gc</td>
+<td>显示垃圾收集信息.</td>
+<td>-
+</td></tr>
+<tr>
+<td>genloc</td>
+<td>重新分配所有尚未放置的地点。</td>
+<td>-
+</td></tr>
+<tr>
+<td>ghost</td>
+<td>切换幽灵模式（开启时敌人会忽略玩家）。</td>
+<td>-
+</td></tr>
+<tr>
+<td>god</td>
+<td>启用无敌模式（开启时玩家不会受到伤害）。</td>
+<td>即使伤害超过剩余生命值，也会使玩家生命值保持在1。
+</td></tr>
+<tr>
+<td>goto [x] [z]</td>
+<td>将玩家传送至指定坐标。</td>
+<td>-
+</td></tr>
+<tr>
+<td>hair [hair#]</td>
+<td>永久改变您的头发.</td>
+<td>不带参数执行此命令会移除头发。
+</td></tr>
+<tr>
+<td>haslocation</td>
+<td>检查区域内是否存在地点</td>
+<td>-
+</td></tr>
+<tr>
+<td>height</td>
+<td>输出世界生成器中当前位置的高度</td>
+<td>-
+</td></tr>
+<tr>
+<td>heal</td>
+<td>将玩家的生命值、耐力和埃达之能恢复至满值。</td>
+<td>-
+</td></tr>
+<tr>
+<td>itemset [name] [keep]</td>
+<td>生成预设物品套装。</td>
+<td>未指定keep标志时，会丢弃当前物品。
+<ul><li>Meadows：技能设为1，木材或燧石武器及<a href="p-dba0dea0584b2923f40c.html" title="青铜镐">青铜镐</a>。</li>
+<li>黑暗林山：技能设为10，使用木制或燧石武器。</li>
+<li>沼泽：技能设为10-20，使用青铜武器和护甲。</li>
+<li>凛冽雪山：技能设为25，使用铁制武器和护甲。</li>
+<li>北境平原：技能设为35，使用银制武器和狼护甲。</li>
+<li>PlainsBoss：技能设为40，黑金属武器及厚垫护甲。</li>
+<li>Mistlands：技能设为70，升级黑金属武器及厚垫护甲。</li>
+<li>MistlandsGear：技能设为70，迷雾之地武器及甲壳护甲。</li>
+<li>MistlandsMage：技能设为70，源质护甲、截至迷雾之地的全部法杖及源质食物。</li>
+<li>MistlandsWarrior：技能设为70，迷雾之地武器及甲壳护甲。</li>
+<li>Ashlands：技能设为30，全部灰烬之地武器，以及焰金属和恩布拉护甲。</li>
+<li>AshlandsMage：技能设为30，截至灰烬之地的全部法杖、恩布拉护甲及源质食物。</li>
+<li>AshlandsWarrior：技能设为30，全部灰烬之地武器和弹药、焰金属护甲及食物。</li>
+<li>AshlandsFood：技能设为30，获得所有灰烬之地食物（每种x10）。</li>
+<li>AshlandsWeapons：技能设为30，全部灰烬之地武器的所有变体。</li>
+<li>AshlandsMedium：技能设为30，全部灰烬之地武器、灰木护甲及食物。</li>
+<li>Fisherman：技能设为40，钓竿、每种鱼饵50份、每种鱼5条，以及芬里斯护甲。</li></ul>
+</td></tr>
+<tr>
+<td>inventorysize</td>
+<td>设置背包大小（默认 4，最大 9）</td>
+<td>-
+</td></tr>
+<tr>
+<td>killall</td>
+<td>杀死附近敌人和已驯服生物。</td>
+<td>不会杀死玩家。
+</td></tr>
+<tr>
+<td>killenemies</td>
+<td>杀死附近的敌人。</td>
+<td>与调试模式相同：启用调试后按K。
+</td></tr>
+<tr>
+<td>killtame</td>
+<td>杀死附近已驯服生物。</td>
+<td>-
+</td></tr>
+<tr>
+<td>listkeys</td>
+<td>列出所有全局键。</td>
+<td>-
+</td></tr>
+<tr>
+<td>location [name]</td>
+<td>生成一个地点实例。</td>
+<td>永久禁用保存 。
+</td></tr>
+<tr>
+<td>location [name] SAVE</td>
+<td>生成一个地点实例。</td>
+<td>不会禁用保存。
+</td></tr>
+<tr>
+<td>model [0-1]</td>
+<td>将角色模型从男性切换为女性。</td>
+<td>-
+</td></tr>
+<tr>
+<td>nextseed</td>
+<td>强制下一个地牢使用指定种子（重新生成）。</td>
+<td>永久禁用保存 。
+</td></tr>
+<tr>
+<td>nocost</td>
+<td>切换该无成本模式 。</td>
+<td>与调试模式相同：启用调试后按B。
+</td></tr>
+<tr>
+<td>pevents</td>
+<td>子命令：[list/start/stop/here]，用于极北之境的新事件</td>
+<td>-
+</td></tr>
+<tr>
+<td>players [number]</td>
+<td>调整该难度尺度 。</td>
+<td>输入0重置难度。
+</td></tr>
+<tr>
+<td>pos</td>
+<td>显示玩家坐标。</td>
+<td>-
+</td></tr>
+<tr>
+<td>printcreatures</td>
+<td>输出活跃生物的数量和等级。</td>
+<td>-
+</td></tr>
+<tr>
+<td>printlocations</td>
+<td>输出已加载地点及其与玩家之间的距离和偏移。</td>
+<td>-
+</td></tr>
+<tr>
+<td>puke</td>
+<td>重置饱食或饥饿状态，使生命值和耐力恢复默认值。</td>
+<td>-
+</td></tr>
+<tr>
+<td>raiseskill [skill] [amount]</td>
+<td>提高或降低指定名称的 <a href="p-66d0f523a379b2de6f8d.html" title="技能">技能</a> ，增加量为输入的数值。</td>
+<td>以All替代[skill]时，所有技能均增加输入的数值。要降低技能，在数值前输入负号。
+</td></tr>
+<tr>
+<td>randomevent</td>
+<td>随机启动 <a href="p-8d14f6e72de8f18ab1ee.html" title="事件">事件</a>.</td>
+<td>-
+</td></tr>
+<tr>
+<td>recall [name]
+</td>
+<td>将所有名称匹配的玩家传送到你的位置。</td>
+<td>不指定名称时，传送所有玩家。
+</td></tr>
+<tr>
+<td>removebirds</td>
+<td>移除所有活跃鸟类。</td>
+<td>-
+</td></tr>
+<tr>
+<td>removedrops</td>
+<td>移除区域内所有掉落物。</td>
+<td>与调试模式相同：启用调试后按L。
+</td></tr>
+<tr>
+<td>removefish</td>
+<td>移除所有活跃鱼类。</td>
+<td>-
+</td></tr>
+<tr>
+<td>removekey [name]</td>
+<td>移除一个 <a href="p-577cfab98de598e55bee.html" title="世界进度标记">全局键</a>.</td>
+<td>-
+</td></tr>
+<tr>
+<td>repairall</td>
+<td>修理所有装备
+</td></tr>
+<tr>
+<td>resetcharacter</td>
+<td>重置角色的全部数据。</td>
+<td>-
+</td></tr>
+<tr>
+<td>resetenv</td>
+<td>重置调试环境。</td>
+<td>-
+</td></tr>
+<tr>
+<td>resetkeys [name]</td>
+<td>删除全部 <a href="p-577cfab98de598e55bee.html" title="世界进度标记">世界进度标记</a>.</td>
+<td>[name]参数没有作用。
+</td></tr>
+<tr>
+<td>resetmap</td>
+<td>隐藏整个地图.</td>
+<td>-
+</td></tr>
+<tr>
+<td>resetskill [skill]</td>
+<td>将指定技能等级设为0。</td>
+<td>以All替代[skill]时，所有技能均重置为0级。
+</td></tr>
+<tr>
+<td>resetwind</td>
+<td>重置风向和风力。</td>
+<td>-
+</td></tr>
+<tr>
+<td>save</td>
+<td>强制游戏保存当前世界状态。</td>
+<td>-
+</td></tr>
+<tr>
+<td>setfuel [value]</td>
+<td>为附近所有火源添加指定数量的燃料</td>
+<td>默认为10，不会超过容量。负值会减少火源燃料，最低降至零。
+</td></tr>
+<tr>
+<td>setkey [name]</td>
+<td>添加一个 <a href="p-577cfab98de598e55bee.html" title="世界进度标记">全局键</a>.</td>
+<td>-
+</td></tr>
+<tr>
+<td>setpower [name]</td>
+<td>设置当前的 <a href="p-b8e0a74433a1176e439f.html" title="遗弃者能力">遗弃者能力</a> 并重置冷却时间</td>
+<td>例如:GP_Eikthyr,GP_TheElder等.
+</td></tr>
+<tr>
+<td>skiptime [seconds = 240]</td>
+<td>向前跳过时间，改变天数和一天中的时刻。</td>
+<td>此操作不会更新物体的时间戳，因此时间倒退时会产生问题。
+<ul><li><a href="p-60958b009a9e0b5dd0b6.html" title="生成区域">生成区域</a>停止生成敌人，直到时间回到原值。</li>
+<li>动物和植物停止生长，直到时间回到原值。</li>
+<li><a href="p-a3ff2ed3cbd64ace9b1c.html" title="发酵桶">发酵桶</a>、<a href="p-4c85ecaec998a3fc5f2c.html" title="冶炼炉">冶炼炉</a>和<a href="p-82e0da97aaccc783ff13.html" title="木炭窑">炭窑</a>可能停止工作，直到时间回到原值；不过拆除它们便容易修复。</li></ul>
+</td></tr>
+<tr>
+<td>睡觉</td>
+<td>向前跳过一天。</td>
+<td>-
+</td></tr>
+<tr>
+<td>snow</td>
+<td>[amount] 增加或减少附近所有建筑部件上的积雪量
+</td></tr>
+<tr>
+<td>sortcraft</td>
+<td>按名称、类型、重量、数量或原始顺序排列制作列表。</td>
+<td>
+<ul><li>名称排序按字母顺序排列</li>
+<li>Type先按物品类型、再按字母排序。类型顺序为：材料、食物但不含盛宴、单手近战或投掷武器、弓或弩、盾、头盔、胸甲、箭或弩箭、腿甲、双手近战武器及镰刀、光源、杂项、披风、实用装备、工具、TwoHandedWeaponLeft、弩炮弹药。</li></ul>
+<ul><li>Weight先按从轻到重，再按字母排序。不考虑每次制作总量，即<a href="p-e2e5e0213e916e5b144b.html" title="鬓猪肉干">鬓猪肉干</a>，或总可能数量。</li>
+<li>数量排序采用某种未知的神秘规则</li>
+<li>Original使用默认顺序，或重置排序。</li></ul>
+</td></tr>
+<tr>
+<td>spawn [entity name] [amount] [level]</td>
+<td>生成指定实体。</td>
+<td>见 <a href="p-72c882b758975bacd53f.html" title="物品ID">ItemIDs</a> 以查看可生成实体的列表。
+<ul><li>实体名称以星号（*）结尾时，命令生成所有名称包含该字符串的实体。</li>
+<li>所有物品掉落都会逐个生成。生成数千物品时，在自动堆叠前可能使游戏卡死。</li>
+<li>等级10+的高级生物死亡时，可能因掉落数千物品使游戏卡死。</li>
+<li>部分可生成实体，不使用模组便无法从游戏移除。</li></ul>
+</td></tr>
+<tr>
+<td>stopevent</td>
+<td>停止当前的 <a href="p-8d14f6e72de8f18ab1ee.html" title="事件">事件</a>.</td>
+<td>-
+</td></tr>
+<tr>
+<td>tame</td>
+<td>驯服附近所有 <i>可驯服</i> <a href="creatures.html" title="生物">生物</a>.</td>
+<td>-
+</td></tr>
+<tr>
+<td>test [value]</td>
+<td>切换测试值。</td>
+<td>oldcomfort：恢复旧版未经优化的舒适度计算方式。
+</td></tr>
+<tr>
+<td>time</td>
+<td>显示当前时间以及是否可以睡觉。</td>
+<td>-
+</td></tr>
+<tr>
+<td>timescale [target = 1] [fadetime = 0]</td>
+<td>设置时间流速。</td>
+<td>最高为5倍速。Fadetime设置过渡持续时间。
+<ul><li>数值0会暂停游戏。暂停时仍可使用自由摄像机。</li>
+<li>单人按ESC暂停，会移除时间缩放。</li></ul>
+</td></tr>
+<tr>
+<td>tod [0-1]</td>
+<td>设置一天中的时刻。</td>
+<td>0和1均为午夜，0.5为正午，-1恢复默认值。
+</td></tr>
+<tr>
+<td>updatecover</td>
+<td>强制刷新遮蔽状态
+</td></tr>
+<tr>
+<td>wind [angle] [intensity]</td>
+<td>调整风向和风力。</td>
+<td>效果持续至使用 <code>resetwind</code>
+<ul><li>angle表示0至360的角度向量，0为南风，270为东风。</li>
+<li>intensity为0至1.0之间的数值。</li>
+<li>例如，“wind 90 0.5”产生从西向东的中等强度风。</li></ul>
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading3"><h3 id="Debug_mode">调试模式</h3></div>
+<p>调试模式提供飞行切换、无需工作台或资源建造等更多作弊功能。在控制台输入<b>devcommands</b>回车，再执行<b>debugmode</b>回车即可进入；再次执行退出。</p>
+<div class="sample-table-scroll"><table class="mw-collapsible mw-collapsed wikitable sortable" data-collapsetext="Hide controls" data-expandtext="Show controls">
+<tbody><tr>
+<th>钥匙</th>
+<th>行动
+</th></tr>
+<tr>
+<td>B</td>
+<td>切换创造建造模式，无需工作台或资源。
+</td></tr>
+<tr>
+<td>K</td>
+<td>杀死附近敌人（不包括已驯服生物）。
+</td></tr>
+<tr>
+<td>L</td>
+<td>移除附近掉落物。
+</td></tr>
+<tr>
+<td>Z</td>
+<td>切换飞行。空格键上升，Ctrl键下降。
+</td></tr>
+<tr>
+<td>Ctrl + 鼠标中键（地图上）</td>
+<td>传送到光标位置.
+</td></tr>
+<tr>
+<td>Shift + C</td>
+<td>将时间设为白天。
+</td></tr></tbody></table></div>
+<div class="sample-table-scroll"><table class="navbox mw-collapsible mw-collapsed" data-collapsetext="Hide" data-expandtext="Show"><tbody><tr class="navbox-title"><th colspan="2" scope="col"><div class="navbox-title-pad navbox-title-padleft navbox-title-padright"><a href="p-edd2287afad9be012dee.html" title="分类：游戏机制">机制</a></div></th></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">攻略</th><td class="navbox-list"><div class="hlist"><a href="how-to-play.html" title="入门玩法">入门玩法</a> • <a href="p-58565db394dcbacc0ec7.html" title="流程攻略">流程攻略</a> • <a href="p-e70bc5798f8391942dd6.html" title="敌对生物攻略">敌对生物攻略</a> • <a href="p-19e667dbe36cd74e7c1b.html" title="被动生物攻略">被动生物攻略</a> • <a href="p-afc73fba07d15f960daf.html" title="首领攻略">首领攻略</a> • <a href="p-a1b6af2b7d7d4bfef86e.html" title="专用服务器">专用服务器</a> • <a href="p-c3af076f92c5ed8dcb0d.html" title="故障排查">故障排查</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">玩家</th><td class="navbox-list"><div class="hlist"><a href="p-64aee8c6cbd026d9ea92.html" title="玩家">玩家</a> • <a href="p-55898449eb74fb2e348d.html" title="生命值">生命值</a> • <a href="p-cc350ea3393968f7cd7c.html" title="耐力">耐力</a> • <a href="p-332e6a85b4285ff8858c.html" title="埃达之能">埃达之能</a> • <a href="p-2608729251008c9658e7.html" title="血怒">血怒</a> • <a href="p-fcd6fea72de7e6c09ca2.html" title="死亡">死亡</a> • <a href="p-b8e0a74433a1176e439f.html" title="遗弃者能力">遗弃者能力</a> • <a href="p-66d0f523a379b2de6f8d.html" title="技能">技能</a> • <a href="p-f57eddb4e027139d853f.html" title="状态效果">状态效果</a> • <a href="p-5954d0c13f55417f74fb.html" title="移动速度">移动速度</a> • <a href="p-ed1a5a81b8121ad13a87.html" title="魔法">魔法</a> • <a href="p-79cea8ff2ba190bbb1bd.html" title="钓鱼">钓鱼</a> • <a href="p-e9d7b76127dca2c7d07e.html" title="乘骑">乘骑</a> • <a href="p-12ff393b061d94ebc405.html" title="睡眠">睡眠</a> • <a href="p-25521701981e1ad3ad97.html" title="表情">表情</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">战斗</th><td class="navbox-list"><div class="hlist"><a href="p-0c874f581a4534f15f1e.html" title="伤害">伤害类型</a> • <a href="p-e931ec535f307a5c6add.html" title="伤害机制">伤害机制</a> • <a href="p-bb0db9f7893c418a1de3.html" title="击退">击退</a> • <a href="p-aeaeee06ac36a10d7822.html" title="阵营">阵营</a> • <a href="p-4e7c41331a4464ad6e07.html" title="生物感知">生物感知</a> • <a href="p-5ac03ba6efdc56d5b7b5.html" title="生物行为">生物行为</a> • <a href="p-37015441396c962e2e96.html" title="掉落物">掉落物</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">生成</th><td class="navbox-list"><div class="hlist"><a href="p-36ff87e1502da8a1d740.html" title="生成机制">生成机制</a> • <a href="p-3a6396c120925fdde8d2.html" title="生成点">生成点</a> • <a href="p-60958b009a9e0b5dd0b6.html" title="生成区域">生成区域</a> • <a href="p-8d14f6e72de8f18ab1ee.html" title="事件">事件</a> • <a href="p-47373e84723cece15749.html" title="生物等级">生物等级</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">建材</th><td class="navbox-list"><div class="hlist"><a href="building.html" title="建材">建材</a> • <a href="p-99b60de679e8976fc592.html" title="建筑稳定性">建筑稳定性</a> • <a href="p-fa8d84566676ee2ee662.html" title="遮蔽">遮蔽</a> • <a href="p-040d4645676f60263590.html" title="舒适度">舒适度</a> • <a href="p-a6d7eeb25f1fe9854a8b.html" title="玩家基地">玩家基地</a> • <a href="p-29b52bfcccd01518e9de.html" title="烟雾">烟雾</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">界面</th><td class="navbox-list"><div class="hlist"><a href="p-758f487fe8e9fcc59cec.html" title="物品栏">物品栏</a> • <a class="mw-redirect" href="crafting.html" title="制作菜单">制作菜单</a> • <a href="p-be176b0015c424b78e9f.html" title="地图">地图</a> • <a href="p-c40c747ee79e90e16e46.html" title="状态界面">状态界面</a> • <a href="p-799c269135742a36ae48.html" title="控制">控制</a> • <a class="mw-selflink selflink">开发者控制台</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">世界</th><td class="navbox-list"><div class="hlist"><a href="p-9e471951a1b4106e54be.html" title="环境">环境</a> • <a href="p-8a27b0cad26bc97071ab.html" title="世界修改器">世界修改器</a> • <a href="p-2af8986090a5b9ad83ec.html" title="世界种子">世界种子</a> • <a href="p-577cfab98de598e55bee.html" title="世界进度标记">世界进度标记</a> • <a href="p-a53aa373c5e23e694a54.html" title="区域">区域</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">杂项</th><td class="navbox-list"><div class="hlist"><a href="p-74cf2bc63fe122206c82.html" title="成就">成就</a> • <a href="p-1964260e2e296c33c3f3.html" title="季节活动">季节活动</a> • <a href="p-6eb00b4b2614a144d41c.html" title="音乐">音乐</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">开发</th><td class="navbox-list"><div class="hlist"><a href="p-a6df11e706c514f13d6f.html" title="版本历史">版本历史</a> • <a href="p-4696ff19d71c753885a5.html" title="未来内容">未来内容</a></div></td></tr></tbody></table></div>
+
+
+
+</div></section><section id="sample-en" data-language="en" hidden><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><figure class="mw-default-size" typeof="mw:File/Thumb"><a class="mw-file-description" href="../assets/f16b5d1f35a073ec2fb5.webp"><img class="mw-file-element" data-file-height="1080" data-file-width="1920" decoding="async" height="169" loading="eager" src="../assets/f16b5d1f35a073ec2fb5.webp" width="300"/></a><figcaption>The developer console, displaying the output of the help command.</figcaption></figure>
+<p>The <b>developer console</b>, or just <b>console</b>, is an in-game interface for entering text-based <a href="#en-Commands">commands</a> used for debugging, cheating and server administration.
+</p>
+<div aria-labelledby="mw-toc-heading" class="toc" id="en-toc" role="navigation"><div class="toctitle" dir="ltr" lang="en"><h2 id="en-mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#en-Enabling_the_console"><span class="tocnumber">1</span> <span class="toctext">Enabling the console</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#en-Commands"><span class="tocnumber">2</span> <span class="toctext">Commands</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#en-Player_commands"><span class="tocnumber">2.1</span> <span class="toctext">Player commands</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#en-Emotes"><span class="tocnumber">2.2</span> <span class="toctext">Emotes</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#en-Admin_commands"><span class="tocnumber">2.3</span> <span class="toctext">Admin commands</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#en-Cheat_commands"><span class="tocnumber">3</span> <span class="toctext">Cheat commands</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#en-Debug_mode"><span class="tocnumber">3.1</span> <span class="toctext">Debug mode</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="en-Enabling_the_console">Enabling the console</h2></div>
+<p>To be able to use console commands, the console has to be enabled. There are multiple different ways depending on the game's version. Additionally, you may enable it in settings. 
+</p><p><b><u>Steam</u></b>
+</p>
+<ol><li>Right-click Valheim in the Steam library.</li>
+<li>Select Properties.</li>
+<li>In the General tab, look for the Launch Options field.</li>
+<li>In it, type "-console".</li>
+<li>Close the window.</li>
+<li>Press F5 in-game to open the console window.</li></ol>
+<p><u><b>PC Game Pass</b></u>
+</p>
+<ol><li>Navigate to the game's installation folder. Typically, it is <i>C:\XboxGames\Valheim\Content</i>.</li>
+<li>In that folder, find <i>Valheim.exe</i>.</li>
+<li>Right-click Valheim.exe and select Create shortcut.</li>
+<li>Drag the shortcut to the desktop or preferred location.</li>
+<li>Right-click the shortcut and select Properties.</li>
+<li>In the Shortcut tab, add "-console" to the end of the Target field.</li>
+<li>Click Apply, then click OK.</li>
+<li>Launch the game from the shortcut.</li>
+<li>Press F5 in-game to open the console window.</li></ol>
+<p><u><b>Xbox Game Pass</b></u>
+</p>
+<ol><li>While in game hold: LB + RB + MENU.</li>
+<li>Press A to bring up the keyboard.</li></ol>
+<p><b><u>MacOS (App Store)</u></b>
+</p>
+<ol><li>Create a text file in TextEdit (or similar) and name it valheim.sh in a suitable place in your system</li>
+<li>Open the file and enter the following text:<br/><code>#!bin/bash /Applications/Valheim.app/Contents/MacOS/Valheim -console</code></li>
+<li>Run the valheim.sh file to open Valheim with the console enabled.</li>
+<li>Use F5 in-game to open the console window</li></ol>
+<p>Note: These instructions are for users who purchased Valheim through the AppStore. If running Valheim through Steam, use the Steam instructions above.
+</p><p><u><b>GeForce Now</b></u>
+</p>
+<ol><li>Enable family sharing mode in Steam either via the client or the website (instructions via <a class="external text sample-online" data-online="true" href="https://help.steampowered.com/en/faqs/view/6B1A-66BE-E911-3D98" rel="noopener noreferrer" target="_blank">Steam</a>). <b>Do not add Valheim to the whitelist</b>.</li>
+<li>Open Valheim using GeForce Now.</li>
+<li>Enter the PIN you set up in step 1, this will take you to the Steam client within GFN.</li>
+<li>Enable the console using the instructions for Steam above.</li>
+<li>Start the game.</li>
+<li>This will need doing every session as your settings will be reset when the session ends.</li></ol>
+<div class="mw-heading mw-heading2"><h2 id="en-Commands">Commands</h2></div>
+<div class="mw-heading mw-heading3"><h3 id="en-Player_commands">Player commands</h3></div>
+<p>Player commands do not require <b>devcommands</b> and can be used from the chat window. Typing "/" and clicking tab shows available commands.
+</p>
+<div class="sample-table-scroll"><table class="mw-collapsible mw-collapsed wikitable sortable" data-collapsetext="Hide commands" data-expandtext="Show commands">
+<tbody><tr>
+<th>Command</th>
+<th>Effect</th>
+<th>Note
+</th></tr>
+<tr>
+<td>achievements</td>
+<td>show player achievement info</td>
+<td>-
+</td></tr>
+<tr>
+<td>bind [keycode] [command]</td>
+<td>Binds a custom command to a <a class="external text sample-online" data-online="true" href="https://docs.unity3d.com/ScriptReference/KeyCode.html" rel="noopener noreferrer" target="_blank">Unity keycode</a>.</td>
+<td>E.g. <code><b>bind mouse4 cheer</b></code> will cause the player to perform the cheer emote upon pressing mouse4. Can bind multiple commands, including devcommands.
+</td></tr>
+<tr>
+<td>clear</td>
+<td>Clears the console window.</td>
+<td>-
+</td></tr>
+<tr>
+<td>clearpopups</td>
+<td>stops all current unlock ui messages</td>
+<td>-
+</td></tr>
+<tr>
+<td>cr</td>
+<td>Unloads unused assets</td>
+<td>Happens by default every 20 minutes, but this commands forces a fresh unload.
+</td></tr>
+<tr>
+<td>die</td>
+<td>kill yourself</td>
+<td>-
+</td></tr>
+<tr>
+<td>exclusivefullscreen</td>
+<td>changes window mode to exclusive fullscreen, or back to borderless</td>
+<td>-
+</td></tr>
+<tr>
+<td>ffsmooth</td>
+<td>freefly smoothness</td>
+<td>-
+</td></tr>
+<tr>
+<td>freefly</td>
+<td>freefly photo(camera) mode</td>
+<td>-
+</td></tr>
+<tr>
+<td>filtercraft [name]</td>
+<td>filters crafting list to contain part of text</td>
+<td>-
+</td></tr>
+<tr>
+<td>fov [number]</td>
+<td>Changes field of view
+</td></tr>
+<tr>
+<td>getstat</td>
+<td>get specific stat</td>
+<td>-
+</td></tr>
+<tr>
+<td>hidebetatext</td>
+<td>Toggles beta text visibility.</td>
+<td>-
+</td></tr>
+<tr>
+<td>help [page] [pages = 5]</td>
+<td>Shows the available commands.</td>
+<td>Optional parameters allow showing only some part of the commands. For example, "help 2 4" shows the second quarter.
+</td></tr>
+<tr>
+<td>info</td>
+<td>Prints the current system information</td>
+<td>-
+</td></tr>
+<tr>
+<td>inventoryclean</td>
+<td>throws out any items in inventory on invalid positions</td>
+<td>-
+</td></tr>
+<tr>
+<td>lodbias [number]</td>
+<td>Sets the draw distance for the server.</td>
+<td>The number can be set from 1 to 7.
+</td></tr>
+<tr>
+<td>maxfps [FPS]</td>
+<td>sets fps limit</td>
+<td>
+</td></tr>
+<tr>
+<td>nomap</td>
+<td>Toggles map visibility.</td>
+<td>If the server, also toggles the nomap <a href="p-577cfab98de598e55bee.html" title="Global Keys">global key</a>.
+</td></tr>
+<tr>
+<td>noportals</td>
+<td>Toggles portals.</td>
+<td>If the server, toggles the noportals <a href="p-577cfab98de598e55bee.html" title="Global Keys">global key</a>.
+</td></tr>
+<tr>
+<td>optterrain</td>
+<td>Converts all the old terrain modifications (before Update 0.150.3) in the nearby area to the new system.</td>
+<td>-
+</td></tr>
+<tr>
+<td>ping</td>
+<td>Pings the server to measure latency.</td>
+<td>-
+</td></tr>
+<tr>
+<td>printbinds</td>
+<td>Prints current custom command binds.</td>
+<td>-
+</td></tr>
+<tr>
+<td>printseeds</td>
+<td>Prints seeds and positions of nearby dungeons.</td>
+<td>-
+</td></tr>
+<tr>
+<td>resetbinds</td>
+<td>Removes all custom commands binds.</td>
+<td>-
+</td></tr>
+<tr>
+<td>resetknownitems</td>
+<td>reset character known items &amp; recipes</td>
+<td>-
+</td></tr>
+<tr>
+<td>resetplayerprefs</td>
+<td>Resets any saved settings and variables (not the save game)</td>
+<td>-
+</td></tr>
+<tr>
+<td>resetsharedmap</td>
+<td>Removes shared map data from cartography table.</td>
+<td>-
+</td></tr>
+<tr>
+<td>resetspawn</td>
+<td>Resets the spawn location.</td>
+<td>-
+</td></tr>
+<tr>
+<td>resetworldkeys [name]</td>
+<td>Resets all world modifiers to default</td>
+<td>-
+</td></tr>
+<tr>
+<td>respawn</td>
+<td>Kills the character.</td>
+<td>-
+</td></tr>
+<tr>
+<td>restartparty</td>
+<td>Restarts the playfab party network.</td>
+<td>-
+</td></tr>
+<tr>
+<td>s</td>
+<td>Shouts a chat message.</td>
+<td>-
+</td></tr>
+<tr>
+<td>say</td>
+<td>Says a chat message.</td>
+<td>-
+</td></tr>
+<tr>
+<td>setworldmodifier [name] [value]</td>
+<td>Sets a world modifier value</td>
+<td>-
+</td></tr>
+<tr>
+<td>setworldpreset [name]</td>
+<td>Resets all world modifiers to a named preset</td>
+<td>-
+</td></tr>
+<tr>
+<td>sortcraft [type]</td>
+<td>sorts crafting lists according to setting</td>
+<td>-
+</td></tr>
+<tr>
+<td>tutorialreset</td>
+<td>Resets viewed tutorial messages.</td>
+<td>-
+</td></tr>
+<tr>
+<td>tutorialtoggle</td>
+<td>Toggles whether the tutorials are shown.</td>
+<td>-
+</td></tr>
+<tr>
+<td>unbind [keycode]</td>
+<td>Clears all custom command binds from a Unity keycode.</td>
+<td>-
+</td></tr>
+<tr>
+<td>W [player name]</td>
+<td>Whispers a chat message to a player.</td>
+<td>-
+</td></tr>
+<tr>
+<td>xb:version</td>
+<td>Prints mercurial hashset used for this build</td>
+<td>-
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading3"><h3 id="en-Emotes">Emotes</h3></div>
+<p>Emote commands do not require <b>devcommands</b> and can be used from the chat window.
+</p>
+<div class="sample-table-scroll"><table class="mw-collapsible mw-collapsed wikitable sortable" data-collapsetext="Hide commands" data-expandtext="Show commands">
+<tbody><tr>
+<th>Icon</th>
+<th>Name</th>
+<th>Command
+</th></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/e34bd688382fbf825326.png"><img class="mw-file-element" data-file-height="125" data-file-width="128" decoding="async" height="63" loading="eager" src="../assets/e34bd688382fbf825326.png" width="64"/></a></span></td>
+<td>Wave</td>
+<td>/wave
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/075629605ed934cff6d7.png"><img class="mw-file-element" data-file-height="128" data-file-width="128" decoding="async" height="64" loading="eager" src="../assets/075629605ed934cff6d7.png" width="64"/></a></span></td>
+<td>Sit</td>
+<td>/sit
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/ac0e199b4035b826c86e.png"><img class="mw-file-element" data-file-height="123" data-file-width="128" decoding="async" height="62" loading="eager" src="../assets/ac0e199b4035b826c86e.png" width="64"/></a></span></td>
+<td>Challenge</td>
+<td>/challenge
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/e81b8cb5928f60f43a1a.png"><img class="mw-file-element" data-file-height="128" data-file-width="106" decoding="async" height="77" loading="eager" src="../assets/e81b8cb5928f60f43a1a.png" width="64"/></a></span></td>
+<td>Cheer</td>
+<td>/cheer
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/2e006c2ff2e28d9786b6.png"><img class="mw-file-element" data-file-height="123" data-file-width="128" decoding="async" height="62" loading="eager" src="../assets/2e006c2ff2e28d9786b6.png" width="64"/></a></span></td>
+<td>No no no</td>
+<td>/nonono
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/8d8dd4023f6cb71c19be.png"><img class="mw-file-element" data-file-height="124" data-file-width="128" decoding="async" height="62" loading="eager" src="../assets/8d8dd4023f6cb71c19be.png" width="64"/></a></span></td>
+<td>Thumbs up</td>
+<td>/thumbsup
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/5f95eee450070ddd57b9.png"><img class="mw-file-element" data-file-height="121" data-file-width="126" decoding="async" height="61" loading="eager" src="../assets/5f95eee450070ddd57b9.png" width="64"/></a></span></td>
+<td>/point</td>
+<td>/point
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/5ca2e64d0aa776dfc0b8.png"><img class="mw-file-element" data-file-height="128" data-file-width="128" decoding="async" height="64" loading="eager" src="../assets/5ca2e64d0aa776dfc0b8.png" width="64"/></a></span></td>
+<td>Blow kiss</td>
+<td>/blowkiss
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/a054abfccf38c14b3503.png"><img class="mw-file-element" data-file-height="128" data-file-width="123" decoding="async" height="67" loading="eager" src="../assets/a054abfccf38c14b3503.png" width="64"/></a></span></td>
+<td>Bow</td>
+<td>/bow
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/5058fc0fbce3e4578d95.png"><img class="mw-file-element" data-file-height="127" data-file-width="128" decoding="async" height="64" loading="eager" src="../assets/5058fc0fbce3e4578d95.png" width="64"/></a></span></td>
+<td>Cower</td>
+<td>/cower
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/f6aba51fa6faefc31f62.png"><img class="mw-file-element" data-file-height="128" data-file-width="126" decoding="async" height="65" loading="eager" src="../assets/f6aba51fa6faefc31f62.png" width="64"/></a></span></td>
+<td>Cry</td>
+<td>/cry
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/8799227b73c78e0b5249.png"><img class="mw-file-element" data-file-height="128" data-file-width="122" decoding="async" height="67" loading="eager" src="../assets/8799227b73c78e0b5249.png" width="64"/></a></span></td>
+<td>Despair</td>
+<td>/despair
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/7ba4c859e0adf583a0ec.png"><img class="mw-file-element" data-file-height="128" data-file-width="128" decoding="async" height="64" loading="eager" src="../assets/7ba4c859e0adf583a0ec.png" width="64"/></a></span></td>
+<td>Flex</td>
+<td>/flex
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/2e65c9cc2e52e9c9d8d0.png"><img class="mw-file-element" data-file-height="128" data-file-width="101" decoding="async" height="81" loading="eager" src="../assets/2e65c9cc2e52e9c9d8d0.png" width="64"/></a></span></td>
+<td>Come here</td>
+<td>/comehere
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/04702d85e16242813f42.png"><img class="mw-file-element" data-file-height="127" data-file-width="128" decoding="async" height="64" loading="eager" src="../assets/04702d85e16242813f42.png" width="64"/></a></span></td>
+<td>Headbang</td>
+<td>/headbang
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/d00630edf1dbd6083275.png"><img class="mw-file-element" data-file-height="128" data-file-width="111" decoding="async" height="74" loading="eager" src="../assets/d00630edf1dbd6083275.png" width="64"/></a></span></td>
+<td>Kneel</td>
+<td>/kneel
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/9afe9096b34f757d1a76.png"><img class="mw-file-element" data-file-height="128" data-file-width="128" decoding="async" height="64" loading="eager" src="../assets/9afe9096b34f757d1a76.png" width="64"/></a></span></td>
+<td>Laugh</td>
+<td>/laugh
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/00cd140543a761b8422d.png"><img class="mw-file-element" data-file-height="120" data-file-width="128" decoding="async" height="60" loading="eager" src="../assets/00cd140543a761b8422d.png" width="64"/></a></span></td>
+<td>Roar</td>
+<td>/roar
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/be11ccb8f3e12ff2d8b8.png"><img class="mw-file-element" data-file-height="104" data-file-width="128" decoding="async" height="52" loading="eager" src="../assets/be11ccb8f3e12ff2d8b8.png" width="64"/></a></span></td>
+<td>Shrug</td>
+<td>/shrug
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/3b5c6e3c9a85caf17e72.png"><img class="mw-file-element" data-file-height="128" data-file-width="92" decoding="async" height="89" loading="eager" src="../assets/3b5c6e3c9a85caf17e72.png" width="64"/></a></span></td>
+<td>Dance</td>
+<td>/dance
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/877389d0680f4db2999c.png"><img class="mw-file-element" data-file-height="92" data-file-width="128" decoding="async" height="46" loading="eager" src="../assets/877389d0680f4db2999c.png" width="64"/></a></span></td>
+<td>Relax</td>
+<td>/relax
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/c13ab66690b74af36391.png"><img class="mw-file-element" data-file-height="128" data-file-width="128" decoding="async" height="64" loading="eager" src="../assets/c13ab66690b74af36391.png" width="64"/></a></span></td>
+<td>Toast</td>
+<td>/toast
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/7310b683e5693ec9f02a.png"><img class="mw-file-element" data-file-height="123" data-file-width="124" decoding="async" height="63" loading="eager" src="../assets/7310b683e5693ec9f02a.png" width="64"/></a></span></td>
+<td>Rest</td>
+<td>/rest
+</td></tr>
+<tr>
+<td><span typeof="mw:File"><a class="mw-file-description" href="../assets/675c94dd91cc297c1c68.png"><img class="mw-file-element" data-file-height="126" data-file-width="109" decoding="async" height="74" loading="eager" src="../assets/675c94dd91cc297c1c68.png" width="64"/></a></span></td>
+<td>Vibe</td>
+<td>/vibe
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading3"><h3 id="en-Admin_commands">Admin commands</h3></div>
+<p>Various admin utilities. <b>Only available when player's SteamID64 or Crossplay player ID is in the admin list.</b>
+</p>
+<div class="sample-table-scroll"><table class="mw-collapsible mw-collapsed wikitable sortable" data-collapsetext="Hide commands" data-expandtext="Show commands">
+<tbody><tr>
+<th>Command</th>
+<th>Effect</th>
+<th>Note
+</th></tr>
+<tr>
+<td>ban [name/ip/userID]</td>
+<td>Bans the named user.</td>
+<td>-
+</td></tr>
+<tr>
+<td>banned</td>
+<td>Shows a full list of banned users.</td>
+<td>-
+</td></tr>
+<tr>
+<td>kick [name/ip/userID]</td>
+<td>Kicks the named user.</td>
+<td>-
+</td></tr>
+<tr>
+<td>resetworldkeys</td>
+<td>Resets all world modifiers to default.</td>
+<td>This does not reset gameplay progression keys.
+</td></tr>
+<tr>
+<td>save</td>
+<td>Forces the game to save.</td>
+<td>-
+</td></tr>
+<tr>
+<td>setworldmodifier [name] [value]</td>
+<td>Sets a world modifier slider value</td>
+<td>-
+</td></tr>
+<tr>
+<td>setworldpreset [name]</td>
+<td>Resets all world modifiers to a named preset.</td>
+<td>-
+</td></tr>
+<tr>
+<td>unban [name/ip/userID]</td>
+<td>Unbans the named user.</td>
+<td>-
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading2"><h2 id="en-Cheat_commands">Cheat commands</h2></div>
+<p>To activate cheat commands, type <b>devcommands</b> and press enter. To deactivate cheat commands, type <b>devcommands</b> and press enter again. <font color="red"><b>The cheat commands are available in singleplayer or manually hosted mode only. They do not work on a dedicated server.</b></font>
+</p>
+<div class="sample-table-scroll"><table class="mw-collapsible mw-collapsed wikitable sortable" data-collapsetext="Hide commands" data-expandtext="Show commands">
+<tbody><tr>
+<th>Command</th>
+<th>Effect</th>
+<th>Note
+</th></tr>
+<tr>
+<td>addstatus [name]</td>
+<td>Adds a <a href="p-f57eddb4e027139d853f.html" title="Status effects">status effect</a>.</td>
+<td>For example: Rested, Burning, SoftDeath, Wet, etc.
+</td></tr>
+<tr>
+<td>aggravate</td>
+<td>Aggravates neutrals within 20 meters.</td>
+<td>-
+</td></tr>
+<tr>
+<td>altbioms</td>
+<td>list of biomes with modifiers</td>
+<td>-
+</td></tr>
+<tr>
+<td>beard [beard#]</td>
+<td>Permanently changes your beard.</td>
+<td>Entering this command without an argument removes your beard.
+</td></tr>
+<tr>
+<td>biomeinfo</td>
+<td>info about current biome sector</td>
+<td>-
+</td></tr>
+<tr>
+<td>clearstatus</td>
+<td>Removes any <a href="p-f57eddb4e027139d853f.html" title="Status effects">status effects</a> (good and bad).</td>
+<td>-
+</td></tr>
+<tr>
+<td>cinematic</td>
+<td>[name] play cinematic</td>
+<td>-
+</td></tr>
+<tr>
+<td>dpsdebug</td>
+<td>Toggles dps debug print on and off.</td>
+<td>-
+</td></tr>
+<tr>
+<td>env [env]</td>
+<td>Sets debug environment.</td>
+<td>Variables: Clear, Twilight_Clear, Misty, Darklands_dark, Heath clear, DeepForest Mist, GDKing, Rain, LightRain, ThunderStorm, Eikthyr, GoblinKing, nofogts, SwampRain, Bonemass, Snow, Twilight_Snow, Twilight_SnowStorm, SnowStorm, Moder, Ashrain, Crypt, SunkenCrypt.
+</td></tr>
+<tr>
+<td>exploremap</td>
+<td>Reveals the entire map.</td>
+<td>-
+</td></tr>
+<tr>
+<td>event [name]</td>
+<td>Starts the named <a href="p-8d14f6e72de8f18ab1ee.html" title="Events">event</a>.</td>
+<td>-
+</td></tr>
+<tr>
+<td>ffsmooth 1</td>
+<td>Adds smooth movements to free camera.</td>
+<td>"ffsmooth 0" will reset smooth movements to normal.
+</td></tr>
+<tr>
+<td>forcedelete [radius=5] [*name]</td>
+<td>Removes objects within given radius (up to 50 meters).</td>
+<td>If ID is given, only objects that contain the name on their ID. Following objects are never removed: Players and tombstones, Valkyrie, <a class="mw-redirect" href="p-e009a867f990f58b163a.html" title="Points of Interest (POI)">Points of Interests</a> (locations), Dungeons and their rooms, Vegvisirs, Boss stones at the start temple.
+</td></tr>
+<tr>
+<td>find [text] [pingmax]</td>
+<td>Finds matching objects and pings them on the map.</td>
+<td>Pingmax defaults to 1; If greater, will place pins on the map instead.
+</td></tr>
+<tr>
+<td>findtp [text]</td>
+<td>Finds matching objects and teleports the player to the nearest match.</td>
+<td>-
+</td></tr>
+<tr>
+<td>findbiome</td>
+<td>marks center of all biomes on map of type or containing modifier with search string</td>
+<td>-
+</td></tr>
+<tr>
+<td>findbiometp</td>
+<td>finds the closest biome matching your search and teleports you to it</td>
+<td>-
+</td></tr>
+<tr>
+<td>fly</td>
+<td>Toggles the fly mode.</td>
+<td>Same as in the debug mode, Press 'Z' with Debug on.
+</td></tr>
+<tr>
+<td>gc</td>
+<td>Shows garbage collection information.</td>
+<td>-
+</td></tr>
+<tr>
+<td>genloc</td>
+<td>Redistributes all unplaced locations.</td>
+<td>-
+</td></tr>
+<tr>
+<td>ghost</td>
+<td>Toggles ghost mode (enemies ignore user if true).</td>
+<td>-
+</td></tr>
+<tr>
+<td>god</td>
+<td>Enables god mode. (Makes user invicible if true).</td>
+<td>Keeps users' health at '1' even if damage would exceed remaining health.
+</td></tr>
+<tr>
+<td>goto [x] [z]</td>
+<td>Teleports player to the specified coordinates.</td>
+<td>-
+</td></tr>
+<tr>
+<td>hair [hair#]</td>
+<td>Permanently changes your hair.</td>
+<td>Entering this command without an argument removes your hair.
+</td></tr>
+<tr>
+<td>haslocation</td>
+<td>check if zone has location</td>
+<td>-
+</td></tr>
+<tr>
+<td>height</td>
+<td>print height from worldgen at current position</td>
+<td>-
+</td></tr>
+<tr>
+<td>heal</td>
+<td>Regenerates user to full health, stamina, and eitr.</td>
+<td>-
+</td></tr>
+<tr>
+<td>itemset [name] [keep]</td>
+<td>Spawns a premade item set.</td>
+<td>Without "keep" flag, current items will be dropped.
+<ul><li>Meadows: Skills set to 1. Wood/flint weapons with a <a href="p-dba0dea0584b2923f40c.html" title="Bronze Pickaxe">Bronze Pickaxe</a>.</li>
+<li>BlackForest: Skills set to 10. Wood/flint weapons.</li>
+<li>Swamps: Skills set to 10-20. Bronze weapons and armor.</li>
+<li>Mountains: Skills set to 25. Iron weapons and armor.</li>
+<li>Plains: Skills set to 35. Silver weapons and wolf armor.</li>
+<li>PlainsBoss: Skills set to 40. Blackmetal weapons and padded armor.</li>
+<li>Mistlands: Skills set to 70. Upgraded Blackmetal weapons, padded armor.</li>
+<li>MistlandsGear: Skills set to 70. Mistlands weapons and carapace armor.</li>
+<li>MistlandsMage: Skills set to 70. Eitr armor, all magical staffs (to Mistlands) and Eitr food.</li>
+<li>MistlandsWarrior. Skill set to 70. MIstlands weapons and carapace armor.</li>
+<li>Ashlands. Skills set to 30. All Ashlands weapons and flametal and embla armor.</li>
+<li>AshlandsMage. Skills set to 30. All magical staffs (to Ashlands), embla armor and Eitr food</li>
+<li>AshlandsWarrior. Skills set to 30. All Ashlands weapons and ammo, flametal armor and food.</li>
+<li>AshlandsFood. Skills set to 30. All Ashlands foods (x10).</li>
+<li>AshlandsWeapons. Skills set to 30. All Ashlands weapons in each variant.</li>
+<li>AshlandsMedium. Skills set to 30. All Ashlands weapons, Ask armor and food.</li>
+<li>Fisherman: Skills set to 40. Fishing rod, 50 of each bait, 5 of each Fish and Fenris armor.</li></ul>
+</td></tr>
+<tr>
+<td>inventorysize</td>
+<td>sets inventory size(default 4, max 9)</td>
+<td>-
+</td></tr>
+<tr>
+<td>killall</td>
+<td>Kills nearby enemies and tamed creatures.</td>
+<td>Does not kill players.
+</td></tr>
+<tr>
+<td>killenemies</td>
+<td>Kills nearby enemies.</td>
+<td>Same as in the debug mode, Press 'K' with Debug on.
+</td></tr>
+<tr>
+<td>killtame</td>
+<td>Kills nearby tamed creatures.</td>
+<td>-
+</td></tr>
+<tr>
+<td>listkeys</td>
+<td>Lists all global keys.</td>
+<td>-
+</td></tr>
+<tr>
+<td>location [name]</td>
+<td>Spawns a location instance.</td>
+<td>Permanently disables saving.
+</td></tr>
+<tr>
+<td>location [name] SAVE</td>
+<td>Spawns a location instance.</td>
+<td>Saving is not disabled.
+</td></tr>
+<tr>
+<td>model [0-1]</td>
+<td>Switches character model from masculine to feminine.</td>
+<td>-
+</td></tr>
+<tr>
+<td>nextseed</td>
+<td>Forces the next dungeon to a seed (regenerates it).</td>
+<td>Permanently disables saving.
+</td></tr>
+<tr>
+<td>nocost</td>
+<td>Toggles the no cost mode.</td>
+<td>Same as in the debug mode, Press 'B' with Debug on.
+</td></tr>
+<tr>
+<td>pevents</td>
+<td>subcommands: [list/start/stop/here] used for the new event from deep north</td>
+<td>-
+</td></tr>
+<tr>
+<td>players [number]</td>
+<td>Adjusts the difficulty scale.</td>
+<td>Enter 0 to reset difficulty.
+</td></tr>
+<tr>
+<td>pos</td>
+<td>Shows player coordinates.</td>
+<td>-
+</td></tr>
+<tr>
+<td>printcreatures</td>
+<td>Prints the counts and levels of active creatures.</td>
+<td>-
+</td></tr>
+<tr>
+<td>printlocations</td>
+<td>Prints the loaded locations and their distances and offsets to the player.</td>
+<td>-
+</td></tr>
+<tr>
+<td>puke</td>
+<td>Resets fullness/hunger, returning you to default Health/Stamina.</td>
+<td>-
+</td></tr>
+<tr>
+<td>raiseskill [skill] [amount]</td>
+<td>Raises (or lowers) the named <a href="p-66d0f523a379b2de6f8d.html" title="Skills">skill</a> by the value entered.</td>
+<td>If 'All' is entered in place of [skill], all skills will increase by the value entered. To lower a skill, type "-" before the value.
+</td></tr>
+<tr>
+<td>randomevent</td>
+<td>Starts a random <a href="p-8d14f6e72de8f18ab1ee.html" title="Events">event</a>.</td>
+<td>-
+</td></tr>
+<tr>
+<td>recall [name]
+</td>
+<td>Teleports all players matching the name to your position.</td>
+<td>Without name, teleports all players.
+</td></tr>
+<tr>
+<td>removebirds</td>
+<td>Removes all active birds.</td>
+<td>-
+</td></tr>
+<tr>
+<td>removedrops</td>
+<td>Removes all items drops in the area.</td>
+<td>Same as in the debug mode, Press 'L' with Debug on.
+</td></tr>
+<tr>
+<td>removefish</td>
+<td>Removes all active fish.</td>
+<td>-
+</td></tr>
+<tr>
+<td>removekey [name]</td>
+<td>Removes a <a href="p-577cfab98de598e55bee.html" title="Global Keys">global key</a>.</td>
+<td>-
+</td></tr>
+<tr>
+<td>repairall</td>
+<td>repairs all equipment
+</td></tr>
+<tr>
+<td>resetcharacter</td>
+<td>Resets all of your character data.</td>
+<td>-
+</td></tr>
+<tr>
+<td>resetenv</td>
+<td>Resets the debug environment.</td>
+<td>-
+</td></tr>
+<tr>
+<td>resetkeys [name]</td>
+<td>Removes all <a href="p-577cfab98de598e55bee.html" title="Global Keys">Global Keys</a>.</td>
+<td>[name] parameter does not do anything.
+</td></tr>
+<tr>
+<td>resetmap</td>
+<td>Hides entire map.</td>
+<td>-
+</td></tr>
+<tr>
+<td>resetskill [skill]</td>
+<td>Sets specified skill level to 0.</td>
+<td>If 'All' is entered in place of [skill], all skills will be reset to level 0.
+</td></tr>
+<tr>
+<td>resetwind</td>
+<td>Resets the wind angle and intensity.</td>
+<td>-
+</td></tr>
+<tr>
+<td>save</td>
+<td>Forces the game to save the current world state.</td>
+<td>-
+</td></tr>
+<tr>
+<td>setfuel [value]</td>
+<td>Adds value amount of fuel to all nearby fire sources</td>
+<td>Default is 10, does not overfill. Negative values will reduce the level of fuel in fire sources down to zero.
+</td></tr>
+<tr>
+<td>setkey [name]</td>
+<td>Adds a <a href="p-577cfab98de598e55bee.html" title="Global Keys">global key</a>.</td>
+<td>-
+</td></tr>
+<tr>
+<td>setpower [name]</td>
+<td>Sets the current <a href="p-b8e0a74433a1176e439f.html" title="Forsaken power">Forsaken power</a> and resets the cooldown</td>
+<td>For example: GP_Eikthyr, GP_TheElder, etc.
+</td></tr>
+<tr>
+<td>skiptime [seconds = 240]</td>
+<td>Skips forward, changing day number and time of day.</td>
+<td>This does not update timestamps of objects which causes issues when going back in the time.
+<ul><li><a href="p-60958b009a9e0b5dd0b6.html" title="Spawn zones">Spawn zones</a> stop spawning enemies until the time is back to the original.</li>
+<li>Animals and plants stop growing until the time is back to the original.</li>
+<li><a href="p-a3ff2ed3cbd64ace9b1c.html" title="Fermenter">Fermenters</a>, <a href="p-4c85ecaec998a3fc5f2c.html" title="Smelter">Smelters</a> and <a href="p-82e0da97aaccc783ff13.html" title="Charcoal Kiln">Kilns</a> may stop working until the time is back to the original (but this can be easily fixed by destroying them).</li></ul>
+</td></tr>
+<tr>
+<td>sleep</td>
+<td>Skips forward one day.</td>
+<td>-
+</td></tr>
+<tr>
+<td>snow</td>
+<td>[amount]  adds/removes amount of snowbuild on all nearby build pieces
+</td></tr>
+<tr>
+<td>sortcraft</td>
+<td>Sorts crafting list by Name, Type, Weight, Count or Original.</td>
+<td>
+<ul><li>Name sorts by alphabetical order</li>
+<li>Type sorts by the type of the item, then alphabetical, in this order: Material, Food (-Feasts), One-handed Melee/Thrown Weapon, (Cross)Bow, Shield, Helmet, Chest Armor, Arrow/Bolt, Leg Armor, Two-handed Melee Weapon + Scythe, Light source, Misc., Cape/Cloak, Utility, Tool, "TwoHandedWeaponLeft", Ballista Ammo</li></ul>
+<ul><li>Weight sorts by lightest to heaviest, then alphabetical. (No consideration of total per craft, i.e. <a href="p-e2e5e0213e916e5b144b.html" title="Boar Jerky">Boar Jerky</a>, or total possible)</li>
+<li>Count sorts by deep magics unknown</li>
+<li>Original sorts by default or otherwise "resets" the sorting order</li></ul>
+</td></tr>
+<tr>
+<td>spawn [entity name] [amount] [level]</td>
+<td>Spawns specified entity.</td>
+<td>See <a href="p-72c882b758975bacd53f.html" title="Item IDs">ItemIDs</a> for a list of spawnable entities.
+<ul><li>If the entity name ends with a star (*), the command spawns each entity that contains the entity name.</li>
+<li>All item drops will be spawned one by one. Spawning thousands of items can make the game freeze before the item drops get autostacked.</li>
+<li>High level creatures (level 10+) can make the game freeze on death by dropping thousands of items.</li>
+<li>Some spawnable entites can not be removed from the game without using mods.</li></ul>
+</td></tr>
+<tr>
+<td>stopevent</td>
+<td>Stops the current <a href="p-8d14f6e72de8f18ab1ee.html" title="Events">event</a>.</td>
+<td>-
+</td></tr>
+<tr>
+<td>tame</td>
+<td>Tames all nearby <i>tameable</i> <a href="creatures.html" title="Creatures">Creatures</a>.</td>
+<td>-
+</td></tr>
+<tr>
+<td>test [value]</td>
+<td>Toggles a test value.</td>
+<td>"oldcomfort" Reverts to old non-optimized comfort calculation.
+</td></tr>
+<tr>
+<td>time</td>
+<td>Shows the current time and whether sleeping is possible.</td>
+<td>-
+</td></tr>
+<tr>
+<td>timescale [target = 1] [fadetime = 0]</td>
+<td>Sets the speed of time.</td>
+<td>Up to 5x speed. Fadetime sets the transition duration.
+<ul><li>Value 0 pauses the game. Freefly works while paused.</li>
+<li>Pausing the game in singleplayer by pressing ESC removes time scaling.</li></ul>
+</td></tr>
+<tr>
+<td>tod [0-1]</td>
+<td>Sets time of day.</td>
+<td>0 and 1 are both midnight. 0.5 is noon. -1 revert to default.
+</td></tr>
+<tr>
+<td>updatecover</td>
+<td>force update cover refresh
+</td></tr>
+<tr>
+<td>wind [angle] [intensity]</td>
+<td>Adjusts the direction and intensity of the wind.</td>
+<td>Lasts until you use <code>resetwind</code>
+<ul><li>"angle" = degree vector from 0 to 360 (0 is wind from south, 270 is wind from east).</li>
+<li>"intensity" = value from 0 to 1.0.</li>
+<li>For example: "wind 90 0.5" gives a moderate strength wind blowing from west to east.</li></ul>
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading3"><h3 id="en-Debug_mode">Debug mode</h3></div>
+<p>The debug mode can be entered to access more cheats, such as toggle fly or building without a workbench or resources. It can be entered by typing <b>devcommands</b> and pressing enter, then executing the command <b>debugmode</b> and pressing enter in the console. Executing it again will exit the debug mode.
+</p>
+<div class="sample-table-scroll"><table class="mw-collapsible mw-collapsed wikitable sortable" data-collapsetext="Hide controls" data-expandtext="Show controls">
+<tbody><tr>
+<th>Key</th>
+<th>Action
+</th></tr>
+<tr>
+<td>B</td>
+<td>Toggle for creative mode building, no workbench or resources needed.
+</td></tr>
+<tr>
+<td>K</td>
+<td>Kills nearby enemies (excluding tamed creatures).
+</td></tr>
+<tr>
+<td>L</td>
+<td>Removes nearby item drops.
+</td></tr>
+<tr>
+<td>Z</td>
+<td>Toggle to fly. Spacebar gives you altitude, Ctrl brings you back down.
+</td></tr>
+<tr>
+<td>Ctrl + MMB (on map)</td>
+<td>Teleport to cursor location.
+</td></tr>
+<tr>
+<td>Shift + C</td>
+<td>Set time to day.
+</td></tr></tbody></table></div>
+<div class="sample-table-scroll"><table class="navbox mw-collapsible mw-collapsed" data-collapsetext="Hide" data-expandtext="Show"><tbody><tr class="navbox-title"><th colspan="2" scope="col"><div class="navbox-title-pad navbox-title-padleft navbox-title-padright"><a href="p-edd2287afad9be012dee.html" title="Category:Mechanics">Mechanics</a></div></th></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Guides</th><td class="navbox-list"><div class="hlist"><a href="how-to-play.html" title="How to play">How to play</a> • <a href="p-58565db394dcbacc0ec7.html" title="Progression guide">Progression guide</a> • <a href="p-e70bc5798f8391942dd6.html" title="Aggressive creature strategies">Aggressive creature strategies</a> • <a href="p-19e667dbe36cd74e7c1b.html" title="Passive creature strategies">Passive creature strategies</a> • <a href="p-afc73fba07d15f960daf.html" title="Boss strategies">Boss strategies</a> • <a href="p-a1b6af2b7d7d4bfef86e.html" title="Dedicated servers">Dedicated servers</a> • <a href="p-c3af076f92c5ed8dcb0d.html" title="Troubleshooting">Troubleshooting</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Player</th><td class="navbox-list"><div class="hlist"><a href="p-64aee8c6cbd026d9ea92.html" title="Player">Player</a> • <a href="p-55898449eb74fb2e348d.html" title="Health">Health</a> • <a href="p-cc350ea3393968f7cd7c.html" title="Stamina">Stamina</a> • <a href="p-332e6a85b4285ff8858c.html" title="Eitr">Eitr</a> • <a href="p-2608729251008c9658e7.html" title="Adrenaline">Adrenaline</a> • <a href="p-fcd6fea72de7e6c09ca2.html" title="Death">Death</a> • <a href="p-b8e0a74433a1176e439f.html" title="Forsaken power">Forsaken power</a> • <a href="p-66d0f523a379b2de6f8d.html" title="Skills">Skills</a> • <a href="p-f57eddb4e027139d853f.html" title="Status effects">Status effects</a> • <a href="p-5954d0c13f55417f74fb.html" title="Movement speed">Movement speed</a> • <a href="p-ed1a5a81b8121ad13a87.html" title="Magic">Magic</a> • <a href="p-79cea8ff2ba190bbb1bd.html" title="Fishing">Fishing</a> • <a href="p-e9d7b76127dca2c7d07e.html" title="Riding">Riding</a> • <a href="p-12ff393b061d94ebc405.html" title="Sleeping">Sleeping</a> • <a href="p-25521701981e1ad3ad97.html" title="Emotes">Emotes</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Combat</th><td class="navbox-list"><div class="hlist"><a href="p-0c874f581a4534f15f1e.html" title="Damage">Damage types</a> • <a href="p-e931ec535f307a5c6add.html" title="Damage mechanics">Damage mechanics</a> • <a href="p-bb0db9f7893c418a1de3.html" title="Knockback">Knockback</a> • <a href="p-aeaeee06ac36a10d7822.html" title="Factions">Factions</a> • <a href="p-4e7c41331a4464ad6e07.html" title="Creature senses">Creature senses</a> • <a href="p-5ac03ba6efdc56d5b7b5.html" title="Creature AI">Creature AI</a> • <a href="p-37015441396c962e2e96.html" title="Drops">Drops</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Spawning</th><td class="navbox-list"><div class="hlist"><a href="p-36ff87e1502da8a1d740.html" title="Spawning mechanics">Spawning mechanics</a> • <a href="p-3a6396c120925fdde8d2.html" title="Spawn points">Spawn points</a> • <a href="p-60958b009a9e0b5dd0b6.html" title="Spawn zones">Spawn zones</a> • <a href="p-8d14f6e72de8f18ab1ee.html" title="Events">Events</a> • <a href="p-47373e84723cece15749.html" title="Creature level">Creature level</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Building</th><td class="navbox-list"><div class="hlist"><a href="building.html" title="Building">Building</a> • <a href="p-99b60de679e8976fc592.html" title="Building stability">Building stability</a> • <a href="p-fa8d84566676ee2ee662.html" title="Cover">Cover</a> • <a href="p-040d4645676f60263590.html" title="Comfort">Comfort</a> • <a href="p-a6d7eeb25f1fe9854a8b.html" title="Player base">Player base</a> • <a href="p-29b52bfcccd01518e9de.html" title="Smoke">Smoke</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">UI</th><td class="navbox-list"><div class="hlist"><a href="p-758f487fe8e9fcc59cec.html" title="Inventory">Inventory</a> • <a class="mw-redirect" href="crafting.html" title="Crafting menu">Crafting menu</a> • <a href="p-be176b0015c424b78e9f.html" title="Map">Map</a> • <a href="p-c40c747ee79e90e16e46.html" title="HUD">HUD</a> • <a href="p-799c269135742a36ae48.html" title="Controls">Controls</a> • <a class="mw-selflink selflink">Developer console</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">World</th><td class="navbox-list"><div class="hlist"><a href="p-9e471951a1b4106e54be.html" title="Environment">Environment</a> • <a href="p-8a27b0cad26bc97071ab.html" title="World Modifiers">World Modifiers</a> • <a href="p-2af8986090a5b9ad83ec.html" title="World seed">World seed</a> • <a href="p-577cfab98de598e55bee.html" title="Global Keys">Global Keys</a> • <a href="p-a53aa373c5e23e694a54.html" title="Zones">Zones</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Misc</th><td class="navbox-list"><div class="hlist"><a href="p-74cf2bc63fe122206c82.html" title="Achievements">Achievements</a> • <a href="p-1964260e2e296c33c3f3.html" title="Seasonal events">Seasonal events</a> • <a href="p-6eb00b4b2614a144d41c.html" title="Music">Music</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Development</th><td class="navbox-list"><div class="hlist"><a href="p-a6df11e706c514f13d6f.html" title="Version history">Version history</a> • <a href="p-4696ff19d71c753885a5.html" title="Future content">Future content</a></div></td></tr></tbody></table></div>
+
+
+
+</div></section><footer data-language="zh">来源：<a href="https://valheim.weirdgloop.org/w/Developer_console">开发者控制台原文（需联网）</a>；保存修订号 60338。中文为本地译文。<p>原站内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名—非商业性使用—相同方式共享 3.0（CC BY-NC-SA 3.0）</a>许可；<a href="https://meta.weirdgloop.org/w/Licensing">可能适用额外条款</a>。背景与装饰素材来自原版维基，并已保存到本地。</p></footer><footer data-language="en" hidden>Source: <a href="https://valheim.weirdgloop.org/w/Developer_console">Developer console original (online)</a>; saved revision 60338. Chinese is a local translation. <p>Content on this site is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a>; <a href="https://meta.weirdgloop.org/w/Licensing">additional terms may apply</a>. Backgrounds and decorative assets from the original wiki are stored locally.</p></footer></main></body></html>

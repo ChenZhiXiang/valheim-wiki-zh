@@ -1,0 +1,957 @@
+<!doctype html><html data-wiki-root=".." lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>专用服务器 · 英灵神殿离线维基</title><link rel="stylesheet" href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-0.css"><link rel="stylesheet" href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-1.css"><link rel="stylesheet" href="../assets/sample.css"><script defer src="../assets/search.js"></script><script defer src="../assets/sample.js"></script></head><body class="skin-vector"><nav class="sample-toolbar"><strong  data-ui-zh="英灵神殿 · 离线维基" data-ui-en="Valheim · Offline Wiki">英灵神殿 · 离线维基</strong><a href="creatures.html" data-local-page="true" data-ui-zh="生物" data-ui-en="Creatures">生物</a><a href="how-to-play.html" data-local-page="true" data-ui-zh="入门玩法" data-ui-en="How to play">入门玩法</a><a href="biomes.html" data-local-page="true" data-ui-zh="生物群系" data-ui-en="Biomes">生物群系</a><a href="weapons.html" data-local-page="true" data-ui-zh="武器" data-ui-en="Weapons">武器</a><a href="food.html" data-local-page="true" data-ui-zh="食物" data-ui-en="Food">食物</a><a href="armor.html" data-local-page="true" data-ui-zh="护甲" data-ui-en="Armor">护甲</a><a href="crafting.html" data-local-page="true" data-ui-zh="制作" data-ui-en="Crafting">制作</a><a href="building.html" data-local-page="true" data-ui-zh="建材" data-ui-en="Building">建材</a><button id="sample-language" aria-pressed="false">切换英文</button><a href="#sample-toc" data-ui-zh="本页目录" data-ui-en="Contents">本页目录</a><form id="sample-search-form" role="search"><label for=sample-search data-ui-zh="站内搜索" data-ui-en="Site search">站内搜索</label><input id="sample-search" type="search" autocomplete="off" data-placeholder-zh="输入中文或英文" data-placeholder-en="Search in Chinese or English" placeholder="输入中文或英文"><button type=submit data-ui-zh="搜索" data-ui-en="Search">搜索</button></form></nav><main class="sample-shell"><h1 id="sample-title" data-ui-zh="专用服务器" data-ui-en="Dedicated servers">专用服务器</h1><p class="sample-note" data-ui-zh="本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。" data-ui-en="This offline edition supports Chinese and English site search. Links marked ↗ require internet. Chinese uses the supplied glossary; each source revision is shown below.">本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。</p><section id="sample-search-results" aria-live="polite" hidden></section><nav id="sample-toc" class="sample-contents"><div data-language="zh"><a href="#mw-toc-heading">目录</a><a href="#Parallel_processes">并行进程</a><a href="#Zonesystem_&amp;_DungeonDB">区域系统与DungeonDB</a><a href="#Game_server_(Steam_A2S)">游戏服务器（Steam A2S）</a><a href="#Garbage_collector">垃圾收集器</a><a href="#World_Save">世界 保存</a><a href="#Networking">联网</a><a href="#Crossplay_Connectivity">跨平台联机连接</a><a href="#Steam-facilitated_Direct_Connectivity">Steam提供的直连功能</a><a href="#Working_with_Carrier-grade_NAT_(CGNAT)">处理运营商级地址转换（CGNAT）</a><a href="#Automated_Setup">自动设置</a><a href="#Docker">Docker</a><a href="#Automated_Installation_via_AMP">通过AMP自动安装</a><a href="#Manual_Setup">手动配置</a><a href="#Step_1:_Download_the_Server_files">步骤1：下载服务器文件</a><a href="#Windows">Windows</a><a href="#Linux">Linux</a><a href="#Step_2:_Setting_up_a_Valheim_Dedicated_Server">步骤2：配置英灵神殿专用服务器</a><a href="#Windows_2">Windows</a><a href="#Linux_2">Linux</a><a href="#Step_3:_Port_Forwarding_/_Remote_Access">步骤3：端口转发与远程访问</a><a href="#Manually">手动</a><a href="#Semi-Automated">半自动</a><a href="#steam://connect">steam://connect</a><a href="#steam://run">steam://run</a><a href="#Admins,_bans,_and_whitelist">管理员、封禁与白名单</a><a href="#Specifying_seed_&amp;_location_of_World_Save_Data">指定种子 &amp; 位置的世界 保存数据</a><a href="#Location_of_Server_Log_Files">服务器日志文件位置</a><a href="#Linux_3">Linux</a><a href="#Steam_Cloud_interaction">Steam云同步交互</a><a href="#Why_does_the_server_lag_happen?">为什么服务器会出现延迟？</a><a href="#Why_does_desync_happen?">为什么会发生不同步？</a><a href="#My_progress_got_reverted,_what_can_I_do?">我的进度回退了，该怎么办？</a><a href="#References">参考资料</a></div><div data-language="en" hidden><a href="#en-mw-toc-heading">Contents</a><a href="#en-Parallel_processes">Parallel processes</a><a href="#en-Zonesystem_&amp;_DungeonDB">Zonesystem &amp; DungeonDB</a><a href="#en-Game_server_(Steam_A2S)">Game server (Steam A2S)</a><a href="#en-Garbage_collector">Garbage collector</a><a href="#en-World_Save">World Save</a><a href="#en-Networking">Networking</a><a href="#en-Crossplay_Connectivity">Crossplay Connectivity</a><a href="#en-Steam-facilitated_Direct_Connectivity">Steam-facilitated Direct Connectivity</a><a href="#en-Working_with_Carrier-grade_NAT_(CGNAT)">Working with Carrier-grade NAT (CGNAT)</a><a href="#en-Automated_Setup">Automated Setup</a><a href="#en-Docker">Docker</a><a href="#en-Automated_Installation_via_AMP">Automated Installation via AMP</a><a href="#en-Manual_Setup">Manual Setup</a><a href="#en-Step_1:_Download_the_Server_files">Step 1: Download the Server files</a><a href="#en-Windows">Windows</a><a href="#en-Linux">Linux</a><a href="#en-Step_2:_Setting_up_a_Valheim_Dedicated_Server">Step 2: Setting up a Valheim Dedicated Server</a><a href="#en-Windows_2">Windows</a><a href="#en-Linux_2">Linux</a><a href="#en-Step_3:_Port_Forwarding_/_Remote_Access">Step 3: Port Forwarding / Remote Access</a><a href="#en-Manually">Manually</a><a href="#en-Semi-Automated">Semi-Automated</a><a href="#en-steam://connect">steam://connect</a><a href="#en-steam://run">steam://run</a><a href="#en-Admins,_bans,_and_whitelist">Admins, bans, and whitelist</a><a href="#en-Specifying_seed_&amp;_location_of_World_Save_Data">Specifying seed &amp; location of World Save Data</a><a href="#en-Location_of_Server_Log_Files">Location of Server Log Files</a><a href="#en-Linux_3">Linux</a><a href="#en-Steam_Cloud_interaction">Steam Cloud interaction</a><a href="#en-Why_does_the_server_lag_happen?">Why does the server lag happen?</a><a href="#en-Why_does_desync_happen?">Why does desync happen?</a><a href="#en-My_progress_got_reverted,_what_can_I_do?">My progress got reverted, what can I do?</a><a href="#en-References">References</a></div></nav><section id="sample-zh" data-language="zh"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><div style="text-align:justify;">
+<p>本页介绍设置和运行<b>英灵神殿专用服务器</b>的基础及详细信息。</p>
+<div aria-labelledby="mw-toc-heading" class="toc" id="toc" role="navigation"><div class="toctitle" dir="ltr" lang="en"><h2 id="mw-toc-heading">目录</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">概览</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Parallel_processes"><span class="tocnumber">1.1</span> <span class="toctext">并行进程</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#Zonesystem_&amp;_DungeonDB"><span class="tocnumber">1.1.1</span> <span class="toctext">区域系统与DungeonDB</span></a></li>
+<li class="toclevel-3 tocsection-4"><a href="#Game_server_(Steam_A2S)"><span class="tocnumber">1.1.2</span> <span class="toctext">游戏服务器（Steam A2S）</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#Garbage_collector"><span class="tocnumber">1.1.3</span> <span class="toctext">垃圾收集器</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#World_Save"><span class="tocnumber">1.1.4</span> <span class="toctext">世界 保存</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-7"><a href="#Networking"><span class="tocnumber">1.2</span> <span class="toctext">联网</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="#Crossplay_Connectivity"><span class="tocnumber">1.2.1</span> <span class="toctext">跨平台联机连接</span></a>
+<ul>
+<li class="toclevel-4 tocsection-9"><a href="#Crossplay_Server_Join_Process"><span class="tocnumber">1.2.1.1</span> <span class="toctext">跨平台服务器加入流程</span></a></li>
+<li class="toclevel-4 tocsection-10"><a href="#Crossplay_Relay_Regions"><span class="tocnumber">1.2.1.2</span> <span class="toctext">跨平台游戏中继区域</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-11"><a href="#Steam-facilitated_Direct_Connectivity"><span class="tocnumber">1.2.2</span> <span class="toctext">Steam提供的直连功能</span></a>
+<ul>
+<li class="toclevel-4 tocsection-12"><a href="#Ingress"><span class="tocnumber">1.2.2.1</span> <span class="toctext">入站流量</span></a></li>
+<li class="toclevel-4 tocsection-13"><a href="#Egress"><span class="tocnumber">1.2.2.2</span> <span class="toctext">出站流量</span></a></li>
+<li class="toclevel-4 tocsection-14"><a href="#IPv6"><span class="tocnumber">1.2.2.3</span> <span class="toctext">IPv6</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-15"><a href="#Working_with_Carrier-grade_NAT_(CGNAT)"><span class="tocnumber">1.2.3</span> <span class="toctext">处理运营商级地址转换（CGNAT）</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="#Requirements"><span class="tocnumber">2</span> <span class="toctext">要求</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="#Setup"><span class="tocnumber">3</span> <span class="toctext">设置</span></a>
+<ul>
+<li class="toclevel-2 tocsection-18"><a href="#Automated_Setup"><span class="tocnumber">3.1</span> <span class="toctext">自动设置</span></a>
+<ul>
+<li class="toclevel-3 tocsection-19"><a href="#Docker"><span class="tocnumber">3.1.1</span> <span class="toctext">Docker</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="#Automated_Installation_via_AMP"><span class="tocnumber">3.1.2</span> <span class="toctext">通过AMP自动安装</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-21"><a href="#Manual_Setup"><span class="tocnumber">3.2</span> <span class="toctext">手动配置</span></a>
+<ul>
+<li class="toclevel-3 tocsection-22"><a href="#Step_1:_Download_the_Server_files"><span class="tocnumber">3.2.1</span> <span class="toctext">步骤1：下载服务器文件</span></a></li>
+<li class="toclevel-3 tocsection-23"><a href="#Windows"><span class="tocnumber">3.2.2</span> <span class="toctext">Windows</span></a></li>
+<li class="toclevel-3 tocsection-24"><a href="#Linux"><span class="tocnumber">3.2.3</span> <span class="toctext">Linux</span></a></li>
+<li class="toclevel-3 tocsection-25"><a href="#Step_2:_Setting_up_a_Valheim_Dedicated_Server"><span class="tocnumber">3.2.4</span> <span class="toctext">步骤2：配置英灵神殿专用服务器</span></a></li>
+<li class="toclevel-3 tocsection-26"><a href="#Windows_2"><span class="tocnumber">3.2.5</span> <span class="toctext">Windows</span></a></li>
+<li class="toclevel-3 tocsection-27"><a href="#Linux_2"><span class="tocnumber">3.2.6</span> <span class="toctext">Linux</span></a></li>
+<li class="toclevel-3 tocsection-28"><a href="#Step_3:_Port_Forwarding_/_Remote_Access"><span class="tocnumber">3.2.7</span> <span class="toctext">步骤3：端口转发与远程访问</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-29"><a href="#Connecting"><span class="tocnumber">4</span> <span class="toctext">连接中</span></a>
+<ul>
+<li class="toclevel-2 tocsection-30"><a href="#Manually"><span class="tocnumber">4.1</span> <span class="toctext">手动</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="#Semi-Automated"><span class="tocnumber">4.2</span> <span class="toctext">半自动</span></a>
+<ul>
+<li class="toclevel-3 tocsection-32"><a href="#steam://connect"><span class="tocnumber">4.2.1</span> <span class="toctext">steam://connect</span></a></li>
+<li class="toclevel-3 tocsection-33"><a href="#steam://run"><span class="tocnumber">4.2.2</span> <span class="toctext">steam://run</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-34"><a href="#Additional_configuration"><span class="tocnumber">5</span> <span class="toctext">额外配置</span></a>
+<ul>
+<li class="toclevel-2 tocsection-35"><a href="#Admins,_bans,_and_whitelist"><span class="tocnumber">5.1</span> <span class="toctext">管理员、封禁与白名单</span></a></li>
+<li class="toclevel-2 tocsection-36"><a href="#Specifying_seed_&amp;_location_of_World_Save_Data"><span class="tocnumber">5.2</span> <span class="toctext">指定种子 &amp; 位置的世界 保存数据</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="#Location_of_Server_Log_Files"><span class="tocnumber">5.3</span> <span class="toctext">服务器日志文件位置</span></a>
+<ul>
+<li class="toclevel-3 tocsection-38"><a href="#Linux_3"><span class="tocnumber">5.3.1</span> <span class="toctext">Linux</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-39"><a href="#Updating"><span class="tocnumber">6</span> <span class="toctext">更新</span></a></li>
+<li class="toclevel-1 tocsection-40"><a href="#Backups_and_transferring_worlds"><span class="tocnumber">7</span> <span class="toctext">备份和转移世界</span></a>
+<ul>
+<li class="toclevel-2 tocsection-41"><a href="#Steam_Cloud_interaction"><span class="tocnumber">7.1</span> <span class="toctext">Steam云同步交互</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-42"><a href="#Frequently_asked_questions"><span class="tocnumber">8</span> <span class="toctext">经常问的问题</span></a>
+<ul>
+<li class="toclevel-2 tocsection-43"><a href="#Why_does_the_server_lag_happen?"><span class="tocnumber">8.1</span> <span class="toctext">为什么服务器会出现延迟？</span></a></li>
+<li class="toclevel-2 tocsection-44"><a href="#Why_does_desync_happen?"><span class="tocnumber">8.2</span> <span class="toctext">为什么会发生不同步？</span></a></li>
+<li class="toclevel-2 tocsection-45"><a href="#My_progress_got_reverted,_what_can_I_do?"><span class="tocnumber">8.3</span> <span class="toctext">我的进度回退了，该怎么办？</span></a></li>
+<li class="toclevel-2 tocsection-46"><a href="#References"><span class="tocnumber">8.4</span> <span class="toctext">参考资料</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="mw-heading mw-heading1"><h1 id="Overview">概览</h1></div>
+<p>专用服务器负责中转<a class="external text sample-online" data-online="true" href="https://en.wikipedia.org/wiki/Remote_procedure_call" rel="noopener noreferrer" target="_blank">RPC</a>通信并提供远程地图数据；启用时还会在Steam服务器查询的“其他”区域公布服务器。服务器不模拟游戏逻辑，也非服务器权威架构；权威角色由客户端在各自交互的局部区域承担。不过，服务器仍执行部分权威任务：客户端连接时，通过Steam API验证Steam ID，检查封禁和许可列表，并验证密码及版本代码。</p>
+<div class="mw-collapsible mw-collapsed" data-collapsetext="Hide details" data-expandtext="Show details">
+<div class="mw-heading mw-heading2"><h2 id="Parallel_processes">并行进程</h2></div>
+<p>专用服务器将部分服务放在独立子进程中，处理实时通信中转、保持地图数据一致，避免耗尽内存或相互阻塞。包括以下进程：</p>
+<div class="mw-heading mw-heading3"><h3 id="Zonesystem_&amp;_DungeonDB">区域系统与DungeonDB</h3></div>
+<p>这两个进程相互关联，共同负责加载和生成世界数据。开始服务客户端前，两者都必须处于已启动状态。</p><p>相关输出行如下：
+</p>
+<ul><li>Zonesystem &lt;state&gt; &lt;pid&gt;</li>
+<li>从&lt;generator&gt;添加&lt;num&gt;个地点、&lt;num&gt;个植被、&lt;num&gt;个环境及&lt;num&gt;个生态区环境配置。</li>
+<li>DungeonDB &lt;state&gt; &lt;pid&gt;</li>
+<li>加载世界&lt;world name&gt;</li>
+<li>正在加载&lt;count&gt;个ZDO，我的ID为&lt;num&gt;，数据版本：&lt;num&gt;</li>
+<li>加载&lt;num&gt;个已死亡ZDO</li>
+<li>已移除&lt;num&gt;个旧版生成的ZDO</li>
+<li>已加载&lt;num&gt;个地点</li></ul>
+<p>这些子进程的生命周期如下： 
+</p>
+<ol><li>Awake：脚本已加载，正在初始化</li>
+<li>Start：已准备好处理API调用</li></ol>
+<div class="mw-heading mw-heading3"><h3 id="Game_server_(Steam_A2S)">游戏服务器（Steam A2S）</h3></div>
+<p>启用时，默认即启用，游戏服务器提供A2S端口，用于获取Steam游戏服务器信息。状态以“Game server &lt;state&gt;”报告；“Game server connected error”表示服务器未连接到Steam连接管理服务器。可通过非官方<a class="external text sample-online" data-online="true" href="https://steamstat.us" rel="noopener noreferrer" target="_blank">steamstat.us</a>检查其可用性，或查看连接日志。</p><p>Steam查询服务器的工作方式是：游戏服务器实现A2S协议<sup class="reference" id="cite_ref-1">[ 1 ]</sup>，向Steam主服务器注册。主服务器收到通知后，每5分钟查询A2S信息；失败时，将该服务器从列表移除。</p><p>已连接玩家计数每10分钟更新，或在有人连接、断开时更新；目前不填充玩家列表。</p><p>此子进程的生命周期如下：
+</p>
+<ol><li>Initialized，已初始化：A2S实现已加载，并通知主服务器有新服务器，相关输出为Server ID &lt;number&gt;。</li>
+<li>Connected，已连接：主服务器已获取详细信息，并将服务器列入区域，区域硬编码为“other”。</li></ol>
+<div class="mw-heading mw-heading3"><h3 id="Garbage_collector">垃圾收集器</h3></div>
+<p>每10分钟，服务器遍历已加载区域，移除内存中不再需要的对象。控制台以“Unloading X unused Assets/Serialized files”报告；此过程不中断中转。</p><p>相关输出行如下：
+</p>
+<ul><li>正在卸载X个未使用的序列化文件</li>
+<li>正在卸载X个未使用的资源</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="World_Save">世界 保存</h3></div>
+<p>每20分钟，服务器复制内存，再写入存储。复制期间全部中转暂停，通常约20–300毫秒；写入存储可能需要几秒。复制结束即恢复中转，存储写入在后台进行。</p><p>20分钟周期触发时，会在保存世界之前执行垃圾回收。</p><p>相关输出行如下：
+</p>
+<ul><li>复制&lt;number&gt;</li>
+<li>世界已保存（&lt;milliseconds&gt;ms）</li></ul>
+<div class="mw-heading mw-heading2"><h2 id="Networking">联网</h2></div>
+<p>连接方式主要有跨平台联机和直连两种，各有优缺点。</p><p>两种模式的大多数远程通信均依靠UDP。还可能与Valve或微软服务器建立TCP和UDP连接，用于服务器发现，以及连接玩家的身份识别和授权。</p>
+<div class="mw-heading mw-heading3"><h3 id="Crossplay_Connectivity">跨平台联机连接</h3></div>
+<p>跨平台联机允许英灵神殿支持的所有平台互连。服务器可根据Apple Game Center、Steam或Xbox Live身份，连接、识别、提升权限或封禁玩家。在服务器命令行添加-crossplay参数即可启用，专用服务器附带的示例启动脚本默认如此。</p><p>跨平台联机的优点是服务器网络设置简单，无需处理路由、防火墙或端口转发。服务器不直接接收玩家数据报，而通过中转服务器处理连接难题。玩家连接相同中转，RPC数据报经其往返传输。</p><p>跨平台联机有一项主要缺点：<b>跨平台联机服务器中的玩家更容易遇到延迟、超时和断线。</b>。额外的中转节点增加延迟、降低可靠性，也使连接更受地理位置影响。</p><p>跨平台联机的中转连接、公开服务器信息及多平台玩家身份，由<a class="external text sample-online" data-online="true" href="https://learn.microsoft.com/en-us/gaming/playfab/features/multiplayer/networking/" rel="noopener noreferrer" target="_blank">Microsoft Azure PlayFab Party</a>提供。</p>
+<div class="mw-heading mw-heading4"><h4 id="Crossplay_Server_Join_Process">跨平台服务器加入流程</h4></div>
+<p>为找到服务器使用的中转，玩家提供数字加入代码，或服务器外部IPv4地址及游戏端口。IP与端口仅用作中转标识，服务器本地不会绑定该端口。游戏查找对应地址端口注册在哪个中转。可向玩家提供域名代替IP，但其A记录必须指向中转所见的准确外部IP。</p><p>跨平台联机没有入站监听端口，因此无法通过回环IP或局域网IP连接。</p>
+<div class="mw-heading mw-heading4"><h4 id="Crossplay_Relay_Regions">跨平台游戏中继区域</h4></div>
+<p>跨平台模式专用服务器会根据距离或延迟选择合适中转。截至沼泽女巫更新，可选择的微软Azure区域为：AustraliaEast、AustraliaSoutheast、BrazilSouth、CentralUs、EastAsia、EastUs、EastUs2、JapanEast、JapanWest、NorthCentralUs、NorthEurope、SouthAfricaNorth、SouthCentralUs、SoutheastAsia、UaeNorth、WestEurope、WestUs。</p>
+<div class="mw-heading mw-heading3"><h3 id="Steam-facilitated_Direct_Connectivity">Steam提供的直连功能</h3></div>
+<p>专用服务器<i>不含</i>跨平台联机运行，即不添加-crossplay参数时，玩家直接连接。所有互联网路由配置由运营者负责，玩家以steamID64识别。</p>
+<div class="mw-heading mw-heading4"><h4 id="Ingress">入站流量</h4></div>
+<p>服务器位于私有IPv4子网时，运营者需为游戏端口和Steam查询端口设置NAT转发，供互联网玩家访问。专用服务器<i>不会</i>使用UPnP或NAT-PMP自动完成。</p>
+<div class="sample-table-scroll"><table class="wikitable">
+<tbody><tr>
+<th>端口
+</th>
+<th>协议
+</th>
+<th>接口绑定
+</th>
+<th>目的
+</th></tr>
+<tr>
+<td>2456（或 <code>-port</code> 参数值）
+</td>
+<td>UDP
+</td>
+<td>0.0.0.0和::（所有IPv4和IPv6地址）
+</td>
+<td>英灵神殿游戏RPC
+</td></tr>
+<tr>
+<td>2457（或 <code>-port</code> 参数值+1）
+</td>
+<td>UDP
+</td>
+<td>0.0.0.0（所有IPv4地址）
+</td>
+<td>Steam查询端口（包括A2S），用于公共大厅注册元数据和服务器心跳
+</td></tr>
+<tr>
+<td>随机高位端口号
+</td>
+<td>TCP
+</td>
+<td>127.0.0.1（IPv4回环地址）
+</td>
+<td>供Steam库内部使用的Steamworks API，不应转发至互联网。
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading4"><h4 id="Egress">出站流量</h4></div>
+<p>Valve的Steamworks匹配服务用于识别、授权玩家，以及公布公开服务器。因这些操作调用Steam API，运行需互联网和DNS。会向以下域名中的IP建立出站连接：</p>
+<ul><li>*.cm.steampowered.com（IP位于config/config.vdf，每次服务器启动动态更新）。</li>
+<li>hl2master.steampowered.com（208.64.200.39、208.64.200.52、208.64.200.65）。</li></ul>
+<p>这些由Steam库控制，可能改变。</p>
+<div class="mw-heading mw-heading4"><h4 id="IPv6">IPv6</h4></div>
+<p>截至沼泽女巫更新，专用服务器在Linux和macOS上，会为所有网络接口绑定IPv6游戏监听端口。不过，客户端仍有一些问题，无法进行IPv6出站连接。</p><p>客户端可尝试在内核层用eBPF改写本地IPv4数据包作为变通方案。Linux、macOS或Windows也可用socat构建用户态方案：</p>
+<pre>socat UDP4-LISTEN:12456,su=nobody UDP6:[2603:8080:1500:1a3e:4183:d152:6b93:4f06]:2456
+</pre>
+<p>此例中，游戏可连接127.0.0.1:12456，经隧道转至服务器[2603:8080:1500:1a3e:4183:d152:6b93:4f06]:2456。</p><p>专用服务器无法在较罕见的纯IPv6网络运行，因为服务器使用Steamworks API时，连接Valve服务器仍需要部分IPv4出站能力。</p>
+<div class="mw-heading mw-heading3"><h3 id="Working_with_Carrier-grade_NAT_(CGNAT)">处理运营商级地址转换（CGNAT）</h3></div>
+<p>真实互联网IPv4地址成本上升，许多运营商将用户放在内部网络，通过少量公网IPv4访问互联网。同一运营商的多个用户共享外部IP。<a class="extiw sample-online" data-online="true" href="https://en.wikipedia.org/wiki/Carrier-grade_NAT" rel="noopener noreferrer" title="维基百科：运营商级地址转换">维基百科上的运营商级地址转换</a></p><p>运营商级地址转换会给服务器运营者带来以下困难：
+</p>
+<ul><li>运营商NAT路由器无法像家用或办公路由器那样按需转发端口，因此阻止互联网直连专用服务器。</li>
+<li>跨平台联机使用中转，因此仍可连接。但若同一运营商另一用户以相同外部IP和游戏端口托管英灵神殿，首次向Azure PlayFab Party注册会失败。选择不同端口可绕过问题。</li></ul>
+<p>判断运营商是否使用CGNAT，可记录路由器从运营商获取的WAN IPv4，再将该WAN IPv4与<a class="external free sample-online" data-online="true" href="https://www.whatismyip.com/" rel="noopener noreferrer" target="_blank">https://www.whatismyip.com/</a>等网站显示的外部IP比较。若路由器地址以100开头，或与外部IP不同，运营商很可能使用CGNAT。</p><p>部分CGNAT运营商允许联系支持申请真实外部IPv4，绕开CGNAT；其他提供付费静态IP或家庭转商务服务。未来，服务器的IPv4位于CGNAT后方时，IPv6可能提供更容易的互联网直连方式。</p>
+</div>
+<div class="mw-heading mw-heading1"><h1 id="Requirements">要求</h1></div>
+<p>专用服务器支持<a class="external text sample-online" data-online="true" href="https://en.wikipedia.org/wiki/Linux" rel="noopener noreferrer" target="_blank">Linux</a>、<a class="external text sample-online" data-online="true" href="https://en.wikipedia.org/wiki/MacOS" rel="noopener noreferrer" target="_blank">macOS</a>和<a class="external text sample-online" data-online="true" href="https://en.wikipedia.org/wiki/Microsoft_Windows" rel="noopener noreferrer" target="_blank">Windows</a>操作系统，可通过<a class="external text sample-online" data-online="true" href="https://en.wikipedia.org/wiki/Steam_(service)" rel="noopener noreferrer" target="_blank">Steam</a>安装，在库中列为“工具”，或使用命令行版本<a class="external text sample-online" data-online="true" href="https://developer.valvesoftware.com/wiki/SteamCMD" rel="noopener noreferrer" target="_blank">SteamCMD</a>。Apple App Store版英灵神殿已内置专用服务器。</p><p><b>以下要求为非官方信息</b>，但代表普遍共识。低于所列配置也可能运行。性能取决于初始设置、系统或发行版、玩家人数及模组。模组服务器需更好硬件，推荐配置涵盖多数情况。</p>
+<div class="sample-table-scroll"><table class="wikitable">
+<caption><b>操作系统：带有glibc的Linux 5或更新版本、macOS Catalina（10.15）或更新版本、Windows 7或更新版本、Windows Server 2016或更新版本</b>
+</caption>
+<tbody><tr>
+<th>
+</th>
+<th><b>最低</b>
+</th>
+<th><b>建议</b>
+</th></tr>
+<tr>
+<td><b>处理器</b>
+</td>
+<td>四核处理器（4个核心）
+</td>
+<td>六核处理器（6个核心）
+</td></tr>
+<tr>
+<td><b>CPU 频率</b>
+</td>
+<td>2.8千兆赫
+</td>
+<td>3.4 GHz+
+</td></tr>
+<tr>
+<td><b>内存</b>
+</td>
+<td>2 GB
+</td>
+<td>4 GB+
+</td></tr>
+<tr>
+<td><b>存储空间</b>
+</td>
+<td>2 GB
+</td>
+<td>4 GB+
+</td></tr></tbody></table></div>
+<p>世界生成消耗较多CPU，包括初次生成及探索新区域时生成。有人进入新区域，服务器会即时生成，探索期间CPU负载可能很高；其余时间CPU需求较少。</p><p>世界生成后加载至内存，因此服务器较耗内存。新世界通常约1.8–2.4 GB，每个有活跃玩家的加载区域约100–300 MB；高对象数量区域可能需求更多。</p>
+<div class="mw-heading mw-heading1"><h1 id="Setup">设置</h1></div>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a class="mw-file-description" href="../assets/95d96c1e1c24502e5974.jpg"><img class="mw-file-element" data-file-height="475" data-file-width="442" decoding="async" height="322" loading="eager" src="../assets/95d96c1e1c24502e5974.jpg" width="300"/></a><figcaption></figcaption></figure>
+<p>下述指南用于托管专用服务器。也可在客户端加载世界时选择“启动服务器”，使用内置托管。区别是客户端退出后服务器关闭，而专用服务器只要程序仍运行、网络连接存在，就会持续运行。</p>
+<div class="mw-heading mw-heading2"><h2 id="Automated_Setup">自动设置</h2></div>
+<div class="mw-heading mw-heading3"><h3 id="Docker">Docker</h3></div>
+<p>服务器运行<a class="external text sample-online" data-online="true" href="https://www.docker.com/" rel="noopener noreferrer" target="_blank">Docker</a>时，可在<a class="external text sample-online" data-online="true" href="https://hub.docker.com/search?q=valheim&amp;type=image" rel="noopener noreferrer" target="_blank">Docker Hub</a>找到社区镜像。原文所述当时尚无官方专用服务器Docker镜像。</p>
+<div class="sample-table-scroll"><table class="wikitable">
+<caption><b>常用容器镜像列表</b>
+</caption>
+<tbody><tr>
+<th>镜像
+</th>
+<th>特征
+</th>
+<th>拉取次数
+</th></tr>
+<tr>
+<td><a class="external text sample-online" data-online="true" href="https://hub.docker.com/r/lloesche/valheim-server" rel="noopener noreferrer" target="_blank">lloesche/valheim-server</a>
+</td>
+<td>
+<ul><li>自动更新</li>
+<li>自动备份</li>
+<li>支持ValheimPlus</li>
+<li>BepInEx 游戏支持</li>
+<li>事件钩</li>
+<li>详细日志记录</li></ul>
+</td>
+<td>超过10百万次
+</td></tr>
+<tr>
+<td><a class="external text sample-online" data-online="true" href="https://hub.docker.com/r/mbround18/valheim" rel="noopener noreferrer" target="_blank">mbround18/valheim</a>
+</td>
+<td>
+<ul><li>自动更新</li>
+<li>自动备份</li>
+<li>支持ValheimPlus</li>
+<li>BepInEx 游戏支持</li>
+<li>事件钩</li></ul>
+</td>
+<td>超过5百万次
+</td></tr>
+<tr>
+<td><a class="external text sample-online" data-online="true" href="https://hub.docker.com/r/pfeiffermax/valheim-dedicated-server" rel="noopener noreferrer" target="_blank">pfeiffermax/valheim-dedicated-server</a>
+</td>
+<td>
+<ul><li>每次英灵神殿更新后，自动提供新镜像。</li>
+<li>支持Docker数据卷</li>
+<li>Docker Compose示例</li>
+<li>用于Kubernetes部署的Helm chart</li></ul>
+</td>
+<td>100k
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading3"><h3 id="Automated_Installation_via_AMP">通过AMP自动安装</h3></div>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a class="mw-file-description" href="../assets/68f22fce3d399ccf7c63.png"><img class="mw-file-element" data-file-height="440" data-file-width="855" decoding="async" height="154" loading="eager" src="../assets/68f22fce3d399ccf7c63.png" width="300"/></a><figcaption>使用AMP创建服务器</figcaption></figure>
+<p><a class="external text sample-online" data-online="true" href="https://cubecoders.com/AMP/Valheim?utm_term=valheim" rel="noopener noreferrer" target="_blank">AMP</a>是可在个人电脑或服务器运行的常用游戏服务器管理面板，支持英灵神殿，可通过网页简化部署，支持Windows和Linux。参阅YouTube上的<a class="external text sample-online" data-online="true" href="https://www.youtube.com/watch?v=4DQzwuwt0SU" rel="noopener noreferrer" target="_blank">视频教学</a>。AMP是商业软件，一次性价格约$10美元起，可管理最多5个游戏服务器实例，并免费终身更新。</p><p>AMP运行后，参阅<a class="external text sample-online" data-online="true" href="https://cubecoders.com/AMPInstall?utm_term=valheim" rel="noopener noreferrer" target="_blank">教学与指南</a>，点击“Create Instance（创建实例）”，从游戏列表选择“Valheim”，再点击“Create Instance”。</p><p>随后双击新实例管理，在状态界面选择“Update（更新）”，下载服务器及必需文件。</p><p>下载完成后点击“Start（启动）”，稍等服务器启动。启动完成即可正常连接。</p>
+<div class="mw-heading mw-heading2"><h2 id="Manual_Setup">手动配置</h2></div>
+<div class="mw-heading mw-heading3"><h3 id="Step_1:_Download_the_Server_files">步骤1：下载服务器文件</h3></div>
+<div class="mw-heading mw-heading3"><h3 id="Windows">Windows</h3></div>
+<ol><li>创建用于安装英灵神殿专用服务器的文件夹。</li>
+<li>下载 <a class="external text sample-online" data-online="true" href="https://developer.valvesoftware.com/wiki/SteamCMD" rel="noopener noreferrer" target="_blank">SteamCMD</a> 放入该文件夹</li>
+<li>创建批处理文件，命名为 <code style="background-color: var(--theme-page-background-color--secondary)">InstallUpdate.bat</code></li>
+<li>在批处理文件中写入以下代码：@echo off steamcmd.exe +force_install_dir "C:\Your\Valheim\Folder" +login anonymous +app_update 896660 -beta public validate +quit :5. 右键点击InstallUpdate.bat，选择以管理员身份运行。</li></ol>
+<dl><dd>6. 游戏服务器文件将下载至批处理文件中指定的文件夹路径</dd></dl>
+<div class="mw-heading mw-heading3"><h3 id="Linux">Linux</h3></div>
+<ol><li>创建用于安装英灵神殿专用服务器的文件夹。</li>
+<li>安装 <a class="external text sample-online" data-online="true" href="https://developer.valvesoftware.com/wiki/SteamCMD" rel="noopener noreferrer" target="_blank">SteamCMD</a></li>
+<li>创建名为InstallUpdate.sh的英灵神殿安装及验证脚本。</li>
+<li>在脚本中写入以下代码，并修改路径。</li></ol>
+<div class="mw-highlight mw-highlight-lang-sh mw-content-ltr" dir="ltr"><pre><span></span><span class="ch">#!/bin/sh</span>
+steamcmd<span class="w"> </span>+@sSteamCmdForcePlatformType<span class="w"> </span>linux<span class="w"> </span>+force_install_dir<span class="w"> </span>/path/to/server<span class="w"> </span>+login<span class="w"> </span>anonymous<span class="w"> </span>+app_update<span class="w"> </span><span class="m">896660</span><span class="w"> </span>-beta<span class="w"> </span>public<span class="w"> </span>validate<span class="w"> </span>+quit
+</pre></div>
+<dl><dd>5. 将此脚本设为可执行</dd></dl>
+<div class="mw-highlight mw-highlight-lang-sh mw-content-ltr" dir="ltr"><pre><span></span>sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/path/to/script
+</pre></div>
+<dl><dd></dd>
+<dd>6. 为连接PlayFab并启用跨平台联机，还必须安装若干依赖项。</dd>
+<dd></dd>
+<dd></dd>
+<dd></dd></dl>
+<div class="mw-highlight mw-highlight-lang-bash mw-content-ltr" dir="ltr"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>libpulse-dev<span class="w"> </span>libatomic1<span class="w"> </span>libc6
+</pre></div>
+<dl><dd></dd>
+<dd>7. 运行脚本进行安装。英灵神殿每次更新后，都要再次运行此脚本。</dd></dl>
+<p><br/>
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Step_2:_Setting_up_a_Valheim_Dedicated_Server">步骤2：配置英灵神殿专用服务器</h3></div>
+<div class="mw-heading mw-heading3"><h3 id="Windows_2">Windows</h3></div>
+<ol><li>在步骤1的服务器文件夹中创建StartServer.bat批处理文件。</li>
+<li>在此批处理文件中写入以下代码：</li></ol>
+<div class="mw-highlight mw-highlight-lang-powershell mw-content-ltr" dir="ltr"><pre><span></span><span class="nv">@echo</span> <span class="n">off</span>
+<span class="nb">set </span><span class="n">SteamAppId</span><span class="p">=</span><span class="n">892970</span>
+<span class="nb">echo </span><span class="s2">"Starting server PRESS CTRL-C to exit"</span>
+<span class="n">valheim_server</span><span class="p">.</span><span class="n">exe</span> <span class="n">-nographics</span> <span class="n">-batchmode</span> <span class="n">-name</span> <span class="s2">"YourWorldName"</span> <span class="n">-port</span> <span class="n">2456</span> <span class="n">-world</span> <span class="s2">"YourWorldFilename"</span> <span class="n">-password</span> <span class="s2">"YourPassword"</span> <span class="n">-public</span> <span class="n">1</span>
+</pre></div>：3. 右键点击 <code style="background-color: var(--theme-page-background-color--secondary)">StartServer.bat</code> ，选择以管理员身份运行以启动服务器
+<div class="mw-heading mw-heading3"><h3 id="Linux_2">Linux</h3></div>
+<ol><li>在英灵神殿安装目录创建valheim.sh脚本。</li>
+<li>在此脚本中写入以下代码：</li></ol>
+<div class="mw-highlight mw-highlight-lang-sh mw-content-ltr mw-highlight-lines" dir="ltr"><pre><span></span><span class="linenos" data-line="1"></span><span class="ch">#!/bin/sh </span>
+<span class="linenos" data-line="2"></span><span class="nb">export</span><span class="w"> </span><span class="nv">templdpath</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span><span class="w">  </span>
+<span class="linenos" data-line="3"></span><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>./linux64:<span class="nv">$LD_LIBRARY_PATH</span><span class="w">  </span>
+<span class="linenos" data-line="4"></span><span class="nb">export</span><span class="w"> </span><span class="nv">SteamAppID</span><span class="o">=</span><span class="m">892970</span>
+<span class="linenos" data-line="5"></span>
+<span class="linenos" data-line="6"></span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Starting server PRESS CTRL-C to exit"</span><span class="w">  </span>
+<span class="linenos" data-line="7"></span>./valheim_server.x86_64<span class="w"> </span>-name<span class="w"> </span><span class="s2">"&lt;servername&gt;"</span><span class="w"> </span>-port<span class="w"> </span><span class="m">2456</span><span class="w"> </span>-nographics<span class="w"> </span>-batchmode<span class="w"> </span>-world<span class="w"> </span><span class="s2">"&lt;worldname&gt;"</span><span class="w"> </span>-password<span class="w"> </span><span class="s2">"&lt;serverpassword&gt;"</span><span class="w"> </span>-public<span class="w"> </span><span class="m">1</span><span class="w">  </span>
+<span class="linenos" data-line="8"></span><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$templdpath</span>
+</pre></div>
+<dl><dd>3. 保存并运行此脚本以启动服务器</dd></dl>
+<div class="mw-heading mw-heading3"><h3 id="Step_3:_Port_Forwarding_/_Remote_Access">步骤3：端口转发与远程访问</h3></div>
+<p>在Windows防火墙添加入站规则，允许UDP游戏端口2456及Steam查询端口2457。</p><p>可能还需在路由器添加转发规则，可参阅<a class="external text sample-online" data-online="true" href="http://portforward.com/" rel="noopener noreferrer" target="_blank">PortForward.com</a>了解方法。</p>
+<div class="mw-heading mw-heading1"><h1 id="Connecting">连接中</h1></div>
+<div class="mw-heading mw-heading2"><h2 id="Manually">手动</h2></div>
+<ol><li>启动英灵神殿</li>
+<li>选择角色</li>
+<li>在选择世界窗口，选择顶部附近的“加入游戏”选项卡。</li>
+<li>在社区服务器列表找到自己的服务器并连接，或……</li>
+<li>选择“加入IP”</li>
+<li>输入服务器IP地址和已转发的端口
+<ul><li>若游戏与服务器运行在同一电脑，使用<b>127.0.0.1:2456</b>。</li>
+<li>若游戏和服务器分别运行于两台电脑，使用服务器电脑的局域网IP。通常以<i>192.168</i>开头，可在路由器已连接设备列表找到，例如<b>192.168.0.2:2456</b>。</li>
+<li>连接他人服务器时，可在游戏服务器浏览器寻找名称，或由服主提供公网IP和转发端口。服主可访问<a class="external free sample-online" data-online="true" href="https://whatismyipaddress.com/" rel="noopener noreferrer" target="_blank">https://whatismyipaddress.com/</a>选择IPv4地址，或搜索“my IP”获取公网地址。</li></ul></li>
+<li>选择“连接”</li>
+<li>输入服务器密码</li></ol>
+<div class="mw-heading mw-heading2"><h2 id="Semi-Automated">半自动</h2></div>
+<p>也可使用Steam协议设置连接链接。</p>
+<div class="mw-heading mw-heading3"><h3 id="steam://connect"><code>steam://connect</code></h3></div>
+<p>格式如下： <code>steam://connect/&lt;fqdn/ip&gt;[:&lt;port&gt;]</code>
+</p><p>此链接要求A2S端口运行，默认2457。它让Steam连接服务器，在游戏外提示密码，再启动游戏，之后仍需再次输入。只有游戏内密码框有效，游戏尚不识别Steam窗口的密码输入，因此无需在那里输入。</p><p>默认使用:27015端口，因此将:2457转发到它后，可省略端口部分。</p><p>示例 <code>steam://connect/valheim-server.example.com:2457</code>
+</p>
+<div class="mw-heading mw-heading3"><h3 id="steam://run"><code>steam://run</code></h3></div>
+<p>所需格式为：steam://run/%2Bconnect%20&lt;fqdn/ip&gt;[%3A&lt;port&gt;]。</p><p>此链接让英灵神殿直接连接服务器，即使未启用A2S端口，即-public 0，也有效。多数无法正确控制嵌入链接的地方，需要%字符，它会转换为运行参数“+connect &lt;fqdn/ip&gt;[:port]”。</p><p>示例：steam://run/%2Bconnect%20valheim-server.example.com%3A2456。</p>
+<div class="mw-heading mw-heading1"><h1 id="Additional_configuration">额外配置</h1></div>
+<div class="mw-heading mw-heading2"><h2 id="Admins,_bans,_and_whitelist">管理员、封禁与白名单</h2></div>
+<p>服主可使用<i>%UserProfile%\AppData\LocalLow\IronGate\Valheim.</i>中的permittedlist.txt、bannedlist.txt和adminlist.txt，设置用户白名单、封禁及管理员。</p><p>每个文件使用用户的<i>steamID64</i>准确识别Steam账号，可用以下方法找到：</p>
+<ul><li>在自己的服务器游戏中按F2，显示已连接玩家及steamID64。</li>
+<li>使用<a class="external text sample-online" data-online="true" href="https://steamid.io/" rel="noopener noreferrer" target="_blank">steamid.io</a>等第三方（3rd party）工具，根据玩家名称查找steamID64。</li>
+<li>服务器控制台会显示使用steamID64的客户端和玩家“会话请求”。</li></ul>
+<p>管理员只能使用踢出、封禁等专用<a class="mw-redirect" href="p-2ef15ac2866f955969bd.html#Commands" title="控制台命令">控制台命令</a>管理服务器，不会获得作弊或debugmode等其他命令权限。要设为管理员，可按上述方法找到自己的steamID64并加入<i>adminlist.txt</i>。</p>
+例如，若你的steamID64为“1234567890123456”，文件应如下所示：<pre>// List admin players ID  ONE per line
+1234567890123456
+</pre>确保每行都没有空白字符或注释，因为系统会将整行作为一个整体读取！<br/>
+<div class="mw-heading mw-heading2"><h2 id="Specifying_seed_&amp;_location_of_World_Save_Data">指定种子 &amp; 位置的世界 保存数据</h2></div>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a class="mw-file-description" href="../assets/d09aed6c100cd9040c74.jpg"><img class="mw-file-element" data-file-height="378" data-file-width="761" decoding="async" height="149" loading="eager" src="../assets/d09aed6c100cd9040c74.jpg" width="300"/></a><figcaption></figcaption></figure>
+<p>原文所述服务器会创建随机种子，名称取自上述<i>start_headless_server.bat</i>文件的<i>-world</i>参数。若要使用特定种子，需先在客户端创建世界，再上传所需文件。</p>
+<ol><li>在单人模式下使用独特的世界名称创建指定种子的世界。例如，
+<ul><li>名称：“Dedicated”</li>
+<li>种子: “pangea”</li></ul></li>
+<li>至少进入新世界一次，让游戏创建必需文件。</li>
+<li>在复制的<i>start_headless_server.bat</i>中，将<i>-world</i>参数改为所选世界名称，而非种子名称。此例为“Dedicated”。</li></ol>
+<p>要找到存档目录，进入以下文件夹之一：</p>
+<dl><dd><dl><dd><code style="background-color: var(--theme-page-background-color--secondary)">%userprofile%/AppData/LocalLow/IronGate/Valheim/worlds</code> 若使用云存档</dd></dl></dd></dl>
+<p>本地存档位于%userprofile%/AppData/LocalLow/IronGate//Valheim/worlds_local。</p><p>Linux用户请进入以下目录之一：
+</p>
+<dl><dd><dl><dd><code style="background-color: var(--theme-page-background-color--secondary)">$HOME/.config/unity3d/IronGate/Valheim/worlds</code> 若使用云存档</dd>
+<dd><code style="background-color: var(--theme-page-background-color--secondary)">$HOME/.config/unity3d/IronGate/Valheim/worlds_local</code> 若使用本地存档</dd></dl></dd></dl>
+<p>每个世界有以其名称命名的文件夹，包含该世界全部文件和已发生的改动。</p><p>1.0发布时改变了此架构；此前每个世界仅有两个文件，直接放在上述目录。</p>
+<div class="mw-heading mw-heading2"><h2 id="Location_of_Server_Log_Files">服务器日志文件位置</h2></div>
+<div class="mw-heading mw-heading3"><h3 id="Linux_3">Linux</h3></div>
+<p>连接日志位于<b><code style="background-color: var(--theme-page-background-color--secondary)">/home/your-username/.steam/logs</code></b>。</p>
+<dl><dd>1. 英灵神殿服务器的连接日志命名为 <b><code style="background-color: var(--theme-page-background-color--secondary)">connection_log_2456.txt</code></b>
+<dl><dd>2456是服务器监听的端口号（<b><code style="background-color: var(--theme-page-background-color--secondary)">2456</code></b> 为默认值）</dd></dl></dd></dl>
+<p>要保存服务器日志，需编辑<b><code style="background-color: var(--theme-page-background-color--secondary)">valheim.sh</code></b>文件，或自己命名的服务器启动脚本。</p>
+<dl><dd>2. 打开你的 <b><code style="background-color: var(--theme-page-background-color--secondary)">valheim.sh</code></b>文件，使用任意文本编辑器</dd>
+<dd>3. 在以下内容开头的行中： <b><code style="background-color: var(--theme-page-background-color--secondary)">./valheim_server.x86_64</code></b>，追加以下内容：</dd></dl>
+<div class="mw-highlight mw-highlight-lang-sh mw-content-ltr" dir="ltr"><pre><span></span>&gt;&gt;<span class="w"> </span>/tmp/valheim_log.txt<span class="w"> </span>&lt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="p">&amp;</span>
+</pre></div>
+此时文件应类似如下内容：<div class="mw-highlight mw-highlight-lang-sh mw-content-ltr" dir="ltr"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">templdpath</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span><span class="w">  </span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>./linux64:<span class="nv">$LD_LIBRARY_PATH</span><span class="w">  </span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">SteamAppID</span><span class="o">=</span><span class="m">892970</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"Starting server PRESS CTRL-C to exit"</span><span class="w">  </span>
+./valheim_server.x86_64<span class="w"> </span>-name<span class="w"> </span><span class="s2">"&lt;servername&gt;"</span><span class="w"> </span>-port<span class="w"> </span><span class="m">2456</span><span class="w"> </span>&lt;-nographics&gt;<span class="w"> </span>&lt;-batchmode&gt;<span class="w"> </span>-world<span class="w"> </span><span class="s2">"&lt;worldname&gt;"</span><span class="w"> </span>-password<span class="w"> </span><span class="s2">"&lt;serverpassword"</span><span class="w"> </span>-public<span class="w"> </span><span class="m">1</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/valheim_log.txt<span class="w"> </span>&lt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="p">&amp;</span><span class="w">  </span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$templdpath</span>
+</pre></div>
+<ul><li> &gt;&gt; /tmp/valheim_log.txt会让Linux将标准输出追加到此文本文件。</li>
+<li><code style="background-color: var(--theme-page-background-color--secondary)">&lt; /dev/null &amp;</code> 用于立即向程序发送EOF（文件结束信号），使其无需等待输入
+<ul><li>/dev/null是空设备特殊文件，会丢弃写入的所有数据，但报告写入成功；读取时不返回数据，立即报告文件结束。</li>
+<li>&amp;是特殊命令分隔符，使前一个进程在后台运行。<a class="external text sample-online" data-online="true" href="https://unix.stackexchange.com/questions/27955/the-usage-of-dev-null-in-the-command-line" rel="noopener noreferrer" target="_blank">参考</a></li></ul></li></ul>
+<div class="mw-heading mw-heading1"><h1 id="Updating">更新</h1></div>
+<p>每次游戏更新，也需更新专用服务器。版本不一致时玩家无法连接。较新更新中，只需在Steam更新专用服务器工具，无需第三方工具。</p>
+<div class="mw-heading mw-heading1"><h1 id="Backups_and_transferring_worlds">备份和转移世界</h1></div>
+<p><b>Linux：</b>：世界存放在~/.config/unity3d/IronGate/Valheim/worlds_local。</p><p><b>macOS：</b>：世界存放在~/Library/Application Support/IronGate/Valheim/worlds_local。</p><p><b>Windows：</b>：世界存放在%UserProfile%\AppData\LocalLow\IronGate\Valheim\worlds_local。</p><p>上述文件夹由专用服务器工具及游戏自身共同使用，可交替用专用服务器或游戏托管，但不建议同时运行同一世界，可能发生严重错误。</p><p>每个世界在worlds_local内有独立文件夹，以世界名称命名。</p><p>备份或转移世界时，必须保留其文件夹内全部文件。</p><p>1.0更新改变此架构，只写入发生变化区域的文件，加快世界保存。</p>
+<div class="mw-heading mw-heading3"><h3 id="Steam_Cloud_interaction">Steam云同步交互</h3></div>
+<p>启用Steam云后，退出游戏会自动上传AppData中“worlds”文件夹的全部文件。可在其内放备份子文件夹，也会被云备份。可在此手动下载云文件：<a class="external free sample-online" data-online="true" href="https://store.steampowered.com/account/remotestorage" rel="noopener noreferrer" target="_blank">https://store.steampowered.com/account/remotestorage</a></p><p>启动游戏时，Steam云也会自动将云端“worlds”全部文件下载到AppData。若提示文件不一致，建议在备份两份数据之前<b>不要</b>点击任何按钮，否则备份不当可能使世界<b>无法挽回的断裂</b>。</p>
+<div class="mw-heading mw-heading1"><h1 id="Frequently_asked_questions">经常问的问题</h1></div>
+<div class="mw-heading mw-heading2"><h2 id="Why_does_the_server_lag_happen?">为什么服务器会出现延迟？</h2></div>
+<p>服务器无响应通常有两种情况：</p>
+<ol><li>被分配为区域主控的客户端无法胜任。该角色对CPU并行能力要求高；若客户端线程处理不佳，或后台任务已过载，所有人都会发现开箱、开门、建筑倒塌、树木倒下等动作延迟。可让性能较好的玩家先进入区域，或让当前主控迅速离开再返回，重新分配角色。</li>
+<li>世界保存复制内存较慢，每20分钟发生，游戏会预先提示，容易识别。没有直接变通方案，但避免队伍分散同时加载多个区域，以及为服务器配更快内存和CPU，可减轻问题。</li></ol>
+<p>部分资料认为带宽受限，但通常不是主要问题，或属于难更换的硬件问题。区域主控需处理大量UDP数据包，除CPU限制，也可能遇到网络硬件能力不足。客户端通常尚可，专用服务器的数据包负载却是单个客户端的多倍。部分模组通过压缩或合并数据包缓解，但根本方法是在更强环境托管。</p>
+<div class="mw-heading mw-heading2"><h2 id="Why_does_desync_happen?">为什么会发生不同步？</h2></div>
+<p>这是延迟问题的延伸：客户端有时已从服务器状态脱节，却仍显示连接并继续操作。多人看到区域状态不同时较容易发现，单人则很难。通常应重新连接；若出现过这种情况，之后需留意相关症状。</p>
+<div class="mw-heading mw-heading2"><h2 id="My_progress_got_reverted,_what_can_I_do?">我的进度回退了，该怎么办？</h2></div>
+<p>进度丢失部分源于前述不同步，也可能是错误关闭服务器。若强制终止后丢失进度，容易识别。预防方式是向进程发送INT或TERM，正确关闭，而非强行终止。Windows可在命令窗口按Ctrl+C，并用Y确认；Linux可在终端按Ctrl+C、发送正确信号，或让进程管理器使用SIGINT或SIGTERM并留足等待时间。丢失进度无法恢复，因为它要么从未到达服务器，要么未保存内存状态而丢失。</p><p>截至沼泽女巫更新，<b>Unity的一个缺陷使macOS专用服务器即使收到SIGINT或SIGTERM也无法正常关闭。在macOS专用服务器上，只有手动请求保存或定期自动保存，才会将最近的世界变更写入磁盘。</b>。</p>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="References">参考资料</h2></div>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><a href="#cite_ref-1">↑</a> <a class="external free sample-online" data-online="true" href="https://developer.valvesoftware.com/wiki/Server_queries" rel="noopener noreferrer" target="_blank">https://developer.valvesoftware.com/wiki/Server_queries</a></li>
+</ol></div>
+<div class="sample-table-scroll"><table class="navbox mw-collapsible mw-collapsed" data-collapsetext="Hide" data-expandtext="Show"><tbody><tr class="navbox-title"><th colspan="2" scope="col"><div class="navbox-title-pad navbox-title-padleft navbox-title-padright"><a href="p-edd2287afad9be012dee.html" title="分类：游戏机制">机制</a></div></th></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">攻略</th><td class="navbox-list"><div class="hlist"><a href="how-to-play.html" title="入门玩法">入门玩法</a> • <a href="p-58565db394dcbacc0ec7.html" title="流程攻略">流程攻略</a> • <a href="p-e70bc5798f8391942dd6.html" title="敌对生物攻略">敌对生物攻略</a> • <a href="p-19e667dbe36cd74e7c1b.html" title="被动生物攻略">被动生物攻略</a> • <a href="p-afc73fba07d15f960daf.html" title="首领攻略">首领攻略</a> • <a class="mw-selflink selflink">专用服务器</a> • <a href="p-c3af076f92c5ed8dcb0d.html" title="故障排查">故障排查</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">玩家</th><td class="navbox-list"><div class="hlist"><a href="p-64aee8c6cbd026d9ea92.html" title="玩家">玩家</a> • <a href="p-55898449eb74fb2e348d.html" title="生命值">生命值</a> • <a href="p-cc350ea3393968f7cd7c.html" title="耐力">耐力</a> • <a href="p-332e6a85b4285ff8858c.html" title="埃达之能">埃达之能</a> • <a href="p-2608729251008c9658e7.html" title="血怒">血怒</a> • <a href="p-fcd6fea72de7e6c09ca2.html" title="死亡">死亡</a> • <a href="p-b8e0a74433a1176e439f.html" title="遗弃者能力">遗弃者能力</a> • <a href="p-66d0f523a379b2de6f8d.html" title="技能">技能</a> • <a href="p-f57eddb4e027139d853f.html" title="状态效果">状态效果</a> • <a href="p-5954d0c13f55417f74fb.html" title="移动速度">移动速度</a> • <a href="p-ed1a5a81b8121ad13a87.html" title="魔法">魔法</a> • <a href="p-79cea8ff2ba190bbb1bd.html" title="钓鱼">钓鱼</a> • <a href="p-e9d7b76127dca2c7d07e.html" title="乘骑">乘骑</a> • <a href="p-12ff393b061d94ebc405.html" title="睡眠">睡眠</a> • <a href="p-25521701981e1ad3ad97.html" title="表情">表情</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">战斗</th><td class="navbox-list"><div class="hlist"><a href="p-0c874f581a4534f15f1e.html" title="伤害">伤害类型</a> • <a href="p-e931ec535f307a5c6add.html" title="伤害机制">伤害机制</a> • <a href="p-bb0db9f7893c418a1de3.html" title="击退">击退</a> • <a href="p-aeaeee06ac36a10d7822.html" title="阵营">阵营</a> • <a href="p-4e7c41331a4464ad6e07.html" title="生物感知">生物感知</a> • <a href="p-5ac03ba6efdc56d5b7b5.html" title="生物行为">生物行为</a> • <a href="p-37015441396c962e2e96.html" title="掉落物">掉落物</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">生成</th><td class="navbox-list"><div class="hlist"><a href="p-36ff87e1502da8a1d740.html" title="生成机制">生成机制</a> • <a href="p-3a6396c120925fdde8d2.html" title="生成点">生成点</a> • <a href="p-60958b009a9e0b5dd0b6.html" title="生成区域">生成区域</a> • <a href="p-8d14f6e72de8f18ab1ee.html" title="事件">事件</a> • <a href="p-47373e84723cece15749.html" title="生物等级">生物等级</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">建材</th><td class="navbox-list"><div class="hlist"><a href="building.html" title="建材">建材</a> • <a href="p-99b60de679e8976fc592.html" title="建筑稳定性">建筑稳定性</a> • <a href="p-fa8d84566676ee2ee662.html" title="遮蔽">遮蔽</a> • <a href="p-040d4645676f60263590.html" title="舒适度">舒适度</a> • <a href="p-a6d7eeb25f1fe9854a8b.html" title="玩家基地">玩家基地</a> • <a href="p-29b52bfcccd01518e9de.html" title="烟雾">烟雾</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">界面</th><td class="navbox-list"><div class="hlist"><a href="p-758f487fe8e9fcc59cec.html" title="物品栏">物品栏</a> • <a class="mw-redirect" href="crafting.html" title="制作菜单">制作菜单</a> • <a href="p-be176b0015c424b78e9f.html" title="地图">地图</a> • <a href="p-c40c747ee79e90e16e46.html" title="状态界面">状态界面</a> • <a href="p-799c269135742a36ae48.html" title="控制">控制</a> • <a href="p-2ef15ac2866f955969bd.html" title="开发者控制台">开发者控制台</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">世界</th><td class="navbox-list"><div class="hlist"><a href="p-9e471951a1b4106e54be.html" title="环境">环境</a> • <a href="p-8a27b0cad26bc97071ab.html" title="世界修改器">世界修改器</a> • <a href="p-2af8986090a5b9ad83ec.html" title="世界种子">世界种子</a> • <a href="p-577cfab98de598e55bee.html" title="世界进度标记">世界进度标记</a> • <a href="p-a53aa373c5e23e694a54.html" title="区域">区域</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">杂项</th><td class="navbox-list"><div class="hlist"><a href="p-74cf2bc63fe122206c82.html" title="成就">成就</a> • <a href="p-1964260e2e296c33c3f3.html" title="季节活动">季节活动</a> • <a href="p-6eb00b4b2614a144d41c.html" title="音乐">音乐</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">开发</th><td class="navbox-list"><div class="hlist"><a href="p-a6df11e706c514f13d6f.html" title="版本历史">版本历史</a> • <a href="p-4696ff19d71c753885a5.html" title="未来内容">未来内容</a></div></td></tr></tbody></table></div>
+
+
+
+</div></section><section id="sample-en" data-language="en" hidden><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><div style="text-align:justify;">
+<p>This page shows basics and details on how to set up and operate a <b><i>Valheim</i> dedicated server</b>.
+</p>
+<div aria-labelledby="mw-toc-heading" class="toc" id="en-toc" role="navigation"><div class="toctitle" dir="ltr" lang="en"><h2 id="en-mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#en-Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#en-Parallel_processes"><span class="tocnumber">1.1</span> <span class="toctext">Parallel processes</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#en-Zonesystem_&amp;_DungeonDB"><span class="tocnumber">1.1.1</span> <span class="toctext">Zonesystem &amp; DungeonDB</span></a></li>
+<li class="toclevel-3 tocsection-4"><a href="#en-Game_server_(Steam_A2S)"><span class="tocnumber">1.1.2</span> <span class="toctext">Game server (Steam A2S)</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#en-Garbage_collector"><span class="tocnumber">1.1.3</span> <span class="toctext">Garbage collector</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#en-World_Save"><span class="tocnumber">1.1.4</span> <span class="toctext">World Save</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-7"><a href="#en-Networking"><span class="tocnumber">1.2</span> <span class="toctext">Networking</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="#en-Crossplay_Connectivity"><span class="tocnumber">1.2.1</span> <span class="toctext">Crossplay Connectivity</span></a>
+<ul>
+<li class="toclevel-4 tocsection-9"><a href="#en-Crossplay_Server_Join_Process"><span class="tocnumber">1.2.1.1</span> <span class="toctext">Crossplay Server Join Process</span></a></li>
+<li class="toclevel-4 tocsection-10"><a href="#en-Crossplay_Relay_Regions"><span class="tocnumber">1.2.1.2</span> <span class="toctext">Crossplay Relay Regions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-11"><a href="#en-Steam-facilitated_Direct_Connectivity"><span class="tocnumber">1.2.2</span> <span class="toctext">Steam-facilitated Direct Connectivity</span></a>
+<ul>
+<li class="toclevel-4 tocsection-12"><a href="#en-Ingress"><span class="tocnumber">1.2.2.1</span> <span class="toctext">Ingress</span></a></li>
+<li class="toclevel-4 tocsection-13"><a href="#en-Egress"><span class="tocnumber">1.2.2.2</span> <span class="toctext">Egress</span></a></li>
+<li class="toclevel-4 tocsection-14"><a href="#en-IPv6"><span class="tocnumber">1.2.2.3</span> <span class="toctext">IPv6</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-15"><a href="#en-Working_with_Carrier-grade_NAT_(CGNAT)"><span class="tocnumber">1.2.3</span> <span class="toctext">Working with Carrier-grade NAT (CGNAT)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="#en-Requirements"><span class="tocnumber">2</span> <span class="toctext">Requirements</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="#en-Setup"><span class="tocnumber">3</span> <span class="toctext">Setup</span></a>
+<ul>
+<li class="toclevel-2 tocsection-18"><a href="#en-Automated_Setup"><span class="tocnumber">3.1</span> <span class="toctext">Automated Setup</span></a>
+<ul>
+<li class="toclevel-3 tocsection-19"><a href="#en-Docker"><span class="tocnumber">3.1.1</span> <span class="toctext">Docker</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="#en-Automated_Installation_via_AMP"><span class="tocnumber">3.1.2</span> <span class="toctext">Automated Installation via AMP</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-21"><a href="#en-Manual_Setup"><span class="tocnumber">3.2</span> <span class="toctext">Manual Setup</span></a>
+<ul>
+<li class="toclevel-3 tocsection-22"><a href="#en-Step_1:_Download_the_Server_files"><span class="tocnumber">3.2.1</span> <span class="toctext">Step 1: Download the Server files</span></a></li>
+<li class="toclevel-3 tocsection-23"><a href="#en-Windows"><span class="tocnumber">3.2.2</span> <span class="toctext">Windows</span></a></li>
+<li class="toclevel-3 tocsection-24"><a href="#en-Linux"><span class="tocnumber">3.2.3</span> <span class="toctext">Linux</span></a></li>
+<li class="toclevel-3 tocsection-25"><a href="#en-Step_2:_Setting_up_a_Valheim_Dedicated_Server"><span class="tocnumber">3.2.4</span> <span class="toctext">Step 2: Setting up a Valheim Dedicated Server</span></a></li>
+<li class="toclevel-3 tocsection-26"><a href="#en-Windows_2"><span class="tocnumber">3.2.5</span> <span class="toctext">Windows</span></a></li>
+<li class="toclevel-3 tocsection-27"><a href="#en-Linux_2"><span class="tocnumber">3.2.6</span> <span class="toctext">Linux</span></a></li>
+<li class="toclevel-3 tocsection-28"><a href="#en-Step_3:_Port_Forwarding_/_Remote_Access"><span class="tocnumber">3.2.7</span> <span class="toctext">Step 3: Port Forwarding / Remote Access</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-29"><a href="#en-Connecting"><span class="tocnumber">4</span> <span class="toctext">Connecting</span></a>
+<ul>
+<li class="toclevel-2 tocsection-30"><a href="#en-Manually"><span class="tocnumber">4.1</span> <span class="toctext">Manually</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="#en-Semi-Automated"><span class="tocnumber">4.2</span> <span class="toctext">Semi-Automated</span></a>
+<ul>
+<li class="toclevel-3 tocsection-32"><a href="#en-steam://connect"><span class="tocnumber">4.2.1</span> <span class="toctext">steam://connect</span></a></li>
+<li class="toclevel-3 tocsection-33"><a href="#en-steam://run"><span class="tocnumber">4.2.2</span> <span class="toctext">steam://run</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-34"><a href="#en-Additional_configuration"><span class="tocnumber">5</span> <span class="toctext">Additional configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-35"><a href="#en-Admins,_bans,_and_whitelist"><span class="tocnumber">5.1</span> <span class="toctext">Admins, bans, and whitelist</span></a></li>
+<li class="toclevel-2 tocsection-36"><a href="#en-Specifying_seed_&amp;_location_of_World_Save_Data"><span class="tocnumber">5.2</span> <span class="toctext">Specifying seed &amp; location of World Save Data</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="#en-Location_of_Server_Log_Files"><span class="tocnumber">5.3</span> <span class="toctext">Location of Server Log Files</span></a>
+<ul>
+<li class="toclevel-3 tocsection-38"><a href="#en-Linux_3"><span class="tocnumber">5.3.1</span> <span class="toctext">Linux</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-39"><a href="#en-Updating"><span class="tocnumber">6</span> <span class="toctext">Updating</span></a></li>
+<li class="toclevel-1 tocsection-40"><a href="#en-Backups_and_transferring_worlds"><span class="tocnumber">7</span> <span class="toctext">Backups and transferring worlds</span></a>
+<ul>
+<li class="toclevel-2 tocsection-41"><a href="#en-Steam_Cloud_interaction"><span class="tocnumber">7.1</span> <span class="toctext">Steam Cloud interaction</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-42"><a href="#en-Frequently_asked_questions"><span class="tocnumber">8</span> <span class="toctext">Frequently asked questions</span></a>
+<ul>
+<li class="toclevel-2 tocsection-43"><a href="#en-Why_does_the_server_lag_happen?"><span class="tocnumber">8.1</span> <span class="toctext">Why does the server lag happen?</span></a></li>
+<li class="toclevel-2 tocsection-44"><a href="#en-Why_does_desync_happen?"><span class="tocnumber">8.2</span> <span class="toctext">Why does desync happen?</span></a></li>
+<li class="toclevel-2 tocsection-45"><a href="#en-My_progress_got_reverted,_what_can_I_do?"><span class="tocnumber">8.3</span> <span class="toctext">My progress got reverted, what can I do?</span></a></li>
+<li class="toclevel-2 tocsection-46"><a href="#en-References"><span class="tocnumber">8.4</span> <span class="toctext">References</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="mw-heading mw-heading1"><h1 id="en-Overview">Overview</h1></div>
+<p>The dedicated server is responsible for relaying <a class="external text sample-online" data-online="true" href="https://en.wikipedia.org/wiki/Remote_procedure_call" rel="noopener noreferrer" target="_blank">RPC</a> communication and providing remote map data, when enabled, advertising the server in the Steam Server Query (in the “other” region). The server does not simulate any of the game logic—it is not server-side authoritative. The authority role is claimed by the clients on locally isolated areas they interact with. However, the server will do some authoritative jobs; when a client connects, it validates Steam IDs using the Steam API, checks its banned and permitted lists, and validates a password and version code.
+</p>
+<div class="mw-collapsible mw-collapsed" data-collapsetext="Hide details" data-expandtext="Show details">
+<div class="mw-heading mw-heading2"><h2 id="en-Parallel_processes">Parallel processes</h2></div>
+<p>The dedicated server runs a few services into their own sub-process to be able to serve the RTC relay keep the map data consistent without consuming all the memory and not block each of the tasks.
+These processes are the following:
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Zonesystem_&amp;_DungeonDB">Zonesystem &amp; DungeonDB</h3></div>
+<p>These two are interconnected, both responsible for loading and generating world data. These two need to be in a started state before serving any clients.
+</p><p>Related output lines are:
+</p>
+<ul><li>Zonesystem &lt;state&gt; &lt;pid&gt;</li>
+<li>Added &lt;num&gt; locations, &lt;num&gt; vegetations, &lt;num&gt; environment, &lt;num&gt; biome env setups from &lt;generator&gt;</li>
+<li>DungeonDB &lt;state&gt; &lt;pid&gt;</li>
+<li>Load world &lt;world name&gt;</li>
+<li>Loading &lt;count&gt; zdos, my id &lt;num&gt; data version:&lt;num&gt;</li>
+<li>Loaded &lt;num&gt; dead zdos</li>
+<li>Removed &lt;num&gt; OLD generated ZDOS</li>
+<li>Loaded &lt;num&gt; locations</li></ul>
+<p>The lifecycle of these sub-processes are: 
+</p>
+<ol><li>Awake: Script is loaded, and initializing</li>
+<li>Start: Ready to serve API calls</li></ol>
+<div class="mw-heading mw-heading3"><h3 id="en-Game_server_(Steam_A2S)">Game server (Steam A2S)</h3></div>
+<p>When enabled (which it is by default), the Game server will provide an A2S port that is used to get server information for Steam games. The state is reported with “Game server &lt;state&gt;“ and “Game server connected error” where the latter is and indication of the server not reaching the Steam Connection Manager servers; Check their availability through <a class="external text sample-online" data-online="true" href="https://steamstat.us" rel="noopener noreferrer" target="_blank">steamstat.us</a> (unofficial), or alternatively look for the connection log.
+</p><p>The way Steam Query Servers work is that the Game server provides an implementation of the A2S protocol<sup class="reference" id="en-cite_ref-1"><a href="#en-cite_note-1"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></a></sup>, and will register itself with the Steam Master Servers. Once notified, the Master Server will query for an A2S information every 5 minutes, and when fails, it will remove the server from its list. 
+</p><p>The connected player counter is updated every 10 minutes or when someone connects/disconnects, however the player list is not populated at the moment.
+</p><p>The lifecycle of this sub-process is:
+</p>
+<ol><li>Initialized: The A2S implementation is loaded and Master Servers were notified for a new server (related output: Server ID &lt;number&gt;)</li>
+<li>Connected: Master Server fetched the server details and now listing the server in the region (hardcoded to “other”)</li></ol>
+<div class="mw-heading mw-heading3"><h3 id="en-Garbage_collector">Garbage collector</h3></div>
+<p>Every 10 minutes, the server will go through the loaded areas and remove anything that is no longer needed in memory. This is reported by “Unloading X unused Assets/Serialized files” lines in the console. The relay is not paused while this is running.
+</p><p>Related Output lines are:
+</p>
+<ul><li>Unloading X unused Serialized files</li>
+<li>Unloading X unused Assets</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-World_Save">World Save</h3></div>
+<p>Every 20 minutes, the server will clone the memory and then write it to the storage. While the memory cloning is on-going, all relay operations are on hold. This usually takes around 20–300 ms, while the storage writing can take up to a few seconds. Relay operations are continued right after the memory clone is done, and the storage operation runs in the background.
+</p><p>When the 20-minute cycle happens, the Garbage Collection is triggered before a world save!
+</p><p>Related output lines are:
+</p>
+<ul><li>clone &lt;number&gt;</li>
+<li>World saved ( &lt;milliseconds&gt;ms )</li></ul>
+<div class="mw-heading mw-heading2"><h2 id="en-Networking">Networking</h2></div>
+<p>There are two general modes of connectivity, each with benefits and disadvantages: Crossplay and direct.
+</p><p>The server relies on UDP for most remote communication in either mode. Both TCP and UDP communication may be established with Valve or Microsoft servers to facilitate server discovery as well as identification and authorization of incoming players.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Crossplay_Connectivity">Crossplay Connectivity</h3></div>
+<p>Crossplay enables connectivity between all platforms supported by Valheim. A Crossplay-enabled server can connect, identify, elevate or ban players using their Apple Game Center, Steam or Xbox Live identities. Crossplay is engaged by adding the <code>-crossplay</code> argument to the server command line. This is the default in the example launch scripts that ship with the dedicated server.
+</p><p>Crossplay has the advantage of simpler networking setup for the server operator. They don't need to think about routing, firewalls, or port forwarding. The server doesn't accept datagrams directly from players. Instead, it handles the difficult aspects of connectivity by communicating with a relay server. Players communicate with the same relay and their RPC datagrams are relayed to/from the server over this relay.
+</p><p>Crossplay has a major disadvantage: <b>players on a Crossplay server are more likely to experience lag, timeouts and disconnects.</b> The extra hop of a relay server increases latency and decreases reliability. It also makes connectivity more geographically-sensitive.
+</p><p>The relayed connectivity, public server advertising, and multi-platform player identities of Crossplay are powered by <a class="external text sample-online" data-online="true" href="https://learn.microsoft.com/en-us/gaming/playfab/features/multiplayer/networking/" rel="noopener noreferrer" target="_blank">Microsoft Azure PlayFab Party</a>.
+</p>
+<div class="mw-heading mw-heading4"><h4 id="en-Crossplay_Server_Join_Process">Crossplay Server Join Process</h4></div>
+<p>In order to find the relay a server is using, players supply Valheim with a numeric Join Code or they supply the external IPv4 address and gameplay port of the server. The IP address and port are just used as identifiers for a relay and no port binding is made on the server locally. Valheim finds which relay that IP address/port is registered to. A domain name may be given to players in lieu of an IP address, but it must lead to an <code>A</code> record of the exact external IP address the relay sees for the server.
+</p><p>Because there are no inbound listening ports in Crossplay, players can't connect using a loopback IP address or LAN IP address in this mode.
+</p>
+<div class="mw-heading mw-heading4"><h4 id="en-Crossplay_Relay_Regions">Crossplay Relay Regions</h4></div>
+<p>A Valheim Dedicated server in Crossplay mode will determine an adequate relay server to communicate with based on proximity or latency. Relay servers are chosen within these Microsoft Azure cloud regions as of the Bog Witch update: AustraliaEast, AustraliaSoutheast, BrazilSouth, CentralUs, EastAsia, EastUs, EastUs2, JapanEast, JapanWest, NorthCentralUs, NorthEurope, SouthAfricaNorth, SouthCentralUs, SoutheastAsia, UaeNorth, WestEurope, WestUs
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Steam-facilitated_Direct_Connectivity">Steam-facilitated Direct Connectivity</h3></div>
+<p>When the dedicated server is run <i>without</i> Crossplay (no <code>-crossplay</code> argument), players connect directly to the server. All aspects of Internet routing are left up to the server operator. Players are identified to the server by their steamID64.
+</p>
+<div class="mw-heading mw-heading4"><h4 id="en-Ingress">Ingress</h4></div>
+<p>If the server is on a private IPv4 subnet, the server operator would need to set up NAT port forwarding for the gameplay port and Steam query port in order to be accessible to players over the Internet. Valheim Dedicated Server does <i>not</i> use UPnP or NAT-PMP to automate the process.
+</p>
+<div class="sample-table-scroll"><table class="wikitable">
+<tbody><tr>
+<th>Port
+</th>
+<th>Protocol
+</th>
+<th>Interface Binding
+</th>
+<th>Purpose
+</th></tr>
+<tr>
+<td>2456 (or <code>-port</code> value)
+</td>
+<td>UDP
+</td>
+<td>0.0.0.0 and :: (all IPv4 and IPv6)
+</td>
+<td>Valheim Gameplay RPC
+</td></tr>
+<tr>
+<td>2457 (or <code>-port</code> value +1)
+</td>
+<td>UDP
+</td>
+<td>0.0.0.0 (all IPv4)
+</td>
+<td>Steam Query Port (including A2S) for public lobby registration metadata and server heartbeat
+</td></tr>
+<tr>
+<td>Random high number
+</td>
+<td>TCP
+</td>
+<td>127.0.0.1 (IPv4 loopback)
+</td>
+<td>Steamworks API for internal Steam library use. Should not be forwarded to the Internet.
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading4"><h4 id="en-Egress">Egress</h4></div>
+<p>Valve's Steamworks Matchmaking services are used to identify and authorize players as well as to advertise the server if it's public. Internet access and DNS are required to run the server as Steam APIs are called for these operations. Outbound connections are made to IPs in these domains:
+</p>
+<ul><li>*.cm.steampowered.com (IPs in config/config.vdf, dynamically updated with each server start)</li>
+<li>hl2master.steampowered.com (208.64.200.39, 208.64.200.52, 208.64.200.65)</li></ul>
+<p>These are controlled by Steam libraries and are subject to change.
+</p>
+<div class="mw-heading mw-heading4"><h4 id="en-IPv6">IPv6</h4></div>
+<p>As of the Bog Witch update, the dedicated server binds the gameplay listening port for IPv6 for all interfaces on Linux and macOS. Unfortunately, the game client has a few outstanding issues preventing outbound IPv6 connectivity.
+</p><p>A kernel-space workaround for clients might be crafted by rewriting local IPv4 packets using eBPF. A userspace workaround could also be constructed on Linux, macOS or Windows using the socat utility:
+</p>
+<pre>socat UDP4-LISTEN:12456,su=nobody UDP6:[2603:8080:1500:1a3e:4183:d152:6b93:4f06]:2456
+</pre>
+<p>in this example, the game can connect to 127.0.0.1:12456 and is tunneled to the server at [2603:8080:1500:1a3e:4183:d152:6b93:4f06]:2456.
+</p><p>Valheim Dedicated Server will not operate in IPv6-only networks (rare) as some outbound IPv4 connectivity is required to connect to Valve's servers for Steamworks APIs used by the server.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Working_with_Carrier-grade_NAT_(CGNAT)">Working with Carrier-grade NAT (CGNAT)</h3></div>
+<p>Due to the rising cost of real Internet IPv4 addresses, many ISPs group customers into internal networks that route those customers to the Internet through a small number of public IPv4 addresses. Customers in this situation share an external IP address with several other customers of the same carrier (ISP). <a class="extiw sample-online" data-online="true" href="https://en.wikipedia.org/wiki/Carrier-grade_NAT" rel="noopener noreferrer" title="wikipedia:Carrier-grade NAT">Carrier-grade NAT on Wikipedia</a>
+</p><p>A carrier-grade NAT poses challenges to a server operator:
+</p>
+<ul><li>The carrier's NAT router does not forward ports on-demand like a home or office NAT router might be able to. This prevents direct connectivity to the dedicated server over the Internet.</li>
+<li>Crossplay will work thanks to the use of relays, but initial registration of the server with Azure PlayFab Party will fail if another customer of the same ISP is hosting Valheim on the same external IP address and gameplay port. This can be worked around by choosing a unique port.</li></ul>
+<p>To determine if your ISP uses CGNAT, take note of the WAN IPv4 address your router reports receiving from the ISP. Compare the router-reported WAN IPv4 address with the external IP address reported by a site like <a class="external free sample-online" data-online="true" href="https://www.whatismyip.com/" rel="noopener noreferrer" target="_blank">https://www.whatismyip.com/</a>. If the router-reported address starts with 100 or the router-reported address doesn't match the external IP address, then your ISP likely employs CGNAT.
+</p><p>Some CGNAT ISPs will allow customers to opt-in to real external IPv4 addresses (avoiding CGNAT) with a call to Support. Others offer a paid upgrade by means of a paid "Static IP" feature or a paid upgrade from residential to business class of service. In the future, IPv6 may provide an easier direct route to a server from the Internet when a server is behind CGNAT for IPv4.
+</p>
+</div>
+<div class="mw-heading mw-heading1"><h1 id="en-Requirements">Requirements</h1></div>
+<p>The dedicated server is available for the <a class="external text sample-online" data-online="true" href="https://en.wikipedia.org/wiki/Linux" rel="noopener noreferrer" target="_blank">Linux</a>, <a class="external text sample-online" data-online="true" href="https://en.wikipedia.org/wiki/MacOS" rel="noopener noreferrer" target="_blank">macOS</a>, and <a class="external text sample-online" data-online="true" href="https://en.wikipedia.org/wiki/Microsoft_Windows" rel="noopener noreferrer" target="_blank">Windows</a> operating systems. It can be installed using the <a class="external text sample-online" data-online="true" href="https://en.wikipedia.org/wiki/Steam_(service)" rel="noopener noreferrer" target="_blank">Steam</a> application (where it is listed in the user's library as a "tool"), or its command line sibling <a class="external text sample-online" data-online="true" href="https://developer.valvesoftware.com/wiki/SteamCMD" rel="noopener noreferrer" target="_blank">SteamCMD</a>. The Apple App Store version of Valheim includes the dedicated server bundled within.
+</p><p><b>The following requirements are unofficial</b>, but are the general consensus. It may still be able to run a dedicated server using less than the listed requirements. Server performance depends on your initial setup, distro/os selection, the number of players and whether you use mods. Modded Valheim Servers will require better hardware. The recommended settings will cover most instances.
+</p>
+<div class="sample-table-scroll"><table class="wikitable">
+<caption><b>Operating System: Linux 5 or newer with glibc, macOS Catalina (10.15) or newer, Windows 7 or newer, Windows Server 2016 or Newer</b>
+</caption>
+<tbody><tr>
+<th>
+</th>
+<th><b>Minimum</b>
+</th>
+<th><b>Recommended</b>
+</th></tr>
+<tr>
+<td><b>CPU</b>
+</td>
+<td>Quad-Core Processor (4 Cores)
+</td>
+<td>Hexa-Core Processor (6 Cores)
+</td></tr>
+<tr>
+<td><b>CPU Frequency</b>
+</td>
+<td>2.8 GHz
+</td>
+<td>3.4 GHz+
+</td></tr>
+<tr>
+<td><b>RAM</b>
+</td>
+<td>2 GB
+</td>
+<td>4 GB+
+</td></tr>
+<tr>
+<td><b>Storage</b>
+</td>
+<td>2 GB
+</td>
+<td>4 GB+
+</td></tr></tbody></table></div>
+<p>World generation is CPU-heavy. This includes initial world generation and generation as new parts of the world are explored. Whenever someone enters a new area, the server will generate that on the fly—at times of exploration the CPU load can be demanding. Besides that, the server uses few CPU resources. 
+</p><p>Once the world is generated, it will be loaded into memory, so the server is memory intensive. In general, a fresh world usually uses around 1.8–2.4 GB of RAM, each loaded areas (where players are active) take around 100–300 MB, but high-instance areas could demand a lot more. 
+</p>
+<div class="mw-heading mw-heading1"><h1 id="en-Setup">Setup</h1></div>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a class="mw-file-description" href="../assets/95d96c1e1c24502e5974.jpg"><img class="mw-file-element" data-file-height="475" data-file-width="442" decoding="async" height="322" loading="eager" src="../assets/95d96c1e1c24502e5974.jpg" width="300"/></a><figcaption></figcaption></figure>
+<p>The guide below is for hosting a dedicated server. You can also play using the built-in server hosting in the Valheim client by selecting the “Start Server” radio button when loading your world. The difference between using the client to host and the dedicated server option is that the server will shut down when you exit the client, but a dedicated server will stay on so long as the program is running and there is an internet connection.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="en-Automated_Setup">Automated Setup</h2></div>
+<div class="mw-heading mw-heading3"><h3 id="en-Docker">Docker</h3></div>
+<p>If your server is running <a class="external text sample-online" data-online="true" href="https://www.docker.com/" rel="noopener noreferrer" target="_blank">Docker</a>, you can find community images on <a class="external text sample-online" data-online="true" href="https://hub.docker.com/search?q=valheim&amp;type=image" rel="noopener noreferrer" target="_blank">Docker Hub</a>. At the time there is no official docker image for Valheim dedicated server available.
+</p>
+<div class="sample-table-scroll"><table class="wikitable">
+<caption><b>List of popular images</b>
+</caption>
+<tbody><tr>
+<th>Image
+</th>
+<th>Features
+</th>
+<th>Pulls
+</th></tr>
+<tr>
+<td><a class="external text sample-online" data-online="true" href="https://hub.docker.com/r/lloesche/valheim-server" rel="noopener noreferrer" target="_blank">lloesche/valheim-server</a>
+</td>
+<td>
+<ul><li>Auto update</li>
+<li>Auto backup</li>
+<li>ValheimPlus support</li>
+<li>BepInEx support</li>
+<li>Event hooks</li>
+<li>Extensive logging</li></ul>
+</td>
+<td>over 10 million
+</td></tr>
+<tr>
+<td><a class="external text sample-online" data-online="true" href="https://hub.docker.com/r/mbround18/valheim" rel="noopener noreferrer" target="_blank">mbround18/valheim</a>
+</td>
+<td>
+<ul><li>Auto update</li>
+<li>Auto backup</li>
+<li>ValheimPlus support</li>
+<li>BepInEx support</li>
+<li>Event hooks</li></ul>
+</td>
+<td>over 5 million
+</td></tr>
+<tr>
+<td><a class="external text sample-online" data-online="true" href="https://hub.docker.com/r/pfeiffermax/valheim-dedicated-server" rel="noopener noreferrer" target="_blank">pfeiffermax/valheim-dedicated-server</a>
+</td>
+<td>
+<ul><li>new image is automatically available after every Valheim update</li>
+<li>Docker volume support</li>
+<li>Docker compose examples</li>
+<li>Helm chart for Kubernetes deployments</li></ul>
+</td>
+<td>100k
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading3"><h3 id="en-Automated_Installation_via_AMP">Automated Installation via AMP</h3></div>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a class="mw-file-description" href="../assets/68f22fce3d399ccf7c63.png"><img class="mw-file-element" data-file-height="440" data-file-width="855" decoding="async" height="154" loading="eager" src="../assets/68f22fce3d399ccf7c63.png" width="300"/></a><figcaption>Creating a server using AMP</figcaption></figure>
+<p><a class="external text sample-online" data-online="true" href="https://cubecoders.com/AMP/Valheim?utm_term=valheim" rel="noopener noreferrer" target="_blank">AMP</a> is a popular game server management panel you can run on your own PC/server that supports Valheim and makes it easier to get the server going from its web interface. You can run it on both Windows and Linux. See the <a class="external text sample-online" data-online="true" href="https://www.youtube.com/watch?v=4DQzwuwt0SU" rel="noopener noreferrer" target="_blank">Video Tutorial</a> on YouTube. AMP is commercial software, starting at approximately $10 USD as a one-time cost for up to 5 game server instances and free lifetime updates.
+</p><p>Once you have AMP itself up and running (<a class="external text sample-online" data-online="true" href="https://cubecoders.com/AMPInstall?utm_term=valheim" rel="noopener noreferrer" target="_blank">Tutorial and Guide</a>), click "Create Instance" and then select "Valheim" from the list of games. Once you've done that, select "Create Instance".
+</p><p>After that, double click the new Valheim instance to manage it and select "Update" from the status screen. This will download the Valheim server and required files.
+</p><p>Once the download is complete you can hit Start and after a few moments the server will start up. Once the startup has completed you can connect as normal.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="en-Manual_Setup">Manual Setup</h2></div>
+<div class="mw-heading mw-heading3"><h3 id="en-Step_1:_Download_the_Server_files">Step 1: Download the Server files</h3></div>
+<div class="mw-heading mw-heading3"><h3 id="en-Windows">Windows</h3></div>
+<ol><li>Create a folder where you wish to install your Valheim dedicated server</li>
+<li>Download <a class="external text sample-online" data-online="true" href="https://developer.valvesoftware.com/wiki/SteamCMD" rel="noopener noreferrer" target="_blank">SteamCMD</a> into that folder</li>
+<li>Create a batch file named <code style="background-color: var(--theme-page-background-color--secondary)">InstallUpdate.bat</code></li>
+<li>Place the following code in this batch file:<div class="mw-highlight mw-highlight-lang-bat mw-content-ltr" dir="ltr"><pre><span></span><span class="p">@</span><span class="k">echo</span> off
+
+steamcmd.exe +force_install_dir <span class="s2">"C:\Your\Valheim\Folder"</span> +login anonymous +app_update 896660 -beta public validate +quit
+</pre></div>:5. Right-click <code style="background-color: var(--theme-page-background-color--secondary)">InstallUpdate.bat</code> and Run as Administrator</li></ol>
+<dl><dd>6. Your game server files will be downloaded into the folder path used in the batch file</dd></dl>
+<div class="mw-heading mw-heading3"><h3 id="en-Linux">Linux</h3></div>
+<ol><li>Create a folder where you wish to install your Valheim dedicated server</li>
+<li>Install <a class="external text sample-online" data-online="true" href="https://developer.valvesoftware.com/wiki/SteamCMD" rel="noopener noreferrer" target="_blank">SteamCMD</a></li>
+<li>Create a Valheim install and validate script named <code style="background-color: var(--theme-page-background-color--secondary)">InstallUpdate.sh</code></li>
+<li>Place the following code in this script (make sure you edit the path)</li></ol>
+<div class="mw-highlight mw-highlight-lang-sh mw-content-ltr" dir="ltr"><pre><span></span><span class="ch">#!/bin/sh</span>
+steamcmd<span class="w"> </span>+@sSteamCmdForcePlatformType<span class="w"> </span>linux<span class="w"> </span>+force_install_dir<span class="w"> </span>/path/to/server<span class="w"> </span>+login<span class="w"> </span>anonymous<span class="w"> </span>+app_update<span class="w"> </span><span class="m">896660</span><span class="w"> </span>-beta<span class="w"> </span>public<span class="w"> </span>validate<span class="w"> </span>+quit
+</pre></div>
+<dl><dd>5. Make this script executable</dd></dl>
+<div class="mw-highlight mw-highlight-lang-sh mw-content-ltr" dir="ltr"><pre><span></span>sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/path/to/script
+</pre></div>
+<dl><dd></dd>
+<dd>6. To be able to connect to PlayFab, and enable crossplay, you must also install several dependencies.</dd>
+<dd></dd>
+<dd></dd>
+<dd></dd></dl>
+<div class="mw-highlight mw-highlight-lang-bash mw-content-ltr" dir="ltr"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>libpulse-dev<span class="w"> </span>libatomic1<span class="w"> </span>libc6
+</pre></div>
+<dl><dd></dd>
+<dd>7. Run the script to install. Whenever Valheim is updated, run this script again.</dd></dl>
+<p><br/>
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Step_2:_Setting_up_a_Valheim_Dedicated_Server">Step 2: Setting up a Valheim Dedicated Server</h3></div>
+<div class="mw-heading mw-heading3"><h3 id="en-Windows_2">Windows</h3></div>
+<ol><li>Create a batch file named <code style="background-color: var(--theme-page-background-color--secondary)">StartServer.bat</code> in your Valheim server folder from Step 1</li>
+<li>Place the following code in this batch file:</li></ol>
+<div class="mw-highlight mw-highlight-lang-powershell mw-content-ltr" dir="ltr"><pre><span></span><span class="nv">@echo</span> <span class="n">off</span>
+<span class="nb">set </span><span class="n">SteamAppId</span><span class="p">=</span><span class="n">892970</span>
+<span class="nb">echo </span><span class="s2">"Starting server PRESS CTRL-C to exit"</span>
+<span class="n">valheim_server</span><span class="p">.</span><span class="n">exe</span> <span class="n">-nographics</span> <span class="n">-batchmode</span> <span class="n">-name</span> <span class="s2">"YourWorldName"</span> <span class="n">-port</span> <span class="n">2456</span> <span class="n">-world</span> <span class="s2">"YourWorldFilename"</span> <span class="n">-password</span> <span class="s2">"YourPassword"</span> <span class="n">-public</span> <span class="n">1</span>
+</pre></div>:3. Right-click <code style="background-color: var(--theme-page-background-color--secondary)">StartServer.bat</code> and Run as Administrator to start your server
+<div class="mw-heading mw-heading3"><h3 id="en-Linux_2">Linux</h3></div>
+<ol><li>Create a script named <code style="background-color: var(--theme-page-background-color--secondary)">valheim.sh</code> in your Valheim install directory</li>
+<li>Place the following code in this script</li></ol>
+<div class="mw-highlight mw-highlight-lang-sh mw-content-ltr mw-highlight-lines" dir="ltr"><pre><span></span><span class="linenos" data-line="1"></span><span class="ch">#!/bin/sh </span>
+<span class="linenos" data-line="2"></span><span class="nb">export</span><span class="w"> </span><span class="nv">templdpath</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span><span class="w">  </span>
+<span class="linenos" data-line="3"></span><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>./linux64:<span class="nv">$LD_LIBRARY_PATH</span><span class="w">  </span>
+<span class="linenos" data-line="4"></span><span class="nb">export</span><span class="w"> </span><span class="nv">SteamAppID</span><span class="o">=</span><span class="m">892970</span>
+<span class="linenos" data-line="5"></span>
+<span class="linenos" data-line="6"></span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Starting server PRESS CTRL-C to exit"</span><span class="w">  </span>
+<span class="linenos" data-line="7"></span>./valheim_server.x86_64<span class="w"> </span>-name<span class="w"> </span><span class="s2">"&lt;servername&gt;"</span><span class="w"> </span>-port<span class="w"> </span><span class="m">2456</span><span class="w"> </span>-nographics<span class="w"> </span>-batchmode<span class="w"> </span>-world<span class="w"> </span><span class="s2">"&lt;worldname&gt;"</span><span class="w"> </span>-password<span class="w"> </span><span class="s2">"&lt;serverpassword&gt;"</span><span class="w"> </span>-public<span class="w"> </span><span class="m">1</span><span class="w">  </span>
+<span class="linenos" data-line="8"></span><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$templdpath</span>
+</pre></div>
+<dl><dd>3. Save and run this script to start the server</dd></dl>
+<div class="mw-heading mw-heading3"><h3 id="en-Step_3:_Port_Forwarding_/_Remote_Access">Step 3: Port Forwarding / Remote Access</h3></div>
+<p>Add an incoming rule to your Windows Firewall to allow UDP port (game port) <code style="background-color: var(--theme-page-background-color--secondary)">2456</code>, (Steam query port) <code style="background-color: var(--theme-page-background-color--secondary)">2457</code>.
+</p><p>You may additionally need to add a forwarding rule to your network router. You can use <a class="external text sample-online" data-online="true" href="http://portforward.com/" rel="noopener noreferrer" target="_blank">PortForward.com</a> to read how to do this.
+</p>
+<div class="mw-heading mw-heading1"><h1 id="en-Connecting">Connecting</h1></div>
+<div class="mw-heading mw-heading2"><h2 id="en-Manually">Manually</h2></div>
+<ol><li>Start Valheim</li>
+<li>Select your character</li>
+<li>From the select world window, select the "Join Game" tab near the top</li>
+<li>Find your server's name in the Community servers list and connect to it, or...</li>
+<li>Select “Join IP”</li>
+<li>Enter the server IP and forwarded port
+<ul><li>If you’re playing the game on the same computer you are hosting the server on, use <b>127.0.0.1:2456</b></li>
+<li>If you’re playing the game and hosting it on two different computers, use the LAN (local) IP of the server computer. This usually starts with <i>192.168</i> and can be found in your router’s list of connected devices. (Example: <b>192.168.0.2:2456</b>)</li>
+<li>If you’re connecting to someone else’s server, you may find their server name in the in-game server browser. Or, the host will need to provide the public IP and forwarded port. The host can discover their public IP by visiting <a class="external free sample-online" data-online="true" href="https://whatismyipaddress.com/" rel="noopener noreferrer" target="_blank">https://whatismyipaddress.com/</a> and selecting the IPv4 address or by Googling “my IP”</li></ul></li>
+<li>Select “Connect”</li>
+<li>Enter the server password</li></ol>
+<div class="mw-heading mw-heading2"><h2 id="en-Semi-Automated">Semi-Automated</h2></div>
+<p>Alternatively, you can set up links by using the Steam protocol.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-steam://connect"><code>steam://connect</code></h3></div>
+<p>The format for this is: <code>steam://connect/&lt;fqdn/ip&gt;[:&lt;port&gt;]</code>
+</p><p>This link requires that the A2S port is running (2457 by default). It tells Steam to connect to a server—it will prompt the password input outside of Valheim, launch Valheim and you will need to type your password again. The in-game password field is the only one that works, the Steam window field is not recognised by the game yet, so you can’t type anything there.
+</p><p>By default this uses :27015 port, so if you forward your :2457 port to that, you can omit the port section.
+</p><p>Example: <code>steam://connect/valheim-server.example.com:2457</code>
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-steam://run"><code>steam://run</code></h3></div>
+<p>The format you would need to use is: <code>steam://run/%2Bconnect%20&lt;fqdn/ip&gt;[%3A&lt;port&gt;]</code>
+</p><p>This link will instruct Valheim to connect to a server directly—it works even when the A2S port is not enabled (-public 0). The % characters are needed for most places where you cannot control the embed link correctly—it will translate to the runtime arguments: “+connect <code>&lt;fqdn/ip&gt;[:port]</code>”
+</p><p>Example: <code>steam://run/%2Bconnect%20valheim-server.example.com%3A2456</code>
+</p>
+<div class="mw-heading mw-heading1"><h1 id="en-Additional_configuration">Additional configuration</h1></div>
+<div class="mw-heading mw-heading2"><h2 id="en-Admins,_bans,_and_whitelist">Admins, bans, and whitelist</h2></div>
+<p>Server hosts are able to whitelist, ban, and make an admin of any users with the permittedlist.txt, bannedlist.txt, and adminlist.txt files located in <i>%UserProfile%\AppData\LocalLow\IronGate\Valheim.</i>
+</p><p>Each file uses the <i>steamID64</i> of a user to accurately identify their Steam account. This number can be found in several ways:
+</p>
+<ul><li>While in-game on your server, press F2 to bring up a menu that will show you connected players and their steamID64</li>
+<li>Use a 3rd party tool like <a class="external text sample-online" data-online="true" href="https://steamid.io/" rel="noopener noreferrer" target="_blank">steamid.io</a> to find a player's steamID64 using their name</li>
+<li>In the server console, you will see clients and "session requests" from players using their steamID64's</li></ul>
+<p>Being an admin allows only the use of admin-specific <a class="mw-redirect" href="p-2ef15ac2866f955969bd.html#Commands" title="Console Commands">Console Commands</a> to manage your server (kick, ban, etc). It does not give access to any other commands such as cheats or debugmode. To make yourself an admin on your server, find your steamID64 using one of the above steps and add it to the <i>adminlist.txt</i>.
+</p>
+For example, if your steamID64 is “1234567890123456”, the file should look like the following:<pre>// List admin players ID  ONE per line
+1234567890123456
+</pre>Make sure there is no whitespace or comments in any lines, each line is read as a whole!<br/>
+<div class="mw-heading mw-heading2"><h2 id="en-Specifying_seed_&amp;_location_of_World_Save_Data">Specifying seed &amp; location of World Save Data</h2></div>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a class="mw-file-description" href="../assets/d09aed6c100cd9040c74.jpg"><img class="mw-file-element" data-file-height="378" data-file-width="761" decoding="async" height="149" loading="eager" src="../assets/d09aed6c100cd9040c74.jpg" width="300"/></a><figcaption></figcaption></figure>
+<p>Currently, the server will create a random seed and give it the name you specify in the <i>-world</i> parameter of the <i>start_headless_server.bat</i> file detailed above, so if you want to host a server with a specific seed, you will need to use a workaround by creating the world by the client and uploading the required files.
+</p>
+<ol><li>Create the seed in singleplayer using a unique world name. For example,
+<ul><li>Name: “Dedicated”</li>
+<li>Seed: “pangea”</li></ul></li>
+<li>Make sure to start this new world at least once to get the game to create the necessary files</li>
+<li>Change the <i>-world</i> parameter in your copied <i>start_headless_server.bat</i> to your chosen world name (not the seed name). In this example, “Dedicated”</li></ol>
+<p>To locate your save folder, navigate to one of these folders:
+</p>
+<dl><dd><dl><dd><code style="background-color: var(--theme-page-background-color--secondary)">%userprofile%/AppData/LocalLow/IronGate/Valheim/worlds</code> if using cloud saves</dd></dl></dd></dl>
+<p><code style="background-color: var(--theme-page-background-color--secondary)">%userprofile%/AppData/LocalLow/IronGate//Valheim/worlds_local</code> if using local saves
+</p><p>For linux, navigate to one of these directories:
+</p>
+<dl><dd><dl><dd><code style="background-color: var(--theme-page-background-color--secondary)">$HOME/.config/unity3d/IronGate/Valheim/worlds</code> if using cloud saves</dd>
+<dd><code style="background-color: var(--theme-page-background-color--secondary)">$HOME/.config/unity3d/IronGate/Valheim/worlds_local</code> is using local saves</dd></dl></dd></dl>
+<p>There will be a folder for each world named for the world. This folder contains all of the files for the world and any changes that have been made to the world. 
+</p><p>This architecture was changed with the 1.0 release from the previous architecture which saw only two files for each world and which saw those files placed directly into the directories above.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="en-Location_of_Server_Log_Files">Location of Server Log Files</h2></div>
+<div class="mw-heading mw-heading3"><h3 id="en-Linux_3">Linux</h3></div>
+<p>Connection logs are located under <b><code style="background-color: var(--theme-page-background-color--secondary)">/home/your-username/.steam/logs</code></b>
+</p>
+<dl><dd>1. Connection logs for the Valheim server are named <b><code style="background-color: var(--theme-page-background-color--secondary)">connection_log_2456.txt</code></b>
+<dl><dd>2456 is the port number your server is listening on (<b><code style="background-color: var(--theme-page-background-color--secondary)">2456</code></b> is the default value)</dd></dl></dd></dl>
+<p>Server logs require you to edit the <b><code style="background-color: var(--theme-page-background-color--secondary)">valheim.sh</code></b>-file (or whatever name you called your script to start the server) in order to be saved.
+</p>
+<dl><dd>2. Open your <b><code style="background-color: var(--theme-page-background-color--secondary)">valheim.sh</code></b>-file in any text editor</dd>
+<dd>3. On the line starting with <b><code style="background-color: var(--theme-page-background-color--secondary)">./valheim_server.x86_64</code></b>, append the following:</dd></dl>
+<div class="mw-highlight mw-highlight-lang-sh mw-content-ltr" dir="ltr"><pre><span></span>&gt;&gt;<span class="w"> </span>/tmp/valheim_log.txt<span class="w"> </span>&lt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="p">&amp;</span>
+</pre></div>
+Your file should now look something like this:<div class="mw-highlight mw-highlight-lang-sh mw-content-ltr" dir="ltr"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">templdpath</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span><span class="w">  </span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>./linux64:<span class="nv">$LD_LIBRARY_PATH</span><span class="w">  </span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">SteamAppID</span><span class="o">=</span><span class="m">892970</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"Starting server PRESS CTRL-C to exit"</span><span class="w">  </span>
+./valheim_server.x86_64<span class="w"> </span>-name<span class="w"> </span><span class="s2">"&lt;servername&gt;"</span><span class="w"> </span>-port<span class="w"> </span><span class="m">2456</span><span class="w"> </span>&lt;-nographics&gt;<span class="w"> </span>&lt;-batchmode&gt;<span class="w"> </span>-world<span class="w"> </span><span class="s2">"&lt;worldname&gt;"</span><span class="w"> </span>-password<span class="w"> </span><span class="s2">"&lt;serverpassword"</span><span class="w"> </span>-public<span class="w"> </span><span class="m">1</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/valheim_log.txt<span class="w"> </span>&lt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="p">&amp;</span><span class="w">  </span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$templdpath</span>
+</pre></div>
+<ul><li><code style="background-color: var(--theme-page-background-color--secondary)">&gt;&gt; /tmp/valheim_log.txt</code> tells the linux kernel to pipe anything received on <code style="background-color: var(--theme-page-background-color--secondary)">stdout</code> to this text file instead.</li>
+<li><code style="background-color: var(--theme-page-background-color--secondary)">&lt; /dev/null &amp;</code> is used to instantly send EOF(End of File) to the program, so that it doesn't wait for input
+<ul><li><code style="background-color: var(--theme-page-background-color--secondary)">/dev/null</code>, the null device, is a special file that discards all data written to it, but reports that the write operation succeeded, and provides no data to any process that reads from it, yielding EOF immediately.</li>
+<li><code style="background-color: var(--theme-page-background-color--secondary)">&amp;</code> is a special type of command separator used to background the preceding process. <a class="external text sample-online" data-online="true" href="https://unix.stackexchange.com/questions/27955/the-usage-of-dev-null-in-the-command-line" rel="noopener noreferrer" target="_blank">ref</a></li></ul></li></ul>
+<div class="mw-heading mw-heading1"><h1 id="en-Updating">Updating</h1></div>
+<p>Every time the game updates, you will also need to update your dedicated server. If the dedicated server version does not match the game version then players cannot connect. It is sufficient (in recent patches) simply to update the Valheim Dedicated Server tool in Steam—no need to use third-party tools. 
+</p>
+<div class="mw-heading mw-heading1"><h1 id="en-Backups_and_transferring_worlds">Backups and transferring worlds</h1></div>
+<p><b>Linux:</b> Your worlds are stored in <code>~/.config/unity3d/IronGate/Valheim/worlds_local</code>
+</p><p><b>macOS:</b> Your worlds are stored in <code>~/Library/Application Support/IronGate/Valheim/worlds_local</code>
+</p><p><b>Windows:</b> Your worlds are stored in <code>%UserProfile%\AppData\LocalLow\IronGate\Valheim\worlds_local</code>
+</p><p>The above folder is used by the dedicated server tool and the Valheim game’s own system. You can interchangeably choose to play using the dedicated server or the game hosting. It is not suggested to do this simultaneously with the same world—critical errors may occur.
+</p><p>Each world is contained in its own folder within the worlds_local folder; this folder is named after the world.
+</p><p>All of the files in the folder for a world are required if you wish to backup or transfer the world.
+</p><p>This architecture was changed with the 1.0 update to facilitate faster world saves as only the files for areas that have been changed are written to.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Steam_Cloud_interaction">Steam Cloud interaction</h3></div>
+<p>Steam Cloud (if enabled) will automatically upload all of the files in the “worlds” folder in AppData to the Steam Cloud when you exit Valheim. You can place a backup subfolder in the worlds folder which will then be backed up using Steam Cloud. You can manually download Steam Cloud files here: <a class="external free sample-online" data-online="true" href="https://store.steampowered.com/account/remotestorage" rel="noopener noreferrer" target="_blank">https://store.steampowered.com/account/remotestorage</a>
+</p><p>Steam Cloud will also automatically download all files from the “worlds” folder in Steam Cloud to your AppData folder when you open Valheim. I suggest that if you receive a message that there is a file mismatch, <b>do not</b> click any button until you have backed up both sets of files—this can lead to your world becoming <b>irretrievably broken</b> if you did not back up properly. 
+</p>
+<div class="mw-heading mw-heading1"><h1 id="en-Frequently_asked_questions">Frequently asked questions</h1></div>
+<div class="mw-heading mw-heading2"><h2 id="en-Why_does_the_server_lag_happen?">Why does the server lag happen?</h2></div>
+<p>There are two common cases for a server to be unresponsive: 
+</p>
+<ol><li>The client who got assigned to be the chunk-master, the host for an area, cannot fulfill that duty properly. The role is a CPU-heavy duty in terms of parallelism, if the client who connected does not handle threads well, or already overloaded with many background tasks, then everyone will see delays in their actions like accessing chests, opening doors, seeing buildings crumble or trees fall. A workaround is to make the players who can handle this job go first in an area, or reassign the role by asking the current chunk-master to quickly leave the area and re-enter.</li>
+<li>World Save is slow to clone the memory. This happens every 20 minutes, and the game announces it before it happens, so it is much easier to identify. There is no workaround for this, but you can ease the problem by not splitting up your group to load many areas at once, and have a faster memory and CPU combination on the server to speed up the cloning process.</li></ol>
+<p>Some sources also point at the server being bandwidth-limited. That is usually not a problem, or a problem of hardware that would be hard to replace. The thing is that the host, the chunk-master will need to handle many UDP packets, and outside of the host hardware CPU limitations, you can run into networking hardware not capable for the server side. Clients are usually fine, but the dedicated server will have multiple times the load of a single client in terms of packet counts. Some mods do try to combat this by either compressing the sent packets or grouping them, but the real solution is to host your server in a more capable environment.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="en-Why_does_desync_happen?">Why does desync happen?</h2></div>
+<p>This is an extension to the Lag problem, sometimes it can happen that the clients are dropped out from the server but still connected and doing things. While in a group this can be recognized much more easily when two players see different states of an area, but when you play alone this is really hard to recognize. Typically, what you want to do is to reconnect to the server, and once you see this happening with your connection, you just have to look out for indications of the symptoms.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="en-My_progress_got_reverted,_what_can_I_do?">My progress got reverted, what can I do?</h2></div>
+<p>This is partially the previous desync problem, and another common mistake by shutting down the server incorrectly. The shutdown progression loss can be easily recognized as it happens after you kill your server. The way to prevent is to correctly shutdown your server by sending an <code>INT</code> or <code>TERM</code> signal to it instead of aborting or killing the process. On Windows, this can be achieved by sending a Ctrl+C and accepting with a Y to the command window. On Linux, Ctrl+C can be used in a terminal shell or send the right signal to the process or set up your process supervisor to use <code>SIGINT</code> or <code>SIGTERM</code> with an appropriate wait time. As for restoring progress, you have no options, as it either never existed on the server or got lost by not saving the memory state.
+</p><p>As of the Bog Witch update, <b>a Unity bug prevents the macOS dedicated server from entering graceful shutdown even if SIGINT or SIGTERM is used. Only manual save requests or the regular save interval will result in recent world changes being flushed to disk on macOS dedicated server.</b>
+</p>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="en-References">References</h2></div>
+<div class="mw-references-wrap"><ol class="references">
+<li id="en-cite_note-1"><span class="mw-cite-backlink"><a href="#en-cite_ref-1">↑</a></span> <span class="reference-text"><a class="external free sample-online" data-online="true" href="https://developer.valvesoftware.com/wiki/Server_queries" rel="noopener noreferrer" target="_blank">https://developer.valvesoftware.com/wiki/Server_queries</a></span>
+</li>
+</ol></div>
+<div class="sample-table-scroll"><table class="navbox mw-collapsible mw-collapsed" data-collapsetext="Hide" data-expandtext="Show"><tbody><tr class="navbox-title"><th colspan="2" scope="col"><div class="navbox-title-pad navbox-title-padleft navbox-title-padright"><a href="p-edd2287afad9be012dee.html" title="Category:Mechanics">Mechanics</a></div></th></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Guides</th><td class="navbox-list"><div class="hlist"><a href="how-to-play.html" title="How to play">How to play</a> • <a href="p-58565db394dcbacc0ec7.html" title="Progression guide">Progression guide</a> • <a href="p-e70bc5798f8391942dd6.html" title="Aggressive creature strategies">Aggressive creature strategies</a> • <a href="p-19e667dbe36cd74e7c1b.html" title="Passive creature strategies">Passive creature strategies</a> • <a href="p-afc73fba07d15f960daf.html" title="Boss strategies">Boss strategies</a> • <a class="mw-selflink selflink">Dedicated servers</a> • <a href="p-c3af076f92c5ed8dcb0d.html" title="Troubleshooting">Troubleshooting</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Player</th><td class="navbox-list"><div class="hlist"><a href="p-64aee8c6cbd026d9ea92.html" title="Player">Player</a> • <a href="p-55898449eb74fb2e348d.html" title="Health">Health</a> • <a href="p-cc350ea3393968f7cd7c.html" title="Stamina">Stamina</a> • <a href="p-332e6a85b4285ff8858c.html" title="Eitr">Eitr</a> • <a href="p-2608729251008c9658e7.html" title="Adrenaline">Adrenaline</a> • <a href="p-fcd6fea72de7e6c09ca2.html" title="Death">Death</a> • <a href="p-b8e0a74433a1176e439f.html" title="Forsaken power">Forsaken power</a> • <a href="p-66d0f523a379b2de6f8d.html" title="Skills">Skills</a> • <a href="p-f57eddb4e027139d853f.html" title="Status effects">Status effects</a> • <a href="p-5954d0c13f55417f74fb.html" title="Movement speed">Movement speed</a> • <a href="p-ed1a5a81b8121ad13a87.html" title="Magic">Magic</a> • <a href="p-79cea8ff2ba190bbb1bd.html" title="Fishing">Fishing</a> • <a href="p-e9d7b76127dca2c7d07e.html" title="Riding">Riding</a> • <a href="p-12ff393b061d94ebc405.html" title="Sleeping">Sleeping</a> • <a href="p-25521701981e1ad3ad97.html" title="Emotes">Emotes</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Combat</th><td class="navbox-list"><div class="hlist"><a href="p-0c874f581a4534f15f1e.html" title="Damage">Damage types</a> • <a href="p-e931ec535f307a5c6add.html" title="Damage mechanics">Damage mechanics</a> • <a href="p-bb0db9f7893c418a1de3.html" title="Knockback">Knockback</a> • <a href="p-aeaeee06ac36a10d7822.html" title="Factions">Factions</a> • <a href="p-4e7c41331a4464ad6e07.html" title="Creature senses">Creature senses</a> • <a href="p-5ac03ba6efdc56d5b7b5.html" title="Creature AI">Creature AI</a> • <a href="p-37015441396c962e2e96.html" title="Drops">Drops</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Spawning</th><td class="navbox-list"><div class="hlist"><a href="p-36ff87e1502da8a1d740.html" title="Spawning mechanics">Spawning mechanics</a> • <a href="p-3a6396c120925fdde8d2.html" title="Spawn points">Spawn points</a> • <a href="p-60958b009a9e0b5dd0b6.html" title="Spawn zones">Spawn zones</a> • <a href="p-8d14f6e72de8f18ab1ee.html" title="Events">Events</a> • <a href="p-47373e84723cece15749.html" title="Creature level">Creature level</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Building</th><td class="navbox-list"><div class="hlist"><a href="building.html" title="Building">Building</a> • <a href="p-99b60de679e8976fc592.html" title="Building stability">Building stability</a> • <a href="p-fa8d84566676ee2ee662.html" title="Cover">Cover</a> • <a href="p-040d4645676f60263590.html" title="Comfort">Comfort</a> • <a href="p-a6d7eeb25f1fe9854a8b.html" title="Player base">Player base</a> • <a href="p-29b52bfcccd01518e9de.html" title="Smoke">Smoke</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">UI</th><td class="navbox-list"><div class="hlist"><a href="p-758f487fe8e9fcc59cec.html" title="Inventory">Inventory</a> • <a class="mw-redirect" href="crafting.html" title="Crafting menu">Crafting menu</a> • <a href="p-be176b0015c424b78e9f.html" title="Map">Map</a> • <a href="p-c40c747ee79e90e16e46.html" title="HUD">HUD</a> • <a href="p-799c269135742a36ae48.html" title="Controls">Controls</a> • <a href="p-2ef15ac2866f955969bd.html" title="Developer console">Developer console</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">World</th><td class="navbox-list"><div class="hlist"><a href="p-9e471951a1b4106e54be.html" title="Environment">Environment</a> • <a href="p-8a27b0cad26bc97071ab.html" title="World Modifiers">World Modifiers</a> • <a href="p-2af8986090a5b9ad83ec.html" title="World seed">World seed</a> • <a href="p-577cfab98de598e55bee.html" title="Global Keys">Global Keys</a> • <a href="p-a53aa373c5e23e694a54.html" title="Zones">Zones</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Misc</th><td class="navbox-list"><div class="hlist"><a href="p-74cf2bc63fe122206c82.html" title="Achievements">Achievements</a> • <a href="p-1964260e2e296c33c3f3.html" title="Seasonal events">Seasonal events</a> • <a href="p-6eb00b4b2614a144d41c.html" title="Music">Music</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Development</th><td class="navbox-list"><div class="hlist"><a href="p-a6df11e706c514f13d6f.html" title="Version history">Version history</a> • <a href="p-4696ff19d71c753885a5.html" title="Future content">Future content</a></div></td></tr></tbody></table></div>
+
+
+
+</div></section><footer data-language="zh">来源：<a href="https://valheim.weirdgloop.org/w/Dedicated_servers">专用服务器原文（需联网）</a>；保存修订号 57941。中文为本地译文。<p>原站内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名—非商业性使用—相同方式共享 3.0（CC BY-NC-SA 3.0）</a>许可；<a href="https://meta.weirdgloop.org/w/Licensing">可能适用额外条款</a>。背景与装饰素材来自原版维基，并已保存到本地。</p></footer><footer data-language="en" hidden>Source: <a href="https://valheim.weirdgloop.org/w/Dedicated_servers">Dedicated servers original (online)</a>; saved revision 57941. Chinese is a local translation. <p>Content on this site is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a>; <a href="https://meta.weirdgloop.org/w/Licensing">additional terms may apply</a>. Backgrounds and decorative assets from the original wiki are stored locally.</p></footer></main></body></html>

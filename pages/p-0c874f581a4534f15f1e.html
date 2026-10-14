@@ -1,0 +1,5225 @@
+<!DOCTYPE html>
+<html data-wiki-root=".." lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>伤害 · 英灵神殿离线维基</title><link href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-0.css" rel="stylesheet"/><link href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-1.css" rel="stylesheet"/><link href="../assets/sample.css" rel="stylesheet"/><script defer="" src="../assets/search.js"></script><script defer="" src="../assets/sample.js"></script></head><body class="skin-vector"><nav class="sample-toolbar"><strong data-ui-en="Valheim · Offline Wiki" data-ui-zh="英灵神殿 · 离线维基">英灵神殿 · 离线维基</strong><a data-local-page="true" data-ui-en="Creatures" data-ui-zh="生物" href="creatures.html">生物</a><a data-local-page="true" data-ui-en="How to play" data-ui-zh="入门玩法" href="how-to-play.html">入门玩法</a><a data-local-page="true" data-ui-en="Biomes" data-ui-zh="生物群系" href="biomes.html">生物群系</a><a data-local-page="true" data-ui-en="Weapons" data-ui-zh="武器" href="weapons.html">武器</a><a data-local-page="true" data-ui-en="Food" data-ui-zh="食物" href="food.html">食物</a><a data-local-page="true" data-ui-en="Armor" data-ui-zh="护甲" href="armor.html">护甲</a><a data-local-page="true" data-ui-en="Crafting" data-ui-zh="制作" href="crafting.html">制作</a><a data-local-page="true" data-ui-en="Building" data-ui-zh="建材" href="building.html">建材</a><button aria-pressed="false" id="sample-language">切换英文</button><a data-ui-en="Contents" data-ui-zh="本页目录" href="#sample-toc">本页目录</a><form id="sample-search-form" role="search"><label data-ui-en="Site search" data-ui-zh="站内搜索" for="sample-search">站内搜索</label><input autocomplete="off" data-placeholder-en="Search in Chinese or English" data-placeholder-zh="输入中文或英文" id="sample-search" placeholder="输入中文或英文" type="search"/><button data-ui-en="Search" data-ui-zh="搜索" type="submit">搜索</button></form></nav><main class="sample-shell"><h1 data-ui-en="Damage" data-ui-zh="伤害" id="sample-title">伤害</h1><p class="sample-note" data-ui-en="This offline edition supports Chinese and English site search. Links marked ↗ require internet. Chinese uses the supplied glossary; each source revision is shown below." data-ui-zh="本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。">本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。</p><section aria-live="polite" hidden="" id="sample-search-results"></section><nav class="sample-contents" id="sample-toc"><div data-language="zh"><a href="#Damage_types">伤害类型</a><a href="#Resistances_and_weaknesses">抗性与弱点</a><a href="#Weak_points">弱点</a><a href="#Physical">物理</a><a href="#Blunt">钝击</a><a href="#Pierce">穿刺</a><a href="#Slash">劈砍</a><a href="#Elemental">元素</a><a href="#Fire">火焰</a><a href="#Poison">毒素</a><a href="#Frost">冰霜</a><a href="#Spirit">灵魂</a><a href="#Lightning">闪电</a><a href="#Terrain_damage">地形伤害</a><a href="#Chop">砍伐</a><a href="#Pickaxe">镐击</a><a href="#Pure">纯粹伤害</a><a href="#Tick_damage">每次结算伤害</a><a href="#Per_second">每秒</a><a href="#Fall_damage">坠落伤害</a><a href="#Other">其他</a><a href="#Creature_resistance_overview">生物 抗性概览</a><a href="#References">参考资料</a></div><div data-language="en" hidden=""><a href="#en-Damage_types">Damage types</a><a href="#en-Resistances_and_weaknesses">Resistances and weaknesses</a><a href="#en-Weak_points">Weak points</a><a href="#en-Physical">Physical</a><a href="#en-Blunt">Blunt</a><a href="#en-Pierce">Pierce</a><a href="#en-Slash">Slash</a><a href="#en-Elemental">Elemental</a><a href="#en-Fire">Fire</a><a href="#en-Poison">Poison</a><a href="#en-Frost">Frost</a><a href="#en-Spirit">Spirit</a><a href="#en-Lightning">Lightning</a><a href="#en-Terrain_damage">Terrain damage</a><a href="#en-Chop">Chop</a><a href="#en-Pickaxe">Pickaxe</a><a href="#en-Pure">Pure</a><a href="#en-Tick_damage">Tick damage</a><a href="#en-Per_second">Per second</a><a href="#en-Fall_damage">Fall damage</a><a href="#en-Other">Other</a><a href="#en-Creature_resistance_overview">Creature resistance overview</a><a href="#en-References">References</a></div></nav><section data-language="zh" id="sample-zh"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><p><b>伤害</b>是实体生命值的减少，影响许多核心玩法。几乎所有实体、物品或建筑都以某种方式使用此系统。</p>
+<div class="mw-heading mw-heading2"><h2 id="Damage_types">伤害类型</h2></div>
+<ul><li>物理
+<ul><li><a class="mw-selflink-fragment" href="#Blunt">钝击</a></li>
+<li><a class="mw-selflink-fragment" href="#Pierce">穿刺</a></li>
+<li><a class="mw-selflink-fragment" href="#Slash">劈砍</a></li></ul></li>
+<li>元素
+<ul><li><a class="mw-selflink-fragment" href="#Fire">火焰</a></li>
+<li><a class="mw-selflink-fragment" href="#Poison">毒素</a></li>
+<li><a class="mw-selflink-fragment" href="#Frost">冰霜</a></li>
+<li><a class="mw-selflink-fragment" href="#Spirit">灵魂</a></li>
+<li><a class="mw-selflink-fragment" href="#Lightning">闪电</a></li></ul></li>
+<li>地形
+<ul><li><a class="mw-selflink-fragment" href="#Chop">砍伐</a> （伐木）</li>
+<li><a class="mw-selflink-fragment" href="#Pickaxe">镐击</a> （采矿）</li>
+<li><a class="mw-selflink-fragment" href="#Pure">纯粹伤害</a></li></ul></li></ul>
+<div class="mw-heading mw-heading2"><h2 id="Resistances_and_weaknesses">抗性与弱点</h2></div>
+<div class="hatnote searchaux" role="note"><i>另见: <a href="p-c35070bce1f5544161f6.html" title="抗性">抗性</a></i></div>
+<p>抗性和弱点决定受到各类<a class="mw-redirect" href="p-0c874f581a4534f15f1e.html" title="伤害类型">伤害类型</a>时的伤害。<a href="creatures.html" title="生物">生物</a>有固有抗性和弱点，也受部分<a href="p-f57eddb4e027139d853f.html" title="状态效果">状态效果</a>影响。玩家可从<a href="armor.html" title="护甲">护甲</a>、<a href="p-abf4e9bf698901609e2d.html" title="蜜酒">蜜酒</a>或<a href="p-f57eddb4e027139d853f.html" title="状态效果">状态效果</a>获得抗性和弱点。</p><p>本页<a href="#Creature_resistance_overview">在底部</a>列出生物的弱点、抗性和免疫。</p>
+<figure class="mw-halign-left mw-image-border" typeof="mw:File"><a class="mw-file-description" href="../assets/f4584580c3718e53629d.png"><img alt="目标抵抗该伤害类型时，伤害数字为灰色；普通为白色；弱于该类型时为黄色。" class="mw-file-element" data-file-height="382" data-file-width="694" decoding="async" height="316" loading="eager" src="../assets/f4584580c3718e53629d.png" width="574"/></a><figcaption></figcaption></figure>
+<p><br/>
+</p>
+<div class="sample-table-scroll"><table class="sortable wikitable">
+<tbody><tr>
+<th>抗性／弱点等级
+</th>
+<th>伤害 %
+</th>
+<th>伤害倍率
+</th></tr>
+<tr>
+<th>非常虚弱
+</th>
+<td>200%
+</td>
+<td>x2
+</td></tr>
+<tr>
+<th>较弱
+</th>
+<td>150%
+</td>
+<td>x1.5
+</td></tr>
+<tr>
+<th>正常
+</th>
+<td>100%
+</td>
+<td>x1
+</td></tr>
+<tr>
+<th>抗性
+</th>
+<td>50%
+</td>
+<td>x0.5
+</td></tr>
+<tr>
+<th>超强抗性
+</th>
+<td>25%
+</td>
+<td>x0.25
+</td></tr>
+<tr>
+<th>免疫
+</th>
+<td>0%
+</td>
+<td>x0
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading3"><h3 id="Weak_points">弱点</h3></div>
+<p>某些敌人有<b>弱点</b>，命中这些部位造成不同、通常更高的伤害。机制很简单：每个弱点单独定义抗性，命中时使用该部位抗性，<i>而非</i>生物基础抗性计算伤害。</p>
+<div class="mw-heading mw-heading2"><h2 id="Physical">物理</h2></div>
+<p>物理伤害可格挡，并受护甲减免，也会造成<a href="p-b575a12ff4742c150d8d.html" title="失衡">失衡效果</a>。</p>
+<div class="mw-heading mw-heading3"><h3 id="Blunt">钝击</h3></div>
+<div class="sample-table-scroll"><table class="wikitable mw-collapsible mw-collapsed">
+<caption>钝击抗性／弱点表
+</caption>
+<tbody><tr>
+<th>生物群系
+</th>
+<th>较弱
+</th>
+<th>抗性
+</th></tr>
+<tr>
+<th>玩家
+</th>
+<td>
+</td>
+<td>
+<ul><li><a class="mw-redirect" href="p-b8e0a74433a1176e439f.html" title="邪骨恶灵之力">邪骨恶灵之力</a></li></ul>
+</td></tr>
+<tr>
+<th>黑暗林山
+</th>
+<td>
+<ul><li><a href="p-ea5f6bdc79b884c397d6.html" title="骷髅怪">骷髅怪</a></li>
+<li><a href="p-8d7b2e4882044d922d62.html" title="腐臭遗骸">腐臭遗骸</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-8c578ed3e9d5fec6f0f1.html" title="巨熊">巨熊</a></li>
+<li><a href="p-9bac25686c53aa859d61.html" title="巨魔">巨魔</a> (躯体)</li>
+<li><a href="p-df1bc4984a055e10b286.html" title="幽灵">幽灵</a></li></ul>
+</td></tr>
+<tr>
+<th>泥泞沼泽
+</th>
+<td>
+<ul><li><a href="p-24bafb0b2477f80fafd0.html" title="软泥怪">软泥怪</a></li>
+<li><a href="p-12400ad0838ff0fa04b1.html" title="大型软泥怪">大型软泥怪</a></li>
+<li><b><a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a></b></li></ul>
+</td>
+<td>
+<ul><li><a href="p-55dbdbafa072275bf0d2.html" title="邪煞之树">邪煞之树</a></li>
+<li><a href="p-c781316c9ff4beaaf1e8.html" title="鬼魅">鬼魅</a></li></ul>
+</td></tr>
+<tr>
+<th>凛冽雪山
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-f2813a523c21f6654fc4.html" title="邪蝠">邪蝠</a></li></ul>
+</td></tr>
+<tr>
+<th>北境平原
+</th>
+<td>
+<ul><li><a href="p-66b06e996553a4e70d0f.html" title="焦油怪">焦油怪</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-be01beb2fff31a66abf2.html" title="平原牦牛">平原牦牛</a></li></ul>
+</td></tr>
+<tr>
+<th>迷雾之地
+</th>
+<td>
+<ul><li><a href="p-d638ee2f46a405dd2f5c.html" title="邪蛛士兵">邪蛛士兵</a> （尾部）</li></ul>
+</td>
+<td>
+<ul><li><a href="p-c465c70b79b24e4f7c1b.html" title="邪蛛探索者">邪蛛探索者</a></li>
+<li><a href="p-d638ee2f46a405dd2f5c.html" title="邪蛛士兵">邪蛛士兵</a></li>
+<li><a href="p-44d657ae1afd1497c503.html" title="邪蛛幼雏">邪蛛幼雏</a></li></ul>
+</td></tr>
+<tr>
+<th>灰烬之地
+</th>
+<td>
+<ul><li><a href="p-6f0a62e3e3763713fd85.html" title="岩浆软泥怪">岩浆软泥怪</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-c4785ba17e12c3aaa027.html" title="摩根">摩根</a></li></ul>
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading4"><h4 id="Damage_sources">伤害来源</h4></div>
+<ul><li>玩家来源：<a href="p-98348a90362db8bb804d.html" title="棍棒">棍棒</a>、<a href="p-0c094b45c68266df7b22.html" title="徒手">徒手</a>、<a href="p-0032b71e283d00c277ac.html" title="软泥炸弹">软泥炸弹</a>、<a href="p-425d7538f593b76e2627.html" title="余烬之杖">余烬之杖</a>、<a href="p-baa01ad879365a411c0c.html" title="鹿角战锤">鹿角战锤</a></li>
+<li>生物来源：<a href="p-55dbdbafa072275bf0d2.html" title="邪煞之树">邪煞之树</a>、<a href="p-d9750e42f4357d8a8d8a.html" title="灰烬刚鬣">灰烬刚鬣</a>、<a href="p-bf10a5ee1fab92a8db98.html" title="鬓猪">鬓猪</a>、<a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a>、<a href="p-9d5ce60be807ae13498b.html" title="丑地精">丑地精 (棍子)</a>、<a href="p-9d5ce60be807ae13498b.html" title="丑地精">丑地精 (火把)</a>、<a href="p-440f49671e99164315e3.html" title="丑地精狂战士">丑地精狂战士</a>、<a href="p-12e29dba51068fb584d2.html" title="丑地精萨满">丑地精萨满</a>、<a href="p-f018cb729d59b13d1f4e.html" title="加尔">加尔</a>、<a href="p-f4709a9359f1def796bc.html" title="灰矮人">灰矮人</a>、<a href="p-66b06e996553a4e70d0f.html" title="焦油怪">焦油怪</a>、<a href="p-be01beb2fff31a66abf2.html" title="平原牦牛">平原牦牛</a>、<a href="p-cd72f0d36b4bbdd554cf.html" title="树根（生物）">邪煞之根</a>、<a href="p-c465c70b79b24e4f7c1b.html" title="邪蛛探索者">邪蛛探索者</a>、<a href="p-d638ee2f46a405dd2f5c.html" title="邪蛛士兵">邪蛛士兵</a>、<a href="p-690671ff0febe865c611.html" title="焰灵">焰灵</a>、<a href="p-1a234744f50cea328de9.html" title="石魔">石魔</a>、<a href="p-ca3280d30e1fda946d1a.html" title="古树长老">古树长老</a>、<a href="p-9bac25686c53aa859d61.html" title="巨魔">巨魔</a>、<a href="p-398464ae70d7dad80188.html" title="亚格鲁斯">亚格鲁斯</a>、<a href="p-1e6dc9ac4767bb09dca9.html" title="吉尔与吞格尔">吉尔与吞格尔</a></li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Pierce">穿刺</h3></div>
+<div class="sample-table-scroll"><table class="wikitable mw-collapsible mw-collapsed">
+<caption>穿刺抗性／弱点表
+</caption>
+<tbody><tr>
+<th>生物群系
+</th>
+<th>非常虚弱
+</th>
+<th>较弱
+</th>
+<th>抗性
+</th>
+<th>超强抗性
+</th></tr>
+<tr>
+<th>玩家
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a class="mw-redirect" href="p-72f206d7ed46f128957d.html" title="树根胸甲">树根胸甲</a></li>
+<li><a class="mw-redirect" href="p-b8e0a74433a1176e439f.html" title="邪骨恶灵之力">邪骨恶灵之力</a></li>
+<li><a href="p-bd5a4a57d80fd35e3609.html" title="蛟龙鳞盾">蛟龙鳞盾</a></li></ul>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>黑暗林山
+</th>
+<td>
+<ul><li><a href="p-9bac25686c53aa859d61.html" title="巨魔">巨魔</a> （头部）</li></ul>
+</td>
+<td>
+<ul><li><a href="p-9bac25686c53aa859d61.html" title="巨魔">巨魔</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-8c578ed3e9d5fec6f0f1.html" title="巨熊">巨熊</a></li>
+<li><a href="p-df1bc4984a055e10b286.html" title="幽灵">幽灵</a></li>
+<li><a href="p-8d7b2e4882044d922d62.html" title="腐臭遗骸">腐臭遗骸</a></li>
+<li><a href="p-ea5f6bdc79b884c397d6.html" title="骷髅怪">骷髅怪</a></li></ul>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>泥泞沼泽
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-24bafb0b2477f80fafd0.html" title="软泥怪">软泥怪</a></li>
+<li><a href="p-12400ad0838ff0fa04b1.html" title="大型软泥怪">大型软泥怪</a></li>
+<li><a href="p-c781316c9ff4beaaf1e8.html" title="鬼魅">鬼魅</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-55dbdbafa072275bf0d2.html" title="邪煞之树">邪煞之树</a></li>
+<li><b><a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a></b></li></ul>
+</td></tr>
+<tr>
+<th>凛冽雪山
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-f2813a523c21f6654fc4.html" title="邪蝠">邪蝠</a></li>
+<li><a href="p-1a234744f50cea328de9.html" title="石魔">石魔</a></li></ul>
+</td>
+<td>
+<ul></ul>
+</td></tr>
+<tr>
+<th>北境平原
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-66b06e996553a4e70d0f.html" title="焦油怪">焦油怪</a></li></ul>
+</td>
+<td>
+<ul><li><b><a href="p-398464ae70d7dad80188.html" title="亚格鲁斯">亚格鲁斯</a></b></li></ul>
+</td></tr>
+<tr>
+<th>迷雾之地
+</th>
+<td>
+<ul><li><a href="p-f018cb729d59b13d1f4e.html" title="加尔">加尔</a> （鸡蛋）</li></ul>
+</td>
+<td>
+<ul><li><a href="p-98c95268220bddfe87be.html" title="壁虱幼虫">壁虱幼虫</a></li>
+<li><a href="p-d638ee2f46a405dd2f5c.html" title="邪蛛士兵">邪蛛士兵</a> （尾部）</li></ul>
+</td>
+<td>
+<ul><li><a href="p-c465c70b79b24e4f7c1b.html" title="邪蛛探索者">邪蛛探索者</a></li>
+<li><a href="p-d638ee2f46a405dd2f5c.html" title="邪蛛士兵">邪蛛士兵</a></li>
+<li><a href="p-44d657ae1afd1497c503.html" title="邪蛛幼雏">邪蛛幼雏</a></li>
+<li><b><a href="p-879687ceb6851d62d031.html" title="蛊虫之后">蛊虫之后</a></b></li></ul>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>灰烬之地
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-e91837e0deb55a18a7c9.html" title="灰烬战士">灰烬战士</a></li>
+<li><a href="p-42b0bedf2737ab2cba46.html" title="灰烬僵尸">灰烬僵尸</a></li>
+<li><a href="p-0ec102589cc30ceb4a26.html" title="灰烬术士">灰烬术士</a></li>
+<li><a href="p-b88f49c50094a29b876f.html" title="灰烬射手">灰烬射手</a></li>
+<li><a href="p-c4785ba17e12c3aaa027.html" title="摩根">摩根</a></li>
+<li><a href="p-e31ead2508896ed4d27c.html" title="邪影弩炮">邪影弩炮</a></li>
+<li><a href="p-6f0a62e3e3763713fd85.html" title="岩浆软泥怪">岩浆软泥怪</a></li>
+<li><a href="p-98aaa88ba645d6ae6a11.html" title="雷托领主">雷托领主</a></li>
+<li><b><a href="p-816e9a6b76bb85197818.html" title="青焰龙王">青焰龙王</a></b></li></ul>
+</td>
+<td>
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading4"><h4 id="Damage_sources_2">伤害来源</h4></div>
+<ul><li>玩家来源：<a href="p-dc0921952ce1ff6aa8b9.html" title="分类：箭">箭</a>、<a href="p-d3e53a2e348022ba16a6.html" title="弩箭">弩箭</a>、<a href="p-f09abd259d0ada2a71f6.html" title="弓">弓</a>、<a href="p-806891f52a7296f021eb.html" title="弩">弩</a>、<a href="p-8acc99b3a7721f0aa451.html" title="刀">刀</a>、<a href="p-3048886e495cf472ac35.html" title="镐">镐</a>、<a href="p-d3efea7f66cbc49b1b9c.html" title="长柄武器">长柄武器</a>、<a href="p-9428317ccd76e32daef4.html" title="狼牙棒">狼牙棒</a>、<a href="p-5c75e6ba33d31ae0dfbe.html" title="矛">矛</a>、<a href="p-baa01ad879365a411c0c.html" title="鹿角战锤">鹿角战锤</a>、<a href="p-ca2f1b8656246f88ddb6.html" title="邪骨利爪">邪骨利爪</a></li>
+<li>生物来源：<a href="p-53e9e085b2d11109d84b.html" title="杀人蜂">杀人蜂</a>、<a href="p-3ae89e8a8fe1c4a5aec2.html" title="尸鬼">尸鬼 (弓)</a>、<a href="p-a8dc2a05596fceca7a2d.html" title="赤血灵鹿">赤血灵鹿</a>、<a href="p-9d5ce60be807ae13498b.html" title="丑地精">丑地精 (矛)</a>、<a href="p-e27f3a289ceb40df4796.html" title="蚂蟥">蚂蟥</a>、<a href="p-483538232016e17e86f2.html" title="冰霜龙母">冰霜龙母</a>、<a href="p-c465c70b79b24e4f7c1b.html" title="邪蛛探索者">邪蛛探索者</a>、<a href="p-44d657ae1afd1497c503.html" title="邪蛛幼雏">邪蛛幼雏</a>、<a href="p-ea5f6bdc79b884c397d6.html" title="骷髅怪">骷髅怪 (弓)</a>、<a href="p-1a234744f50cea328de9.html" title="石魔">石魔像（尖刺）</a>、<a href="p-ca3280d30e1fda946d1a.html" title="古树长老">古树长老</a>、<a href="p-879687ceb6851d62d031.html" title="蛊虫之后">蛊虫之后</a>、<a href="p-98c95268220bddfe87be.html" title="壁虱幼虫">壁虱幼虫</a></li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Slash">劈砍</h3></div>
+<div class="sample-table-scroll"><table class="wikitable mw-collapsible mw-collapsed">
+<caption>挥砍抗性／弱点表
+</caption>
+<tbody><tr>
+<th>生物群系
+</th>
+<th>较弱
+</th>
+<th>抗性
+</th></tr>
+<tr>
+<th>玩家
+</th>
+<td>
+</td>
+<td>
+<ul><li><a class="mw-redirect" href="p-b8e0a74433a1176e439f.html" title="邪骨恶灵之力">邪骨恶灵之力</a></li></ul>
+</td></tr>
+<tr>
+<th>黑暗林山
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-df1bc4984a055e10b286.html" title="幽灵">幽灵</a></li></ul>
+</td></tr>
+<tr>
+<th>泥泞沼泽
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-24bafb0b2477f80fafd0.html" title="软泥怪">软泥怪</a></li>
+<li><a href="p-12400ad0838ff0fa04b1.html" title="大型软泥怪">大型软泥怪</a></li>
+<li><a href="p-c781316c9ff4beaaf1e8.html" title="鬼魅">鬼魅</a></li>
+<li><b><a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a></b></li></ul>
+</td></tr>
+<tr>
+<th>凛冽雪山
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-f2813a523c21f6654fc4.html" title="邪蝠">邪蝠</a></li>
+<li><a href="p-1a234744f50cea328de9.html" title="石魔">石魔</a></li></ul>
+</td></tr>
+<tr>
+<th>北境平原
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-be01beb2fff31a66abf2.html" title="平原牦牛">平原牦牛</a></li>
+<li><a href="p-66b06e996553a4e70d0f.html" title="焦油怪">焦油怪</a></li></ul>
+</td></tr>
+<tr>
+<th>迷雾之地
+</th>
+<td>
+<ul><li><a href="p-d638ee2f46a405dd2f5c.html" title="邪蛛士兵">邪蛛士兵</a> （尾部）</li></ul>
+</td>
+<td>
+<ul><li><a href="p-c465c70b79b24e4f7c1b.html" title="邪蛛探索者">邪蛛探索者</a></li>
+<li><a href="p-d638ee2f46a405dd2f5c.html" title="邪蛛士兵">邪蛛士兵</a></li>
+<li><a href="p-44d657ae1afd1497c503.html" title="邪蛛幼雏">邪蛛幼雏</a></li></ul>
+</td></tr>
+<tr>
+<th>灰烬之地
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-c4785ba17e12c3aaa027.html" title="摩根">摩根</a></li></ul>
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading4"><h4 id="Damage_sources_3">伤害来源</h4></div>
+<ul><li>玩家来源：<a href="p-56a7d40e60030e0c3e48.html" title="斧">斧</a>、<a href="p-2b8592bee86de9531d09.html" title="血肉撕裂者">血肉撕裂者</a>、<a href="p-8acc99b3a7721f0aa451.html" title="刀">刀</a>、<a href="p-53a230d658f13bbf440e.html" title="巨熊利爪">巨熊利爪</a>、<a href="p-5919dcd44e227bc472bf.html" title="剑">剑</a>、<a href="p-ca2f1b8656246f88ddb6.html" title="邪骨利爪">邪骨利爪</a></li>
+<li>生物来源：<a href="p-d9750e42f4357d8a8d8a.html" title="灰烬刚鬣">灰烬刚鬣</a>、<a href="p-929a2b40551ead4abd16.html" title="布伦娜">布伦娜</a>、<a href="p-2787ea728b28387177aa.html" title="狂信徒">狂信徒</a>、<a href="p-f2813a523c21f6654fc4.html" title="邪蝠">邪蝠</a>、<a href="p-3ae89e8a8fe1c4a5aec2.html" title="尸鬼">尸鬼(斧)</a>、<a href="p-b93909b5f83342167cf5.html" title="尸鬼精英">尸鬼精英</a>、<a href="p-914164a5c1139a096548.html" title="盖尔哈法">盖尔哈法</a>、<a href="p-134c1125a5e029dae10d.html" title="芬里">芬里</a>、<a href="p-9d5ce60be807ae13498b.html" title="丑地精">丑地精(剑)</a>、<a href="p-d1b08118de3909fa8022.html" title="灰宝宝">灰宝宝</a>、<a href="p-f4709a9359f1def796bc.html" title="灰矮人">灰矮人</a>、<a href="p-ba16540902bdc96359b7.html" title="灰矮人暴徒">灰矮人暴徒</a>、<a href="p-f3aed59448e859ce563b.html" title="灰矮人萨满">灰矮人萨满</a>、<a href="p-df1bc4984a055e10b286.html" title="幽灵">幽灵</a>、<a href="p-be01beb2fff31a66abf2.html" title="平原牦牛">平原牦牛</a>、<a href="p-483538232016e17e86f2.html" title="冰霜龙母">冰霜龙母</a>、<a href="p-6b27a97151bbf20fa8b0.html" title="蜥蜴精">蜥蜴精</a>、<a href="p-d638ee2f46a405dd2f5c.html" title="邪蛛士兵">邪蛛士兵</a>、<a href="p-bb01a030df624241707d.html" title="蛟龙">蛟龙</a>、<a href="p-ea5f6bdc79b884c397d6.html" title="骷髅怪">骷髅怪(剑)</a>、<a href="p-879687ceb6851d62d031.html" title="蛊虫之后">蛊虫之后</a>、<a href="p-724de16046651b352c27.html" title="巨狼">巨狼</a>、<a href="p-ea858afbf837aae71461.html" title="狼">狼</a>、<a href="p-c781316c9ff4beaaf1e8.html" title="鬼魅">鬼魅</a></li></ul>
+<div class="mw-heading mw-heading2"><h2 id="Elemental">元素</h2></div>
+<div class="mw-heading mw-heading3"><h3 id="Fire">火焰</h3></div>
+<p>火焰伤害不立即扣血，而是施加<a href="p-117d3c5bad0c35da1372.html" title="燃烧中">燃烧中</a>减益，持续5秒，每秒结算。新火焰伤害会加入剩余燃烧伤害，再重新计算每次结算值，因此可叠加。</p><p>物理攻击附带的火焰伤害可格挡，也受护甲减免。减至低于1时，不会造成燃烧。</p>
+<div class="sample-table-scroll"><table class="wikitable mw-collapsible mw-collapsed">
+<caption>火焰抗性／弱点表
+</caption>
+<tbody><tr>
+<th>生物群系
+</th>
+<th>非常虚弱
+</th>
+<th>较弱
+</th>
+<th>抗性
+</th>
+<th>超强抗性
+</th>
+<th>免疫
+</th></tr>
+<tr>
+<th>玩家
+</th>
+<td>
+<ul><li><i><a href="p-a9f35559e8a1f171da3d.html" title="被沥青黏住了">被沥青黏住了</a></i></li>
+<li><a href="p-02b04c0b83b8eee6102d.html" title="轻羽斗篷">轻羽斗篷</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-72f206d7ed46f128957d.html" title="树根套装">树根套装</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-8008a1c8d263eb3c60aa.html" title="芬里之佑">芬里斯套装效果</a></li>
+<li><a href="p-c1a60f21865d2d3483c9.html" title="抗火大麦酒">大麦红酒</a></li>
+<li><a class="mw-redirect" href="p-b8e0a74433a1176e439f.html" title="亚格鲁斯之力">亚格鲁斯之力</a></li>
+<li><i><a class="mw-redirect" href="p-c2134a04ae76a365ceea.html" title="冻僵效果">冻僵</a> &amp; <a class="mw-redirect" href="p-5690f06c3e931ecfe35d.html" title="潮湿效果">潮湿</a></i></li></ul>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>青青草原
+</th>
+<td>
+<ul><li><a href="p-d1b08118de3909fa8022.html" title="灰宝宝">灰宝宝</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-6b27a97151bbf20fa8b0.html" title="蜥蜴精">蜥蜴精</a></li></ul>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>黑暗林山
+</th>
+<td>
+<ul><li><a href="p-f4709a9359f1def796bc.html" title="灰矮人">灰矮人</a></li>
+<li><a href="p-ba16540902bdc96359b7.html" title="灰矮人暴徒">灰矮人暴徒</a></li>
+<li><a href="p-f3aed59448e859ce563b.html" title="灰矮人萨满">灰矮人萨满</a></li>
+<li><b><a href="p-ca3280d30e1fda946d1a.html" title="古树长老">古树长老</a></b></li></ul>
+</td>
+<td>
+<ul><li><a href="p-8c578ed3e9d5fec6f0f1.html" title="巨熊">巨熊</a></li>
+<li><a href="p-ea5f6bdc79b884c397d6.html" title="骷髅怪">骷髅怪</a></li>
+<li><a href="p-8d7b2e4882044d922d62.html" title="腐臭遗骸">腐臭遗骸</a></li>
+<li><a href="p-cd72f0d36b4bbdd554cf.html" title="树根（生物）">邪煞之根</a></li></ul>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>无尽之海
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-bb01a030df624241707d.html" title="蛟龙">蛟龙</a></li></ul>
+</td></tr>
+<tr>
+<th>泥泞沼泽
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-55dbdbafa072275bf0d2.html" title="邪煞之树">邪煞之树</a></li>
+<li><a href="p-c781316c9ff4beaaf1e8.html" title="鬼魅">鬼魅</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-3ae89e8a8fe1c4a5aec2.html" title="尸鬼">尸鬼</a></li>
+<li><a href="p-b93909b5f83342167cf5.html" title="尸鬼精英">尸鬼精英</a></li>
+<li><a href="p-24bafb0b2477f80fafd0.html" title="软泥怪">软泥怪</a></li>
+<li><a href="p-12400ad0838ff0fa04b1.html" title="大型软泥怪">大型软泥怪</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-690671ff0febe865c611.html" title="焰灵">焰灵</a></li>
+<li><b><a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a></b></li></ul>
+</td>
+<td>
+<ul><li><a href="p-e27f3a289ceb40df4796.html" title="蚂蟥">蚂蟥</a></li></ul>
+</td></tr>
+<tr>
+<th>凛冽雪山
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-6aed8812d68d8790c628.html" title="霜龙">霜龙</a></li>
+<li><a href="p-f2813a523c21f6654fc4.html" title="邪蝠">邪蝠</a></li>
+<li><a href="p-134c1125a5e029dae10d.html" title="芬里">芬里</a></li>
+<li><b><a href="p-483538232016e17e86f2.html" title="冰霜龙母">冰霜龙母</a></b></li></ul>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-724de16046651b352c27.html" title="巨狼">巨狼</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-2787ea728b28387177aa.html" title="狂信徒">狂信徒</a></li>
+<li><a href="p-1a234744f50cea328de9.html" title="石魔">石魔</a></li></ul>
+</td></tr>
+<tr>
+<th>北境平原
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-be01beb2fff31a66abf2.html" title="平原牦牛">平原牦牛</a></li>
+<li><a href="p-66b06e996553a4e70d0f.html" title="焦油怪">焦油怪</a></li></ul>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>迷雾之地
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-d638ee2f46a405dd2f5c.html" title="邪蛛士兵">邪蛛士兵</a> （尾部）</li></ul>
+</td>
+<td>
+<ul><li><a href="p-dcafb03495b8c8248945.html" title="矮人法师">矮人法师</a></li>
+<li><a href="p-f018cb729d59b13d1f4e.html" title="加尔">加尔</a> (躯体)</li></ul>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>灰烬之地
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-73a1e307b3c18141bf70.html" title="坠落女武神">坠落女武神</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-42b0bedf2737ab2cba46.html" title="灰烬僵尸">灰烬僵尸</a></li>
+<li><a href="p-e91837e0deb55a18a7c9.html" title="灰烬战士">灰烬战士</a></li>
+<li><a href="p-0ec102589cc30ceb4a26.html" title="灰烬术士">灰烬术士</a></li>
+<li><a href="p-b88f49c50094a29b876f.html" title="灰烬射手">灰烬射手</a></li>
+<li><a href="p-c4785ba17e12c3aaa027.html" title="摩根">摩根</a></li>
+<li><a href="p-d9750e42f4357d8a8d8a.html" title="灰烬刚鬣">灰烬刚鬣</a></li>
+<li><a href="p-e31ead2508896ed4d27c.html" title="邪影弩炮">邪影弩炮</a></li>
+<li><a href="p-98aaa88ba645d6ae6a11.html" title="雷托领主">雷托领主</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-6f0a62e3e3763713fd85.html" title="岩浆软泥怪">岩浆软泥怪</a></li>
+<li><a href="p-0d054f347f0573e05e09.html" title="骨骺蛟龙">骨骺蛟龙</a></li>
+<li><b><a href="p-816e9a6b76bb85197818.html" title="青焰龙王">青焰龙王</a></b></li></ul>
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading4"><h4 id="Damage_sources_4">伤害来源</h4></div>
+<ul><li>建筑来源： <a href="p-f5d1dce68f65817c9054.html" title="篝火">篝火</a>, <a href="p-bf3fac40de1b75b9308f.html" title="营火">营火</a>, <a href="p-0c8b0dbef56c96272926.html" title="灶">灶</a></li>
+<li>玩家来源：<a href="p-6ef10e611aae7ccf4cfb.html" title="燃烧的箭">燃烧的箭</a>、<a href="p-425d7538f593b76e2627.html" title="余烬之杖">余烬之杖</a>、<a href="p-dcc578acd71a7bf2c0e9.html" title="火把">火把</a>、<a href="p-d7ee29b7091dbc561c4b.html" title="破碎之杖">破碎之杖</a>、<a href="p-a03fa219e6b708070031.html" title="火龙剑">火龙剑</a>、<a href="p-98eb4ff2e56049c46e8b.html" title="胆汁炸弹">胆汁炸弹</a></li>
+<li>生物来源：<a href="p-0d054f347f0573e05e09.html" title="骨骺蛟龙">骨骺蛟龙</a>、<a href="p-929a2b40551ead4abd16.html" title="布伦娜">布伦娜</a>、<a href="p-0ec102589cc30ceb4a26.html" title="灰烬术士">灰烬术士</a>、<a href="p-2787ea728b28387177aa.html" title="狂信徒">狂信徒</a>、<a href="p-dcafb03495b8c8248945.html" title="矮人法师">矮人法师</a>、<a href="p-816e9a6b76bb85197818.html" title="青焰龙王">青焰龙王</a>、<a href="p-73a1e307b3c18141bf70.html" title="坠落女武神">坠落女武神</a>、<a href="p-9d5ce60be807ae13498b.html" title="丑地精">丑地精 (火把)</a>、<a href="p-12e29dba51068fb584d2.html" title="丑地精萨满">丑地精萨满</a>、<a href="p-f018cb729d59b13d1f4e.html" title="加尔">加尔</a>、<a href="p-6f0a62e3e3763713fd85.html" title="岩浆软泥怪">岩浆软泥怪</a>、<a href="p-690671ff0febe865c611.html" title="焰灵">焰灵</a>、<a href="p-398464ae70d7dad80188.html" title="亚格鲁斯">亚格鲁斯</a>、<a href="p-1e6dc9ac4767bb09dca9.html" title="吉尔与吞格尔">吉尔与吞格尔</a></li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Poison">毒素</h3></div>
+<p>毒素伤害不立即扣血，而是施加<a href="p-d5a78b996fe640a3f918.html" title="毒素">毒素</a>减益，持续时间取决于伤害，每秒结算。</p><p>注意：舍入误差可能使毒素多结算一次。</p><p>毒素伤害不叠加。原效果剩余伤害小于新伤害时，会被新效果替换。</p><p>物理攻击附带的毒素伤害可格挡，也受护甲减免。</p>
+<div class="sample-table-scroll"><table class="wikitable mw-collapsible mw-collapsed">
+<caption>毒素抗性／弱点表
+</caption>
+<tbody><tr>
+<th>生物群系
+</th>
+<th>较弱
+</th>
+<th>抗性
+</th>
+<th>超强抗性
+</th>
+<th>免疫
+</th></tr>
+<tr>
+<th>玩家
+</th>
+<td>
+</td>
+<td>
+<ul><li><a class="mw-redirect" href="p-72f206d7ed46f128957d.html" title="树根面罩">树根面罩</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-23c19d538ab15b532b2b.html" title="抗毒蜜酒">抗毒蜜酒</a></li></ul>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>青青草原
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-d1b08118de3909fa8022.html" title="灰宝宝">灰宝宝</a></li>
+<li><a href="p-6b27a97151bbf20fa8b0.html" title="蜥蜴精">蜥蜴精</a></li></ul>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>黑暗林山
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-f4709a9359f1def796bc.html" title="灰矮人">灰矮人</a></li>
+<li><a href="p-ba16540902bdc96359b7.html" title="灰矮人暴徒">灰矮人暴徒</a></li>
+<li><a href="p-f3aed59448e859ce563b.html" title="灰矮人萨满">灰矮人萨满</a></li></ul>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-ea5f6bdc79b884c397d6.html" title="骷髅怪">骷髅怪</a></li>
+<li><a href="p-8d7b2e4882044d922d62.html" title="腐臭遗骸">腐臭遗骸</a></li>
+<li><a href="p-df1bc4984a055e10b286.html" title="幽灵">幽灵</a></li>
+<li><b><a href="p-ca3280d30e1fda946d1a.html" title="古树长老">古树长老</a></b></li>
+<li><a href="p-cd72f0d36b4bbdd554cf.html" title="树根（生物）">邪煞之根</a></li></ul>
+</td></tr>
+<tr>
+<th>无尽之海
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-bb01a030df624241707d.html" title="蛟龙">蛟龙</a></li></ul>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>泥泞沼泽
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-e27f3a289ceb40df4796.html" title="蚂蟥">蚂蟥</a></li></ul>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-3ae89e8a8fe1c4a5aec2.html" title="尸鬼">尸鬼</a></li>
+<li><a href="p-b93909b5f83342167cf5.html" title="尸鬼精英">尸鬼精英</a></li>
+<li><a href="p-24bafb0b2477f80fafd0.html" title="软泥怪">软泥怪</a></li>
+<li><a href="p-12400ad0838ff0fa04b1.html" title="大型软泥怪">大型软泥怪</a></li>
+<li><a href="p-c781316c9ff4beaaf1e8.html" title="鬼魅">鬼魅</a></li>
+<li><a href="p-55dbdbafa072275bf0d2.html" title="邪煞之树">邪煞之树</a></li>
+<li><a href="p-690671ff0febe865c611.html" title="焰灵">焰灵</a></li>
+<li><b><a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a></b></li></ul>
+</td></tr>
+<tr>
+<th>凛冽雪山
+</th>
+<td>
+<ul><li><a href="p-2787ea728b28387177aa.html" title="狂信徒">狂信徒</a></li>
+<li><a href="p-724de16046651b352c27.html" title="巨狼">巨狼</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-134c1125a5e029dae10d.html" title="芬里">芬里</a></li></ul>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-f2813a523c21f6654fc4.html" title="邪蝠">邪蝠</a></li>
+<li><a href="p-1a234744f50cea328de9.html" title="石魔">石魔</a></li></ul>
+</td></tr>
+<tr>
+<th>北境平原
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-66b06e996553a4e70d0f.html" title="焦油怪">焦油怪</a></li>
+<li><b><a href="p-398464ae70d7dad80188.html" title="亚格鲁斯">亚格鲁斯</a></b></li></ul>
+</td></tr>
+<tr>
+<th>灰烬之地
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-0d054f347f0573e05e09.html" title="骨骺蛟龙">骨骺蛟龙</a></li>
+<li><a href="p-d9750e42f4357d8a8d8a.html" title="灰烬刚鬣">灰烬刚鬣</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-73a1e307b3c18141bf70.html" title="坠落女武神">坠落女武神</a></li>
+<li><a href="p-871cf7476fc46f9cf444.html" title="灰烬之鹫">灰烬之鹫</a></li>
+<li><a href="p-e91837e0deb55a18a7c9.html" title="灰烬战士">灰烬战士</a></li>
+<li><a href="p-42b0bedf2737ab2cba46.html" title="灰烬僵尸">灰烬僵尸</a></li>
+<li><a href="p-0ec102589cc30ceb4a26.html" title="灰烬术士">灰烬术士</a></li>
+<li><a href="p-b88f49c50094a29b876f.html" title="灰烬射手">灰烬射手</a></li>
+<li><a href="p-e31ead2508896ed4d27c.html" title="邪影弩炮">邪影弩炮</a></li>
+<li><a href="p-6f0a62e3e3763713fd85.html" title="岩浆软泥怪">岩浆软泥怪</a></li>
+<li><a href="p-98aaa88ba645d6ae6a11.html" title="雷托领主">雷托领主</a></li></ul>
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading4"><h4 id="Damage_sources_5">伤害来源</h4></div>
+<ul><li>掉落物来源： <a href="p-b8e7e4df56b0e12879e0.html" title="埃达精华">埃达精华</a></li>
+<li>建筑来源： <a href="p-6101c09641b9c08fb631.html" title="埃达之力提炼器">埃达之力提炼器</a></li>
+<li>玩家来源：<a href="p-012c6b4684b1dccbf835.html" title="尸鬼之牙">尸鬼之牙</a>、<a href="p-5c99392e1fa9de4ac061.html" title="巨人之戮">巨人之戮</a>、<a href="p-0032b71e283d00c277ac.html" title="软泥炸弹">软泥炸弹</a>、<a href="p-98eb4ff2e56049c46e8b.html" title="胆汁炸弹">胆汁炸弹</a>、<a href="p-91f9f70df0cdcd9e5be3.html" title="毒箭">毒箭</a>、<a href="p-69e79995c287260cbd14.html" title="野生之杖">野生之杖</a></li>
+<li>生物来源：<a href="p-24bafb0b2477f80fafd0.html" title="软泥怪">软泥怪</a>、<a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a>、<a href="p-f3aed59448e859ce563b.html" title="灰矮人萨满">灰矮人萨满</a>、<a href="p-66b06e996553a4e70d0f.html" title="焦油怪">焦油怪</a>、<a href="p-e27f3a289ceb40df4796.html" title="蚂蟥">蚂蟥</a>、<a href="p-12400ad0838ff0fa04b1.html" title="大型软泥怪">大型软泥怪</a>、<a href="p-8d7b2e4882044d922d62.html" title="腐臭遗骸">腐臭遗骸</a>、<a href="p-879687ceb6851d62d031.html" title="蛊虫之后">蛊虫之后</a>、<a href="p-73a1e307b3c18141bf70.html" title="坠落女武神">坠落女武神</a>、<a href="p-0d054f347f0573e05e09.html" title="骨骺蛟龙">骨骺蛟龙</a></li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Frost">冰霜</h3></div>
+<p>冰霜伤害立即生效，可格挡并受护甲减免。</p><p>冰霜伤害还施加<a class="mw-redirect" href="p-5d1b493260cc626aca86.html" title="冰霜效果">冰霜效果</a>减益，降低移动及转向速度。</p>
+<ul><li>较弱（1.5x）：带<a class="mw-redirect" href="p-5690f06c3e931ecfe35d.html" title="潮湿效果">潮湿</a>的生物、<a href="p-24bafb0b2477f80fafd0.html" title="软泥怪">软泥怪</a>、<b>邪骨恶灵</b>、<a href="p-12400ad0838ff0fa04b1.html" title="大型软泥怪">大型软泥怪</a>、<a href="p-d638ee2f46a405dd2f5c.html" title="邪蛛士兵">邪蛛士兵</a>（腹部）、<a href="p-bb01a030df624241707d.html" title="蛟龙">蛟龙</a>、<a href="p-690671ff0febe865c611.html" title="焰灵">焰灵</a>、<a href="p-0d054f347f0573e05e09.html" title="骨骺蛟龙">骨骺蛟龙</a>、<a href="p-6f0a62e3e3763713fd85.html" title="岩浆软泥怪">岩浆软泥怪</a>、<a href="p-871cf7476fc46f9cf444.html" title="灰烬之鹫">灰烬之鹫</a></li>
+<li>具有抗性（0.5x）：<a href="p-66b06e996553a4e70d0f.html" title="焦油怪">焦油怪</a>、<a href="p-dcafb03495b8c8248945.html" title="矮人法师">矮人法师</a>、<a href="p-be01beb2fff31a66abf2.html" title="平原牦牛">平原牦牛</a>、<a href="p-8d7b2e4882044d922d62.html" title="腐臭遗骸">腐臭遗骸</a>、<a href="p-cd72f0d36b4bbdd554cf.html" title="树根（生物）">邪煞之根</a>、<a href="p-ea5f6bdc79b884c397d6.html" title="骷髅怪">骷髅怪</a>、<a href="p-8c578ed3e9d5fec6f0f1.html" title="巨熊">巨熊</a>、<a href="p-0ec102589cc30ceb4a26.html" title="灰烬术士">灰烬术士</a>、<a href="p-98aaa88ba645d6ae6a11.html" title="雷托领主">雷托领主</a></li>
+<li>免疫： <a href="p-55dbdbafa072275bf0d2.html" title="邪煞之树">邪煞之树</a>, <a href="p-f2813a523c21f6654fc4.html" title="邪蝠">邪蝠</a>, <a href="p-6aed8812d68d8790c628.html" title="霜龙">霜龙</a>, <b><a href="p-483538232016e17e86f2.html" title="冰霜龙母">冰霜龙母</a></b>, <a href="p-1a234744f50cea328de9.html" title="石魔">石魔</a>, <a href="p-c781316c9ff4beaaf1e8.html" title="鬼魅">鬼魅</a></li>
+<li>玩家较弱（1.5x）的来源：带<a class="mw-redirect" href="p-5690f06c3e931ecfe35d.html" title="潮湿效果">潮湿</a>的玩家</li>
+<li>玩家抗性（0.5x）的来源：<a href="p-02b04c0b83b8eee6102d.html" title="轻羽斗篷">轻羽斗篷</a>、<a class="mw-redirect" href="p-ea2efec0bf254e0fa2a5.html" title="芬里之甲">芬里之甲</a>、<a href="p-9af45f597989dafca137.html" title="抗霜蜜酒">抗霜蜜酒</a>、<a href="p-51878baee76a5b63436b.html" title="平原牦牛披风">平原牦牛披风</a>、<a class="mw-redirect" href="p-fece7f9297c133836b01.html" title="狼皮护甲 宝箱">狼皮护甲 宝箱</a>、<a href="p-cc9001734ef60565c35c.html" title="狼毛披风">狼毛披风</a>、<a class="mw-redirect" href="p-b8e0a74433a1176e439f.html" title="亚格鲁斯之力">亚格鲁斯之力</a></li></ul>
+<div class="mw-heading mw-heading4"><h4 id="Damage_sources_6">伤害来源</h4></div>
+<ul><li>玩家来源：<a href="p-da3c358f28f8b39fb4b8.html" title="寒冰锤">寒冰锤</a>、<a href="p-6943aa20eb53b4bf232d.html" title="霜箭">霜箭</a>、<a href="p-f7717a62a96d5c06baa0.html" title="迷雾行者">迷雾行者</a>、<a href="p-12cce28e437bb04fce18.html" title="冰霜之杖">冰霜之杖</a></li>
+<li>生物来源： <a href="p-6aed8812d68d8790c628.html" title="霜龙">霜龙</a>, <a href="p-dcafb03495b8c8248945.html" title="矮人法师">矮人法师</a>, <a href="p-914164a5c1139a096548.html" title="盖尔哈法">盖尔哈法</a>, <b><a href="p-483538232016e17e86f2.html" title="冰霜龙母">冰霜龙母</a></b></li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Spirit">灵魂</h3></div>
+<p>精神伤害不立即扣血，而是施加精神减益，持续3秒，每0.5秒结算。</p><p>注意：舍入误差使单次精神效果结算7次，而非6次。</p><p>精神伤害可叠加：新伤害加入剩余持续伤害，再重新计算每次结算值。</p>
+<ul><li>较弱（1.5x）：<a href="p-f2813a523c21f6654fc4.html" title="邪蝠">邪蝠</a>、<a href="p-df1bc4984a055e10b286.html" title="幽灵">幽灵</a>、<a href="p-c781316c9ff4beaaf1e8.html" title="鬼魅">鬼魅</a>、<a href="p-73a1e307b3c18141bf70.html" title="坠落女武神">坠落女武神</a><a href="p-e91837e0deb55a18a7c9.html" title="灰烬战士">, 灰烬战士</a>、<a href="p-42b0bedf2737ab2cba46.html" title="灰烬僵尸">灰烬僵尸</a>、<a href="p-0ec102589cc30ceb4a26.html" title="灰烬术士">灰烬术士</a>、<a href="p-b88f49c50094a29b876f.html" title="灰烬射手">灰烬射手</a>、<a href="p-98aaa88ba645d6ae6a11.html" title="雷托领主">雷托领主</a></li>
+<li>正常（1x）：<a href="p-24bafb0b2477f80fafd0.html" title="软泥怪">软泥怪</a>、<a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a>、<a href="p-2787ea728b28387177aa.html" title="狂信徒">狂信徒</a>、<a href="p-3ae89e8a8fe1c4a5aec2.html" title="尸鬼">尸鬼</a>、<a href="p-b93909b5f83342167cf5.html" title="尸鬼精英">尸鬼精英</a>、<a href="p-a8dc2a05596fceca7a2d.html" title="赤血灵鹿">赤血灵鹿</a>、<a href="p-134c1125a5e029dae10d.html" title="芬里">芬里</a>、<a href="p-66b06e996553a4e70d0f.html" title="焦油怪">焦油怪</a>、<a href="p-12400ad0838ff0fa04b1.html" title="大型软泥怪">大型软泥怪</a>、<a href="p-8d7b2e4882044d922d62.html" title="腐臭遗骸">腐臭遗骸</a>、<a href="p-cd72f0d36b4bbdd554cf.html" title="树根（生物）">邪煞之根</a>、<a href="p-ea5f6bdc79b884c397d6.html" title="骷髅怪">骷髅怪</a>、<a href="p-724de16046651b352c27.html" title="巨狼">巨狼</a>、<a href="p-398464ae70d7dad80188.html" title="亚格鲁斯">亚格鲁斯</a>、<a href="p-c4785ba17e12c3aaa027.html" title="摩根">摩根</a>、<a href="p-871cf7476fc46f9cf444.html" title="灰烬之鹫">灰烬之鹫</a>、<a href="p-6f0a62e3e3763713fd85.html" title="岩浆软泥怪">岩浆软泥怪</a></li>
+<li>免疫：玩家及其他所有生物</li></ul>
+<div class="mw-heading mw-heading4"><h4 id="Damage_sources_7">伤害来源</h4></div>
+<ul><li>玩家来源：<a href="p-da3c358f28f8b39fb4b8.html" title="寒冰锤">寒冰锤</a>、<a href="p-41c8bfc60226d7f15164.html" title="水晶战斧">水晶战斧</a>、<a href="p-f7717a62a96d5c06baa0.html" title="迷雾行者">迷雾行者</a>、<a href="p-863da206cde41dc4550e.html" title="银制箭">银制箭</a>、<a href="p-8cc8df2f762d0ef75c17.html" title="银刀">银刀</a>、<a href="p-de46aeb7239be39ea590.html" title="银剑">银剑</a>、<a href="p-69b80dff4f3766977169.html" title="断脊">断脊</a>、<a href="p-eb560be2afdd4268dd0d.html" title="灰烬之牙">灰烬之牙</a></li>
+<li>生物来源： <a href="p-816e9a6b76bb85197818.html" title="青焰龙王">青焰龙王</a> 与 <a href="p-af48338f0994e599f5b7.html" title="蜂窝">蜂窝</a></li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Lightning">闪电</h3></div>
+<p>雷电伤害立即生效，可格挡并受护甲减免。</p><p>雷电伤害还造成<a href="p-b575a12ff4742c150d8d.html" title="失衡">失衡效果</a>及短暂视觉效果，但不造成持续伤害。</p>
+<ul><li>较弱（1.5x）：带<a class="mw-redirect" href="p-5690f06c3e931ecfe35d.html" title="潮湿效果">潮湿</a>的生物、<a href="p-24bafb0b2477f80fafd0.html" title="软泥怪">软泥怪</a>、<a href="p-12400ad0838ff0fa04b1.html" title="大型软泥怪">大型软泥怪</a>、<a href="p-d638ee2f46a405dd2f5c.html" title="邪蛛士兵">邪蛛士兵</a>（腹部；蛟龙、蚂蟥是否也如此？）、<a href="p-c4785ba17e12c3aaa027.html" title="摩根">摩根</a></li>
+<li>玩家较弱（1.5x）的来源：带<a class="mw-redirect" href="p-5690f06c3e931ecfe35d.html" title="潮湿效果">潮湿</a>的玩家</li>
+<li>玩家抗性（0.5x）的来源：带<a class="mw-redirect" href="p-b8e0a74433a1176e439f.html" title="亚格鲁斯之力">亚格鲁斯之力</a>的玩家</li></ul>
+<div class="mw-heading mw-heading4"><h4 id="Damage_sources_8">伤害来源</h4></div>
+<ul><li>掉落物来源： <a href="p-b8e7e4df56b0e12879e0.html" title="埃达精华">埃达精华</a></li>
+<li>建筑来源： <a href="p-fd090f63d2000fa6820f.html" title="湮灭者">湮灭者</a>, <a href="p-6101c09641b9c08fb631.html" title="埃达之力提炼器">埃达之力提炼器</a></li>
+<li>玩家来源：<a href="p-4ebf26461bd87e0f7e7c.html" title="杀戮之戟">杀戮之戟</a>、<a href="p-fc00b25a4cd4f08e4d91.html" title="雷霆之杖">雷霆之杖</a>，以及任何使用<a href="p-01c0bfda2ecef31ddfc8.html" title="堇青石">堇青石</a>升级的灰烬之地武器</li>
+<li>生物来源： <a href="p-a8dc2a05596fceca7a2d.html" title="赤血灵鹿">赤血灵鹿</a>, <a href="p-398464ae70d7dad80188.html" title="亚格鲁斯">亚格鲁斯</a></li></ul>
+<div class="mw-heading mw-heading2"><h2 id="Terrain_damage">地形伤害</h2></div>
+<p>地形伤害包括砍伐和镐类伤害，由首领及大型敌人造成。玩家和多数生物免疫，且此类伤害忽略护甲。</p><p>某些<a href="p-109d6f455ed8c31a4919.html" title="树木">树木</a>和矿床要求最低工具等级，才会受到伤害。</p>
+<div class="mw-heading mw-heading3"><h3 id="Chop">砍伐</h3></div>
+<p>砍伐伤害有效针对树木<sup class="reference" id="cite_ref-:0_1-0">[ 1 ]</sup>及木制建筑<sup class="reference" id="cite_ref-:0_1-1">[ 1 ]</sup>。除<a href="p-1976a5863e7c98dd63a0.html" title="灰巨人">灰巨人</a>外，玩家和所有生物都免疫。下表列出来源及等级。</p>
+<div class="sample-table-scroll"><table class="wikitable mw-collapsible mw-collapsed">
+<caption>砍伐分级
+</caption>
+<tbody><tr>
+<th rowspan="2">
+</th>
+<th colspan="3">来源
+</th></tr>
+<tr>
+<th>玩家工具
+</th>
+<th>生物
+</th>
+<th>首领
+</th></tr>
+<tr>
+<th>等级0
+</th>
+<td><a href="p-6f71b32080395e757b3b.html" title="石斧">石斧</a>
+</td>
+<td><a href="p-d9750e42f4357d8a8d8a.html" title="灰烬刚鬣">灰烬刚鬣</a>
+<p><a href="p-8c578ed3e9d5fec6f0f1.html" title="巨熊">巨熊</a><br/><a href="p-3ae89e8a8fe1c4a5aec2.html" title="尸鬼">尸鬼</a> <small>（斧）</small><br/><a href="p-be01beb2fff31a66abf2.html" title="平原牦牛">平原牦牛</a><br/><a href="p-1a234744f50cea328de9.html" title="石魔">石魔</a>
+</p>
+</td>
+<td><a href="p-a8dc2a05596fceca7a2d.html" title="赤血灵鹿">赤血灵鹿</a><br/><a href="p-ca3280d30e1fda946d1a.html" title="古树长老">古树长老</a> <small>(<a href="p-cd72f0d36b4bbdd554cf.html" title="树根（生物）">邪煞之根</a>)</small><br/><a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a>
+</td></tr>
+<tr>
+<th>等级1
+</th>
+<td><a href="p-dacb6ef58142dae4d047.html" title="燧石斧">燧石斧</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>等级2
+</th>
+<td><a href="p-0785d5ed151c6d050fc1.html" title="青铜斧">青铜斧</a>
+<p><a href="p-ff014cecaa644933c4ce.html" title="初始双斧">初始双斧</a>
+</p>
+</td>
+<td><a href="p-55dbdbafa072275bf0d2.html" title="邪煞之树">邪煞之树</a><br/><a href="p-440f49671e99164315e3.html" title="丑地精狂战士">丑地精狂战士</a><br/><a href="p-9bac25686c53aa859d61.html" title="巨魔">巨魔</a> <small>（近战）</small>
+</td>
+<td><a href="p-398464ae70d7dad80188.html" title="亚格鲁斯">亚格鲁斯</a> <small>（新星）</small>
+</td></tr>
+<tr>
+<th>等级3
+</th>
+<td><a href="p-ac4a0986227688456383.html" title="铁斧">铁斧</a><br/><a href="p-199e60bb991bda4446a7.html" title="战斧">战斧</a><br/><a href="p-41c8bfc60226d7f15164.html" title="水晶战斧">水晶战斧</a>
+</td>
+<td><a href="p-c4785ba17e12c3aaa027.html" title="摩根">摩根</a>
+</td>
+<td><a href="p-483538232016e17e86f2.html" title="冰霜龙母">冰霜龙母</a> <small>（近战）</small><br/><a href="p-879687ceb6851d62d031.html" title="蛊虫之后">蛊虫之后</a>
+</td></tr>
+<tr>
+<th>等级4
+</th>
+<td><a href="p-6169218d77192c74e562.html" title="黑金属斧">黑金属斧</a><br/><a href="p-ef6cf39b42cf0431f314.html" title="黑金属战斧">黑金属战斧</a><br/><a href="p-5c99392e1fa9de4ac061.html" title="巨人之戮">巨人之戮</a><br/><a href="p-f935447711f07b2181bd.html" title="裂颅者">裂颅者</a>
+</td>
+<td><a href="p-d9750e42f4357d8a8d8a.html" title="灰烬刚鬣">灰烬刚鬣</a><br/><a href="p-d638ee2f46a405dd2f5c.html" title="邪蛛士兵">邪蛛士兵</a>
+<p><a class="mw-redirect" href="p-69e79995c287260cbd14.html#Root" title="树根（狂野法杖）">树根（狂野法杖）</a>
+</p>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>等级5
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>等级6
+</th>
+<td><a href="p-d8385c51550b9831d27a.html" title="狂战之斧">狂战之斧</a><br/><a href="p-278317f07a574f7f85ba.html" title="余烬炸药">余烬炸药</a>
+</td>
+<td><a href="p-1976a5863e7c98dd63a0.html" title="灰巨人">灰巨人</a>
+</td>
+<td>
+</td></tr></tbody></table></div>
+<p><a href="p-aa45017133fbc8fecc6e.html" title="古树">古树</a>、<a href="p-f4fddf9a710e745ed89a.html" title="桦树">桦树</a>和<a href="p-cfed998f07b32c43aeda.html" title="橡树">橡树</a>要求工具等级2，<a href="p-4ef12a5c49d4e1ea8211.html" title="世界树嫩枝">世界树嫩枝</a>要求等级4，其他树木无要求。</p>
+<div class="mw-heading mw-heading3"><h3 id="Pickaxe">镐击</h3></div>
+<p>镐类伤害有效针对岩石、石材矿点、<a href="p-9b63d91eaa1ecddce259.html" title="铜矿源">矿床</a>及石制建筑。除<a href="p-1a234744f50cea328de9.html" title="石魔">石魔</a>、<a href="p-e31ead2508896ed4d27c.html" title="邪影弩炮">邪影弩炮</a>和<a href="p-e3a26b909f3580155e06.html" title="巨魔长老">巨魔长老</a>外，玩家和所有生物都免疫。来源及等级见下表。</p>
+<ul><li>极弱（2x）： <a href="p-1a234744f50cea328de9.html" title="石魔">石魔</a>, <a href="p-e3a26b909f3580155e06.html" title="巨魔长老">巨魔长老</a> （头部）</li>
+<li>较弱（1.5x）：<a href="p-e3a26b909f3580155e06.html" title="巨魔长老">巨魔长老</a></li>
+<li>具有抗性（0.5x）：<a href="p-e31ead2508896ed4d27c.html" title="邪影弩炮">邪影弩炮</a></li></ul>
+<div class="sample-table-scroll"><table class="wikitable mw-collapsible mw-collapsed">
+<caption>镐分级
+</caption>
+<tbody><tr>
+<th rowspan="2">
+</th>
+<th colspan="3">来源
+</th></tr>
+<tr>
+<th>玩家工具
+</th>
+<th>生物
+</th>
+<th>首领
+</th></tr>
+<tr>
+<th>等级0
+</th>
+<td><a href="p-53ce13b84c34826ecdb8.html" title="鹿角镐">鹿角镐</a>
+</td>
+<td><a href="p-d9750e42f4357d8a8d8a.html" title="灰烬刚鬣">灰烬刚鬣</a>
+<p><a href="p-8c578ed3e9d5fec6f0f1.html" title="巨熊">巨熊</a> （砸击）<br/><a href="p-be01beb2fff31a66abf2.html" title="平原牦牛">平原牦牛</a><br/><a href="p-1a234744f50cea328de9.html" title="石魔">石魔</a>
+</p>
+</td>
+<td><a href="p-a8dc2a05596fceca7a2d.html" title="赤血灵鹿">赤血灵鹿</a><br/><a href="p-ca3280d30e1fda946d1a.html" title="古树长老">古树长老</a> <small>(<a href="p-cd72f0d36b4bbdd554cf.html" title="树根（生物）">邪煞之根</a>)</small><br/><a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a>
+</td></tr>
+<tr>
+<th>等级1
+</th>
+<td><a href="p-dba0dea0584b2923f40c.html" title="青铜镐">青铜镐</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>等级2
+</th>
+<td><a href="p-ff96df936e42f069f82f.html" title="铁镐">铁镐</a>
+</td>
+<td><a href="p-55dbdbafa072275bf0d2.html" title="邪煞之树">邪煞之树</a><br/><a href="p-440f49671e99164315e3.html" title="丑地精狂战士">丑地精狂战士</a><br/><a href="p-9bac25686c53aa859d61.html" title="巨魔">巨魔</a> <small>（近战）</small>
+</td>
+<td><a href="p-398464ae70d7dad80188.html" title="亚格鲁斯">亚格鲁斯</a> <small>（新星）</small>
+</td></tr>
+<tr>
+<th>等级3
+</th>
+<td><a href="p-30ff8a3aeb8ab4bbfcb5.html" title="黑金属镐">黑金属镐</a>
+</td>
+<td><a href="p-c4785ba17e12c3aaa027.html" title="摩根">摩根</a>
+</td>
+<td><a href="p-483538232016e17e86f2.html" title="冰霜龙母">冰霜龙母</a> <small>（近战）</small>
+</td></tr>
+<tr>
+<th>等级4
+</th>
+<td>
+</td>
+<td><a href="p-d9750e42f4357d8a8d8a.html" title="灰烬刚鬣">灰烬刚鬣</a><br/><a href="p-d638ee2f46a405dd2f5c.html" title="邪蛛士兵">邪蛛士兵</a>
+<p><a class="mw-redirect" href="p-69e79995c287260cbd14.html#Root" title="树根（狂野法杖）">树根（狂野法杖）</a>
+</p>
+</td>
+<td><a href="p-879687ceb6851d62d031.html" title="蛊虫之后">蛊虫之后</a>
+</td></tr>
+<tr>
+<th>等级5
+</th>
+<td><a href="p-cf0a755fb6b4deccfb28.html" title="攻城锤">攻城锤</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>等级6
+</th>
+<td><a href="p-278317f07a574f7f85ba.html" title="余烬炸药">余烬炸药</a>
+</td>
+<td><a href="p-e3a26b909f3580155e06.html" title="巨魔长老">巨魔长老</a>
+</td>
+<td>
+</td></tr></tbody></table></div>
+<ul><li><a href="p-ae833ab30e01b0857b89.html" title="黑曜石矿源">黑曜石矿源</a> 与 <a href="p-e775d3a4480d5625b340.html" title="银矿脉">银矿脉</a> 需要2级工具</li>
+<li><a href="p-41fa6c475731105f8d1e.html" title="黑大理石">黑大理石</a>、<a href="p-9cdfc3cc59b965ed09e0.html" title="巨人遗骸">巨人遗骸</a>和<a href="p-bfa740fa2117adc7d174.html" title="炎金属矿脉">炎金属矿脉</a>要求工具等级3。</li>
+<li><a href="p-c918e6e110760fb606bd.html" title="灰烬城堡">灰烬城堡</a> 大门需要5级工具</li>
+<li><a href="p-083440ecdf30db40bf8b.html" title="石化巨魔长老">石化巨魔长老</a> 需要6级工具</li></ul>
+<p>其他矿床没有要求。
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Pure">纯粹伤害</h2></div>
+<p>纯粹伤害忽略所有防御，无法以任何方式减免。</p>
+<div class="mw-heading mw-heading3"><h3 id="Tick_damage">每次结算伤害</h3></div>
+<p>由<a href="p-117d3c5bad0c35da1372.html" title="燃烧中">燃烧中</a>、<a href="p-d5a78b996fe640a3f918.html" title="毒素">毒素</a>和<a class="mw-redirect" href="p-0c874f581a4534f15f1e.html#Spirit" title="灵魂">灵魂</a>效果产生，每次结算伤害在施加时确定。格挡可以最初阻止持续效果发生，却不能降低已经生效后的每次伤害。</p>
+<ul><li>玩家已经受到持续伤害效果后，再喝抗性蜜酒就来不及减伤。</li>
+<li>对敌人的持续伤害数字始终显示白色，即使敌人对此有弱点或抗性。</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Per_second">每秒</h3></div>
+<ul><li>溺水：每秒最大生命的5%，向上取整。</li>
+<li>烟雾: 2 伤害每秒钟。</li>
+<li>水：怕水的生物<a href="p-690671ff0febe865c611.html" title="焰灵">焰灵</a>站在水中时，每秒受到10点伤害。</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Fall_damage">坠落伤害</h3></div>
+<p>跌落超过4米时，每米受到6.25点纯粹伤害，最高100。例如，<a class="mw-redirect" href="p-d057af8097a581c26f5b.html" title="木墙">墙</a>高2米：</p>
+<ul><li><i>从 2 面墙的高度落下不会受到伤害。此后，每增加一面墙的高度，就会受到 12.5 点伤害。</i></li>
+<li><i>玩家初始生命为25，从4块墙高，即8米处坠落可能致死。</i>
+<ul><li><i>实际伤害取决于精确坠落高度，例如恰好坠落7.9米会受24点伤害，并不会致死。</i></li></ul></li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Other">其他</h3></div>
+<ul><li><a href="p-f5d1dce68f65817c9054.html" title="篝火">篝火</a>、<a href="p-bf3fac40de1b75b9308f.html" title="营火">营火</a>、<a href="p-0c8b0dbef56c96272926.html" title="灶">灶</a>：每次造成伤害时，自身受到10点伤害。</li>
+<li>掉出地图：99999点伤害。</li></ul>
+<div class="mw-heading mw-heading2"><h2 id="Creature_resistance_overview">生物 抗性概览</h2></div>
+<p>下表列出每种生物对各伤害类型的倍率。</p><p>生物默认大致按预期生物群系进度排列，可用第一列恢复此排序。</p>
+<div class="sample-table-scroll"><table class="wikitable sortable mw-collapsible mw-collapsed">
+<tbody><tr>
+<th>
+</th>
+<th>生物
+</th>
+<th>钝击
+</th>
+<th>穿刺
+</th>
+<th>劈砍
+</th>
+<th>冰霜
+</th>
+<th>闪电
+</th>
+<th>火焰持续伤害
+</th>
+<th>毒素持续伤害
+</th>
+<th>灵魂持续伤害
+</th>
+<th>镐击
+</th></tr>
+<tr>
+<td>1
+</td>
+<td><a href="p-6b27a97151bbf20fa8b0.html" title="蜥蜴精">蜥蜴精</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>2
+</td>
+<td><a href="p-bf10a5ee1fab92a8db98.html" title="鬓猪">鬓猪</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>3
+</td>
+<td><a href="p-ba8af0f4802678da4aed.html" title="鹿">鹿</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>4
+</td>
+<td><a href="p-d1b08118de3909fa8022.html" title="灰宝宝">灰宝宝</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>2
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>5
+</td>
+<td><a href="p-a8dc2a05596fceca7a2d.html" title="赤血灵鹿">赤血灵鹿</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>6
+</td>
+<td><a href="p-f4709a9359f1def796bc.html" title="灰矮人">灰矮人</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>2
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>7
+</td>
+<td><a href="p-ba16540902bdc96359b7.html" title="灰矮人暴徒">灰矮人暴徒</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>2
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>8
+</td>
+<td><a href="p-f3aed59448e859ce563b.html" title="灰矮人萨满">灰矮人萨满</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>2
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>9
+</td>
+<td><a href="p-ea5f6bdc79b884c397d6.html" title="骷髅怪">骷髅怪</a>
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>10
+</td>
+<td><a href="p-8d7b2e4882044d922d62.html" title="腐臭遗骸">腐臭遗骸</a>
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>11
+</td>
+<td><a href="p-df1bc4984a055e10b286.html" title="幽灵">幽灵</a>
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>12
+</td>
+<td><a href="p-9bac25686c53aa859d61.html" title="巨魔">巨魔</a>
+</td>
+<td>0.5
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>13
+</td>
+<td><a href="p-9bac25686c53aa859d61.html" title="巨魔">巨魔</a> （头部）
+</td>
+<td>1
+</td>
+<td>2
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>13.1
+</td>
+<td><a href="p-8c578ed3e9d5fec6f0f1.html" title="巨熊">巨熊</a>
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>14
+</td>
+<td><a href="p-ca3280d30e1fda946d1a.html" title="古树长老">古树长老</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>2
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>15
+</td>
+<td><a href="p-cd72f0d36b4bbdd554cf.html" title="树根（生物）">树根（生物）</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>16
+</td>
+<td><a href="p-929a2b40551ead4abd16.html" title="布伦娜">布伦娜</a>
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>17
+</td>
+<td><a href="p-bb01a030df624241707d.html" title="蛟龙">蛟龙</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>18
+</td>
+<td><a href="p-55dbdbafa072275bf0d2.html" title="邪煞之树">邪煞之树</a>
+</td>
+<td>0.5
+</td>
+<td>0.25
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>19
+</td>
+<td><a href="p-24bafb0b2477f80fafd0.html" title="软泥怪">软泥怪</a>
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>1.5
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>20
+</td>
+<td><a href="p-12400ad0838ff0fa04b1.html" title="大型软泥怪">大型软泥怪</a>
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>1.5
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>21
+</td>
+<td><a href="p-3ae89e8a8fe1c4a5aec2.html" title="尸鬼">尸鬼</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>22
+</td>
+<td><a href="p-b93909b5f83342167cf5.html" title="尸鬼精英">尸鬼精英</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>23
+</td>
+<td><a href="p-e27f3a289ceb40df4796.html" title="蚂蟥">蚂蟥</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>24
+</td>
+<td><a href="p-690671ff0febe865c611.html" title="焰灵">焰灵</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>25
+</td>
+<td><a href="p-c781316c9ff4beaaf1e8.html" title="鬼魅">鬼魅</a>
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>26
+</td>
+<td><a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a>
+</td>
+<td>1.5
+</td>
+<td>0.25
+</td>
+<td>0.5
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>0.25
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>27
+</td>
+<td><a href="p-ea858afbf837aae71461.html" title="狼">狼</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>28
+</td>
+<td><a href="p-134c1125a5e029dae10d.html" title="芬里">芬里</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>29
+</td>
+<td><a href="p-6aed8812d68d8790c628.html" title="霜龙">霜龙</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>30
+</td>
+<td><a href="p-1a234744f50cea328de9.html" title="石魔">石魔</a>
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>2
+</td></tr>
+<tr>
+<td>31
+</td>
+<td><a href="p-f2813a523c21f6654fc4.html" title="邪蝠">邪蝠</a>
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>32
+</td>
+<td><a href="p-724de16046651b352c27.html" title="巨狼">巨狼</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.25
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>33
+</td>
+<td><a href="p-2787ea728b28387177aa.html" title="狂信徒">狂信徒</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>34
+</td>
+<td><a href="p-483538232016e17e86f2.html" title="冰霜龙母">冰霜龙母</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>35
+</td>
+<td><a href="p-914164a5c1139a096548.html" title="盖尔哈法">盖尔哈法</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>36
+</td>
+<td><a href="p-53e9e085b2d11109d84b.html" title="杀人蜂">杀人蜂</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>37
+</td>
+<td><a href="p-be01beb2fff31a66abf2.html" title="平原牦牛">平原牦牛</a>
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>38
+</td>
+<td><a href="p-9d5ce60be807ae13498b.html" title="丑地精">丑地精</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>39
+</td>
+<td><a href="p-440f49671e99164315e3.html" title="丑地精狂战士">丑地精狂战士</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>40
+</td>
+<td><a href="p-12e29dba51068fb584d2.html" title="丑地精萨满">丑地精萨满</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>41
+</td>
+<td><a href="p-66b06e996553a4e70d0f.html" title="焦油怪">焦油怪</a>
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>42
+</td>
+<td><a href="p-398464ae70d7dad80188.html" title="亚格鲁斯">亚格鲁斯</a>
+</td>
+<td>1
+</td>
+<td>0.25
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>43
+</td>
+<td><a href="p-1e6dc9ac4767bb09dca9.html" title="吉尔与吞格尔">吉尔与吞格尔</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>44
+</td>
+<td><a href="p-593a88b963a3d3b392c7.html" title="野兔">野兔</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>45
+</td>
+<td><a href="p-98c95268220bddfe87be.html" title="壁虱幼虫">壁虱幼虫</a>
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>46
+</td>
+<td><a href="p-44d657ae1afd1497c503.html" title="邪蛛幼雏">邪蛛幼雏</a>
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>47
+</td>
+<td><a href="p-c465c70b79b24e4f7c1b.html" title="邪蛛探索者">邪蛛探索者</a>
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>48
+</td>
+<td><a href="p-d638ee2f46a405dd2f5c.html" title="邪蛛士兵">邪蛛士兵</a>
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>48.1
+</td>
+<td><a href="p-d638ee2f46a405dd2f5c.html" title="邪蛛士兵">邪蛛士兵</a> （腹部）
+</td>
+<td>1.5
+</td>
+<td>1.5
+</td>
+<td>1.5
+</td>
+<td>1.5
+</td>
+<td>1.5
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>49
+</td>
+<td><a href="p-f018cb729d59b13d1f4e.html" title="加尔">加尔</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>49.1
+</td>
+<td><a href="p-f018cb729d59b13d1f4e.html" title="加尔">加尔</a> （鸡蛋）
+</td>
+<td>1
+</td>
+<td>2
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>50
+</td>
+<td><a href="p-dc042adbdecb49bc4de4.html" title="矮人刺客">矮人刺客</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>51
+</td>
+<td><a href="p-dcafb03495b8c8248945.html" title="矮人法师">矮人法师</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>52
+</td>
+<td><a href="p-879687ceb6851d62d031.html" title="蛊虫之后">蛊虫之后</a>
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>53
+</td>
+<td><a href="p-d9750e42f4357d8a8d8a.html" title="灰烬刚鬣">灰烬刚鬣</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>54
+</td>
+<td><a href="p-0d054f347f0573e05e09.html" title="骨骺蛟龙">骨骺蛟龙</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>55
+</td>
+<td><a href="p-e91837e0deb55a18a7c9.html" title="灰烬战士">灰烬战士</a>
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.25
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>55.1
+</td>
+<td>已召唤灰烬战士
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td><b>1</b>
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>56
+</td>
+<td><a href="p-b88f49c50094a29b876f.html" title="灰烬射手">灰烬射手</a>
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.25
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>56.1
+</td>
+<td>已调用灰烬射手
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td><b>1</b>
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>57
+</td>
+<td><a href="p-0ec102589cc30ceb4a26.html" title="灰烬术士">灰烬术士</a>
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0.25
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>58
+</td>
+<td><a href="p-42b0bedf2737ab2cba46.html" title="灰烬僵尸">灰烬僵尸</a>
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.25
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>58.1
+</td>
+<td>已调用灰烬僵尸
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.25
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>59
+</td>
+<td><a href="p-73a1e307b3c18141bf70.html" title="坠落女武神">坠落女武神</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>60
+</td>
+<td><a href="p-6f0a62e3e3763713fd85.html" title="岩浆软泥怪">岩浆软泥怪</a>
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1.5
+</td>
+<td>0
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>61
+</td>
+<td><a href="p-c4785ba17e12c3aaa027.html" title="摩根">摩根</a>
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>62
+</td>
+<td><a href="p-e31ead2508896ed4d27c.html" title="邪影弩炮">邪影弩炮</a>
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>0.5
+</td></tr>
+<tr>
+<td>63
+</td>
+<td><a href="p-871cf7476fc46f9cf444.html" title="灰烬之鹫">灰烬之鹫</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>64
+</td>
+<td><a href="p-816e9a6b76bb85197818.html" title="青焰龙王">青焰龙王</a>
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>65
+</td>
+<td><a href="p-98aaa88ba645d6ae6a11.html" title="雷托领主">雷托领主</a>
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading2"><h2 id="References">参考资料</h2></div>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-:0-1">↑ <sup><a href="#cite_ref-:0_1-0">1.0</a></sup> <sup><a href="#cite_ref-:0_1-1">1.1</a></sup> 造成正常伤害，但在考虑其他抗性时仍有用。</li>
+</ol></div>
+<div class="sample-table-scroll"><table class="navbox mw-collapsible mw-collapsed" data-collapsetext="Hide" data-expandtext="Show"><tbody><tr class="navbox-title"><th colspan="2" scope="col"><div class="navbox-title-pad navbox-title-padleft navbox-title-padright"><a href="p-edd2287afad9be012dee.html" title="分类：游戏机制">机制</a></div></th></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">攻略</th><td class="navbox-list"><div class="hlist"><a href="how-to-play.html" title="入门玩法">入门玩法</a> • <a href="p-58565db394dcbacc0ec7.html" title="流程攻略">流程攻略</a> • <a href="p-e70bc5798f8391942dd6.html" title="敌对生物攻略">敌对生物攻略</a> • <a href="p-19e667dbe36cd74e7c1b.html" title="被动生物攻略">被动生物攻略</a> • <a href="p-afc73fba07d15f960daf.html" title="首领攻略">首领攻略</a> • <a href="p-a1b6af2b7d7d4bfef86e.html" title="专用服务器">专用服务器</a> • <a href="p-c3af076f92c5ed8dcb0d.html" title="故障排查">故障排查</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">玩家</th><td class="navbox-list"><div class="hlist"><a href="p-64aee8c6cbd026d9ea92.html" title="玩家">玩家</a> • <a href="p-55898449eb74fb2e348d.html" title="生命值">生命值</a> • <a href="p-cc350ea3393968f7cd7c.html" title="耐力">耐力</a> • <a href="p-332e6a85b4285ff8858c.html" title="埃达之能">埃达之能</a> • <a href="p-2608729251008c9658e7.html" title="血怒">血怒</a> • <a href="p-fcd6fea72de7e6c09ca2.html" title="死亡">死亡</a> • <a href="p-b8e0a74433a1176e439f.html" title="遗弃者能力">遗弃者能力</a> • <a href="p-66d0f523a379b2de6f8d.html" title="技能">技能</a> • <a href="p-f57eddb4e027139d853f.html" title="状态效果">状态效果</a> • <a href="p-5954d0c13f55417f74fb.html" title="移动速度">移动速度</a> • <a href="p-ed1a5a81b8121ad13a87.html" title="魔法">魔法</a> • <a href="p-79cea8ff2ba190bbb1bd.html" title="钓鱼">钓鱼</a> • <a href="p-e9d7b76127dca2c7d07e.html" title="乘骑">乘骑</a> • <a href="p-12ff393b061d94ebc405.html" title="睡眠">睡眠</a> • <a href="p-25521701981e1ad3ad97.html" title="表情">表情</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">战斗</th><td class="navbox-list"><div class="hlist"><a class="mw-selflink selflink">伤害类型</a> • <a href="p-e931ec535f307a5c6add.html" title="伤害机制">伤害机制</a> • <a href="p-bb0db9f7893c418a1de3.html" title="击退">击退</a> • <a href="p-aeaeee06ac36a10d7822.html" title="阵营">阵营</a> • <a href="p-4e7c41331a4464ad6e07.html" title="生物感知">生物感知</a> • <a href="p-5ac03ba6efdc56d5b7b5.html" title="生物行为">生物行为</a> • <a href="p-37015441396c962e2e96.html" title="掉落物">掉落物</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">生成</th><td class="navbox-list"><div class="hlist"><a href="p-36ff87e1502da8a1d740.html" title="生成机制">生成机制</a> • <a href="p-3a6396c120925fdde8d2.html" title="生成点">生成点</a> • <a href="p-60958b009a9e0b5dd0b6.html" title="生成区域">生成区域</a> • <a href="p-8d14f6e72de8f18ab1ee.html" title="事件">事件</a> • <a href="p-47373e84723cece15749.html" title="生物等级">生物等级</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">建材</th><td class="navbox-list"><div class="hlist"><a href="building.html" title="建材">建材</a> • <a href="p-99b60de679e8976fc592.html" title="建筑稳定性">建筑稳定性</a> • <a href="p-fa8d84566676ee2ee662.html" title="遮蔽">遮蔽</a> • <a href="p-040d4645676f60263590.html" title="舒适度">舒适度</a> • <a href="p-a6d7eeb25f1fe9854a8b.html" title="玩家基地">玩家基地</a> • <a href="p-29b52bfcccd01518e9de.html" title="烟雾">烟雾</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">界面</th><td class="navbox-list"><div class="hlist"><a href="p-758f487fe8e9fcc59cec.html" title="物品栏">物品栏</a> • <a class="mw-redirect" href="crafting.html" title="制作菜单">制作菜单</a> • <a href="p-be176b0015c424b78e9f.html" title="地图">地图</a> • <a href="p-c40c747ee79e90e16e46.html" title="状态界面">状态界面</a> • <a href="p-799c269135742a36ae48.html" title="控制">控制</a> • <a href="p-2ef15ac2866f955969bd.html" title="开发者控制台">开发者控制台</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">世界</th><td class="navbox-list"><div class="hlist"><a href="p-9e471951a1b4106e54be.html" title="环境">环境</a> • <a href="p-8a27b0cad26bc97071ab.html" title="世界修改器">世界修改器</a> • <a href="p-2af8986090a5b9ad83ec.html" title="世界种子">世界种子</a> • <a href="p-577cfab98de598e55bee.html" title="世界进度标记">世界进度标记</a> • <a href="p-a53aa373c5e23e694a54.html" title="区域">区域</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">杂项</th><td class="navbox-list"><div class="hlist"><a href="p-74cf2bc63fe122206c82.html" title="成就">成就</a> • <a href="p-1964260e2e296c33c3f3.html" title="季节活动">季节活动</a> • <a href="p-6eb00b4b2614a144d41c.html" title="音乐">音乐</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">开发</th><td class="navbox-list"><div class="hlist"><a href="p-a6df11e706c514f13d6f.html" title="版本历史">版本历史</a> • <a href="p-4696ff19d71c753885a5.html" title="未来内容">未来内容</a></div></td></tr></tbody></table></div>
+</div></section><section data-language="en" hidden="" id="sample-en"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><p><b>Damage</b> is a reduction of an entity's health points. It affects much of the core gameplay mechanics. Almost every entity, object, or structure utilizes this system in some way.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="en-Damage_types">Damage types</h2></div>
+<ul><li>Physical
+<ul><li><a class="mw-selflink-fragment" href="#en-Blunt">Blunt</a></li>
+<li><a class="mw-selflink-fragment" href="#en-Pierce">Pierce</a></li>
+<li><a class="mw-selflink-fragment" href="#en-Slash">Slash</a></li></ul></li>
+<li>Elemental
+<ul><li><a class="mw-selflink-fragment" href="#en-Fire">Fire</a></li>
+<li><a class="mw-selflink-fragment" href="#en-Poison">Poison</a></li>
+<li><a class="mw-selflink-fragment" href="#en-Frost">Frost</a></li>
+<li><a class="mw-selflink-fragment" href="#en-Spirit">Spirit</a></li>
+<li><a class="mw-selflink-fragment" href="#en-Lightning">Lightning</a></li></ul></li>
+<li>Terrain
+<ul><li><a class="mw-selflink-fragment" href="#en-Chop">Chop</a> (Woodcutting)</li>
+<li><a class="mw-selflink-fragment" href="#en-Pickaxe">Pickaxe</a> (Mining)</li>
+<li><a class="mw-selflink-fragment" href="#en-Pure">Pure</a></li></ul></li></ul>
+<div class="mw-heading mw-heading2"><h2 id="en-Resistances_and_weaknesses">Resistances and weaknesses</h2></div>
+<div class="hatnote searchaux" role="note"><i>See also: <a href="p-c35070bce1f5544161f6.html" title="Resistance">Resistance</a></i></div>
+<p>Resistances and weaknesses determine how much damage is taken from different <a class="mw-redirect" href="p-0c874f581a4534f15f1e.html" title="Damage types">damage types</a>. <a href="creatures.html" title="Creatures">Creatures</a> have innate resistances and weaknesses but are also affected by some <a href="p-f57eddb4e027139d853f.html" title="Status effects">status effects</a>. Players may acquire resistances and weaknesses from <a href="armor.html" title="Armor">armor</a>, <a href="p-abf4e9bf698901609e2d.html" title="Mead">meads</a> or <a href="p-f57eddb4e027139d853f.html" title="Status effects">status effects</a>.
+</p><p><a href="#en-Creature_resistance_overview">At the bottom</a> of this page is a chart of creature Weaknesses, Resistances and Immunities.
+</p>
+<figure class="mw-halign-left mw-image-border" typeof="mw:File"><a class="mw-file-description" href="../assets/f4584580c3718e53629d.png"><img alt="Damage numbers display as grey if the target takes less damage from the damage type, white if neutral, and yellow if it takes more damage." class="mw-file-element" data-file-height="382" data-file-width="694" decoding="async" height="316" loading="eager" src="../assets/f4584580c3718e53629d.png" width="574"/></a><figcaption></figcaption></figure>
+<p><br/>
+</p>
+<div class="sample-table-scroll"><table class="sortable wikitable">
+<tbody><tr>
+<th>Resist / Weak tiers
+</th>
+<th>Damage %
+</th>
+<th>Damage x
+</th></tr>
+<tr>
+<th>Very Weak
+</th>
+<td>200%
+</td>
+<td>x2
+</td></tr>
+<tr>
+<th>Weak
+</th>
+<td>150%
+</td>
+<td>x1.5
+</td></tr>
+<tr>
+<th>Neutral
+</th>
+<td>100%
+</td>
+<td>x1
+</td></tr>
+<tr>
+<th>Resistant
+</th>
+<td>50%
+</td>
+<td>x0.5
+</td></tr>
+<tr>
+<th>Very Resistant
+</th>
+<td>25%
+</td>
+<td>x0.25
+</td></tr>
+<tr>
+<th>Immune
+</th>
+<td>0%
+</td>
+<td>x0
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading3"><h3 id="en-Weak_points">Weak points</h3></div>
+<p>Certain enemies have <b>weak points</b>: areas of their body on which attacks deal different (and usually increased) damage. The mechanics behind this are simple: Each weak point has its own set of resistances defined, and any attacks which hit a weak point use that weak point's own set of resistances <i>in place of</i> the creature's base resistance values for damage calculations.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="en-Physical">Physical</h2></div>
+<p>Physical damage can be blocked and is reduced by armor. Physical damage also causes <a href="p-b575a12ff4742c150d8d.html" title="Stagger">staggering</a>.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Blunt">Blunt</h3></div>
+<div class="sample-table-scroll"><table class="wikitable mw-collapsible mw-collapsed">
+<caption>Table of Blunt Resistance/Weakness
+</caption>
+<tbody><tr>
+<th>Biome
+</th>
+<th>Weak
+</th>
+<th>Resistant
+</th></tr>
+<tr>
+<th>Player
+</th>
+<td>
+</td>
+<td>
+<ul><li><a class="mw-redirect" href="p-b8e0a74433a1176e439f.html" title="Bonemass Power">Bonemass Power</a></li></ul>
+</td></tr>
+<tr>
+<th>Black Forest
+</th>
+<td>
+<ul><li><a href="p-ea5f6bdc79b884c397d6.html" title="Skeleton">Skeleton</a></li>
+<li><a href="p-8d7b2e4882044d922d62.html" title="Rancid Remains">Rancid Remains</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-8c578ed3e9d5fec6f0f1.html" title="Bear">Bear</a></li>
+<li><a href="p-9bac25686c53aa859d61.html" title="Troll">Troll</a> (body)</li>
+<li><a href="p-df1bc4984a055e10b286.html" title="Ghost">Ghost</a></li></ul>
+</td></tr>
+<tr>
+<th>Swamp
+</th>
+<td>
+<ul><li><a href="p-24bafb0b2477f80fafd0.html" title="Blob">Blob</a></li>
+<li><a href="p-12400ad0838ff0fa04b1.html" title="Oozer">Oozer</a></li>
+<li><b><a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a></b></li></ul>
+</td>
+<td>
+<ul><li><a href="p-55dbdbafa072275bf0d2.html" title="Abomination">Abomination</a></li>
+<li><a href="p-c781316c9ff4beaaf1e8.html" title="Wraith">Wraith</a></li></ul>
+</td></tr>
+<tr>
+<th>Mountains
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-f2813a523c21f6654fc4.html" title="Bat">Bat</a></li></ul>
+</td></tr>
+<tr>
+<th>Plains
+</th>
+<td>
+<ul><li><a href="p-66b06e996553a4e70d0f.html" title="Growth">Growth</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-be01beb2fff31a66abf2.html" title="Lox">Lox</a></li></ul>
+</td></tr>
+<tr>
+<th>Mistlands
+</th>
+<td>
+<ul><li><a href="p-d638ee2f46a405dd2f5c.html" title="Seeker Soldier">Seeker Soldier</a> (tail)</li></ul>
+</td>
+<td>
+<ul><li><a href="p-c465c70b79b24e4f7c1b.html" title="Seeker">Seeker</a></li>
+<li><a href="p-d638ee2f46a405dd2f5c.html" title="Seeker Soldier">Seeker Soldier</a></li>
+<li><a href="p-44d657ae1afd1497c503.html" title="Seeker Brood">Seeker Brood</a></li></ul>
+</td></tr>
+<tr>
+<th>Ashlands
+</th>
+<td>
+<ul><li><a href="p-6f0a62e3e3763713fd85.html" title="Lava Blob">Lava Blob</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-c4785ba17e12c3aaa027.html" title="Morgen">Morgen</a></li></ul>
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading4"><h4 id="en-Damage_sources">Damage sources</h4></div>
+<ul><li>From player: <a href="p-98348a90362db8bb804d.html" title="Clubs">Clubs</a>, <a href="p-0c094b45c68266df7b22.html" title="Bare Fists">Bare Fists</a>, <a href="p-0032b71e283d00c277ac.html" title="Ooze Bomb">Ooze Bomb</a>, <a href="p-425d7538f593b76e2627.html" title="Staff of Embers">Staff of Embers</a>, <a href="p-baa01ad879365a411c0c.html" title="Stagbreaker">Stagbreaker</a></li>
+<li>From creatures: <a href="p-55dbdbafa072275bf0d2.html" title="Abomination">Abomination</a>, <a href="p-d9750e42f4357d8a8d8a.html" title="Asksvin">Asksvin</a>, <a href="p-bf10a5ee1fab92a8db98.html" title="Boar">Boar</a>, <a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a>, <a href="p-9d5ce60be807ae13498b.html" title="Fuling">Fuling (Club)</a>, <a href="p-9d5ce60be807ae13498b.html" title="Fuling">Fuling (Torch)</a>, <a href="p-440f49671e99164315e3.html" title="Fuling Berserker">Fuling Berserker</a>, <a href="p-12e29dba51068fb584d2.html" title="Fuling Shaman">Fuling Shaman</a>, <a href="p-f018cb729d59b13d1f4e.html" title="Gjall">Gjall</a>, <a href="p-f4709a9359f1def796bc.html" title="Greydwarf">Greydwarf</a>, <a href="p-66b06e996553a4e70d0f.html" title="Growth">Growth</a>, <a href="p-be01beb2fff31a66abf2.html" title="Lox">Lox</a>, <a href="p-cd72f0d36b4bbdd554cf.html" title="Root (creature)">Root</a>, <a href="p-c465c70b79b24e4f7c1b.html" title="Seeker">Seeker</a>, <a href="p-d638ee2f46a405dd2f5c.html" title="Seeker Soldier">Seeker Soldier</a>, <a href="p-690671ff0febe865c611.html" title="Surtling">Surtling</a>, <a href="p-1a234744f50cea328de9.html" title="Stone Golem">Stone Golem</a>, <a href="p-ca3280d30e1fda946d1a.html" title="The Elder">The Elder</a>, <a href="p-9bac25686c53aa859d61.html" title="Troll">Troll</a>, <a href="p-398464ae70d7dad80188.html" title="Yagluth">Yagluth</a>, <a href="p-1e6dc9ac4767bb09dca9.html" title="Zil &amp; Thungr">Zil &amp; Thungr</a></li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Pierce">Pierce</h3></div>
+<div class="sample-table-scroll"><table class="wikitable mw-collapsible mw-collapsed">
+<caption>Table of Pierce Resistance/Weakness
+</caption>
+<tbody><tr>
+<th>Biome
+</th>
+<th>Very Weak
+</th>
+<th>Weak
+</th>
+<th>Resistant
+</th>
+<th>Very Resistant
+</th></tr>
+<tr>
+<th>Players
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a class="mw-redirect" href="p-72f206d7ed46f128957d.html" title="Root Harnesk">Root Harnesk</a></li>
+<li><a class="mw-redirect" href="p-b8e0a74433a1176e439f.html" title="Bonemass Power">Bonemass Power</a></li>
+<li><a href="p-bd5a4a57d80fd35e3609.html" title="Serpent Scale Shield">Serpent Scale Shield</a></li></ul>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>Black Forest
+</th>
+<td>
+<ul><li><a href="p-9bac25686c53aa859d61.html" title="Troll">Troll</a> (head)</li></ul>
+</td>
+<td>
+<ul><li><a href="p-9bac25686c53aa859d61.html" title="Troll">Troll</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-8c578ed3e9d5fec6f0f1.html" title="Bear">Bear</a></li>
+<li><a href="p-df1bc4984a055e10b286.html" title="Ghost">Ghost</a></li>
+<li><a href="p-8d7b2e4882044d922d62.html" title="Rancid Remains">Rancid Remains</a></li>
+<li><a href="p-ea5f6bdc79b884c397d6.html" title="Skeleton">Skeleton</a></li></ul>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>Swamp
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-24bafb0b2477f80fafd0.html" title="Blob">Blob</a></li>
+<li><a href="p-12400ad0838ff0fa04b1.html" title="Oozer">Oozer</a></li>
+<li><a href="p-c781316c9ff4beaaf1e8.html" title="Wraith">Wraith</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-55dbdbafa072275bf0d2.html" title="Abomination">Abomination</a></li>
+<li><b><a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a></b></li></ul>
+</td></tr>
+<tr>
+<th>Mountains
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-f2813a523c21f6654fc4.html" title="Bat">Bat</a></li>
+<li><a href="p-1a234744f50cea328de9.html" title="Stone Golem">Stone Golem</a></li></ul>
+</td>
+<td>
+<ul></ul>
+</td></tr>
+<tr>
+<th>Plains
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-66b06e996553a4e70d0f.html" title="Growth">Growth</a></li></ul>
+</td>
+<td>
+<ul><li><b><a href="p-398464ae70d7dad80188.html" title="Yagluth">Yagluth</a></b></li></ul>
+</td></tr>
+<tr>
+<th>Mistlands
+</th>
+<td>
+<ul><li><a href="p-f018cb729d59b13d1f4e.html" title="Gjall">Gjall</a> (eggs)</li></ul>
+</td>
+<td>
+<ul><li><a href="p-98c95268220bddfe87be.html" title="Tick">Tick</a></li>
+<li><a href="p-d638ee2f46a405dd2f5c.html" title="Seeker Soldier">Seeker Soldier</a> (tail)</li></ul>
+</td>
+<td>
+<ul><li><a href="p-c465c70b79b24e4f7c1b.html" title="Seeker">Seeker</a></li>
+<li><a href="p-d638ee2f46a405dd2f5c.html" title="Seeker Soldier">Seeker Soldier</a></li>
+<li><a href="p-44d657ae1afd1497c503.html" title="Seeker Brood">Seeker Brood</a></li>
+<li><b><a href="p-879687ceb6851d62d031.html" title="The Queen">The Queen</a></b></li></ul>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>Ashlands
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-e91837e0deb55a18a7c9.html" title="Charred Warrior">Charred Warrior</a></li>
+<li><a href="p-42b0bedf2737ab2cba46.html" title="Charred Twitcher">Charred Twitcher</a></li>
+<li><a href="p-0ec102589cc30ceb4a26.html" title="Charred Warlock">Charred Warlock</a></li>
+<li><a href="p-b88f49c50094a29b876f.html" title="Charred Marksman">Charred Marksman</a></li>
+<li><a href="p-c4785ba17e12c3aaa027.html" title="Morgen">Morgen</a></li>
+<li><a href="p-e31ead2508896ed4d27c.html" title="Skugg">Skugg</a></li>
+<li><a href="p-6f0a62e3e3763713fd85.html" title="Lava Blob">Lava Blob</a></li>
+<li><a href="p-98aaa88ba645d6ae6a11.html" title="Lord Reto">Lord Reto</a></li>
+<li><b><a href="p-816e9a6b76bb85197818.html" title="Fader">Fader</a></b></li></ul>
+</td>
+<td>
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading4"><h4 id="en-Damage_sources_2">Damage sources</h4></div>
+<ul><li>From player: <a href="p-dc0921952ce1ff6aa8b9.html" title="Category:Arrows">Arrows</a>, <a href="p-d3e53a2e348022ba16a6.html" title="Bolts">Bolts</a>, <a href="p-f09abd259d0ada2a71f6.html" title="Bows">Bows</a>, <a href="p-806891f52a7296f021eb.html" title="Crossbows">Crossbows</a>, <a href="p-8acc99b3a7721f0aa451.html" title="Knives">Knives</a>, <a href="p-3048886e495cf472ac35.html" title="Pickaxes">Pickaxes</a>, <a href="p-d3efea7f66cbc49b1b9c.html" title="Polearms">Polearms</a>, <a href="p-9428317ccd76e32daef4.html" title="Porcupine">Porcupine</a>, <a href="p-5c75e6ba33d31ae0dfbe.html" title="Spears">Spears</a>, <a href="p-baa01ad879365a411c0c.html" title="Stagbreaker">Stagbreaker</a>, <a href="p-ca2f1b8656246f88ddb6.html" title="Vilebone Maulclaws">Vilebone Maulclaws</a></li>
+<li>From creatures: <a href="p-53e9e085b2d11109d84b.html" title="Deathsquito">Deathsquito</a>, <a href="p-3ae89e8a8fe1c4a5aec2.html" title="Draugr">Draugr (Bow)</a>, <a href="p-a8dc2a05596fceca7a2d.html" title="Eikthyr">Eikthyr</a>, <a href="p-9d5ce60be807ae13498b.html" title="Fuling">Fuling (Spear)</a>, <a href="p-e27f3a289ceb40df4796.html" title="Leech">Leech</a>, <a href="p-483538232016e17e86f2.html" title="Moder">Moder</a>, <a href="p-c465c70b79b24e4f7c1b.html" title="Seeker">Seeker</a>, <a href="p-44d657ae1afd1497c503.html" title="Seeker Brood">Seeker Brood</a>, <a href="p-ea5f6bdc79b884c397d6.html" title="Skeleton">Skeleton (Bow)</a>, <a href="p-1a234744f50cea328de9.html" title="Stone Golem">Stone Golem (Spike)</a>, <a href="p-ca3280d30e1fda946d1a.html" title="The Elder">The Elder</a>, <a href="p-879687ceb6851d62d031.html" title="The Queen">The Queen</a>, <a href="p-98c95268220bddfe87be.html" title="Tick">Tick</a></li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Slash">Slash</h3></div>
+<div class="sample-table-scroll"><table class="wikitable mw-collapsible mw-collapsed">
+<caption>Table of Slash Resistance/Weakness
+</caption>
+<tbody><tr>
+<th>Biome
+</th>
+<th>Weak
+</th>
+<th>Resistant
+</th></tr>
+<tr>
+<th>Player
+</th>
+<td>
+</td>
+<td>
+<ul><li><a class="mw-redirect" href="p-b8e0a74433a1176e439f.html" title="Bonemass Power">Bonemass Power</a></li></ul>
+</td></tr>
+<tr>
+<th>Black Forest
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-df1bc4984a055e10b286.html" title="Ghost">Ghost</a></li></ul>
+</td></tr>
+<tr>
+<th>Swamp
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-24bafb0b2477f80fafd0.html" title="Blob">Blob</a></li>
+<li><a href="p-12400ad0838ff0fa04b1.html" title="Oozer">Oozer</a></li>
+<li><a href="p-c781316c9ff4beaaf1e8.html" title="Wraith">Wraith</a></li>
+<li><b><a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a></b></li></ul>
+</td></tr>
+<tr>
+<th>Mountains
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-f2813a523c21f6654fc4.html" title="Bat">Bat</a></li>
+<li><a href="p-1a234744f50cea328de9.html" title="Stone Golem">Stone Golem</a></li></ul>
+</td></tr>
+<tr>
+<th>Plains
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-be01beb2fff31a66abf2.html" title="Lox">Lox</a></li>
+<li><a href="p-66b06e996553a4e70d0f.html" title="Growth">Growth</a></li></ul>
+</td></tr>
+<tr>
+<th>Mistlands
+</th>
+<td>
+<ul><li><a href="p-d638ee2f46a405dd2f5c.html" title="Seeker Soldier">Seeker Soldier</a> (tail)</li></ul>
+</td>
+<td>
+<ul><li><a href="p-c465c70b79b24e4f7c1b.html" title="Seeker">Seeker</a></li>
+<li><a href="p-d638ee2f46a405dd2f5c.html" title="Seeker Soldier">Seeker Soldier</a></li>
+<li><a href="p-44d657ae1afd1497c503.html" title="Seeker Brood">Seeker Brood</a></li></ul>
+</td></tr>
+<tr>
+<th>Ashlands
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-c4785ba17e12c3aaa027.html" title="Morgen">Morgen</a></li></ul>
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading4"><h4 id="en-Damage_sources_3">Damage sources</h4></div>
+<ul><li>From player: <a href="p-56a7d40e60030e0c3e48.html" title="Axes">Axes</a>, <a href="p-2b8592bee86de9531d09.html" title="Flesh Rippers">Flesh Rippers</a>, <a href="p-8acc99b3a7721f0aa451.html" title="Knives">Knives</a>, <a href="p-53a230d658f13bbf440e.html" title="Paws of the Bear">Paws of the Bear</a>, <a href="p-5919dcd44e227bc472bf.html" title="Swords">Swords</a>, <a href="p-ca2f1b8656246f88ddb6.html" title="Vilebone Maulclaws">Vilebone Maulclaws</a></li>
+<li>From creatures: <a href="p-d9750e42f4357d8a8d8a.html" title="Asksvin">Asksvin</a>, <a href="p-929a2b40551ead4abd16.html" title="Brenna">Brenna</a>, <a href="p-2787ea728b28387177aa.html" title="Cultist">Cultist</a>, <a href="p-f2813a523c21f6654fc4.html" title="Bat">Bat</a>, <a href="p-3ae89e8a8fe1c4a5aec2.html" title="Draugr">Draugr (Axe)</a>, <a href="p-b93909b5f83342167cf5.html" title="Draugr Elite">Draugr Elite</a>, <a href="p-914164a5c1139a096548.html" title="Geirrhafa">Geirrhafa</a>, <a href="p-134c1125a5e029dae10d.html" title="Fenring">Fenring</a>, <a href="p-9d5ce60be807ae13498b.html" title="Fuling">Fuling (Sword)</a>, <a href="p-d1b08118de3909fa8022.html" title="Greyling">Greyling</a>, <a href="p-f4709a9359f1def796bc.html" title="Greydwarf">Greydwarf</a>, <a href="p-ba16540902bdc96359b7.html" title="Greydwarf Brute">Greydwarf Brute</a>, <a href="p-f3aed59448e859ce563b.html" title="Greydwarf Shaman">Greydwarf Shaman</a>, <a href="p-df1bc4984a055e10b286.html" title="Ghost">Ghost</a>, <a href="p-be01beb2fff31a66abf2.html" title="Lox">Lox</a>, <a href="p-483538232016e17e86f2.html" title="Moder">Moder</a>, <a href="p-6b27a97151bbf20fa8b0.html" title="Neck">Neck</a>, <a href="p-d638ee2f46a405dd2f5c.html" title="Seeker Soldier">Seeker Soldier</a>, <a href="p-bb01a030df624241707d.html" title="Serpent">Serpent</a>, <a href="p-ea5f6bdc79b884c397d6.html" title="Skeleton">Skeleton (Sword)</a>, <a href="p-879687ceb6851d62d031.html" title="The Queen">The Queen</a>, <a href="p-724de16046651b352c27.html" title="Ulv">Ulv</a>, <a href="p-ea858afbf837aae71461.html" title="Wolf">Wolf</a>, <a href="p-c781316c9ff4beaaf1e8.html" title="Wraith">Wraith</a></li></ul>
+<div class="mw-heading mw-heading2"><h2 id="en-Elemental">Elemental</h2></div>
+<div class="mw-heading mw-heading3"><h3 id="en-Fire">Fire</h3></div>
+<p>Fire damage applies a <a href="p-117d3c5bad0c35da1372.html" title="Burning">Burning</a> debuff instead of causing instant damage. The debuff lasts 5 seconds and ticks every second. Fire damage stacks by adding the new damage to the remaining debuff damage, and then recalculating the tick damage.
+</p><p>Fire damage from physical attacks can be blocked. Fire damage is also reduced by armor. Fire damage that gets reduced to less than 1 won't cause Burning.
+</p>
+<div class="sample-table-scroll"><table class="wikitable mw-collapsible mw-collapsed">
+<caption>Table of Fire Resistance/Weakness
+</caption>
+<tbody><tr>
+<th>Biome
+</th>
+<th>Very Weak
+</th>
+<th>Weak
+</th>
+<th>Resistant
+</th>
+<th>Very Resistant
+</th>
+<th>Immune
+</th></tr>
+<tr>
+<th>Player
+</th>
+<td>
+<ul><li><i><a href="p-a9f35559e8a1f171da3d.html" title="Tarred">Tarred</a></i></li>
+<li><a href="p-02b04c0b83b8eee6102d.html" title="Feather Cape">Feather Cape</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-72f206d7ed46f128957d.html" title="Root Set">Root Set</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-8008a1c8d263eb3c60aa.html" title="Fenris blessing">Fenris Set Effect</a></li>
+<li><a href="p-c1a60f21865d2d3483c9.html" title="Fire Resistance Barley Wine">Barley Wine</a></li>
+<li><a class="mw-redirect" href="p-b8e0a74433a1176e439f.html" title="Yagluth Power">Yagluth Power</a></li>
+<li><i><a class="mw-redirect" href="p-c2134a04ae76a365ceea.html" title="Freezing Effect">Freezing</a> &amp; <a class="mw-redirect" href="p-5690f06c3e931ecfe35d.html" title="Wet Effect">Wet</a></i></li></ul>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>Meadows
+</th>
+<td>
+<ul><li><a href="p-d1b08118de3909fa8022.html" title="Greyling">Greyling</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-6b27a97151bbf20fa8b0.html" title="Neck">Neck</a></li></ul>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>Black Forest
+</th>
+<td>
+<ul><li><a href="p-f4709a9359f1def796bc.html" title="Greydwarf">Greydwarf</a></li>
+<li><a href="p-ba16540902bdc96359b7.html" title="Greydwarf Brute">Greydwarf Brute</a></li>
+<li><a href="p-f3aed59448e859ce563b.html" title="Greydwarf Shaman">Greydwarf Shaman</a></li>
+<li><b><a href="p-ca3280d30e1fda946d1a.html" title="The Elder">The Elder</a></b></li></ul>
+</td>
+<td>
+<ul><li><a href="p-8c578ed3e9d5fec6f0f1.html" title="Bear">Bear</a></li>
+<li><a href="p-ea5f6bdc79b884c397d6.html" title="Skeleton">Skeleton</a></li>
+<li><a href="p-8d7b2e4882044d922d62.html" title="Rancid Remains">Rancid Remains</a></li>
+<li><a href="p-cd72f0d36b4bbdd554cf.html" title="Root (creature)">Root</a></li></ul>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>Ocean
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-bb01a030df624241707d.html" title="Serpent">Serpent</a></li></ul>
+</td></tr>
+<tr>
+<th>Swamp
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-55dbdbafa072275bf0d2.html" title="Abomination">Abomination</a></li>
+<li><a href="p-c781316c9ff4beaaf1e8.html" title="Wraith">Wraith</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-3ae89e8a8fe1c4a5aec2.html" title="Draugr">Draugr</a></li>
+<li><a href="p-b93909b5f83342167cf5.html" title="Draugr Elite">Draugr Elite</a></li>
+<li><a href="p-24bafb0b2477f80fafd0.html" title="Blob">Blob</a></li>
+<li><a href="p-12400ad0838ff0fa04b1.html" title="Oozer">Oozer</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-690671ff0febe865c611.html" title="Surtling">Surtling</a></li>
+<li><b><a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a></b></li></ul>
+</td>
+<td>
+<ul><li><a href="p-e27f3a289ceb40df4796.html" title="Leech">Leech</a></li></ul>
+</td></tr>
+<tr>
+<th>Mountains
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-6aed8812d68d8790c628.html" title="Drake">Drake</a></li>
+<li><a href="p-f2813a523c21f6654fc4.html" title="Bat">Bat</a></li>
+<li><a href="p-134c1125a5e029dae10d.html" title="Fenring">Fenring</a></li>
+<li><b><a href="p-483538232016e17e86f2.html" title="Moder">Moder</a></b></li></ul>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-724de16046651b352c27.html" title="Ulv">Ulv</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-2787ea728b28387177aa.html" title="Cultist">Cultist</a></li>
+<li><a href="p-1a234744f50cea328de9.html" title="Stone Golem">Stone Golem</a></li></ul>
+</td></tr>
+<tr>
+<th>Plains
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-be01beb2fff31a66abf2.html" title="Lox">Lox</a></li>
+<li><a href="p-66b06e996553a4e70d0f.html" title="Growth">Growth</a></li></ul>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>Mistlands
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-d638ee2f46a405dd2f5c.html" title="Seeker Soldier">Seeker Soldier</a> (tail)</li></ul>
+</td>
+<td>
+<ul><li><a href="p-dcafb03495b8c8248945.html" title="Dvergr Mage">Dvergr Mage</a></li>
+<li><a href="p-f018cb729d59b13d1f4e.html" title="Gjall">Gjall</a> (body)</li></ul>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>Ashlands
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-73a1e307b3c18141bf70.html" title="Fallen Valkyrie">Fallen Valkyrie</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-42b0bedf2737ab2cba46.html" title="Charred Twitcher">Charred Twitcher</a></li>
+<li><a href="p-e91837e0deb55a18a7c9.html" title="Charred Warrior">Charred Warrior</a></li>
+<li><a href="p-0ec102589cc30ceb4a26.html" title="Charred Warlock">Charred Warlock</a></li>
+<li><a href="p-b88f49c50094a29b876f.html" title="Charred Marksman">Charred Marksman</a></li>
+<li><a href="p-c4785ba17e12c3aaa027.html" title="Morgen">Morgen</a></li>
+<li><a href="p-d9750e42f4357d8a8d8a.html" title="Asksvin">Asksvin</a></li>
+<li><a href="p-e31ead2508896ed4d27c.html" title="Skugg">Skugg</a></li>
+<li><a href="p-98aaa88ba645d6ae6a11.html" title="Lord Reto">Lord Reto</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-6f0a62e3e3763713fd85.html" title="Lava Blob">Lava Blob</a></li>
+<li><a href="p-0d054f347f0573e05e09.html" title="Bonemaw">Bonemaw</a></li>
+<li><b><a href="p-816e9a6b76bb85197818.html" title="Fader">Fader</a></b></li></ul>
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading4"><h4 id="en-Damage_sources_4">Damage sources</h4></div>
+<ul><li>From buildings: <a href="p-f5d1dce68f65817c9054.html" title="Bonfire">Bonfire</a>, <a href="p-bf3fac40de1b75b9308f.html" title="Campfire">Campfire</a>, <a href="p-0c8b0dbef56c96272926.html" title="Hearth">Hearth</a></li>
+<li>From player: <a href="p-6ef10e611aae7ccf4cfb.html" title="Fire Arrow">Fire Arrow</a>, <a href="p-425d7538f593b76e2627.html" title="Staff of Embers">Staff of Embers</a>, <a href="p-dcc578acd71a7bf2c0e9.html" title="Torch">Torch</a>, <a href="p-d7ee29b7091dbc561c4b.html" title="Staff of Fracturing">Staff of Fracturing</a>, <a href="p-a03fa219e6b708070031.html" title="Dyrnwyn">Dyrnwyn</a>, <a href="p-98eb4ff2e56049c46e8b.html" title="Bile Bomb">Bile Bomb</a></li>
+<li>From creatures: <a href="p-0d054f347f0573e05e09.html" title="Bonemaw">Bonemaw</a>, <a href="p-929a2b40551ead4abd16.html" title="Brenna">Brenna</a>, <a href="p-0ec102589cc30ceb4a26.html" title="Charred Warlock">Charred Warlock</a>, <a href="p-2787ea728b28387177aa.html" title="Cultist">Cultist</a>, <a href="p-dcafb03495b8c8248945.html" title="Dvergr Mage">Dvergr Mage</a>, <a href="p-816e9a6b76bb85197818.html" title="Fader">Fader</a>, <a href="p-73a1e307b3c18141bf70.html" title="Fallen Valkyrie">Fallen Valkyrie</a>, <a href="p-9d5ce60be807ae13498b.html" title="Fuling">Fuling (Torch)</a>, <a href="p-12e29dba51068fb584d2.html" title="Fuling Shaman">Fuling Shaman</a>, <a href="p-f018cb729d59b13d1f4e.html" title="Gjall">Gjall</a>, <a href="p-6f0a62e3e3763713fd85.html" title="Lava Blob">Lava Blob</a>, <a href="p-690671ff0febe865c611.html" title="Surtling">Surtling</a>, <a href="p-398464ae70d7dad80188.html" title="Yagluth">Yagluth</a>, <a href="p-1e6dc9ac4767bb09dca9.html" title="Zil &amp; Thungr">Zil &amp; Thungr</a></li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Poison">Poison</h3></div>
+<p>Poison damage applies a <a href="p-d5a78b996fe640a3f918.html" title="Poison">Poison</a> debuff instead of causing instant damage. The debuff duration depends on the damage and ticks every second.
+</p><p>Note: Because of a rounding error, poison may tick one more time than intended.
+</p><p>Poison damage doesn't stack. The previous debuff is replaced if its remaining damage is less than the new damage.
+</p><p>Poison damage from physical attacks can be blocked. Poison damage is also reduced by armor.
+</p>
+<div class="sample-table-scroll"><table class="wikitable mw-collapsible mw-collapsed">
+<caption>Table of Poison Resistance/Weakness
+</caption>
+<tbody><tr>
+<th>Biome
+</th>
+<th>Weak
+</th>
+<th>Resistant
+</th>
+<th>Very Resistant
+</th>
+<th>Immune
+</th></tr>
+<tr>
+<th>Player
+</th>
+<td>
+</td>
+<td>
+<ul><li><a class="mw-redirect" href="p-72f206d7ed46f128957d.html" title="Root Mask">Root Mask</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-23c19d538ab15b532b2b.html" title="Poison Resistance Mead">Poison Resistance Mead</a></li></ul>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>Meadows
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-d1b08118de3909fa8022.html" title="Greyling">Greyling</a></li>
+<li><a href="p-6b27a97151bbf20fa8b0.html" title="Neck">Neck</a></li></ul>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>Black Forest
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-f4709a9359f1def796bc.html" title="Greydwarf">Greydwarf</a></li>
+<li><a href="p-ba16540902bdc96359b7.html" title="Greydwarf Brute">Greydwarf Brute</a></li>
+<li><a href="p-f3aed59448e859ce563b.html" title="Greydwarf Shaman">Greydwarf Shaman</a></li></ul>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-ea5f6bdc79b884c397d6.html" title="Skeleton">Skeleton</a></li>
+<li><a href="p-8d7b2e4882044d922d62.html" title="Rancid Remains">Rancid Remains</a></li>
+<li><a href="p-df1bc4984a055e10b286.html" title="Ghost">Ghost</a></li>
+<li><b><a href="p-ca3280d30e1fda946d1a.html" title="The Elder">The Elder</a></b></li>
+<li><a href="p-cd72f0d36b4bbdd554cf.html" title="Root (creature)">Root</a></li></ul>
+</td></tr>
+<tr>
+<th>Ocean
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-bb01a030df624241707d.html" title="Serpent">Serpent</a></li></ul>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>Swamp
+</th>
+<td>
+</td>
+<td>
+<ul><li><a href="p-e27f3a289ceb40df4796.html" title="Leech">Leech</a></li></ul>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-3ae89e8a8fe1c4a5aec2.html" title="Draugr">Draugr</a></li>
+<li><a href="p-b93909b5f83342167cf5.html" title="Draugr Elite">Draugr Elite</a></li>
+<li><a href="p-24bafb0b2477f80fafd0.html" title="Blob">Blob</a></li>
+<li><a href="p-12400ad0838ff0fa04b1.html" title="Oozer">Oozer</a></li>
+<li><a href="p-c781316c9ff4beaaf1e8.html" title="Wraith">Wraith</a></li>
+<li><a href="p-55dbdbafa072275bf0d2.html" title="Abomination">Abomination</a></li>
+<li><a href="p-690671ff0febe865c611.html" title="Surtling">Surtling</a></li>
+<li><b><a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a></b></li></ul>
+</td></tr>
+<tr>
+<th>Mountains
+</th>
+<td>
+<ul><li><a href="p-2787ea728b28387177aa.html" title="Cultist">Cultist</a></li>
+<li><a href="p-724de16046651b352c27.html" title="Ulv">Ulv</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-134c1125a5e029dae10d.html" title="Fenring">Fenring</a></li></ul>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-f2813a523c21f6654fc4.html" title="Bat">Bat</a></li>
+<li><a href="p-1a234744f50cea328de9.html" title="Stone Golem">Stone Golem</a></li></ul>
+</td></tr>
+<tr>
+<th>Plains
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-66b06e996553a4e70d0f.html" title="Growth">Growth</a></li>
+<li><b><a href="p-398464ae70d7dad80188.html" title="Yagluth">Yagluth</a></b></li></ul>
+</td></tr>
+<tr>
+<th>Ashlands
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+<ul><li><a href="p-0d054f347f0573e05e09.html" title="Bonemaw">Bonemaw</a></li>
+<li><a href="p-d9750e42f4357d8a8d8a.html" title="Asksvin">Asksvin</a></li></ul>
+</td>
+<td>
+<ul><li><a href="p-73a1e307b3c18141bf70.html" title="Fallen Valkyrie">Fallen Valkyrie</a></li>
+<li><a href="p-871cf7476fc46f9cf444.html" title="Volture">Volture</a></li>
+<li><a href="p-e91837e0deb55a18a7c9.html" title="Charred Warrior">Charred Warrior</a></li>
+<li><a href="p-42b0bedf2737ab2cba46.html" title="Charred Twitcher">Charred Twitcher</a></li>
+<li><a href="p-0ec102589cc30ceb4a26.html" title="Charred Warlock">Charred Warlock</a></li>
+<li><a href="p-b88f49c50094a29b876f.html" title="Charred Marksman">Charred Marksman</a></li>
+<li><a href="p-e31ead2508896ed4d27c.html" title="Skugg">Skugg</a></li>
+<li><a href="p-6f0a62e3e3763713fd85.html" title="Lava Blob">Lava Blob</a></li>
+<li><a href="p-98aaa88ba645d6ae6a11.html" title="Lord Reto">Lord Reto</a></li></ul>
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading4"><h4 id="en-Damage_sources_5">Damage sources</h4></div>
+<ul><li>From dropped items: <a href="p-b8e7e4df56b0e12879e0.html" title="Refined Eitr">Refined Eitr</a></li>
+<li>From buildings: <a href="p-6101c09641b9c08fb631.html" title="Eitr Refinery">Eitr Refinery</a></li>
+<li>From player: <a href="p-012c6b4684b1dccbf835.html" title="Draugr Fang">Draugr Fang</a>, <a href="p-5c99392e1fa9de4ac061.html" title="Jotun Bane">Jotun Bane</a>, <a href="p-0032b71e283d00c277ac.html" title="Ooze Bomb">Ooze Bomb</a>, <a href="p-98eb4ff2e56049c46e8b.html" title="Bile Bomb">Bile Bomb</a>, <a href="p-91f9f70df0cdcd9e5be3.html" title="Poison Arrow">Poison Arrow</a>, <a href="p-69e79995c287260cbd14.html" title="Staff of the Wild">Staff of the Wild</a></li>
+<li>From creatures: <a href="p-24bafb0b2477f80fafd0.html" title="Blob">Blob</a>, <a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a>, <a href="p-f3aed59448e859ce563b.html" title="Greydwarf Shaman">Greydwarf Shaman</a>, <a href="p-66b06e996553a4e70d0f.html" title="Growth">Growth</a>, <a href="p-e27f3a289ceb40df4796.html" title="Leech">Leech</a>, <a href="p-12400ad0838ff0fa04b1.html" title="Oozer">Oozer</a>, <a href="p-8d7b2e4882044d922d62.html" title="Rancid Remains">Rancid Remains</a>, <a href="p-879687ceb6851d62d031.html" title="The Queen">The Queen</a>, <a href="p-73a1e307b3c18141bf70.html" title="Fallen Valkyrie">Fallen Valkyrie</a>, <a href="p-0d054f347f0573e05e09.html" title="Bonemaw">Bonemaw</a></li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Frost">Frost</h3></div>
+<p>Frost damage causes instant damage which can be blocked and is reduced by armor.
+</p><p>Frost damage also applies the <a class="mw-redirect" href="p-5d1b493260cc626aca86.html" title="Frost Effect">Frost Effect</a> debuff, reducing movement and turn speed.
+</p>
+<ul><li>Weak (1.5x): creatures with <a class="mw-redirect" href="p-5690f06c3e931ecfe35d.html" title="Wet Effect">Wet</a> , <a href="p-24bafb0b2477f80fafd0.html" title="Blob">Blob</a>, <b><a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a></b>, <a href="p-12400ad0838ff0fa04b1.html" title="Oozer">Oozer</a>, <a href="p-d638ee2f46a405dd2f5c.html" title="Seeker Soldier">Seeker Soldier</a> (abdomen), <a href="p-bb01a030df624241707d.html" title="Serpent">Serpent</a>, <a href="p-690671ff0febe865c611.html" title="Surtling">Surtling</a>, <a href="p-0d054f347f0573e05e09.html" title="Bonemaw">Bonemaw</a>, <a href="p-6f0a62e3e3763713fd85.html" title="Lava Blob">Lava Blob</a>, <a href="p-871cf7476fc46f9cf444.html" title="Volture">Volture</a></li>
+<li>Resistant (0.5x): <a href="p-66b06e996553a4e70d0f.html" title="Growth">Growth</a>, <a href="p-dcafb03495b8c8248945.html" title="Dvergr Mage">Dvergr Mage</a>, <a href="p-be01beb2fff31a66abf2.html" title="Lox">Lox</a>, <a href="p-8d7b2e4882044d922d62.html" title="Rancid Remains">Rancid Remains</a>, <a href="p-cd72f0d36b4bbdd554cf.html" title="Root (creature)">Root</a>, <a href="p-ea5f6bdc79b884c397d6.html" title="Skeleton">Skeleton</a>, <a href="p-8c578ed3e9d5fec6f0f1.html" title="Bear">Bear</a>, <a href="p-0ec102589cc30ceb4a26.html" title="Charred Warlock">Charred Warlock</a>, <a href="p-98aaa88ba645d6ae6a11.html" title="Lord Reto">Lord Reto</a></li>
+<li>Immune: <a href="p-55dbdbafa072275bf0d2.html" title="Abomination">Abomination</a>, <a href="p-f2813a523c21f6654fc4.html" title="Bat">Bat</a>, <a href="p-6aed8812d68d8790c628.html" title="Drake">Drake</a>, <b><a href="p-483538232016e17e86f2.html" title="Moder">Moder</a></b>, <a href="p-1a234744f50cea328de9.html" title="Stone Golem">Stone Golem</a>, <a href="p-c781316c9ff4beaaf1e8.html" title="Wraith">Wraith</a></li>
+<li>Player sources of Weak (1.5x): Players with <a class="mw-redirect" href="p-5690f06c3e931ecfe35d.html" title="Wet Effect">Wet</a></li>
+<li>Player sources of Resistant (0.5x): <a href="p-02b04c0b83b8eee6102d.html" title="Feather Cape">Feather Cape</a>, <a class="mw-redirect" href="p-ea2efec0bf254e0fa2a5.html" title="Fenris Coat">Fenris Coat</a>, <a href="p-9af45f597989dafca137.html" title="Frost Resistance Mead">Frost Resistance Mead</a>, <a href="p-51878baee76a5b63436b.html" title="Lox Cape">Lox Cape</a>, <a class="mw-redirect" href="p-fece7f9297c133836b01.html" title="Wolf armor chest">Wolf armor chest</a>, <a href="p-cc9001734ef60565c35c.html" title="Wolf Fur Cape">Wolf Fur Cape</a>, <a class="mw-redirect" href="p-b8e0a74433a1176e439f.html" title="Yagluth Power">Yagluth Power</a></li></ul>
+<div class="mw-heading mw-heading4"><h4 id="en-Damage_sources_6">Damage sources</h4></div>
+<ul><li>From player: <a href="p-da3c358f28f8b39fb4b8.html" title="Frostner">Frostner</a>, <a href="p-6943aa20eb53b4bf232d.html" title="Frost Arrow">Frost Arrow</a>, <a href="p-f7717a62a96d5c06baa0.html" title="Mistwalker">Mistwalker</a>, <a href="p-12cce28e437bb04fce18.html" title="Staff of Frost">Staff of Frost</a></li>
+<li>From creatures: <a href="p-6aed8812d68d8790c628.html" title="Drake">Drake</a>, <a href="p-dcafb03495b8c8248945.html" title="Dvergr Mage">Dvergr Mage</a>, <a href="p-914164a5c1139a096548.html" title="Geirrhafa">Geirrhafa</a>, <b><a href="p-483538232016e17e86f2.html" title="Moder">Moder</a></b></li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Spirit">Spirit</h3></div>
+<p>Spirit damage applies a Spirit debuff instead of causing instant damage. The debuff lasts 3 seconds and ticks every 0.5 seconds.
+</p><p>Note: Because of a rounding error, a single source of Spirit ticks 7 times instead of 6.
+</p><p>Spirit damage stacks by adding the new damage to the remaining debuff damage, and then recalculating the tick damage.
+</p>
+<ul><li>Weak (1.5x): <a href="p-f2813a523c21f6654fc4.html" title="Bat">Bat</a>, <a href="p-df1bc4984a055e10b286.html" title="Ghost">Ghost</a>, <a href="p-c781316c9ff4beaaf1e8.html" title="Wraith">Wraith</a>, <a href="p-73a1e307b3c18141bf70.html" title="Fallen Valkyrie">Fallen Valkyrie</a><a href="p-e91837e0deb55a18a7c9.html" title="Charred Warrior">, Charred Warrior</a>, <a href="p-42b0bedf2737ab2cba46.html" title="Charred Twitcher">Charred Twitcher</a>, <a href="p-0ec102589cc30ceb4a26.html" title="Charred Warlock">Charred Warlock</a>, <a href="p-b88f49c50094a29b876f.html" title="Charred Marksman">Charred Marksman</a>, <a href="p-98aaa88ba645d6ae6a11.html" title="Lord Reto">Lord Reto</a></li>
+<li>Neutral (1x): <a href="p-24bafb0b2477f80fafd0.html" title="Blob">Blob</a>, <a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a>, <a href="p-2787ea728b28387177aa.html" title="Cultist">Cultist</a>, <a href="p-3ae89e8a8fe1c4a5aec2.html" title="Draugr">Draugr</a>, <a href="p-b93909b5f83342167cf5.html" title="Draugr Elite">Draugr Elite</a>, <a href="p-a8dc2a05596fceca7a2d.html" title="Eikthyr">Eikthyr</a>, <a href="p-134c1125a5e029dae10d.html" title="Fenring">Fenring</a>, <a href="p-66b06e996553a4e70d0f.html" title="Growth">Growth</a>, <a href="p-12400ad0838ff0fa04b1.html" title="Oozer">Oozer</a>, <a href="p-8d7b2e4882044d922d62.html" title="Rancid Remains">Rancid Remains</a>, <a href="p-cd72f0d36b4bbdd554cf.html" title="Root (creature)">Root</a>, <a href="p-ea5f6bdc79b884c397d6.html" title="Skeleton">Skeleton</a>, <a href="p-724de16046651b352c27.html" title="Ulv">Ulv</a>, <a href="p-398464ae70d7dad80188.html" title="Yagluth">Yagluth</a>, <a href="p-c4785ba17e12c3aaa027.html" title="Morgen">Morgen</a>, <a href="p-871cf7476fc46f9cf444.html" title="Volture">Volture</a>, <a href="p-6f0a62e3e3763713fd85.html" title="Lava Blob">Lava Blob</a></li>
+<li>Immune: Players and all other creatures</li></ul>
+<div class="mw-heading mw-heading4"><h4 id="en-Damage_sources_7">Damage sources</h4></div>
+<ul><li>From player: <a href="p-da3c358f28f8b39fb4b8.html" title="Frostner">Frostner</a>, <a href="p-41c8bfc60226d7f15164.html" title="Crystal Battleaxe">Crystal Battleaxe</a>, <a href="p-f7717a62a96d5c06baa0.html" title="Mistwalker">Mistwalker</a>, <a href="p-863da206cde41dc4550e.html" title="Silver Arrow">Silver Arrow</a>, <a href="p-8cc8df2f762d0ef75c17.html" title="Silver Knife">Silver Knife</a>, <a href="p-de46aeb7239be39ea590.html" title="Silver Sword">Silver Sword</a>, <a href="p-69b80dff4f3766977169.html" title="Spinesnap">Spinesnap</a>, <a href="p-eb560be2afdd4268dd0d.html" title="Ash Fang">Ash Fang</a></li>
+<li>From creatures: <a href="p-816e9a6b76bb85197818.html" title="Fader">Fader</a> and <a href="p-af48338f0994e599f5b7.html" title="Hive">Hive</a></li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Lightning">Lightning</h3></div>
+<p>Lightning damage causes direct damage which can be blocked and is reduced by armor.
+</p><p>Lightning damage also causes <a href="p-b575a12ff4742c150d8d.html" title="Stagger">staggering</a> and a lingering visual effect, but it doesn't deal any damage over time.
+</p>
+<ul><li>Weak (1.5x): creatures with <a class="mw-redirect" href="p-5690f06c3e931ecfe35d.html" title="Wet Effect">Wet</a>, <a href="p-24bafb0b2477f80fafd0.html" title="Blob">Blob</a>, <a href="p-12400ad0838ff0fa04b1.html" title="Oozer">Oozer</a>, <a href="p-d638ee2f46a405dd2f5c.html" title="Seeker Soldier">Seeker Soldier</a> (abdomen) (? Serpent, Leech ?), <a href="p-c4785ba17e12c3aaa027.html" title="Morgen">Morgen</a></li>
+<li>Player sources of Weak (1.5x): Players with <a class="mw-redirect" href="p-5690f06c3e931ecfe35d.html" title="Wet Effect">Wet</a></li>
+<li>Player sources of Resistant (0.5x): Players with <a class="mw-redirect" href="p-b8e0a74433a1176e439f.html" title="Yagluth Power">Yagluth Power</a></li></ul>
+<div class="mw-heading mw-heading4"><h4 id="en-Damage_sources_8">Damage sources</h4></div>
+<ul><li>From dropped items: <a href="p-b8e7e4df56b0e12879e0.html" title="Refined Eitr">Refined Eitr</a></li>
+<li>From buildings: <a href="p-fd090f63d2000fa6820f.html" title="Obliterator">Obliterator</a>, <a href="p-6101c09641b9c08fb631.html" title="Eitr Refinery">Eitr Refinery</a></li>
+<li>From player: <a href="p-4ebf26461bd87e0f7e7c.html" title="Himminafl">Himminafl</a>, <a href="p-fc00b25a4cd4f08e4d91.html" title="Dundr">Dundr</a>, any Ashland weapon upgraded with <a href="p-01c0bfda2ecef31ddfc8.html" title="Iolite">Iolite</a></li>
+<li>From creatures: <a href="p-a8dc2a05596fceca7a2d.html" title="Eikthyr">Eikthyr</a>, <a href="p-398464ae70d7dad80188.html" title="Yagluth">Yagluth</a></li></ul>
+<div class="mw-heading mw-heading2"><h2 id="en-Terrain_damage">Terrain damage</h2></div>
+<p>Terrain damage includes Chop and Pickaxe damage. Terrain damage is caused by bosses and bigger enemies. Players and most creatures are immune to terrain damage. Additionally terrain damage ignores armor.
+</p><p>Some <a href="p-109d6f455ed8c31a4919.html" title="Trees">trees</a> and ore deposits require a minimum tool tier for them to take damage.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Chop">Chop</h3></div>
+<p>Chop damage is used effectively against trees<sup class="reference" id="en-cite_ref-:0_1-0"><a href="#en-cite_note-:0-1"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></a></sup> and wood structures<sup class="reference" id="en-cite_ref-:0_1-1"><a href="#en-cite_note-:0-1"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></a></sup>. Players and all creatures, excluding <a href="p-1976a5863e7c98dd63a0.html" title="Barka">Barka</a>, are immune to this damage type. Listed below are all the sources of chop damage, and their tiers.
+</p>
+<div class="sample-table-scroll"><table class="wikitable mw-collapsible mw-collapsed">
+<caption>Chop  Tiers
+</caption>
+<tbody><tr>
+<th rowspan="2">
+</th>
+<th colspan="3">Sources
+</th></tr>
+<tr>
+<th>Player Tools
+</th>
+<th>Creatures
+</th>
+<th>Bosses
+</th></tr>
+<tr>
+<th>Tier 0
+</th>
+<td><a href="p-6f71b32080395e757b3b.html" title="Stone Axe">Stone Axe</a>
+</td>
+<td><a href="p-d9750e42f4357d8a8d8a.html" title="Asksvin">Asksvin</a>
+<p><a href="p-8c578ed3e9d5fec6f0f1.html" title="Bear">Bear</a><br/><a href="p-3ae89e8a8fe1c4a5aec2.html" title="Draugr">Draugr</a> <small>(Axe)</small><br/><a href="p-be01beb2fff31a66abf2.html" title="Lox">Lox</a><br/><a href="p-1a234744f50cea328de9.html" title="Stone Golem">Stone Golem</a>
+</p>
+</td>
+<td><a href="p-a8dc2a05596fceca7a2d.html" title="Eikthyr">Eikthyr</a><br/><a href="p-ca3280d30e1fda946d1a.html" title="The Elder">The Elder</a> <small>(<a href="p-cd72f0d36b4bbdd554cf.html" title="Root (creature)">Root</a>)</small><br/><a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a>
+</td></tr>
+<tr>
+<th>Tier 1
+</th>
+<td><a href="p-dacb6ef58142dae4d047.html" title="Flint Axe">Flint Axe</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>Tier 2
+</th>
+<td><a href="p-0785d5ed151c6d050fc1.html" title="Bronze Axe">Bronze Axe</a>
+<p><a href="p-ff014cecaa644933c4ce.html" title="Early Axes">Early Axes</a>
+</p>
+</td>
+<td><a href="p-55dbdbafa072275bf0d2.html" title="Abomination">Abomination</a><br/><a href="p-440f49671e99164315e3.html" title="Fuling Berserker">Fuling Berserker</a><br/><a href="p-9bac25686c53aa859d61.html" title="Troll">Troll</a> <small>(Melee)</small>
+</td>
+<td><a href="p-398464ae70d7dad80188.html" title="Yagluth">Yagluth</a> <small>(Nova)</small>
+</td></tr>
+<tr>
+<th>Tier 3
+</th>
+<td><a href="p-ac4a0986227688456383.html" title="Iron Axe">Iron Axe</a><br/><a href="p-199e60bb991bda4446a7.html" title="Battleaxe">Battleaxe</a><br/><a href="p-41c8bfc60226d7f15164.html" title="Crystal Battleaxe">Crystal Battleaxe</a>
+</td>
+<td><a href="p-c4785ba17e12c3aaa027.html" title="Morgen">Morgen</a>
+</td>
+<td><a href="p-483538232016e17e86f2.html" title="Moder">Moder</a> <small>(Melee)</small><br/><a href="p-879687ceb6851d62d031.html" title="The Queen">The Queen</a>
+</td></tr>
+<tr>
+<th>Tier 4
+</th>
+<td><a href="p-6169218d77192c74e562.html" title="Black Metal Axe">Black Metal Axe</a><br/><a href="p-ef6cf39b42cf0431f314.html" title="Black Metal Battleaxe">Black Metal Battleaxe</a><br/><a href="p-5c99392e1fa9de4ac061.html" title="Jotun Bane">Jotun Bane</a><br/><a href="p-f935447711f07b2181bd.html" title="Skull Splittur">Skull Splittur</a>
+</td>
+<td><a href="p-d9750e42f4357d8a8d8a.html" title="Asksvin">Asksvin</a><br/><a href="p-d638ee2f46a405dd2f5c.html" title="Seeker Soldier">Seeker Soldier</a>
+<p><a class="mw-redirect" href="p-69e79995c287260cbd14.html#Root" title="Root (Staff of the Wild)">Root (Staff of the Wild)</a>
+</p>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>Tier 5
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>Tier 6
+</th>
+<td><a href="p-d8385c51550b9831d27a.html" title="Berserkir Axes">Berserkir Axes</a><br/><a href="p-278317f07a574f7f85ba.html" title="Ember Charge">Ember Charge</a>
+</td>
+<td><a href="p-1976a5863e7c98dd63a0.html" title="Barka">Barka</a>
+</td>
+<td>
+</td></tr></tbody></table></div>
+<p><a href="p-aa45017133fbc8fecc6e.html" title="Ancient Tree">Ancient Trees</a>, <a href="p-f4fddf9a710e745ed89a.html" title="Birch">Birch</a>, and <a href="p-cfed998f07b32c43aeda.html" title="Oak">Oak</a> require a tool tier of 2, <a href="p-4ef12a5c49d4e1ea8211.html" title="Yggdrasil Shoot">Yggdrasil Shoots</a> require a tool of tier 4. Other trees don't have a requirement.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Pickaxe">Pickaxe</h3></div>
+<p>Pickaxe damage is used effectively against Rocks, Stone Deposits, <a href="p-9b63d91eaa1ecddce259.html" title="Copper Deposit">Ore Deposits</a>, and Stone Structures. Players and all creatures, with the exception of the <a href="p-1a234744f50cea328de9.html" title="Stone Golem">Stone Golem</a>, <a href="p-e31ead2508896ed4d27c.html" title="Skugg">Skugg</a> and <a href="p-e3a26b909f3580155e06.html" title="Gammeltroll">Gammeltroll</a>, are immune to this damage type. Sources and tiers are listed in the table below.
+</p>
+<ul><li>Very Weak (2x): <a href="p-1a234744f50cea328de9.html" title="Stone Golem">Stone Golem</a>, <a href="p-e3a26b909f3580155e06.html" title="Gammeltroll">Gammeltroll</a> (head)</li>
+<li>Weak (1.5x): <a href="p-e3a26b909f3580155e06.html" title="Gammeltroll">Gammeltroll</a></li>
+<li>Resistant (0.5x): <a href="p-e31ead2508896ed4d27c.html" title="Skugg">Skugg</a></li></ul>
+<div class="sample-table-scroll"><table class="wikitable mw-collapsible mw-collapsed">
+<caption>Pickaxe Tiers
+</caption>
+<tbody><tr>
+<th rowspan="2">
+</th>
+<th colspan="3">Sources
+</th></tr>
+<tr>
+<th>Player Tools
+</th>
+<th>Creatures
+</th>
+<th>Bosses
+</th></tr>
+<tr>
+<th>Tier 0
+</th>
+<td><a href="p-53ce13b84c34826ecdb8.html" title="Antler Pickaxe">Antler Pickaxe</a>
+</td>
+<td><a href="p-d9750e42f4357d8a8d8a.html" title="Asksvin">Asksvin</a>
+<p><a href="p-8c578ed3e9d5fec6f0f1.html" title="Bear">Bear</a> (Slam)<br/><a href="p-be01beb2fff31a66abf2.html" title="Lox">Lox</a><br/><a href="p-1a234744f50cea328de9.html" title="Stone Golem">Stone Golem</a>
+</p>
+</td>
+<td><a href="p-a8dc2a05596fceca7a2d.html" title="Eikthyr">Eikthyr</a><br/><a href="p-ca3280d30e1fda946d1a.html" title="The Elder">The Elder</a> <small>(<a href="p-cd72f0d36b4bbdd554cf.html" title="Root (creature)">Root</a>)</small><br/><a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a>
+</td></tr>
+<tr>
+<th>Tier 1
+</th>
+<td><a href="p-dba0dea0584b2923f40c.html" title="Bronze Pickaxe">Bronze Pickaxe</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>Tier 2
+</th>
+<td><a href="p-ff96df936e42f069f82f.html" title="Iron Pickaxe">Iron Pickaxe</a>
+</td>
+<td><a href="p-55dbdbafa072275bf0d2.html" title="Abomination">Abomination</a><br/><a href="p-440f49671e99164315e3.html" title="Fuling Berserker">Fuling Berserker</a><br/><a href="p-9bac25686c53aa859d61.html" title="Troll">Troll</a> <small>(Melee)</small>
+</td>
+<td><a href="p-398464ae70d7dad80188.html" title="Yagluth">Yagluth</a> <small>(Nova)</small>
+</td></tr>
+<tr>
+<th>Tier 3
+</th>
+<td><a href="p-30ff8a3aeb8ab4bbfcb5.html" title="Black Metal Pickaxe">Black Metal Pickaxe</a>
+</td>
+<td><a href="p-c4785ba17e12c3aaa027.html" title="Morgen">Morgen</a>
+</td>
+<td><a href="p-483538232016e17e86f2.html" title="Moder">Moder</a> <small>(Melee)</small>
+</td></tr>
+<tr>
+<th>Tier 4
+</th>
+<td>
+</td>
+<td><a href="p-d9750e42f4357d8a8d8a.html" title="Asksvin">Asksvin</a><br/><a href="p-d638ee2f46a405dd2f5c.html" title="Seeker Soldier">Seeker Soldier</a>
+<p><a class="mw-redirect" href="p-69e79995c287260cbd14.html#Root" title="Root (Staff of the Wild)">Root (Staff of the Wild)</a>
+</p>
+</td>
+<td><a href="p-879687ceb6851d62d031.html" title="The Queen">The Queen</a>
+</td></tr>
+<tr>
+<th>Tier 5
+</th>
+<td><a href="p-cf0a755fb6b4deccfb28.html" title="Battering Ram">Battering Ram</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>Tier 6
+</th>
+<td><a href="p-278317f07a574f7f85ba.html" title="Ember Charge">Ember Charge</a>
+</td>
+<td><a href="p-e3a26b909f3580155e06.html" title="Gammeltroll">Gammeltroll</a>
+</td>
+<td>
+</td></tr></tbody></table></div>
+<ul><li><a href="p-ae833ab30e01b0857b89.html" title="Obsidian Deposit">Obsidian Deposits</a> and <a href="p-e775d3a4480d5625b340.html" title="Silver Vein">Silver Veins</a> require a tool tier of 2</li>
+<li><a href="p-41fa6c475731105f8d1e.html" title="Black Marble">Black Marble</a>, <a href="p-9cdfc3cc59b965ed09e0.html" title="Giant Remains">Giant Remains</a> and <a href="p-bfa740fa2117adc7d174.html" title="Flametal Ore Vein">Flametal Ore Veins</a> require a tool tier of 3</li>
+<li><a href="p-c918e6e110760fb606bd.html" title="Charred Fortress">Charred Fortress</a> gates require a tool tier of 5</li>
+<li><a href="p-083440ecdf30db40bf8b.html" title="Petrified Gammeltroll">Petrified Gammeltrolls</a> require a tool tier of 6</li></ul>
+<p>Other deposits don't have a requirement.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="en-Pure">Pure</h2></div>
+<p>Pure damage ignores all defenses and can't be mitigated in any way.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Tick_damage">Tick damage</h3></div>
+<p>Caused by <a href="p-117d3c5bad0c35da1372.html" title="Burning">Burning</a>, <a href="p-d5a78b996fe640a3f918.html" title="Poison">Poison</a> and <a class="mw-redirect" href="p-0c874f581a4534f15f1e.html#Spirit" title="Spirit">Spirit</a> effects. The value of the tick damage is calculated when the source is applied. (Blocking can stop tick damage from occurring in the first place, but it cannot reduce the amount of tick damage)
+</p>
+<ul><li>Against players, once a DoT effect is received, it is too late to mitigate it by drinking a resistance mead.</li>
+<li>Against enemies, tick damage will always show as white, even if they are weak or resistant to the damage.</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Per_second">Per second</h3></div>
+<ul><li>Drowning: 5% of max health per second (rounded up).</li>
+<li>Smoke: 2 damage per second.</li>
+<li>Water: Vulnerable creatures (<a href="p-690671ff0febe865c611.html" title="Surtling">Surtlings</a>) take 10 damage per second while standing in water.</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Fall_damage">Fall damage</h3></div>
+<p>Falling further than 4 meters, you take 6.25 Pure damage per meter; capped at 100 damage. For example; bearing in mind a <a class="mw-redirect" href="p-d057af8097a581c26f5b.html" title="Wood Wall">wall</a> is 2 meters high:
+</p>
+<ul><li><i>Falling from a height on top of 2 walls deals no damage. After that each wall-height causes 12.5 damage.</i></li>
+<li><i>With a player's starting health of 25, falling from the top of 4 wall-heights (8 meters) can be fatal.</i>
+<ul><li><i>The actual damage taken varies on the exact height fallen, i.e; falling exactly 7.9 meters would deal 24 points of damage, and not be fatal.</i></li></ul></li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Other">Other</h3></div>
+<ul><li><a href="p-f5d1dce68f65817c9054.html" title="Bonfire">Bonfire</a>, <a href="p-bf3fac40de1b75b9308f.html" title="Campfire">Campfire</a>, <a href="p-0c8b0dbef56c96272926.html" title="Hearth">Hearth</a>: 10 self-damage when dealing damage.</li>
+<li>Falling out of the map: 99999 damage.</li></ul>
+<div class="mw-heading mw-heading2"><h2 id="en-Creature_resistance_overview">Creature resistance overview</h2></div>
+<p>This table shows the damage multiplier for each damage type for each creature.
+</p><p>The default ordering of creatures is roughly in the intended biome progression and can be resorted back to this using the first column.
+</p>
+<div class="sample-table-scroll"><table class="wikitable sortable mw-collapsible mw-collapsed">
+<tbody><tr>
+<th>
+</th>
+<th>Creature
+</th>
+<th>Blunt
+</th>
+<th>Pierce
+</th>
+<th>Slash
+</th>
+<th>Frost
+</th>
+<th>Lightning
+</th>
+<th>Fire DoT
+</th>
+<th>Poison DoT
+</th>
+<th>Spirit DoT
+</th>
+<th>Pickaxe
+</th></tr>
+<tr>
+<td>1
+</td>
+<td><a href="p-6b27a97151bbf20fa8b0.html" title="Neck">Neck</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>2
+</td>
+<td><a href="p-bf10a5ee1fab92a8db98.html" title="Boar">Boar</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>3
+</td>
+<td><a href="p-ba8af0f4802678da4aed.html" title="Deer">Deer</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>4
+</td>
+<td><a href="p-d1b08118de3909fa8022.html" title="Greyling">Greyling</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>2
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>5
+</td>
+<td><a href="p-a8dc2a05596fceca7a2d.html" title="Eikthyr">Eikthyr</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>6
+</td>
+<td><a href="p-f4709a9359f1def796bc.html" title="Greydwarf">Greydwarf</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>2
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>7
+</td>
+<td><a href="p-ba16540902bdc96359b7.html" title="Greydwarf Brute">Greydwarf Brute</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>2
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>8
+</td>
+<td><a href="p-f3aed59448e859ce563b.html" title="Greydwarf Shaman">Greydwarf Shaman</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>2
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>9
+</td>
+<td><a href="p-ea5f6bdc79b884c397d6.html" title="Skeleton">Skeleton</a>
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>10
+</td>
+<td><a href="p-8d7b2e4882044d922d62.html" title="Rancid Remains">Rancid Remains</a>
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>11
+</td>
+<td><a href="p-df1bc4984a055e10b286.html" title="Ghost">Ghost</a>
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>12
+</td>
+<td><a href="p-9bac25686c53aa859d61.html" title="Troll">Troll</a>
+</td>
+<td>0.5
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>13
+</td>
+<td><a href="p-9bac25686c53aa859d61.html" title="Troll">Troll</a> (head)
+</td>
+<td>1
+</td>
+<td>2
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>13.1
+</td>
+<td><a href="p-8c578ed3e9d5fec6f0f1.html" title="Bear">Bear</a>
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>14
+</td>
+<td><a href="p-ca3280d30e1fda946d1a.html" title="The Elder">The Elder</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>2
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>15
+</td>
+<td><a href="p-cd72f0d36b4bbdd554cf.html" title="Root (creature)">Root (creature)</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>16
+</td>
+<td><a href="p-929a2b40551ead4abd16.html" title="Brenna">Brenna</a>
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>17
+</td>
+<td><a href="p-bb01a030df624241707d.html" title="Serpent">Serpent</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>18
+</td>
+<td><a href="p-55dbdbafa072275bf0d2.html" title="Abomination">Abomination</a>
+</td>
+<td>0.5
+</td>
+<td>0.25
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>19
+</td>
+<td><a href="p-24bafb0b2477f80fafd0.html" title="Blob">Blob</a>
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>1.5
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>20
+</td>
+<td><a href="p-12400ad0838ff0fa04b1.html" title="Oozer">Oozer</a>
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>1.5
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>21
+</td>
+<td><a href="p-3ae89e8a8fe1c4a5aec2.html" title="Draugr">Draugr</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>22
+</td>
+<td><a href="p-b93909b5f83342167cf5.html" title="Draugr Elite">Draugr Elite</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>23
+</td>
+<td><a href="p-e27f3a289ceb40df4796.html" title="Leech">Leech</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>24
+</td>
+<td><a href="p-690671ff0febe865c611.html" title="Surtling">Surtling</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>25
+</td>
+<td><a href="p-c781316c9ff4beaaf1e8.html" title="Wraith">Wraith</a>
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>26
+</td>
+<td><a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a>
+</td>
+<td>1.5
+</td>
+<td>0.25
+</td>
+<td>0.5
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>0.25
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>27
+</td>
+<td><a href="p-ea858afbf837aae71461.html" title="Wolf">Wolf</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>28
+</td>
+<td><a href="p-134c1125a5e029dae10d.html" title="Fenring">Fenring</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>29
+</td>
+<td><a href="p-6aed8812d68d8790c628.html" title="Drake">Drake</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>30
+</td>
+<td><a href="p-1a234744f50cea328de9.html" title="Stone Golem">Stone Golem</a>
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>2
+</td></tr>
+<tr>
+<td>31
+</td>
+<td><a href="p-f2813a523c21f6654fc4.html" title="Bat">Bat</a>
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>32
+</td>
+<td><a href="p-724de16046651b352c27.html" title="Ulv">Ulv</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.25
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>33
+</td>
+<td><a href="p-2787ea728b28387177aa.html" title="Cultist">Cultist</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>34
+</td>
+<td><a href="p-483538232016e17e86f2.html" title="Moder">Moder</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>35
+</td>
+<td><a href="p-914164a5c1139a096548.html" title="Geirrhafa">Geirrhafa</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>36
+</td>
+<td><a href="p-53e9e085b2d11109d84b.html" title="Deathsquito">Deathsquito</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>37
+</td>
+<td><a href="p-be01beb2fff31a66abf2.html" title="Lox">Lox</a>
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>38
+</td>
+<td><a href="p-9d5ce60be807ae13498b.html" title="Fuling">Fuling</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>39
+</td>
+<td><a href="p-440f49671e99164315e3.html" title="Fuling Berserker">Fuling Berserker</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>40
+</td>
+<td><a href="p-12e29dba51068fb584d2.html" title="Fuling Shaman">Fuling Shaman</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>41
+</td>
+<td><a href="p-66b06e996553a4e70d0f.html" title="Growth">Growth</a>
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>42
+</td>
+<td><a href="p-398464ae70d7dad80188.html" title="Yagluth">Yagluth</a>
+</td>
+<td>1
+</td>
+<td>0.25
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>43
+</td>
+<td><a href="p-1e6dc9ac4767bb09dca9.html" title="Zil &amp; Thungr">Zil &amp; Thungr</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>44
+</td>
+<td><a href="p-593a88b963a3d3b392c7.html" title="Hare">Hare</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>45
+</td>
+<td><a href="p-98c95268220bddfe87be.html" title="Tick">Tick</a>
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>46
+</td>
+<td><a href="p-44d657ae1afd1497c503.html" title="Seeker Brood">Seeker Brood</a>
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>47
+</td>
+<td><a href="p-c465c70b79b24e4f7c1b.html" title="Seeker">Seeker</a>
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>48
+</td>
+<td><a href="p-d638ee2f46a405dd2f5c.html" title="Seeker Soldier">Seeker Soldier</a>
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>48.1
+</td>
+<td><a href="p-d638ee2f46a405dd2f5c.html" title="Seeker Soldier">Seeker Soldier</a> (abdomen)
+</td>
+<td>1.5
+</td>
+<td>1.5
+</td>
+<td>1.5
+</td>
+<td>1.5
+</td>
+<td>1.5
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>49
+</td>
+<td><a href="p-f018cb729d59b13d1f4e.html" title="Gjall">Gjall</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>49.1
+</td>
+<td><a href="p-f018cb729d59b13d1f4e.html" title="Gjall">Gjall</a> (eggs)
+</td>
+<td>1
+</td>
+<td>2
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>50
+</td>
+<td><a href="p-dc042adbdecb49bc4de4.html" title="Dvergr Rogue">Dvergr Rogue</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>51
+</td>
+<td><a href="p-dcafb03495b8c8248945.html" title="Dvergr Mage">Dvergr Mage</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>52
+</td>
+<td><a href="p-879687ceb6851d62d031.html" title="The Queen">The Queen</a>
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>53
+</td>
+<td><a href="p-d9750e42f4357d8a8d8a.html" title="Asksvin">Asksvin</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>54
+</td>
+<td><a href="p-0d054f347f0573e05e09.html" title="Bonemaw">Bonemaw</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>55
+</td>
+<td><a href="p-e91837e0deb55a18a7c9.html" title="Charred Warrior">Charred Warrior</a>
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.25
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>55.1
+</td>
+<td>Summoned Charred Warrior
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td><b>1</b>
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>56
+</td>
+<td><a href="p-b88f49c50094a29b876f.html" title="Charred Marksman">Charred Marksman</a>
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.25
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>56.1
+</td>
+<td>Summoned Charred Marksman
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td><b>1</b>
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>57
+</td>
+<td><a href="p-0ec102589cc30ceb4a26.html" title="Charred Warlock">Charred Warlock</a>
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0.25
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>58
+</td>
+<td><a href="p-42b0bedf2737ab2cba46.html" title="Charred Twitcher">Charred Twitcher</a>
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.25
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>58.1
+</td>
+<td>Summoned Charred Twitcher
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.25
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>59
+</td>
+<td><a href="p-73a1e307b3c18141bf70.html" title="Fallen Valkyrie">Fallen Valkyrie</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr>
+<tr>
+<td>60
+</td>
+<td><a href="p-6f0a62e3e3763713fd85.html" title="Lava Blob">Lava Blob</a>
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1.5
+</td>
+<td>0
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>61
+</td>
+<td><a href="p-c4785ba17e12c3aaa027.html" title="Morgen">Morgen</a>
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>62
+</td>
+<td><a href="p-e31ead2508896ed4d27c.html" title="Skugg">Skugg</a>
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>0.5
+</td></tr>
+<tr>
+<td>63
+</td>
+<td><a href="p-871cf7476fc46f9cf444.html" title="Volture">Volture</a>
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>64
+</td>
+<td><a href="p-816e9a6b76bb85197818.html" title="Fader">Fader</a>
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>65
+</td>
+<td><a href="p-98aaa88ba645d6ae6a11.html" title="Lord Reto">Lord Reto</a>
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>1
+</td>
+<td>0.5
+</td>
+<td>0
+</td>
+<td>1.5
+</td>
+<td>
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading2"><h2 id="en-References">References</h2></div>
+<div class="mw-references-wrap"><ol class="references">
+<li id="en-cite_note-:0-1"><span class="mw-cite-backlink">↑ <sup><a href="#en-cite_ref-:0_1-0">1.0</a></sup> <sup><a href="#en-cite_ref-:0_1-1">1.1</a></sup></span> <span class="reference-text">Deals neutral damage but useful when considering other resistances.</span>
+</li>
+</ol></div>
+<div class="sample-table-scroll"><table class="navbox mw-collapsible mw-collapsed" data-collapsetext="Hide" data-expandtext="Show"><tbody><tr class="navbox-title"><th colspan="2" scope="col"><div class="navbox-title-pad navbox-title-padleft navbox-title-padright"><a href="p-edd2287afad9be012dee.html" title="Category:Mechanics">Mechanics</a></div></th></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Guides</th><td class="navbox-list"><div class="hlist"><a href="how-to-play.html" title="How to play">How to play</a> • <a href="p-58565db394dcbacc0ec7.html" title="Progression guide">Progression guide</a> • <a href="p-e70bc5798f8391942dd6.html" title="Aggressive creature strategies">Aggressive creature strategies</a> • <a href="p-19e667dbe36cd74e7c1b.html" title="Passive creature strategies">Passive creature strategies</a> • <a href="p-afc73fba07d15f960daf.html" title="Boss strategies">Boss strategies</a> • <a href="p-a1b6af2b7d7d4bfef86e.html" title="Dedicated servers">Dedicated servers</a> • <a href="p-c3af076f92c5ed8dcb0d.html" title="Troubleshooting">Troubleshooting</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Player</th><td class="navbox-list"><div class="hlist"><a href="p-64aee8c6cbd026d9ea92.html" title="Player">Player</a> • <a href="p-55898449eb74fb2e348d.html" title="Health">Health</a> • <a href="p-cc350ea3393968f7cd7c.html" title="Stamina">Stamina</a> • <a href="p-332e6a85b4285ff8858c.html" title="Eitr">Eitr</a> • <a href="p-2608729251008c9658e7.html" title="Adrenaline">Adrenaline</a> • <a href="p-fcd6fea72de7e6c09ca2.html" title="Death">Death</a> • <a href="p-b8e0a74433a1176e439f.html" title="Forsaken power">Forsaken power</a> • <a href="p-66d0f523a379b2de6f8d.html" title="Skills">Skills</a> • <a href="p-f57eddb4e027139d853f.html" title="Status effects">Status effects</a> • <a href="p-5954d0c13f55417f74fb.html" title="Movement speed">Movement speed</a> • <a href="p-ed1a5a81b8121ad13a87.html" title="Magic">Magic</a> • <a href="p-79cea8ff2ba190bbb1bd.html" title="Fishing">Fishing</a> • <a href="p-e9d7b76127dca2c7d07e.html" title="Riding">Riding</a> • <a href="p-12ff393b061d94ebc405.html" title="Sleeping">Sleeping</a> • <a href="p-25521701981e1ad3ad97.html" title="Emotes">Emotes</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Combat</th><td class="navbox-list"><div class="hlist"><a class="mw-selflink selflink">Damage types</a> • <a href="p-e931ec535f307a5c6add.html" title="Damage mechanics">Damage mechanics</a> • <a href="p-bb0db9f7893c418a1de3.html" title="Knockback">Knockback</a> • <a href="p-aeaeee06ac36a10d7822.html" title="Factions">Factions</a> • <a href="p-4e7c41331a4464ad6e07.html" title="Creature senses">Creature senses</a> • <a href="p-5ac03ba6efdc56d5b7b5.html" title="Creature AI">Creature AI</a> • <a href="p-37015441396c962e2e96.html" title="Drops">Drops</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Spawning</th><td class="navbox-list"><div class="hlist"><a href="p-36ff87e1502da8a1d740.html" title="Spawning mechanics">Spawning mechanics</a> • <a href="p-3a6396c120925fdde8d2.html" title="Spawn points">Spawn points</a> • <a href="p-60958b009a9e0b5dd0b6.html" title="Spawn zones">Spawn zones</a> • <a href="p-8d14f6e72de8f18ab1ee.html" title="Events">Events</a> • <a href="p-47373e84723cece15749.html" title="Creature level">Creature level</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Building</th><td class="navbox-list"><div class="hlist"><a href="building.html" title="Building">Building</a> • <a href="p-99b60de679e8976fc592.html" title="Building stability">Building stability</a> • <a href="p-fa8d84566676ee2ee662.html" title="Cover">Cover</a> • <a href="p-040d4645676f60263590.html" title="Comfort">Comfort</a> • <a href="p-a6d7eeb25f1fe9854a8b.html" title="Player base">Player base</a> • <a href="p-29b52bfcccd01518e9de.html" title="Smoke">Smoke</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">UI</th><td class="navbox-list"><div class="hlist"><a href="p-758f487fe8e9fcc59cec.html" title="Inventory">Inventory</a> • <a class="mw-redirect" href="crafting.html" title="Crafting menu">Crafting menu</a> • <a href="p-be176b0015c424b78e9f.html" title="Map">Map</a> • <a href="p-c40c747ee79e90e16e46.html" title="HUD">HUD</a> • <a href="p-799c269135742a36ae48.html" title="Controls">Controls</a> • <a href="p-2ef15ac2866f955969bd.html" title="Developer console">Developer console</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">World</th><td class="navbox-list"><div class="hlist"><a href="p-9e471951a1b4106e54be.html" title="Environment">Environment</a> • <a href="p-8a27b0cad26bc97071ab.html" title="World Modifiers">World Modifiers</a> • <a href="p-2af8986090a5b9ad83ec.html" title="World seed">World seed</a> • <a href="p-577cfab98de598e55bee.html" title="Global Keys">Global Keys</a> • <a href="p-a53aa373c5e23e694a54.html" title="Zones">Zones</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Misc</th><td class="navbox-list"><div class="hlist"><a href="p-74cf2bc63fe122206c82.html" title="Achievements">Achievements</a> • <a href="p-1964260e2e296c33c3f3.html" title="Seasonal events">Seasonal events</a> • <a href="p-6eb00b4b2614a144d41c.html" title="Music">Music</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Development</th><td class="navbox-list"><div class="hlist"><a href="p-a6df11e706c514f13d6f.html" title="Version history">Version history</a> • <a href="p-4696ff19d71c753885a5.html" title="Future content">Future content</a></div></td></tr></tbody></table></div>
+</div></section><footer data-language="zh">来源：<a href="https://valheim.weirdgloop.org/w/Damage">伤害原文（需联网）</a>；保存修订号 59766。中文为本地译文。<p>原站内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名—非商业性使用—相同方式共享 3.0（CC BY-NC-SA 3.0）</a>许可；<a href="https://meta.weirdgloop.org/w/Licensing">可能适用额外条款</a>。背景与装饰素材来自原版维基，并已保存到本地。</p></footer><footer data-language="en" hidden="">Source: <a href="https://valheim.weirdgloop.org/w/Damage">Damage original (online)</a>; saved revision 59766. Chinese is a local translation. <p>Content on this site is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a>; <a href="https://meta.weirdgloop.org/w/Licensing">additional terms may apply</a>. Backgrounds and decorative assets from the original wiki are stored locally.</p></footer></main></body></html>

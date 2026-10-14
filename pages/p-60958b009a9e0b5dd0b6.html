@@ -1,0 +1,4475 @@
+<!doctype html><html data-wiki-root=".." lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>生成区域 · 英灵神殿离线维基</title><link rel="stylesheet" href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-0.css"><link rel="stylesheet" href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-1.css"><link rel="stylesheet" href="../assets/sample.css"><script defer src="../assets/search.js"></script><script defer src="../assets/sample.js"></script></head><body class="skin-vector"><nav class="sample-toolbar"><strong  data-ui-zh="英灵神殿 · 离线维基" data-ui-en="Valheim · Offline Wiki">英灵神殿 · 离线维基</strong><a href="creatures.html" data-local-page="true" data-ui-zh="生物" data-ui-en="Creatures">生物</a><a href="how-to-play.html" data-local-page="true" data-ui-zh="入门玩法" data-ui-en="How to play">入门玩法</a><a href="biomes.html" data-local-page="true" data-ui-zh="生物群系" data-ui-en="Biomes">生物群系</a><a href="weapons.html" data-local-page="true" data-ui-zh="武器" data-ui-en="Weapons">武器</a><a href="food.html" data-local-page="true" data-ui-zh="食物" data-ui-en="Food">食物</a><a href="armor.html" data-local-page="true" data-ui-zh="护甲" data-ui-en="Armor">护甲</a><a href="crafting.html" data-local-page="true" data-ui-zh="制作" data-ui-en="Crafting">制作</a><a href="building.html" data-local-page="true" data-ui-zh="建材" data-ui-en="Building">建材</a><button id="sample-language" aria-pressed="false">切换英文</button><a href="#sample-toc" data-ui-zh="本页目录" data-ui-en="Contents">本页目录</a><form id="sample-search-form" role="search"><label for=sample-search data-ui-zh="站内搜索" data-ui-en="Site search">站内搜索</label><input id="sample-search" type="search" autocomplete="off" data-placeholder-zh="输入中文或英文" data-placeholder-en="Search in Chinese or English" placeholder="输入中文或英文"><button type=submit data-ui-zh="搜索" data-ui-en="Search">搜索</button></form></nav><main class="sample-shell"><h1 id="sample-title" data-ui-zh="生成区域" data-ui-en="Spawn zones">生成区域</h1><p class="sample-note" data-ui-zh="本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。" data-ui-en="This offline edition supports Chinese and English site search. Links marked ↗ require internet. Chinese uses the supplied glossary; each source revision is shown below.">本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。</p><section id="sample-search-results" aria-live="polite" hidden></section><nav id="sample-toc" class="sample-contents"><div data-language="zh"><a href="#mw-toc-heading">目录</a><a href="#Spawning_logic">生成逻辑</a><a href="#Zones">区域</a><a href="#Spawners">生物生成点</a><a href="#Spawn_attempts">生成尝试</a><a href="#Valid_spawn_position">有效生成位置</a><a href="#Group_size">每组数量</a><a href="#Spawning">生成</a><a href="#List_of_spawners">生成器列表</a><a href="#Example">示例</a></div><div data-language="en" hidden><a href="#en-mw-toc-heading">Contents</a><a href="#en-Spawning_logic">Spawning logic</a><a href="#en-Zones">Zones</a><a href="#en-Spawners">Spawners</a><a href="#en-Spawn_attempts">Spawn attempts</a><a href="#en-Valid_spawn_position">Valid spawn position</a><a href="#en-Group_size">Group size</a><a href="#en-Spawning">Spawning</a><a href="#en-List_of_spawners">List of spawners</a><a href="#en-Example">Example</a></div></nav><section id="sample-zh" data-language="zh"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><p>每个<a href="p-a53aa373c5e23e694a54.html" title="区域">区域</a>都有取决于其生态区的生物生成器。生成器是否激活取决于昼夜、天气和<a href="p-577cfab98de598e55bee.html" title="世界进度标记">世界进度</a>。<a href="p-a6d7eeb25f1fe9854a8b.html" title="玩家基地">玩家基地</a>会阻止生成。</p>
+<div aria-labelledby="mw-toc-heading" class="toc" id="toc" role="navigation"><div class="toctitle" dir="ltr" lang="en"><h2 id="mw-toc-heading">目录</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Spawning_logic"><span class="tocnumber">1</span> <span class="toctext">生成逻辑</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Zones"><span class="tocnumber">1.1</span> <span class="toctext">区域</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Spawners"><span class="tocnumber">1.2</span> <span class="toctext">生物生成点</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Spawn_attempts"><span class="tocnumber">1.3</span> <span class="toctext">生成尝试</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Valid_spawn_position"><span class="tocnumber">1.4</span> <span class="toctext">有效生成位置</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Group_size"><span class="tocnumber">1.5</span> <span class="toctext">每组数量</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Spawning"><span class="tocnumber">1.6</span> <span class="toctext">生成</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#List_of_spawners"><span class="tocnumber">2</span> <span class="toctext">生成器列表</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Example"><span class="tocnumber">3</span> <span class="toctext">示例</span></a></li>
+</ul>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="Spawning_logic">生成逻辑</h2></div>
+<div class="mw-heading mw-heading3"><h3 id="Zones">区域</h3></div>
+<p>地图划分为64x64的方格，0,0位于第一个区域的中心。</p><p>有玩家的区域每4秒处理一次生物生成器。</p>
+<div class="mw-heading mw-heading3"><h3 id="Spawners">生物生成点</h3></div>
+<p>若距上次生成尝试已过去足够时间，生成器就会尝试生成生物。</p><p>尝试次数根据经过的时间计算，上限为生物数量上限。</p><p>例如，<a href="p-ba8af0f4802678da4aed.html" title="鹿">鹿</a>的生成间隔为100秒。经过250秒会尝试生成2次；经过500秒也只尝试4次，因为上限为4。</p>
+<div class="mw-heading mw-heading3"><h3 id="Spawn_attempts">生成尝试</h3></div>
+<p>以下情况下生成尝试失败：
+</p>
+<ul><li>随机判定失败</li>
+<li>尚未击杀所需首领。</li>
+<li>天气不对</li>
+<li>昼夜时段不符。</li>
+<li><a href="p-a53aa373c5e23e694a54.html#Loaded_zones" title="区域">已装入区域</a>中已有过多同类生物，达到生物数量上限。</li>
+<li>尝试20次后仍未找到有效生成位置。</li>
+<li>有效生成位置附近已有同类生物，达到抑制限制。</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Valid_spawn_position">有效生成位置</h3></div>
+<p>从区域内随机选择一名玩家，再在距其40 - 80米处随机选择生成位置。以下情况下位置无效：</p>
+<ul><li>位置的生态区不符</li>
+<li>位置所在区域包含多个生态区，而生成要求完整生态区。</li>
+<li>上方被建筑覆盖</li>
+<li>被挡住以 <a href="p-a6d7eeb25f1fe9854a8b.html" title="玩家基地">玩家基地</a></li>
+<li>错误的高度</li>
+<li>地形坡度不符，默认最大坡度为35度。</li>
+<li>水量不对</li>
+<li>40米内有玩家。</li>
+<li>位置不在森林内，而生成要求森林。森林在世界生成时确定，改造地形或种植树木的数量不会影响它。</li></ul>
+<p>注意：使用<a href="p-c58950e1228e9c14cd2f.html" title="耕地耙">耕地耙</a>、<a href="p-f472cddcaecf53113933.html" title="锄头">锄头</a>或<a href="p-3048886e495cf472ac35.html" title="镐">镐</a>改造地形不会直接阻止生成，但会改变地形高度和坡度。</p>
+<div class="mw-heading mw-heading3"><h3 id="Group_size">每组数量</h3></div>
+<p>生物数量从群体规模范围中随机选择，并受生物数量上限限制。</p><p>只有一只生物时，敌人直接在有效生成位置出现。</p><p>多于一只生物时，游戏会为每只生物尝试寻找两次生成位置，在初始位置周围的圆形范围，即群体半径内随机选择，并按相同规则检查有效性。</p>
+<div class="mw-heading mw-heading3"><h3 id="Spawning">生成</h3></div>
+<p>允许等级提升时，每只生成的生物有10%概率<a class="mw-redirect" href="p-47373e84723cece15749.html" title="生物等级">提升等级</a>，其中1星概率为9%，2星概率为1%。部分生物必须距世界中心足够远才能提升等级。</p><p>若生成器仅在夜间激活，则生成的生物会设为白天消失，只要其<a href="p-a53aa373c5e23e694a54.html" title="区域">区域</a>仍然启用。</p><p>飞行敌人会根据种类在离地一定高度处出现。不过，实际生成位置仍位于地面，可被<a href="p-a6d7eeb25f1fe9854a8b.html" title="玩家基地">玩家基地</a>阻止。</p>
+<div class="mw-heading mw-heading2"><h2 id="List_of_spawners">生成器列表</h2></div>
+<div class="sample-table-scroll"><table class="wikitable">
+<tbody><tr>
+<th><b>生物群系</b>
+</th>
+<th><b>类型</b>
+</th>
+<th><b>天气／全局键</b>
+</th>
+<th><b>时间</b>
+</th>
+<th><b>提升等级</b>
+</th>
+<th><b>其他</b>
+</th>
+<th><b>间隔</b>
+</th>
+<th><b>生物限制</b>
+</th>
+<th><b>机会</b>
+</th>
+<th><b>生成抑制</b>
+</th>
+<th><b>高度</b>
+</th>
+<th><b>每组数量</b>
+</th>
+<th><b>群体半径</b>
+</th></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>
+</td>
+<td><a href="p-bf10a5ee1fab92a8db98.html" title="鬓猪">鬓猪</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>800m
+</td>
+<td>
+</td>
+<td>2分钟 30秒
+</td>
+<td>4
+</td>
+<td>50 %
+</td>
+<td>64m
+</td>
+<td>
+</td>
+<td>1-3
+</td>
+<td>5m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>
+</td>
+<td><a href="p-ba8af0f4802678da4aed.html" title="鹿">鹿</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>是
+</td>
+<td>仅在森林
+</td>
+<td>1分钟
+<p>40秒
+</p>
+</td>
+<td>4
+</td>
+<td>50 %
+</td>
+<td>64m
+</td>
+<td>
+</td>
+<td>1-3
+</td>
+<td>5m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="鱼">Fish1</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>20%，4星
+</td>
+<td>无最大坡度限制，离地0.1米。
+</td>
+<td>2分钟
+</td>
+<td>5
+</td>
+<td>50 %
+</td>
+<td>20m
+</td>
+<td>从-3至-1.5米。
+</td>
+<td>2-6
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="鱼">Fish2</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>20%，4星
+</td>
+<td>无最大坡度限制，离地0.1米。
+</td>
+<td>2分钟
+</td>
+<td>4
+</td>
+<td>50 %
+</td>
+<td>20m
+</td>
+<td>从-5至-2米。
+</td>
+<td>2-4
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-fed12611d2d8c162e347.html" title="无尽之海">无尽之海</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="鱼">Fish3</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>20%，4星
+</td>
+<td>无最大坡度限制，离地0.1米。
+</td>
+<td>2分钟
+</td>
+<td>3
+</td>
+<td>50 %
+</td>
+<td>20m
+</td>
+<td>低于-5米
+</td>
+<td>1-2
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>
+</td>
+<td><a href="p-d1b08118de3909fa8022.html" title="灰宝宝">灰宝宝</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>仅在森林
+</td>
+<td>5分钟
+</td>
+<td>2
+</td>
+<td>50 %
+</td>
+<td>30m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>, <a href="p-fed12611d2d8c162e347.html" title="无尽之海">无尽之海</a>
+</td>
+<td><a href="p-da1da290020b4544141b.html" title="海鸥">海鸥</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>2分钟
+</td>
+<td>5
+</td>
+<td>50 %
+</td>
+<td>51m
+</td>
+<td>从-4至0.2米。
+</td>
+<td>1-2
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>
+</td>
+<td><a href="p-6b27a97151bbf20fa8b0.html" title="蜥蜴精">蜥蜴精</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>800m
+</td>
+<td>最大水 :1米
+</td>
+<td>1分钟
+<p>40秒
+</p>
+</td>
+<td>6
+</td>
+<td>50 %
+</td>
+<td>5m
+</td>
+<td>从−1.5至0.5米。
+</td>
+<td>2-4
+</td>
+<td>5m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>
+</td>
+<td><a href="p-6b27a97151bbf20fa8b0.html" title="蜥蜴精">蜥蜴精</a>
+</td>
+<td>雨、雷暴、小雨
+</td>
+<td>
+</td>
+<td>800m
+</td>
+<td>
+</td>
+<td>30秒
+</td>
+<td>8
+</td>
+<td>100 %
+</td>
+<td>32m
+</td>
+<td>从0至10米。
+</td>
+<td>2-4
+</td>
+<td>5m
+</td></tr>
+<tr>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>
+</td>
+<td><a class="new sample-online" data-online="true" href="https://valheim.weirdgloop.org/w/FireFlies?action=edit&amp;redlink=1" rel="noopener noreferrer" title="萤火虫（页面不存在）">FireFlies</a>
+</td>
+<td>
+</td>
+<td>夜 间
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>20秒
+</td>
+<td>4
+</td>
+<td>100 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="鱼">Fish5</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>20%，4星
+</td>
+<td>无最大坡度限制，离地0.1米。
+</td>
+<td>1分钟
+<p>20秒
+</p>
+</td>
+<td>10
+</td>
+<td>50 %
+</td>
+<td>12m
+</td>
+<td>低于-5米
+</td>
+<td>3-7
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>
+</td>
+<td><a href="p-f4709a9359f1def796bc.html" title="灰矮人">灰矮人</a>
+</td>
+<td>
+</td>
+<td>白天
+</td>
+<td>是
+</td>
+<td>
+</td>
+<td>2分钟
+</td>
+<td>3
+</td>
+<td>30 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>2-3
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>
+</td>
+<td><a href="p-f4709a9359f1def796bc.html" title="灰矮人">灰矮人</a>
+</td>
+<td>
+</td>
+<td>夜 间
+</td>
+<td>是
+</td>
+<td>
+</td>
+<td>1分钟
+</td>
+<td>6
+</td>
+<td>100 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>3-4
+</td>
+<td>10m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>
+</td>
+<td><a href="p-f4709a9359f1def796bc.html" title="灰矮人">灰矮人</a>
+</td>
+<td>已击败赤血灵鹿
+</td>
+<td>夜 间
+</td>
+<td>
+</td>
+<td>仅在森林
+</td>
+<td>2分钟
+</td>
+<td>1
+</td>
+<td>30 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>
+</td>
+<td><a href="p-f4709a9359f1def796bc.html" title="灰矮人">灰矮人</a>
+</td>
+<td>已击败赤血灵鹿
+</td>
+<td>夜 间
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>2分钟
+<p>20秒
+</p>
+</td>
+<td>2
+</td>
+<td>50 %
+</td>
+<td>20m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>
+</td>
+<td><a href="p-ba16540902bdc96359b7.html" title="灰矮人暴徒">灰矮人暴徒</a>
+</td>
+<td>
+</td>
+<td>夜 间
+</td>
+<td>2000m
+</td>
+<td>
+</td>
+<td>2分钟
+</td>
+<td>1
+</td>
+<td>50.6 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>
+</td>
+<td><a href="p-ba16540902bdc96359b7.html" title="灰矮人暴徒">灰矮人暴徒</a>
+</td>
+<td>已击败古树长老
+</td>
+<td>夜 间
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>2分钟
+</td>
+<td>1
+</td>
+<td>50.6 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>
+</td>
+<td><a href="p-f3aed59448e859ce563b.html" title="灰矮人萨满">灰矮人萨满</a>
+</td>
+<td>
+</td>
+<td>夜 间
+</td>
+<td>是
+</td>
+<td>
+</td>
+<td>1分钟
+</td>
+<td>2
+</td>
+<td>50.6 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>
+</td>
+<td><a href="p-f3aed59448e859ce563b.html" title="灰矮人萨满">灰矮人萨满</a>
+</td>
+<td>已击败古树长老
+</td>
+<td>夜 间
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>2分钟
+</td>
+<td>1
+</td>
+<td>50.6 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>
+</td>
+<td><a href="p-9bac25686c53aa859d61.html" title="巨魔">巨魔</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>2000m
+</td>
+<td>
+</td>
+<td>66分钟 40秒
+</td>
+<td>1
+</td>
+<td>5 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>
+</td>
+<td><a href="p-8c578ed3e9d5fec6f0f1.html" title="巨熊">巨熊</a>
+</td>
+<td>
+</td>
+<td>白天
+</td>
+<td>最多1星
+</td>
+<td>
+</td>
+<td>11分钟 40秒
+</td>
+<td>1
+</td>
+<td>30%
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>
+</td>
+<td><a href="p-8c578ed3e9d5fec6f0f1.html" title="巨熊">巨熊</a>
+</td>
+<td>
+</td>
+<td>夜 间
+</td>
+<td>是
+</td>
+<td>
+</td>
+<td>11分钟 40秒
+</td>
+<td>1
+</td>
+<td>40%
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-0410aab66e3f48e5e615.html" title="幽暗沼泽">幽暗沼泽</a> （已满）
+</td>
+<td><a href="p-55dbdbafa072275bf0d2.html" title="邪煞之树">邪煞之树</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>66分钟
+<p>40秒
+</p>
+</td>
+<td>1
+</td>
+<td>35%
+</td>
+<td>30m
+</td>
+<td>从-2至5米。
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-0410aab66e3f48e5e615.html" title="幽暗沼泽">幽暗沼泽</a>
+</td>
+<td><a href="p-24bafb0b2477f80fafd0.html" title="软泥怪">软泥怪</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>8分钟
+<p>20秒
+</p>
+</td>
+<td>2
+</td>
+<td>20 %
+</td>
+<td>20m
+</td>
+<td>高于-1米
+</td>
+<td>1-2
+</td>
+<td>1m
+</td></tr>
+<tr>
+<td><a href="p-0410aab66e3f48e5e615.html" title="幽暗沼泽">幽暗沼泽</a>
+</td>
+<td><a href="p-3ae89e8a8fe1c4a5aec2.html" title="尸鬼">尸鬼</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>是
+</td>
+<td>
+</td>
+<td>2分钟
+</td>
+<td>4
+</td>
+<td>50 %
+</td>
+<td>10m
+</td>
+<td>从-1.5至10米。
+</td>
+<td>1-2
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-156193387bc71c75f505.html" title="凛冽雪山">凛冽雪山</a><sup class="reference" id="cite_ref-1"><a href="#cite_note-1"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></a></sup>, <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td><a href="p-3ae89e8a8fe1c4a5aec2.html" title="尸鬼">尸鬼</a>
+</td>
+<td>雾天，已击败古树长老
+</td>
+<td>夜 间
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>5分钟
+</td>
+<td>1
+</td>
+<td>5 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-0410aab66e3f48e5e615.html" title="幽暗沼泽">幽暗沼泽</a> （已满）
+</td>
+<td><a href="p-b93909b5f83342167cf5.html" title="尸鬼精英">尸鬼精英</a>
+</td>
+<td>
+</td>
+<td>夜 间
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>5分钟
+</td>
+<td>1
+</td>
+<td>5 %
+</td>
+<td>15m
+</td>
+<td>从-1.5至10米。
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-0410aab66e3f48e5e615.html" title="幽暗沼泽">幽暗沼泽</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="鱼">Fish6</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>20%，4星
+</td>
+<td>无最大坡度限制，离地0.1米。
+</td>
+<td>1分钟
+<p>20秒
+</p>
+</td>
+<td>10
+</td>
+<td>60 %
+</td>
+<td>10m
+</td>
+<td>低于-5米
+</td>
+<td>3-7
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-0410aab66e3f48e5e615.html" title="幽暗沼泽">幽暗沼泽</a>
+</td>
+<td><a href="p-e27f3a289ceb40df4796.html" title="蚂蟥">蚂蟥</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>是
+</td>
+<td>
+</td>
+<td>3分钟
+<p>20秒
+</p>
+</td>
+<td>10
+</td>
+<td>50 %
+</td>
+<td>5m
+</td>
+<td>从-3至-0.1米。
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-0410aab66e3f48e5e615.html" title="幽暗沼泽">幽暗沼泽</a>
+</td>
+<td><a href="p-12400ad0838ff0fa04b1.html" title="大型软泥怪">大型软泥怪</a>
+</td>
+<td>
+</td>
+<td>夜 间
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>2分钟
+</td>
+<td>1
+</td>
+<td>20 %
+</td>
+<td>20m
+</td>
+<td>高于-1米
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-0410aab66e3f48e5e615.html" title="幽暗沼泽">幽暗沼泽</a>
+</td>
+<td><a href="p-ea5f6bdc79b884c397d6.html" title="骷髅怪">骷髅怪</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>是
+</td>
+<td>
+</td>
+<td>6分钟
+<p>40秒
+</p>
+</td>
+<td>4
+</td>
+<td>25 %
+</td>
+<td>15m
+</td>
+<td>从-1至10米。
+</td>
+<td>2-4
+</td>
+<td>4m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-0410aab66e3f48e5e615.html" title="幽暗沼泽">幽暗沼泽</a>, <a href="p-156193387bc71c75f505.html" title="凛冽雪山">凛冽雪山</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td><a href="p-ea5f6bdc79b884c397d6.html" title="骷髅怪">骷髅怪</a>
+</td>
+<td>已击败邪骨恶灵
+</td>
+<td>夜 间
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>5分钟
+</td>
+<td>3
+</td>
+<td>25 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>1-3
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-0410aab66e3f48e5e615.html" title="幽暗沼泽">幽暗沼泽</a>
+</td>
+<td><a href="p-c781316c9ff4beaaf1e8.html" title="鬼魅">鬼魅</a>
+</td>
+<td>
+</td>
+<td>夜 间
+</td>
+<td>
+</td>
+<td>离地50米
+</td>
+<td>3分钟
+<p>20秒
+</p>
+</td>
+<td>2
+</td>
+<td>30 %
+</td>
+<td>20m
+</td>
+<td>高于-2米
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-156193387bc71c75f505.html" title="凛冽雪山">凛冽雪山</a> （已满）
+</td>
+<td><a href="p-134c1125a5e029dae10d.html" title="芬里">芬里</a>
+</td>
+<td>
+</td>
+<td>夜 间
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>6分钟
+<p>40秒
+</p>
+</td>
+<td>2
+</td>
+<td>20 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-156193387bc71c75f505.html" title="凛冽雪山">凛冽雪山</a> （已满）
+</td>
+<td><a href="p-1a234744f50cea328de9.html" title="石魔">石魔</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>2分钟
+</td>
+<td>1
+</td>
+<td>25.6 %
+</td>
+<td>10m
+</td>
+<td>高于120米
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-156193387bc71c75f505.html" title="凛冽雪山">凛冽雪山</a> （已满）
+</td>
+<td><a href="p-6aed8812d68d8790c628.html" title="霜龙">霜龙</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>最大坡度66度，离地10米。
+</td>
+<td>2分钟
+</td>
+<td>2
+</td>
+<td>25.6 %
+</td>
+<td>10m
+</td>
+<td>高于100米
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-156193387bc71c75f505.html" title="凛冽雪山">凛冽雪山</a> （已满）
+</td>
+<td><a href="p-ea858afbf837aae71461.html" title="狼">狼</a>
+</td>
+<td>
+</td>
+<td>夜 间
+</td>
+<td>是
+</td>
+<td>最大坡度45度
+</td>
+<td>2分钟
+</td>
+<td>6
+</td>
+<td>50 %
+</td>
+<td>30m
+</td>
+<td>
+</td>
+<td>2-4
+</td>
+<td>5m
+</td></tr>
+<tr>
+<td><a href="p-156193387bc71c75f505.html" title="凛冽雪山">凛冽雪山</a> （已满）
+</td>
+<td><a href="p-ea858afbf837aae71461.html" title="狼">狼</a>
+</td>
+<td>
+</td>
+<td>白天
+</td>
+<td>
+</td>
+<td>最大坡度45度
+</td>
+<td>6分钟
+<p>40秒
+</p>
+</td>
+<td>3
+</td>
+<td>25.6 %
+</td>
+<td>30m
+</td>
+<td>
+</td>
+<td>1-2
+</td>
+<td>5m
+</td></tr>
+<tr>
+<td><a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td><a href="p-53e9e085b2d11109d84b.html" title="杀人蜂">杀人蜂</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>无最大坡度限制，离地1米。
+</td>
+<td>8分钟
+<p>20秒
+</p>
+</td>
+<td>3
+</td>
+<td>20 %
+</td>
+<td>30m
+</td>
+<td>高于1米
+</td>
+<td>1-2
+</td>
+<td>10m
+</td></tr>
+<tr>
+<td><a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="鱼">Fish7</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>20%，4星
+</td>
+<td>无最大坡度限制，离地0.1米。
+</td>
+<td>1分钟
+<p>20秒
+</p>
+</td>
+<td>7
+</td>
+<td>60 %
+</td>
+<td>20m
+</td>
+<td>低于-5米
+</td>
+<td>3-6
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td><a href="p-9d5ce60be807ae13498b.html" title="丑地精">丑地精</a>
+</td>
+<td>
+</td>
+<td>白天
+</td>
+<td>是
+</td>
+<td>
+</td>
+<td>16分钟
+<p>40秒
+</p>
+</td>
+<td>2
+</td>
+<td>33 %
+</td>
+<td>30m
+</td>
+<td>
+</td>
+<td>1-2
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td><a href="p-9d5ce60be807ae13498b.html" title="丑地精">丑地精</a>
+</td>
+<td>
+</td>
+<td>夜 间
+</td>
+<td>是
+</td>
+<td>
+</td>
+<td>1分钟
+</td>
+<td>5
+</td>
+<td>33 %
+</td>
+<td>30m
+</td>
+<td>
+</td>
+<td>3-5
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-156193387bc71c75f505.html" title="凛冽雪山">凛冽雪山</a>
+</td>
+<td><a href="p-9d5ce60be807ae13498b.html" title="丑地精">丑地精</a>
+</td>
+<td>已击败亚格鲁斯
+</td>
+<td>夜 间
+</td>
+<td>
+</td>
+<td>追猎模式
+</td>
+<td>50分钟
+</td>
+<td>3
+</td>
+<td>5 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>3
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td><a href="p-be01beb2fff31a66abf2.html" title="平原牦牛">平原牦牛</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>16分钟
+<p>40秒
+</p>
+</td>
+<td>3
+</td>
+<td>5 %
+</td>
+<td>100m
+</td>
+<td>高于1米
+</td>
+<td>2-3
+</td>
+<td>10m
+</td></tr>
+<tr>
+<td><a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td><a href="p-9c02806a24a7117538a1.html" title="恶骨">恶骨</a>
+</td>
+<td>
+</td>
+<td>夜 间
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>66分钟 40秒
+</td>
+<td>1
+</td>
+<td>25 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-803ba5ee8e70c4ee75f7.html" title="迷雾之地">迷雾之地</a> （已满）
+</td>
+<td><a href="p-dc042adbdecb49bc4de4.html" title="矮人刺客">矮人刺客</a>
+</td>
+<td>
+</td>
+<td>白天
+</td>
+<td>是
+</td>
+<td>
+</td>
+<td>16分钟
+<p>40秒
+</p>
+</td>
+<td>2
+</td>
+<td>30 %
+</td>
+<td>30m
+</td>
+<td>
+</td>
+<td>1-2
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-803ba5ee8e70c4ee75f7.html" title="迷雾之地">迷雾之地</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="鱼">Fish9</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>20%，4星
+</td>
+<td>无最大坡度限制，离地0.1米。
+</td>
+<td>1分钟
+</td>
+<td>5
+</td>
+<td>50 %
+</td>
+<td>12m
+</td>
+<td>低于-5米
+</td>
+<td>2-7
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-803ba5ee8e70c4ee75f7.html" title="迷雾之地">迷雾之地</a>, <a href="p-fed12611d2d8c162e347.html" title="无尽之海">无尽之海</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="鱼">Fish12</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>20%，4星
+</td>
+<td>无最大坡度限制，离地0.1米。
+</td>
+<td>1分钟
+<p>20秒
+</p>
+</td>
+<td>8
+</td>
+<td>40 %
+</td>
+<td>12m
+</td>
+<td>低于-6米
+</td>
+<td>2-5
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-803ba5ee8e70c4ee75f7.html" title="迷雾之地">迷雾之地</a> （已满）
+</td>
+<td><a href="p-f018cb729d59b13d1f4e.html" title="加尔">加尔</a>
+</td>
+<td>
+</td>
+<td>白天
+</td>
+<td>
+</td>
+<td>无最大坡度限制，离地6米。
+</td>
+<td>66分钟
+<p>40秒
+</p>
+</td>
+<td>1
+</td>
+<td>10 %
+</td>
+<td>50m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-803ba5ee8e70c4ee75f7.html" title="迷雾之地">迷雾之地</a> （已满）
+</td>
+<td><a href="p-f018cb729d59b13d1f4e.html" title="加尔">加尔</a>
+</td>
+<td>
+</td>
+<td>夜 间
+</td>
+<td>是
+</td>
+<td>无最大坡度限制，离地6米。
+</td>
+<td>66分钟
+<p>40秒
+</p>
+</td>
+<td>1
+</td>
+<td>10 %
+</td>
+<td>50m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-803ba5ee8e70c4ee75f7.html" title="迷雾之地">迷雾之地</a>
+</td>
+<td><a href="p-593a88b963a3d3b392c7.html" title="野兔">野兔</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>是
+</td>
+<td>
+</td>
+<td>1分钟
+</td>
+<td>10
+</td>
+<td>50 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>1-3
+</td>
+<td>6m
+</td></tr>
+<tr>
+<td><a href="p-803ba5ee8e70c4ee75f7.html" title="迷雾之地">迷雾之地</a> （已满）
+</td>
+<td><a href="p-c465c70b79b24e4f7c1b.html" title="邪蛛探索者">邪蛛探索者</a>
+</td>
+<td>
+</td>
+<td>白天
+</td>
+<td>1星
+</td>
+<td>
+</td>
+<td>3分钟
+<p>20秒
+</p>
+</td>
+<td>2
+</td>
+<td>30 %
+</td>
+<td>30m
+</td>
+<td>
+</td>
+<td>2-3
+</td>
+<td>6m
+</td></tr>
+<tr>
+<td><a href="p-803ba5ee8e70c4ee75f7.html" title="迷雾之地">迷雾之地</a> （已满）
+</td>
+<td><a href="p-c465c70b79b24e4f7c1b.html" title="邪蛛探索者">邪蛛探索者</a>
+</td>
+<td>
+</td>
+<td>夜 间
+</td>
+<td>是
+</td>
+<td>
+</td>
+<td>5分钟
+</td>
+<td>6
+</td>
+<td>20 %
+</td>
+<td>40m
+</td>
+<td>
+</td>
+<td>2-3
+</td>
+<td>6m
+</td></tr>
+<tr>
+<td><a href="p-803ba5ee8e70c4ee75f7.html" title="迷雾之地">迷雾之地</a> （已满）
+</td>
+<td><a href="p-d638ee2f46a405dd2f5c.html" title="邪蛛士兵">邪蛛士兵</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>是
+</td>
+<td>
+</td>
+<td>66分钟
+<p>40秒
+</p>
+</td>
+<td>1
+</td>
+<td>10 %
+</td>
+<td>40m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-fed12611d2d8c162e347.html" title="无尽之海">无尽之海</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="鱼">Fish8</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>20%，4星
+</td>
+<td>无最大坡度限制，离地0.1米。
+</td>
+<td>1分钟
+<p>20秒
+</p>
+</td>
+<td>10
+</td>
+<td>50 %
+</td>
+<td>12m
+</td>
+<td>低于-5米
+</td>
+<td>2-7
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-fed12611d2d8c162e347.html" title="无尽之海">无尽之海</a> （已满）
+</td>
+<td><a href="p-bb01a030df624241707d.html" title="蛟龙">蛟龙</a>
+</td>
+<td>
+</td>
+<td>夜 间
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>16分钟
+<p>40秒
+</p>
+</td>
+<td>1
+</td>
+<td>5 %
+</td>
+<td>50m
+</td>
+<td>低于-5米
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-fed12611d2d8c162e347.html" title="无尽之海">无尽之海</a> （已满）
+</td>
+<td><a href="p-bb01a030df624241707d.html" title="蛟龙">蛟龙</a>
+</td>
+<td>暴风雨,雨
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>16分钟
+<p>40秒
+</p>
+</td>
+<td>1
+</td>
+<td>5 %
+</td>
+<td>50m
+</td>
+<td>低于-5米
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="灰烬之地">灰烬之地</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="鱼">Fish11</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>15%，4星
+</td>
+<td>无最大坡度限制，离地0.1米。
+</td>
+<td>1分钟
+<p>20秒
+</p>
+</td>
+<td>10
+</td>
+<td>60 %
+</td>
+<td>8m
+</td>
+<td>低于-5米
+</td>
+<td>3-7
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="灰烬之地">灰烬之地</a>
+</td>
+<td><a href="p-0d054f347f0573e05e09.html" title="骨骺蛟龙">骨骺蛟龙</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>16分钟
+<p>40秒
+</p>
+</td>
+<td>1
+</td>
+<td>20 %
+</td>
+<td>50m
+</td>
+<td>低于-5米
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="灰烬之地">灰烬之地</a>
+</td>
+<td><a href="p-73a1e307b3c18141bf70.html" title="堕落女武神">堕落女武神</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>生成范围50 - 80米
+</td>
+<td>66分钟
+<p>40秒
+</p>
+</td>
+<td>1
+</td>
+<td>20 %
+</td>
+<td>15m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="灰烬之地">灰烬之地</a>
+</td>
+<td><a href="p-c4785ba17e12c3aaa027.html" title="摩根">摩根</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>生成范围50 - 80米
+</td>
+<td>66分钟
+<p>40秒
+</p>
+</td>
+<td>1
+</td>
+<td>10 %
+</td>
+<td>15m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="灰烬之地">灰烬之地</a>
+</td>
+<td><a href="p-d9750e42f4357d8a8d8a.html" title="灰烬刚鬣">灰烬刚鬣</a>
+</td>
+<td>
+</td>
+<td>白天
+</td>
+<td>最多1星
+</td>
+<td>生成范围50 - 80米
+</td>
+<td>3分钟 40秒
+</td>
+<td>2
+</td>
+<td>30 %
+</td>
+<td>25m
+</td>
+<td>
+</td>
+<td>1-3
+</td>
+<td>10m
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="灰烬之地">灰烬之地</a>
+</td>
+<td><a href="p-d9750e42f4357d8a8d8a.html" title="灰烬刚鬣">灰烬刚鬣</a>
+</td>
+<td>
+</td>
+<td>夜 间
+</td>
+<td>是
+</td>
+<td>
+</td>
+<td>3分钟 40秒
+</td>
+<td>3
+</td>
+<td>45 %
+</td>
+<td>20m
+</td>
+<td>
+</td>
+<td>1-3
+</td>
+<td>10m
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="灰烬之地">灰烬之地</a>
+</td>
+<td><a href="p-871cf7476fc46f9cf444.html" title="灰烬之鹫">灰烬之鹫</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>生成范围50 - 80米
+</td>
+<td>3分钟
+</td>
+<td>3
+</td>
+<td>20 %
+</td>
+<td>10m
+</td>
+<td>从-20米至-2米。
+</td>
+<td>1-2
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="灰烬之地">灰烬之地</a>
+</td>
+<td><a href="p-42b0bedf2737ab2cba46.html" title="灰烬僵尸">灰烬僵尸</a>
+</td>
+<td>
+</td>
+<td>白天
+</td>
+<td>最多1星
+</td>
+<td>生成范围50 - 80米
+</td>
+<td>3分钟 20秒
+</td>
+<td>3
+</td>
+<td>40 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>2-4
+</td>
+<td>15m
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="灰烬之地">灰烬之地</a>
+</td>
+<td><a href="p-42b0bedf2737ab2cba46.html" title="灰烬僵尸">灰烬僵尸</a>
+</td>
+<td>
+</td>
+<td>夜 间
+</td>
+<td>是
+</td>
+<td>生成范围50 - 80米
+</td>
+<td>2分钟 40秒
+</td>
+<td>4
+</td>
+<td>45 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>3-6
+</td>
+<td>15m
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="灰烬之地">灰烬之地</a>
+</td>
+<td><a href="p-b88f49c50094a29b876f.html" title="灰烬射手">灰烬射手</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>最多1星
+</td>
+<td>生成范围50 - 80米
+</td>
+<td>5分钟 20秒
+</td>
+<td>4
+</td>
+<td>35 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>1-2
+</td>
+<td>15m
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="灰烬之地">灰烬之地</a>
+</td>
+<td><a href="p-e91837e0deb55a18a7c9.html" title="灰烬战士">灰烬战士</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>是
+</td>
+<td>生成范围50 - 80米
+</td>
+<td>5分钟 20秒
+</td>
+<td>4
+</td>
+<td>35 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>1-2
+</td>
+<td>15m
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="灰烬之地">灰烬之地</a>
+</td>
+<td><a href="p-6f0a62e3e3763713fd85.html" title="岩浆软泥怪">岩浆软泥怪</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>生成范围50 - 80米
+</td>
+<td>4分钟 20秒
+</td>
+<td>2
+</td>
+<td>25 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>1-2
+</td>
+<td>10m
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="灰烬之地">灰烬之地</a>
+</td>
+<td><a href="p-dc042adbdecb49bc4de4.html" title="矮人刺客">矮人刺客</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>是
+</td>
+<td>生成范围50 - 80米
+</td>
+<td>16分钟 40秒
+</td>
+<td>2
+</td>
+<td>10 %
+</td>
+<td>30m
+</td>
+<td>
+</td>
+<td>1-2
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-aeea3b383fcf4f2f3c67.html" title="极北之地">极北之地</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="鱼">Fish10</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>15%，4星
+</td>
+<td>无最大坡度限制，离地0.1米。
+</td>
+<td>1分钟
+<p>10秒
+</p>
+</td>
+<td>10
+</td>
+<td>60 %
+</td>
+<td>12m
+</td>
+<td>低于-5米
+</td>
+<td>3-10
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td><a class="mw-redirect" href="p-849ea0d7dafd6be1e0b4.html" title="奥丁">奥丁</a>
+</td>
+<td>已击败古树长老
+</td>
+<td>夜 间
+</td>
+<td>
+</td>
+<td>始终在35米外生成
+</td>
+<td>50分钟
+</td>
+<td>1
+</td>
+<td>10 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-156193387bc71c75f505.html" title="凛冽雪山">凛冽雪山</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td><a href="p-c465c70b79b24e4f7c1b.html" title="邪蛛探索者">邪蛛探索者</a>
+</td>
+<td>已击败蛊虫之后
+</td>
+<td>夜 间
+</td>
+<td>
+</td>
+<td>追猎模式
+</td>
+<td>50分钟
+</td>
+<td>2
+</td>
+<td>5 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>3
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-156193387bc71c75f505.html" title="凛冽雪山">凛冽雪山</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td><a href="p-44d657ae1afd1497c503.html" title="邪蛛幼雏">邪蛛幼雏</a>
+</td>
+<td>已击败蛊虫之后
+</td>
+<td>夜 间
+</td>
+<td>
+</td>
+<td>追猎模式
+</td>
+<td>50分钟
+</td>
+<td>5
+</td>
+<td>5 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>3
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-156193387bc71c75f505.html" title="凛冽雪山">凛冽雪山</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td><a href="p-98c95268220bddfe87be.html" title="壁虱幼虫">壁虱幼虫</a>
+</td>
+<td>已击败蛊虫之后
+</td>
+<td>夜 间
+</td>
+<td>是
+</td>
+<td>追猎模式
+</td>
+<td>50分钟
+</td>
+<td>4
+</td>
+<td>5 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>3
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-156193387bc71c75f505.html" title="凛冽雪山">凛冽雪山</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td><a href="p-e91837e0deb55a18a7c9.html" title="灰烬战士">灰烬战士</a>
+</td>
+<td>已击败青焰龙王
+</td>
+<td>夜 间
+</td>
+<td>
+</td>
+<td>追猎模式
+</td>
+<td>50分钟
+</td>
+<td>3
+</td>
+<td>5 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>1-3
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-156193387bc71c75f505.html" title="凛冽雪山">凛冽雪山</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td><a href="p-b88f49c50094a29b876f.html" title="灰烬射手">灰烬射手</a>
+</td>
+<td>已击败青焰龙王
+</td>
+<td>夜 间
+</td>
+<td>
+</td>
+<td>追猎模式
+</td>
+<td>50分钟
+</td>
+<td>3
+</td>
+<td>5 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>1-3
+</td>
+<td>3m
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading2"><h2 id="Example">示例</h2></div>
+<p>例如，蛟龙有两个生成器，仅当区域位于海洋生态区时生效。第一个只在夜间生效，第二个只在暴风雨中生效。因此，夜间暴风雨中两者同时激活，是寻找蛟龙的最佳时机。</p><p>蛟龙生成器每1000秒工作一次，成功概率仅5%。若一直在同一地点等待，可能需要数小时才生成蛟龙。若持续进入新区域，则可根据速度轻易做到每12-16秒获得一次生成尝试，但前提是1000秒内未曾到访该区域。</p><p>蛟龙最远可在80米外生成，因此最好待在海洋中央。若靠近其他生态区，生成可能因生态区不符而失败。蛟龙永远不会生成有星级的变种，因为其最高等级为1。</p><p>因暴风雨生成的蛟龙，即使在夜间生成，也不会在清晨消失，但无法判断它来自哪个生成器。</p><p>一条蛟龙会抑制50米内其他蛟龙的生成。由于最远可在80米外生成，仍可能出现更多蛟龙，但概率大幅降低。蛟龙可在50米内察觉玩家，因此大多数时候不会刚生成就发起攻击。</p>
+<div class="sample-table-scroll"><table class="navbox mw-collapsible mw-collapsed" data-collapsetext="Hide" data-expandtext="Show"><tbody><tr class="navbox-title"><th colspan="2" scope="col"><div class="navbox-title-pad navbox-title-padleft navbox-title-padright"><a href="p-edd2287afad9be012dee.html" title="分类：游戏机制">机制</a></div></th></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">攻略</th><td class="navbox-list"><div class="hlist"><a href="how-to-play.html" title="入门玩法">入门玩法</a> • <a href="p-58565db394dcbacc0ec7.html" title="流程攻略">流程攻略</a> • <a href="p-e70bc5798f8391942dd6.html" title="敌对生物攻略">敌对生物攻略</a> • <a href="p-19e667dbe36cd74e7c1b.html" title="被动生物攻略">被动生物攻略</a> • <a href="p-afc73fba07d15f960daf.html" title="首领攻略">首领攻略</a> • <a href="p-a1b6af2b7d7d4bfef86e.html" title="专用服务器">专用服务器</a> • <a href="p-c3af076f92c5ed8dcb0d.html" title="故障排查">故障排查</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">玩家</th><td class="navbox-list"><div class="hlist"><a href="p-64aee8c6cbd026d9ea92.html" title="玩家">玩家</a> • <a href="p-55898449eb74fb2e348d.html" title="生命值">生命值</a> • <a href="p-cc350ea3393968f7cd7c.html" title="耐力">耐力</a> • <a href="p-332e6a85b4285ff8858c.html" title="埃达之能">埃达之能</a> • <a href="p-2608729251008c9658e7.html" title="血怒">血怒</a> • <a href="p-fcd6fea72de7e6c09ca2.html" title="死亡">死亡</a> • <a href="p-b8e0a74433a1176e439f.html" title="遗弃者能力">遗弃者能力</a> • <a href="p-66d0f523a379b2de6f8d.html" title="技能">技能</a> • <a href="p-f57eddb4e027139d853f.html" title="状态效果">状态效果</a> • <a href="p-5954d0c13f55417f74fb.html" title="移动速度">移动速度</a> • <a href="p-ed1a5a81b8121ad13a87.html" title="魔法">魔法</a> • <a href="p-79cea8ff2ba190bbb1bd.html" title="钓鱼">钓鱼</a> • <a href="p-e9d7b76127dca2c7d07e.html" title="乘骑">乘骑</a> • <a href="p-12ff393b061d94ebc405.html" title="睡眠">睡眠</a> • <a href="p-25521701981e1ad3ad97.html" title="表情">表情</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">战斗</th><td class="navbox-list"><div class="hlist"><a href="p-0c874f581a4534f15f1e.html" title="伤害">伤害类型</a> • <a href="p-e931ec535f307a5c6add.html" title="伤害机制">伤害机制</a> • <a href="p-bb0db9f7893c418a1de3.html" title="击退">击退</a> • <a href="p-aeaeee06ac36a10d7822.html" title="阵营">阵营</a> • <a href="p-4e7c41331a4464ad6e07.html" title="生物感知">生物感知</a> • <a href="p-5ac03ba6efdc56d5b7b5.html" title="生物行为">生物行为</a> • <a href="p-37015441396c962e2e96.html" title="掉落物">掉落物</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">生成</th><td class="navbox-list"><div class="hlist"><a href="p-36ff87e1502da8a1d740.html" title="生成机制">生成机制</a> • <a href="p-3a6396c120925fdde8d2.html" title="生成点">生成点</a> • <a class="mw-selflink selflink">生成区域</a> • <a href="p-8d14f6e72de8f18ab1ee.html" title="事件">事件</a> • <a href="p-47373e84723cece15749.html" title="生物等级">生物等级</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">建材</th><td class="navbox-list"><div class="hlist"><a href="building.html" title="建材">建材</a> • <a href="p-99b60de679e8976fc592.html" title="建筑稳定性">建筑稳定性</a> • <a href="p-fa8d84566676ee2ee662.html" title="遮蔽">遮蔽</a> • <a href="p-040d4645676f60263590.html" title="舒适度">舒适度</a> • <a href="p-a6d7eeb25f1fe9854a8b.html" title="玩家基地">玩家基地</a> • <a href="p-29b52bfcccd01518e9de.html" title="烟雾">烟雾</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">界面</th><td class="navbox-list"><div class="hlist"><a href="p-758f487fe8e9fcc59cec.html" title="物品栏">物品栏</a> • <a class="mw-redirect" href="crafting.html" title="制作菜单">制作菜单</a> • <a href="p-be176b0015c424b78e9f.html" title="地图">地图</a> • <a href="p-c40c747ee79e90e16e46.html" title="状态界面">状态界面</a> • <a href="p-799c269135742a36ae48.html" title="控制">控制</a> • <a href="p-2ef15ac2866f955969bd.html" title="开发者控制台">开发者控制台</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">世界</th><td class="navbox-list"><div class="hlist"><a href="p-9e471951a1b4106e54be.html" title="环境">环境</a> • <a href="p-8a27b0cad26bc97071ab.html" title="世界修改器">世界修改器</a> • <a href="p-2af8986090a5b9ad83ec.html" title="世界种子">世界种子</a> • <a href="p-577cfab98de598e55bee.html" title="世界进度标记">世界进度标记</a> • <a href="p-a53aa373c5e23e694a54.html" title="区域">区域</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">杂项</th><td class="navbox-list"><div class="hlist"><a href="p-74cf2bc63fe122206c82.html" title="成就">成就</a> • <a href="p-1964260e2e296c33c3f3.html" title="季节活动">季节活动</a> • <a href="p-6eb00b4b2614a144d41c.html" title="音乐">音乐</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">开发</th><td class="navbox-list"><div class="hlist"><a href="p-a6df11e706c514f13d6f.html" title="版本历史">版本历史</a> • <a href="p-4696ff19d71c753885a5.html" title="未来内容">未来内容</a></div></td></tr></tbody></table></div>
+<p><br/>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><a href="#cite_ref-1">↑</a>：若玩家位于相邻且有雾天气的生态区，技术上也可能在凛冽雪山发生。</li>
+</ol></div>
+
+
+
+</div></section><section id="sample-en" data-language="en" hidden><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><p>Each <a href="p-a53aa373c5e23e694a54.html" title="Zones">zone</a> has its own spawners that depend on its biome. Spawners are active depending on the time of day, weather and <a href="p-577cfab98de598e55bee.html" title="Global Keys">world progression</a>. Spawns are prevented with <a href="p-a6d7eeb25f1fe9854a8b.html" title="Player base">player bases</a>.
+</p>
+<div aria-labelledby="mw-toc-heading" class="toc" id="en-toc" role="navigation"><div class="toctitle" dir="ltr" lang="en"><h2 id="en-mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#en-Spawning_logic"><span class="tocnumber">1</span> <span class="toctext">Spawning logic</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#en-Zones"><span class="tocnumber">1.1</span> <span class="toctext">Zones</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#en-Spawners"><span class="tocnumber">1.2</span> <span class="toctext">Spawners</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#en-Spawn_attempts"><span class="tocnumber">1.3</span> <span class="toctext">Spawn attempts</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#en-Valid_spawn_position"><span class="tocnumber">1.4</span> <span class="toctext">Valid spawn position</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#en-Group_size"><span class="tocnumber">1.5</span> <span class="toctext">Group size</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#en-Spawning"><span class="tocnumber">1.6</span> <span class="toctext">Spawning</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#en-List_of_spawners"><span class="tocnumber">2</span> <span class="toctext">List of spawners</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#en-Example"><span class="tocnumber">3</span> <span class="toctext">Example</span></a></li>
+</ul>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="en-Spawning_logic">Spawning logic</h2></div>
+<div class="mw-heading mw-heading3"><h3 id="en-Zones">Zones</h3></div>
+<p>The map is split up into 64x64 grid squares with 0,0 being in the center of the first zone. 
+</p><p>Every 4 seconds, zones with a player process their spawners.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Spawners">Spawners</h3></div>
+<p>Each spawner tries spawning if enough time has passed since its previous spawning attempt.
+</p><p>Amount of tries is calculated from the elapsed time and capped at creature limit.
+</p><p>For example, <a href="p-ba8af0f4802678da4aed.html" title="Deer">Deer</a> have a spawn interval of 100 seconds. After 250 seconds, 2 spawn attempts would be made. After 500 seconds, only 4 spawn attempts would be made because the limit is 4.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Spawn_attempts">Spawn attempts</h3></div>
+<p>A spawn attempt fails if:
+</p>
+<ul><li>The random roll fails</li>
+<li>Required boss has not been killed</li>
+<li>Wrong weather</li>
+<li>Wrong time of the day</li>
+<li>Too many same creatures already exist in <a href="p-a53aa373c5e23e694a54.html#Loaded_zones" title="Zones">loaded zones</a> (creature limit)</li>
+<li>Valid spawn position is not found after 20 attempts</li>
+<li>There is already the same creature too close to the valid spawn position (suppression limit).</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Valid_spawn_position">Valid spawn position</h3></div>
+<p>A spawn position is randomly selected between 40 - 80 meters of a random player in the zone. Spawn position is not valid if:
+</p>
+<ul><li>Position has a wrong biome</li>
+<li>The zone of the position has multiple biomes (if a full biome is required)</li>
+<li>Covered by a structure</li>
+<li>Blocked by <a href="p-a6d7eeb25f1fe9854a8b.html" title="Player base">player base</a></li>
+<li>Wrong altitude</li>
+<li>Wrong terrain angle (max tilt 35 degrees by default)</li>
+<li>Wrong amount of water</li>
+<li>A player exists within 40 meters</li>
+<li>Position is not inside a forest (if a forest is required). Forests are determined on world generation, terraforming or the amount of planted trees have no effect.</li></ul>
+<p>Note: Terraforming with a <a href="p-c58950e1228e9c14cd2f.html" title="Cultivator">Cultivator</a>, <a href="p-f472cddcaecf53113933.html" title="Hoe">Hoe</a> or <a href="p-3048886e495cf472ac35.html" title="Pickaxes">Pickaxes</a> does not directly block spawning but affects terrain altitude and angle.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Group_size">Group size</h3></div>
+<p>The amount of creatures is randomly selected from the group size. The amount is capped at creature limit.
+</p><p>With only one creature, the enemy is spawned at the valid spawn position.
+</p><p>With more than one creature, the game tries finding a spawn position two times for each creature. The spawn position is randomly selected from a circle around the initial spawn position (group radius). Same rules apply for determining the validity.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Spawning">Spawning</h3></div>
+<p>Each spawned creature has 10% chance to <a class="mw-redirect" href="p-47373e84723cece15749.html" title="Creature Level">level up</a> (9% for 1 star, 1% for 2 stars), if leveling up is allowed. For some creatures, the leveling up requires enough distance from the world center.
+</p><p>If the spawner is only active during the night, then spawned creatures are set to despawn during the daytime (as long as their <a href="p-a53aa373c5e23e694a54.html" title="Zones">zone</a> is active).
+</p><p>Flying enemies are spawned off the ground depending on the creature. The actual spawn position is still on the ground and can be blocked by a <a href="p-a6d7eeb25f1fe9854a8b.html" title="Player base">player base</a>.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="en-List_of_spawners">List of spawners</h2></div>
+<div class="sample-table-scroll"><table class="wikitable">
+<tbody><tr>
+<th><b>Biome</b>
+</th>
+<th><b>Type</b>
+</th>
+<th><b>Weather / key</b>
+</th>
+<th><b>Time</b>
+</th>
+<th><b>Level up</b>
+</th>
+<th><b>Other</b>
+</th>
+<th><b>Interval</b>
+</th>
+<th><b>Creature limit</b>
+</th>
+<th><b>Chance</b>
+</th>
+<th><b>Suppression</b>
+</th>
+<th><b>Altitude</b>
+</th>
+<th><b>Group size</b>
+</th>
+<th><b>Group radius</b>
+</th></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>
+</td>
+<td><a href="p-bf10a5ee1fab92a8db98.html" title="Boar">Boar</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>800m
+</td>
+<td>
+</td>
+<td>2 min 30 sec
+</td>
+<td>4
+</td>
+<td>50 %
+</td>
+<td>64m
+</td>
+<td>
+</td>
+<td>1-3
+</td>
+<td>5m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>
+</td>
+<td><a href="p-ba8af0f4802678da4aed.html" title="Deer">Deer</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>Yes
+</td>
+<td>Only in forests
+</td>
+<td>1 min
+<p>40 sec
+</p>
+</td>
+<td>4
+</td>
+<td>50 %
+</td>
+<td>64m
+</td>
+<td>
+</td>
+<td>1-3
+</td>
+<td>5m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="Fish">Fish1</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>20%, 4 stars
+</td>
+<td>No max tilt, 0.1m from ground
+</td>
+<td>2 min
+</td>
+<td>5
+</td>
+<td>50 %
+</td>
+<td>20m
+</td>
+<td>From -3 to -1.5 m
+</td>
+<td>2-6
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="Fish">Fish2</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>20%, 4 stars
+</td>
+<td>No max tilt, 0.1m from ground
+</td>
+<td>2 min
+</td>
+<td>4
+</td>
+<td>50 %
+</td>
+<td>20m
+</td>
+<td>From -5 to -2 m
+</td>
+<td>2-4
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-fed12611d2d8c162e347.html" title="Ocean">Ocean</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="Fish">Fish3</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>20%, 4 stars
+</td>
+<td>No max tilt, 0.1m from ground
+</td>
+<td>2 min
+</td>
+<td>3
+</td>
+<td>50 %
+</td>
+<td>20m
+</td>
+<td>Below -5 m
+</td>
+<td>1-2
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>
+</td>
+<td><a href="p-d1b08118de3909fa8022.html" title="Greyling">Greyling</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>Only in forests
+</td>
+<td>5 min
+</td>
+<td>2
+</td>
+<td>50 %
+</td>
+<td>30m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>, <a href="p-fed12611d2d8c162e347.html" title="Ocean">Ocean</a>
+</td>
+<td><a href="p-da1da290020b4544141b.html" title="Gull">Gull</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>2 min
+</td>
+<td>5
+</td>
+<td>50 %
+</td>
+<td>51m
+</td>
+<td>From -4 to 0.2m
+</td>
+<td>1-2
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>
+</td>
+<td><a href="p-6b27a97151bbf20fa8b0.html" title="Neck">Neck</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>800m
+</td>
+<td>Max water: 1m
+</td>
+<td>1 min
+<p>40 sec
+</p>
+</td>
+<td>6
+</td>
+<td>50 %
+</td>
+<td>5m
+</td>
+<td>From −1.5 to 0.5m
+</td>
+<td>2-4
+</td>
+<td>5m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>
+</td>
+<td><a href="p-6b27a97151bbf20fa8b0.html" title="Neck">Neck</a>
+</td>
+<td>Rain, Thunder Storm, LightRain
+</td>
+<td>
+</td>
+<td>800m
+</td>
+<td>
+</td>
+<td>30 sec
+</td>
+<td>8
+</td>
+<td>100 %
+</td>
+<td>32m
+</td>
+<td>From 0 to 10m
+</td>
+<td>2-4
+</td>
+<td>5m
+</td></tr>
+<tr>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>
+</td>
+<td><a class="new sample-online" data-online="true" href="https://valheim.weirdgloop.org/w/FireFlies?action=edit&amp;redlink=1" rel="noopener noreferrer" title="FireFlies (page does not exist)">FireFlies</a>
+</td>
+<td>
+</td>
+<td>Night
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>20 sec
+</td>
+<td>4
+</td>
+<td>100 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="Fish">Fish5</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>20%, 4 stars
+</td>
+<td>No max tilt, 0.1m from ground
+</td>
+<td>1 min
+<p>20 sec
+</p>
+</td>
+<td>10
+</td>
+<td>50 %
+</td>
+<td>12m
+</td>
+<td>Below -5 m
+</td>
+<td>3-7
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>
+</td>
+<td><a href="p-f4709a9359f1def796bc.html" title="Greydwarf">Greydwarf</a>
+</td>
+<td>
+</td>
+<td>Day
+</td>
+<td>Yes
+</td>
+<td>
+</td>
+<td>2 min
+</td>
+<td>3
+</td>
+<td>30 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>2-3
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>
+</td>
+<td><a href="p-f4709a9359f1def796bc.html" title="Greydwarf">Greydwarf</a>
+</td>
+<td>
+</td>
+<td>Night
+</td>
+<td>Yes
+</td>
+<td>
+</td>
+<td>1 min
+</td>
+<td>6
+</td>
+<td>100 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>3-4
+</td>
+<td>10m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>
+</td>
+<td><a href="p-f4709a9359f1def796bc.html" title="Greydwarf">Greydwarf</a>
+</td>
+<td>defeated eikthyr
+</td>
+<td>Night
+</td>
+<td>
+</td>
+<td>Only in forests
+</td>
+<td>2 min
+</td>
+<td>1
+</td>
+<td>30 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>
+</td>
+<td><a href="p-f4709a9359f1def796bc.html" title="Greydwarf">Greydwarf</a>
+</td>
+<td>defeated eikthyr
+</td>
+<td>Night
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>2 min
+<p>20 sec
+</p>
+</td>
+<td>2
+</td>
+<td>50 %
+</td>
+<td>20m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>
+</td>
+<td><a href="p-ba16540902bdc96359b7.html" title="Greydwarf Brute">Greydwarf Brute</a>
+</td>
+<td>
+</td>
+<td>Night
+</td>
+<td>2000m
+</td>
+<td>
+</td>
+<td>2 min
+</td>
+<td>1
+</td>
+<td>50.6 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>
+</td>
+<td><a href="p-ba16540902bdc96359b7.html" title="Greydwarf Brute">Greydwarf Brute</a>
+</td>
+<td>defeated Elder
+</td>
+<td>Night
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>2 min
+</td>
+<td>1
+</td>
+<td>50.6 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>
+</td>
+<td><a href="p-f3aed59448e859ce563b.html" title="Greydwarf Shaman">Greydwarf Shaman</a>
+</td>
+<td>
+</td>
+<td>Night
+</td>
+<td>Yes
+</td>
+<td>
+</td>
+<td>1 min
+</td>
+<td>2
+</td>
+<td>50.6 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>
+</td>
+<td><a href="p-f3aed59448e859ce563b.html" title="Greydwarf Shaman">Greydwarf Shaman</a>
+</td>
+<td>defeated Elder
+</td>
+<td>Night
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>2 min
+</td>
+<td>1
+</td>
+<td>50.6 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>
+</td>
+<td><a href="p-9bac25686c53aa859d61.html" title="Troll">Troll</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>2000m
+</td>
+<td>
+</td>
+<td>66 min 40 sec
+</td>
+<td>1
+</td>
+<td>5 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>
+</td>
+<td><a href="p-8c578ed3e9d5fec6f0f1.html" title="Bear">Bear</a>
+</td>
+<td>
+</td>
+<td>Day
+</td>
+<td>1 star max
+</td>
+<td>
+</td>
+<td>11 min 40 sec
+</td>
+<td>1
+</td>
+<td>30%
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>
+</td>
+<td><a href="p-8c578ed3e9d5fec6f0f1.html" title="Bear">Bear</a>
+</td>
+<td>
+</td>
+<td>Night
+</td>
+<td>Yes
+</td>
+<td>
+</td>
+<td>11 min 40 sec
+</td>
+<td>1
+</td>
+<td>40%
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-0410aab66e3f48e5e615.html" title="Swamp">Swamp</a> (full)
+</td>
+<td><a href="p-55dbdbafa072275bf0d2.html" title="Abomination">Abomination</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>66 min
+<p>40 sec
+</p>
+</td>
+<td>1
+</td>
+<td>35%
+</td>
+<td>30m
+</td>
+<td>From -2 to 5m
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-0410aab66e3f48e5e615.html" title="Swamp">Swamp</a>
+</td>
+<td><a href="p-24bafb0b2477f80fafd0.html" title="Blob">Blob</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>8 min
+<p>20 sec
+</p>
+</td>
+<td>2
+</td>
+<td>20 %
+</td>
+<td>20m
+</td>
+<td>Above -1  m
+</td>
+<td>1-2
+</td>
+<td>1m
+</td></tr>
+<tr>
+<td><a href="p-0410aab66e3f48e5e615.html" title="Swamp">Swamp</a>
+</td>
+<td><a href="p-3ae89e8a8fe1c4a5aec2.html" title="Draugr">Draugr</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>Yes
+</td>
+<td>
+</td>
+<td>2 min
+</td>
+<td>4
+</td>
+<td>50 %
+</td>
+<td>10m
+</td>
+<td>From -1.5 to 10m
+</td>
+<td>1-2
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-156193387bc71c75f505.html" title="Mountain">Mountain</a><sup class="reference" id="en-cite_ref-1"><a href="#en-cite_note-1"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></a></sup>, <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td><a href="p-3ae89e8a8fe1c4a5aec2.html" title="Draugr">Draugr</a>
+</td>
+<td>Misty, defeated Elder
+</td>
+<td>Night
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>5 min
+</td>
+<td>1
+</td>
+<td>5 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-0410aab66e3f48e5e615.html" title="Swamp">Swamp</a> (full)
+</td>
+<td><a href="p-b93909b5f83342167cf5.html" title="Draugr Elite">Draugr Elite</a>
+</td>
+<td>
+</td>
+<td>Night
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>5 min
+</td>
+<td>1
+</td>
+<td>5 %
+</td>
+<td>15m
+</td>
+<td>From -1.5 to 10m
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-0410aab66e3f48e5e615.html" title="Swamp">Swamp</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="Fish">Fish6</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>20%, 4 stars
+</td>
+<td>No max tilt, 0.1m from ground
+</td>
+<td>1 min
+<p>20 sec
+</p>
+</td>
+<td>10
+</td>
+<td>60 %
+</td>
+<td>10m
+</td>
+<td>Below -5 m
+</td>
+<td>3-7
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-0410aab66e3f48e5e615.html" title="Swamp">Swamp</a>
+</td>
+<td><a href="p-e27f3a289ceb40df4796.html" title="Leech">Leech</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>Yes
+</td>
+<td>
+</td>
+<td>3 min
+<p>20 sec
+</p>
+</td>
+<td>10
+</td>
+<td>50 %
+</td>
+<td>5m
+</td>
+<td>From -3 to -0.1 m
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-0410aab66e3f48e5e615.html" title="Swamp">Swamp</a>
+</td>
+<td><a href="p-12400ad0838ff0fa04b1.html" title="Oozer">Oozer</a>
+</td>
+<td>
+</td>
+<td>Night
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>2 min
+</td>
+<td>1
+</td>
+<td>20 %
+</td>
+<td>20m
+</td>
+<td>Above -1 m
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-0410aab66e3f48e5e615.html" title="Swamp">Swamp</a>
+</td>
+<td><a href="p-ea5f6bdc79b884c397d6.html" title="Skeleton">Skeleton</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>Yes
+</td>
+<td>
+</td>
+<td>6 min
+<p>40 sec
+</p>
+</td>
+<td>4
+</td>
+<td>25 %
+</td>
+<td>15m
+</td>
+<td>From -1 to 10m
+</td>
+<td>2-4
+</td>
+<td>4m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-0410aab66e3f48e5e615.html" title="Swamp">Swamp</a>, <a href="p-156193387bc71c75f505.html" title="Mountain">Mountain</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td><a href="p-ea5f6bdc79b884c397d6.html" title="Skeleton">Skeleton</a>
+</td>
+<td>defeated bonemass
+</td>
+<td>Night
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>5 min
+</td>
+<td>3
+</td>
+<td>25 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>1-3
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-0410aab66e3f48e5e615.html" title="Swamp">Swamp</a>
+</td>
+<td><a href="p-c781316c9ff4beaaf1e8.html" title="Wraith">Wraith</a>
+</td>
+<td>
+</td>
+<td>Night
+</td>
+<td>
+</td>
+<td>50m from ground
+</td>
+<td>3 min
+<p>20 sec
+</p>
+</td>
+<td>2
+</td>
+<td>30 %
+</td>
+<td>20m
+</td>
+<td>Above -2 m
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-156193387bc71c75f505.html" title="Mountain">Mountain</a> (full)
+</td>
+<td><a href="p-134c1125a5e029dae10d.html" title="Fenring">Fenring</a>
+</td>
+<td>
+</td>
+<td>Night
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>6 min
+<p>40 sec
+</p>
+</td>
+<td>2
+</td>
+<td>20 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-156193387bc71c75f505.html" title="Mountain">Mountain</a> (full)
+</td>
+<td><a href="p-1a234744f50cea328de9.html" title="Stone Golem">Stone Golem</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>2 min
+</td>
+<td>1
+</td>
+<td>25.6 %
+</td>
+<td>10m
+</td>
+<td>Above 120m
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-156193387bc71c75f505.html" title="Mountain">Mountain</a> (full)
+</td>
+<td><a href="p-6aed8812d68d8790c628.html" title="Drake">Drake</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>Max tilt 66 degrees, 10m from ground
+</td>
+<td>2 min
+</td>
+<td>2
+</td>
+<td>25.6 %
+</td>
+<td>10m
+</td>
+<td>Above 100m
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-156193387bc71c75f505.html" title="Mountain">Mountain</a> (full)
+</td>
+<td><a href="p-ea858afbf837aae71461.html" title="Wolf">Wolf</a>
+</td>
+<td>
+</td>
+<td>Night
+</td>
+<td>Yes
+</td>
+<td>Max tilt 45 degrees
+</td>
+<td>2 min
+</td>
+<td>6
+</td>
+<td>50 %
+</td>
+<td>30m
+</td>
+<td>
+</td>
+<td>2-4
+</td>
+<td>5m
+</td></tr>
+<tr>
+<td><a href="p-156193387bc71c75f505.html" title="Mountain">Mountain</a> (full)
+</td>
+<td><a href="p-ea858afbf837aae71461.html" title="Wolf">Wolf</a>
+</td>
+<td>
+</td>
+<td>Day
+</td>
+<td>
+</td>
+<td>Max tilt 45 degrees
+</td>
+<td>6 min
+<p>40 sec
+</p>
+</td>
+<td>3
+</td>
+<td>25.6 %
+</td>
+<td>30m
+</td>
+<td>
+</td>
+<td>1-2
+</td>
+<td>5m
+</td></tr>
+<tr>
+<td><a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td><a href="p-53e9e085b2d11109d84b.html" title="Deathsquito">Deathsquito</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>No max tilt, 1m from ground
+</td>
+<td>8 min
+<p>20 sec
+</p>
+</td>
+<td>3
+</td>
+<td>20 %
+</td>
+<td>30m
+</td>
+<td>Above 1m
+</td>
+<td>1-2
+</td>
+<td>10m
+</td></tr>
+<tr>
+<td><a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="Fish">Fish7</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>20%, 4 stars
+</td>
+<td>No max tilt, 0.1m from ground
+</td>
+<td>1 min
+<p>20 sec
+</p>
+</td>
+<td>7
+</td>
+<td>60 %
+</td>
+<td>20m
+</td>
+<td>Below -5 m
+</td>
+<td>3-6
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td><a href="p-9d5ce60be807ae13498b.html" title="Fuling">Fuling</a>
+</td>
+<td>
+</td>
+<td>Day
+</td>
+<td>Yes
+</td>
+<td>
+</td>
+<td>16 min
+<p>40 sec
+</p>
+</td>
+<td>2
+</td>
+<td>33 %
+</td>
+<td>30m
+</td>
+<td>
+</td>
+<td>1-2
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td><a href="p-9d5ce60be807ae13498b.html" title="Fuling">Fuling</a>
+</td>
+<td>
+</td>
+<td>Night
+</td>
+<td>Yes
+</td>
+<td>
+</td>
+<td>1 min
+</td>
+<td>5
+</td>
+<td>33 %
+</td>
+<td>30m
+</td>
+<td>
+</td>
+<td>3-5
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-156193387bc71c75f505.html" title="Mountain">Mountain</a>
+</td>
+<td><a href="p-9d5ce60be807ae13498b.html" title="Fuling">Fuling</a>
+</td>
+<td>defeated goblinking
+</td>
+<td>Night
+</td>
+<td>
+</td>
+<td>Hunt mode
+</td>
+<td>50 min
+</td>
+<td>3
+</td>
+<td>5 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>3
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td><a href="p-be01beb2fff31a66abf2.html" title="Lox">Lox</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>16 min
+<p>40 sec
+</p>
+</td>
+<td>3
+</td>
+<td>5 %
+</td>
+<td>100m
+</td>
+<td>Above 1m
+</td>
+<td>2-3
+</td>
+<td>10m
+</td></tr>
+<tr>
+<td><a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td><a href="p-9c02806a24a7117538a1.html" title="Vile">Vile</a>
+</td>
+<td>
+</td>
+<td>Night
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>66 min 40 sec
+</td>
+<td>1
+</td>
+<td>25 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-803ba5ee8e70c4ee75f7.html" title="Mistlands">Mistlands</a> (full)
+</td>
+<td><a href="p-dc042adbdecb49bc4de4.html" title="Dvergr Rogue">Dvergr Rogue</a>
+</td>
+<td>
+</td>
+<td>Day
+</td>
+<td>Yes
+</td>
+<td>
+</td>
+<td>16 min
+<p>40 sec
+</p>
+</td>
+<td>2
+</td>
+<td>30 %
+</td>
+<td>30m
+</td>
+<td>
+</td>
+<td>1-2
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-803ba5ee8e70c4ee75f7.html" title="Mistlands">Mistlands</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="Fish">Fish9</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>20%, 4 stars
+</td>
+<td>No max tilt, 0.1m from ground
+</td>
+<td>1 min
+</td>
+<td>5
+</td>
+<td>50 %
+</td>
+<td>12m
+</td>
+<td>Below -5 m
+</td>
+<td>2-7
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-803ba5ee8e70c4ee75f7.html" title="Mistlands">Mistlands</a>, <a href="p-fed12611d2d8c162e347.html" title="Ocean">Ocean</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="Fish">Fish12</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>20%, 4 stars
+</td>
+<td>No max tilt, 0.1m from ground
+</td>
+<td>1 min
+<p>20 sec
+</p>
+</td>
+<td>8
+</td>
+<td>40 %
+</td>
+<td>12m
+</td>
+<td>Below -6 m
+</td>
+<td>2-5
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-803ba5ee8e70c4ee75f7.html" title="Mistlands">Mistlands</a> (full)
+</td>
+<td><a href="p-f018cb729d59b13d1f4e.html" title="Gjall">Gjall</a>
+</td>
+<td>
+</td>
+<td>Day
+</td>
+<td>
+</td>
+<td>No max tilt, 6m from ground
+</td>
+<td>66 min
+<p>40 sec
+</p>
+</td>
+<td>1
+</td>
+<td>10 %
+</td>
+<td>50m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-803ba5ee8e70c4ee75f7.html" title="Mistlands">Mistlands</a> (full)
+</td>
+<td><a href="p-f018cb729d59b13d1f4e.html" title="Gjall">Gjall</a>
+</td>
+<td>
+</td>
+<td>Night
+</td>
+<td>Yes
+</td>
+<td>No max tilt, 6m from ground
+</td>
+<td>66 min
+<p>40 sec
+</p>
+</td>
+<td>1
+</td>
+<td>10 %
+</td>
+<td>50m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-803ba5ee8e70c4ee75f7.html" title="Mistlands">Mistlands</a>
+</td>
+<td><a href="p-593a88b963a3d3b392c7.html" title="Hare">Hare</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>Yes
+</td>
+<td>
+</td>
+<td>1 min
+</td>
+<td>10
+</td>
+<td>50 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>1-3
+</td>
+<td>6m
+</td></tr>
+<tr>
+<td><a href="p-803ba5ee8e70c4ee75f7.html" title="Mistlands">Mistlands</a> (full)
+</td>
+<td><a href="p-c465c70b79b24e4f7c1b.html" title="Seeker">Seeker</a>
+</td>
+<td>
+</td>
+<td>Day
+</td>
+<td>1 star
+</td>
+<td>
+</td>
+<td>3 min
+<p>20 sec
+</p>
+</td>
+<td>2
+</td>
+<td>30 %
+</td>
+<td>30m
+</td>
+<td>
+</td>
+<td>2-3
+</td>
+<td>6m
+</td></tr>
+<tr>
+<td><a href="p-803ba5ee8e70c4ee75f7.html" title="Mistlands">Mistlands</a> (full)
+</td>
+<td><a href="p-c465c70b79b24e4f7c1b.html" title="Seeker">Seeker</a>
+</td>
+<td>
+</td>
+<td>Night
+</td>
+<td>Yes
+</td>
+<td>
+</td>
+<td>5 min
+</td>
+<td>6
+</td>
+<td>20 %
+</td>
+<td>40m
+</td>
+<td>
+</td>
+<td>2-3
+</td>
+<td>6m
+</td></tr>
+<tr>
+<td><a href="p-803ba5ee8e70c4ee75f7.html" title="Mistlands">Mistlands</a> (full)
+</td>
+<td><a href="p-d638ee2f46a405dd2f5c.html" title="Seeker Soldier">Seeker Soldier</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>Yes
+</td>
+<td>
+</td>
+<td>66 min
+<p>40 sec
+</p>
+</td>
+<td>1
+</td>
+<td>10 %
+</td>
+<td>40m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-fed12611d2d8c162e347.html" title="Ocean">Ocean</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="Fish">Fish8</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>20%, 4 stars
+</td>
+<td>No max tilt, 0.1m from ground
+</td>
+<td>1 min
+<p>20 sec
+</p>
+</td>
+<td>10
+</td>
+<td>50 %
+</td>
+<td>12m
+</td>
+<td>Below -5 m
+</td>
+<td>2-7
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-fed12611d2d8c162e347.html" title="Ocean">Ocean</a> (full)
+</td>
+<td><a href="p-bb01a030df624241707d.html" title="Serpent">Serpent</a>
+</td>
+<td>
+</td>
+<td>Night
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>16 min
+<p>40 sec
+</p>
+</td>
+<td>1
+</td>
+<td>5 %
+</td>
+<td>50m
+</td>
+<td>Below -5 m
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-fed12611d2d8c162e347.html" title="Ocean">Ocean</a> (full)
+</td>
+<td><a href="p-bb01a030df624241707d.html" title="Serpent">Serpent</a>
+</td>
+<td>Thunder Storm, Rain
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>16 min
+<p>40 sec
+</p>
+</td>
+<td>1
+</td>
+<td>5 %
+</td>
+<td>50m
+</td>
+<td>Below -5 m
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="Ashlands">Ashlands</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="Fish">Fish11</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>15%, 4 stars
+</td>
+<td>No max tilt, 0.1m from ground
+</td>
+<td>1 min
+<p>20 sec
+</p>
+</td>
+<td>10
+</td>
+<td>60 %
+</td>
+<td>8m
+</td>
+<td>Below -5 m
+</td>
+<td>3-7
+</td>
+<td>2m
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="Ashlands">Ashlands</a>
+</td>
+<td><a href="p-0d054f347f0573e05e09.html" title="Bonemaw">Bonemaw</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>16 min
+<p>40 sec
+</p>
+</td>
+<td>1
+</td>
+<td>20 %
+</td>
+<td>50m
+</td>
+<td>Below -5 m
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="Ashlands">Ashlands</a>
+</td>
+<td><a href="p-73a1e307b3c18141bf70.html" title="Fallen Valkyrie">Fallen Valkyrie</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>Spawn range 50 - 80m
+</td>
+<td>66 min
+<p>40 sec
+</p>
+</td>
+<td>1
+</td>
+<td>20 %
+</td>
+<td>15m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="Ashlands">Ashlands</a>
+</td>
+<td><a href="p-c4785ba17e12c3aaa027.html" title="Morgen">Morgen</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>Spawn range 50 - 80m
+</td>
+<td>66 min
+<p>40 sec
+</p>
+</td>
+<td>1
+</td>
+<td>10 %
+</td>
+<td>15m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="Ashlands">Ashlands</a>
+</td>
+<td><a href="p-d9750e42f4357d8a8d8a.html" title="Asksvin">Asksvin</a>
+</td>
+<td>
+</td>
+<td>Day
+</td>
+<td>1 star max
+</td>
+<td>Spawn range 50 - 80m
+</td>
+<td>3 min 40s
+</td>
+<td>2
+</td>
+<td>30 %
+</td>
+<td>25m
+</td>
+<td>
+</td>
+<td>1-3
+</td>
+<td>10m
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="Ashlands">Ashlands</a>
+</td>
+<td><a href="p-d9750e42f4357d8a8d8a.html" title="Asksvin">Asksvin</a>
+</td>
+<td>
+</td>
+<td>Night
+</td>
+<td>Yes
+</td>
+<td>
+</td>
+<td>3 min 40s
+</td>
+<td>3
+</td>
+<td>45 %
+</td>
+<td>20m
+</td>
+<td>
+</td>
+<td>1-3
+</td>
+<td>10m
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="Ashlands">Ashlands</a>
+</td>
+<td><a href="p-871cf7476fc46f9cf444.html" title="Volture">Volture</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>Spawn range 50 - 80m
+</td>
+<td>3 min
+</td>
+<td>3
+</td>
+<td>20 %
+</td>
+<td>10m
+</td>
+<td>From -20 m to -2 m
+</td>
+<td>1-2
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="Ashlands">Ashlands</a>
+</td>
+<td><a href="p-42b0bedf2737ab2cba46.html" title="Charred Twitcher">Charred Twitcher</a>
+</td>
+<td>
+</td>
+<td>Day
+</td>
+<td>1 star max
+</td>
+<td>Spawn range 50 - 80m
+</td>
+<td>3 min 20s
+</td>
+<td>3
+</td>
+<td>40 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>2-4
+</td>
+<td>15m
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="Ashlands">Ashlands</a>
+</td>
+<td><a href="p-42b0bedf2737ab2cba46.html" title="Charred Twitcher">Charred Twitcher</a>
+</td>
+<td>
+</td>
+<td>Night
+</td>
+<td>Yes
+</td>
+<td>Spawn range 50 - 80m
+</td>
+<td>2 min 40s
+</td>
+<td>4
+</td>
+<td>45 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>3-6
+</td>
+<td>15m
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="Ashlands">Ashlands</a>
+</td>
+<td><a href="p-b88f49c50094a29b876f.html" title="Charred Marksman">Charred Marksman</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>1 star max
+</td>
+<td>Spawn range 50 - 80m
+</td>
+<td>5 min 20s
+</td>
+<td>4
+</td>
+<td>35 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>1-2
+</td>
+<td>15m
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="Ashlands">Ashlands</a>
+</td>
+<td><a href="p-e91837e0deb55a18a7c9.html" title="Charred Warrior">Charred Warrior</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>Yes
+</td>
+<td>Spawn range 50 - 80m
+</td>
+<td>5 min 20s
+</td>
+<td>4
+</td>
+<td>35 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>1-2
+</td>
+<td>15m
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="Ashlands">Ashlands</a>
+</td>
+<td><a href="p-6f0a62e3e3763713fd85.html" title="Lava Blob">Lava Blob</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>Spawn range 50 - 80m
+</td>
+<td>4 min 20s
+</td>
+<td>2
+</td>
+<td>25 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>1-2
+</td>
+<td>10m
+</td></tr>
+<tr>
+<td><a href="p-78051eec1c5071da80d7.html" title="Ashlands">Ashlands</a>
+</td>
+<td><a href="p-dc042adbdecb49bc4de4.html" title="Dvergr Rogue">Dvergr Rogue</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>Yes
+</td>
+<td>Spawn range 50 - 80m
+</td>
+<td>16 min 40s
+</td>
+<td>2
+</td>
+<td>10 %
+</td>
+<td>30m
+</td>
+<td>
+</td>
+<td>1-2
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-aeea3b383fcf4f2f3c67.html" title="Deep North">Deep North</a>
+</td>
+<td><a href="p-3f3f8baad08c9ccc4a3e.html" title="Fish">Fish10</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>15%, 4 stars
+</td>
+<td>No max tilt, 0.1m from ground
+</td>
+<td>1 min
+<p>10 sec
+</p>
+</td>
+<td>10
+</td>
+<td>60 %
+</td>
+<td>12m
+</td>
+<td>Below -5 m
+</td>
+<td>3-10
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td><a class="mw-redirect" href="p-849ea0d7dafd6be1e0b4.html" title="Odin">Odin</a>
+</td>
+<td>defeated Elder
+</td>
+<td>Night
+</td>
+<td>
+</td>
+<td>Always spawns 35m away
+</td>
+<td>50 min
+</td>
+<td>1
+</td>
+<td>10 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-156193387bc71c75f505.html" title="Mountain">Mountain</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td><a href="p-c465c70b79b24e4f7c1b.html" title="Seeker">Seeker</a>
+</td>
+<td>defeated queen
+</td>
+<td>Night
+</td>
+<td>
+</td>
+<td>Hunt mode
+</td>
+<td>50 min
+</td>
+<td>2
+</td>
+<td>5 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>3
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-156193387bc71c75f505.html" title="Mountain">Mountain</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td><a href="p-44d657ae1afd1497c503.html" title="Seeker Brood">Seeker Brood</a>
+</td>
+<td>defeated queen
+</td>
+<td>Night
+</td>
+<td>
+</td>
+<td>Hunt mode
+</td>
+<td>50 min
+</td>
+<td>5
+</td>
+<td>5 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>3
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-156193387bc71c75f505.html" title="Mountain">Mountain</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td><a href="p-98c95268220bddfe87be.html" title="Tick">Tick</a>
+</td>
+<td>defeated queen
+</td>
+<td>Night
+</td>
+<td>Yes
+</td>
+<td>Hunt mode
+</td>
+<td>50 min
+</td>
+<td>4
+</td>
+<td>5 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>3
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-156193387bc71c75f505.html" title="Mountain">Mountain</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td><a href="p-e91837e0deb55a18a7c9.html" title="Charred Warrior">Charred Warrior</a>
+</td>
+<td>defeated fader
+</td>
+<td>Night
+</td>
+<td>
+</td>
+<td>Hunt mode
+</td>
+<td>50 min
+</td>
+<td>3
+</td>
+<td>5 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>1-3
+</td>
+<td>3m
+</td></tr>
+<tr>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-156193387bc71c75f505.html" title="Mountain">Mountain</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td><a href="p-b88f49c50094a29b876f.html" title="Charred Marksman">Charred Marksman</a>
+</td>
+<td>defeated fader
+</td>
+<td>Night
+</td>
+<td>
+</td>
+<td>Hunt mode
+</td>
+<td>50 min
+</td>
+<td>3
+</td>
+<td>5 %
+</td>
+<td>10m
+</td>
+<td>
+</td>
+<td>1-3
+</td>
+<td>3m
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading2"><h2 id="en-Example">Example</h2></div>
+<p>For example Serpents have two spawners which only work when zone is located in Ocean biome. The first spawner works only during the night while the second spawner only works during storms. This means both spawners are active during night time storms giving the best chance for finding a Serpent.
+</p><p>Serpent spawners work every 1000 seconds and only have a 5% chance to work. If you just wait on a spot then it can take hours for a Serpent to spawn. But if you keep moving to new zones then you can easily get a spawn attempt every 12-16 seconds (depending on the speed). However this requires that you have not visited the area for 1000 seconds.
+</p><p>Serpents can spawn up to 80 meters away so it is good to be in a middle of the ocean. If you are near other biomes then the spawn can fail because of wrong biome. Serpents never spawn as starred variant because the max level is 1.
+</p><p>Serpents that spawn because of storm will not despawn on morning even when spawned during the night (but no way to tell which spawner spawned it).
+</p><p>A Serpent suppresses other Serpent spawns within 50 meters. It is still possible to spawn more Serpents (since they can spawn up to 80 meters away) but the chances are drastically reduced. Serpents detect you up to 50 meters away so most of the time they will not aggro right away.
+</p>
+<div class="sample-table-scroll"><table class="navbox mw-collapsible mw-collapsed" data-collapsetext="Hide" data-expandtext="Show"><tbody><tr class="navbox-title"><th colspan="2" scope="col"><div class="navbox-title-pad navbox-title-padleft navbox-title-padright"><a href="p-edd2287afad9be012dee.html" title="Category:Mechanics">Mechanics</a></div></th></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Guides</th><td class="navbox-list"><div class="hlist"><a href="how-to-play.html" title="How to play">How to play</a> • <a href="p-58565db394dcbacc0ec7.html" title="Progression guide">Progression guide</a> • <a href="p-e70bc5798f8391942dd6.html" title="Aggressive creature strategies">Aggressive creature strategies</a> • <a href="p-19e667dbe36cd74e7c1b.html" title="Passive creature strategies">Passive creature strategies</a> • <a href="p-afc73fba07d15f960daf.html" title="Boss strategies">Boss strategies</a> • <a href="p-a1b6af2b7d7d4bfef86e.html" title="Dedicated servers">Dedicated servers</a> • <a href="p-c3af076f92c5ed8dcb0d.html" title="Troubleshooting">Troubleshooting</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Player</th><td class="navbox-list"><div class="hlist"><a href="p-64aee8c6cbd026d9ea92.html" title="Player">Player</a> • <a href="p-55898449eb74fb2e348d.html" title="Health">Health</a> • <a href="p-cc350ea3393968f7cd7c.html" title="Stamina">Stamina</a> • <a href="p-332e6a85b4285ff8858c.html" title="Eitr">Eitr</a> • <a href="p-2608729251008c9658e7.html" title="Adrenaline">Adrenaline</a> • <a href="p-fcd6fea72de7e6c09ca2.html" title="Death">Death</a> • <a href="p-b8e0a74433a1176e439f.html" title="Forsaken power">Forsaken power</a> • <a href="p-66d0f523a379b2de6f8d.html" title="Skills">Skills</a> • <a href="p-f57eddb4e027139d853f.html" title="Status effects">Status effects</a> • <a href="p-5954d0c13f55417f74fb.html" title="Movement speed">Movement speed</a> • <a href="p-ed1a5a81b8121ad13a87.html" title="Magic">Magic</a> • <a href="p-79cea8ff2ba190bbb1bd.html" title="Fishing">Fishing</a> • <a href="p-e9d7b76127dca2c7d07e.html" title="Riding">Riding</a> • <a href="p-12ff393b061d94ebc405.html" title="Sleeping">Sleeping</a> • <a href="p-25521701981e1ad3ad97.html" title="Emotes">Emotes</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Combat</th><td class="navbox-list"><div class="hlist"><a href="p-0c874f581a4534f15f1e.html" title="Damage">Damage types</a> • <a href="p-e931ec535f307a5c6add.html" title="Damage mechanics">Damage mechanics</a> • <a href="p-bb0db9f7893c418a1de3.html" title="Knockback">Knockback</a> • <a href="p-aeaeee06ac36a10d7822.html" title="Factions">Factions</a> • <a href="p-4e7c41331a4464ad6e07.html" title="Creature senses">Creature senses</a> • <a href="p-5ac03ba6efdc56d5b7b5.html" title="Creature AI">Creature AI</a> • <a href="p-37015441396c962e2e96.html" title="Drops">Drops</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Spawning</th><td class="navbox-list"><div class="hlist"><a href="p-36ff87e1502da8a1d740.html" title="Spawning mechanics">Spawning mechanics</a> • <a href="p-3a6396c120925fdde8d2.html" title="Spawn points">Spawn points</a> • <a class="mw-selflink selflink">Spawn zones</a> • <a href="p-8d14f6e72de8f18ab1ee.html" title="Events">Events</a> • <a href="p-47373e84723cece15749.html" title="Creature level">Creature level</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Building</th><td class="navbox-list"><div class="hlist"><a href="building.html" title="Building">Building</a> • <a href="p-99b60de679e8976fc592.html" title="Building stability">Building stability</a> • <a href="p-fa8d84566676ee2ee662.html" title="Cover">Cover</a> • <a href="p-040d4645676f60263590.html" title="Comfort">Comfort</a> • <a href="p-a6d7eeb25f1fe9854a8b.html" title="Player base">Player base</a> • <a href="p-29b52bfcccd01518e9de.html" title="Smoke">Smoke</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">UI</th><td class="navbox-list"><div class="hlist"><a href="p-758f487fe8e9fcc59cec.html" title="Inventory">Inventory</a> • <a class="mw-redirect" href="crafting.html" title="Crafting menu">Crafting menu</a> • <a href="p-be176b0015c424b78e9f.html" title="Map">Map</a> • <a href="p-c40c747ee79e90e16e46.html" title="HUD">HUD</a> • <a href="p-799c269135742a36ae48.html" title="Controls">Controls</a> • <a href="p-2ef15ac2866f955969bd.html" title="Developer console">Developer console</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">World</th><td class="navbox-list"><div class="hlist"><a href="p-9e471951a1b4106e54be.html" title="Environment">Environment</a> • <a href="p-8a27b0cad26bc97071ab.html" title="World Modifiers">World Modifiers</a> • <a href="p-2af8986090a5b9ad83ec.html" title="World seed">World seed</a> • <a href="p-577cfab98de598e55bee.html" title="Global Keys">Global Keys</a> • <a href="p-a53aa373c5e23e694a54.html" title="Zones">Zones</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Misc</th><td class="navbox-list"><div class="hlist"><a href="p-74cf2bc63fe122206c82.html" title="Achievements">Achievements</a> • <a href="p-1964260e2e296c33c3f3.html" title="Seasonal events">Seasonal events</a> • <a href="p-6eb00b4b2614a144d41c.html" title="Music">Music</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Development</th><td class="navbox-list"><div class="hlist"><a href="p-a6df11e706c514f13d6f.html" title="Version history">Version history</a> • <a href="p-4696ff19d71c753885a5.html" title="Future content">Future content</a></div></td></tr></tbody></table></div>
+<p><br/>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="en-cite_note-1"><span class="mw-cite-backlink"><a href="#en-cite_ref-1">↑</a></span> <span class="reference-text">Technically possible for Mountains if the player is on an adjacent biome with a misty weather.</span>
+</li>
+</ol></div>
+
+
+
+</div></section><footer data-language="zh">来源：<a href="https://valheim.weirdgloop.org/w/Spawn_zones">生成区域原文（需联网）</a>；保存修订号 59757。中文为本地译文。<p>原站内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名—非商业性使用—相同方式共享 3.0（CC BY-NC-SA 3.0）</a>许可；<a href="https://meta.weirdgloop.org/w/Licensing">可能适用额外条款</a>。背景与装饰素材来自原版维基，并已保存到本地。</p></footer><footer data-language="en" hidden>Source: <a href="https://valheim.weirdgloop.org/w/Spawn_zones">Spawn zones original (online)</a>; saved revision 59757. Chinese is a local translation. <p>Content on this site is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a>; <a href="https://meta.weirdgloop.org/w/Licensing">additional terms may apply</a>. Backgrounds and decorative assets from the original wiki are stored locally.</p></footer></main></body></html>

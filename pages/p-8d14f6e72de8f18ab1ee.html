@@ -1,0 +1,3027 @@
+<!DOCTYPE html>
+<html data-wiki-root=".." lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>事件 · 英灵神殿离线维基</title><link href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-0.css" rel="stylesheet"/><link href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-1.css" rel="stylesheet"/><link href="../assets/sample.css" rel="stylesheet"/><script defer="" src="../assets/search.js"></script><script defer="" src="../assets/sample.js"></script></head><body class="skin-vector"><nav class="sample-toolbar"><strong data-ui-en="Valheim · Offline Wiki" data-ui-zh="英灵神殿 · 离线维基">英灵神殿 · 离线维基</strong><a data-local-page="true" data-ui-en="Creatures" data-ui-zh="生物" href="creatures.html">生物</a><a data-local-page="true" data-ui-en="How to play" data-ui-zh="入门玩法" href="how-to-play.html">入门玩法</a><a data-local-page="true" data-ui-en="Biomes" data-ui-zh="生物群系" href="biomes.html">生物群系</a><a data-local-page="true" data-ui-en="Weapons" data-ui-zh="武器" href="weapons.html">武器</a><a data-local-page="true" data-ui-en="Food" data-ui-zh="食物" href="food.html">食物</a><a data-local-page="true" data-ui-en="Armor" data-ui-zh="护甲" href="armor.html">护甲</a><a data-local-page="true" data-ui-en="Crafting" data-ui-zh="制作" href="crafting.html">制作</a><a data-local-page="true" data-ui-en="Building" data-ui-zh="建材" href="building.html">建材</a><button aria-pressed="false" id="sample-language">切换英文</button><a data-ui-en="Contents" data-ui-zh="本页目录" href="#sample-toc">本页目录</a><form id="sample-search-form" role="search"><label data-ui-en="Site search" data-ui-zh="站内搜索" for="sample-search">站内搜索</label><input autocomplete="off" data-placeholder-en="Search in Chinese or English" data-placeholder-zh="输入中文或英文" id="sample-search" placeholder="输入中文或英文" type="search"/><button data-ui-en="Search" data-ui-zh="搜索" type="submit">搜索</button></form></nav><main class="sample-shell"><h1 data-ui-en="Events" data-ui-zh="事件" id="sample-title">事件</h1><p class="sample-note" data-ui-en="This offline edition supports Chinese and English site search. Links marked ↗ require internet. Chinese uses the supplied glossary; each source revision is shown below." data-ui-zh="本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。">本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。</p><section aria-live="polite" hidden="" id="sample-search-results"></section><nav class="sample-contents" id="sample-toc"><div data-language="zh"><a href="#mw-toc-heading">目录</a><a href="#List_of_events">事件列表</a><a href="#World-based_event_requirements">基于世界进度的事件条件</a><a href="#Player-initiated_events">玩家主动触发的事件</a><a href="#Player-based_requirements">基于玩家进度的条件</a><a href="#Spawning_mechanics">生成机制</a><a href="#Notes">说明</a></div><div data-language="en" hidden=""><a href="#en-mw-toc-heading">Contents</a><a href="#en-List_of_events">List of events</a><a href="#en-World-based_event_requirements">World-based event requirements</a><a href="#en-Player-initiated_events">Player-initiated events</a><a href="#en-Player-based_requirements">Player-based requirements</a><a href="#en-Spawning_mechanics">Spawning mechanics</a><a href="#en-Notes">Notes</a></div></nav><section data-language="zh" id="sample-zh"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><figure class="mw-default-size" typeof="mw:File/Thumb"><a class="mw-file-description" href="../assets/07665bf0e7a5a9b06549.png"><img class="mw-file-element" data-file-height="1440" data-file-width="2560" decoding="async" height="169" loading="eager" src="../assets/07665bf0e7a5a9b06549.png" width="300"/></a><figcaption>事件“赤血灵鹿正在召集森林中的生物。”开始了。</figcaption></figure>
+<p>随机事件会在玩家周围生成大量敌人。随着击败首领、推进世界进度，更难的事件会出现。根据使用的世界修正设置，事件可依据世界进度或玩家进度触发；默认采用世界进度。</p><p>大多数事件需要玩家留在正在进行的事件区域内，直至计时结束才能结束。若事件区域内没有玩家，计时暂停，“你正在被追猎……”事件除外。</p><p>每46分钟有20%概率触发随机事件；
+</p>
+<ul><li>可用事件取决于哪些敌人已经被 <a href="p-577cfab98de598e55bee.html" title="世界进度标记">击败</a> 于游戏世界中。
+<ul><li>大多数事件需要击败某个首领才会解锁，详见“解锁条件”列。</li>
+<li>部分事件在击败某个首领后永久禁用，详见“禁用条件”列。</li>
+<li>除非启用基于玩家进度的袭击，否则若袭击列出两种生物，例如巨魔和古树长老，必须在该世界中击杀过这两种生物，袭击才会解锁。</li></ul></li>
+<li>若启用基于玩家进度的袭击：
+<ul><li>大多数事件取决于玩家已获取哪些<a href="p-b8e0a74433a1176e439f.html" title="遗弃者能力">放逐之力</a>和材料。</li>
+<li>部分事件还会检查玩家击败过哪些敌人。</li></ul></li>
+<li>对于每个事件，检查是否有玩家满足以下条件：
+<ul><li>玩家位于所需生态区，详见“生态区”列。</li>
+<li>玩家不在地下城中。</li>
+<li>玩家40米内至少有3个<a href="p-a6d7eeb25f1fe9854a8b.html" title="玩家基地">基地建筑</a>。“你正在被追猎……”事件不要求满足此条件。</li></ul></li>
+<li>若有可用事件，从中随机选择一个。</li>
+<li>从符合条件的玩家中随机选择一人，在其所在位置开始事件。</li></ul>
+<div aria-labelledby="mw-toc-heading" class="toc" id="toc" role="navigation"><div class="toctitle" dir="ltr" lang="en"><h2 id="mw-toc-heading">目录</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#List_of_events"><span class="tocnumber">1</span> <span class="toctext">事件列表</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#World-based_event_requirements"><span class="tocnumber">1.1</span> <span class="toctext">基于世界进度的事件条件</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Player-initiated_events"><span class="tocnumber">1.2</span> <span class="toctext">玩家主动触发的事件</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Player-based_requirements"><span class="tocnumber">1.3</span> <span class="toctext">基于玩家进度的条件</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Spawning_mechanics"><span class="tocnumber">2</span> <span class="toctext">生成机制</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Notes"><span class="tocnumber">3</span> <span class="toctext">说明</span></a></li>
+</ul>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="List_of_events">事件列表</h2></div>
+<div class="mw-heading mw-heading3"><h3 id="World-based_event_requirements">基于世界进度的事件条件</h3></div>
+<div class="sample-table-scroll"><table class="wikitable">
+<tbody><tr>
+<th>事件名称
+</th>
+<th>开始消息
+</th>
+<th>结束提示
+</th>
+<th>生物
+</th>
+<th data-sort-type="number">解锁条件
+</th>
+<th data-sort-type="number">禁用条件
+</th>
+<th data-sort-type="number">生态区
+</th>
+<th>持续时间（秒）
+</th></tr>
+<tr>
+<td>army_eikthyr
+</td>
+<td>“赤血灵鹿正在召集森林中的生物。”
+</td>
+<td>"生灵渐渐平息."
+</td>
+<td><a href="p-bf10a5ee1fab92a8db98.html" title="鬓猪">鬓猪</a> 与 <a href="p-6b27a97151bbf20fa8b0.html" title="蜥蜴精">蜥蜴精</a>
+</td>
+<td data-sort-value="0">世界创建时
+</td>
+<td data-sort-value="1"><a href="p-a8dc2a05596fceca7a2d.html" title="赤血灵鹿">赤血灵鹿</a>
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a> 或 <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>
+</td>
+<td>90
+</td></tr>
+<tr>
+<td>army_theelder
+</td>
+<td>"树林在移动……"
+</td>
+<td>"树林恢复了平静."
+</td>
+<td><a href="p-f4709a9359f1def796bc.html" title="灰矮人">灰矮人</a>, <a href="p-ba16540902bdc96359b7.html" title="灰矮人暴徒">灰矮人暴徒</a> 与 <a href="p-f3aed59448e859ce563b.html" title="灰矮人萨满">灰矮人萨满</a>
+</td>
+<td data-sort-value="1"><a href="p-a8dc2a05596fceca7a2d.html" title="赤血灵鹿">赤血灵鹿</a>
+</td>
+<td data-sort-value="2"><a href="p-ca3280d30e1fda946d1a.html" title="古树长老">古树长老</a>
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-0410aab66e3f48e5e615.html" title="幽暗沼泽">幽暗沼泽</a>,或 <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td>120
+</td></tr>
+<tr>
+<td>army_bonemass
+</td>
+<td>“沼泽中飘来一股恶臭……”
+</td>
+<td>"味道飘散了."
+</td>
+<td><a href="p-3ae89e8a8fe1c4a5aec2.html" title="尸鬼">尸鬼</a> 与 <a href="p-ea5f6bdc79b884c397d6.html" title="骷髅怪">骷髅怪</a>
+</td>
+<td data-sort-value="2"><a href="p-ca3280d30e1fda946d1a.html" title="古树长老">古树长老</a>
+</td>
+<td data-sort-value="3"><a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a>
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-0410aab66e3f48e5e615.html" title="幽暗沼泽">幽暗沼泽</a>, <a href="p-156193387bc71c75f505.html" title="凛冽雪山">凛冽雪山</a>,或 <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td>150
+</td></tr>
+<tr>
+<td>army_moder
+</td>
+<td>“一阵寒风从雪山吹来。”
+</td>
+<td>"寒风停息了."
+</td>
+<td><a href="p-6aed8812d68d8790c628.html" title="霜龙">霜龙</a>
+<p>(同样适用 <a class="mw-redirect" href="p-c2134a04ae76a365ceea.html" title="冻僵效果">冻僵</a> 打开该区域)
+</p>
+</td>
+<td data-sort-value="3"><a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a>
+</td>
+<td data-sort-value="4"><a href="p-483538232016e17e86f2.html" title="冰霜龙母">冰霜龙母</a>
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-0410aab66e3f48e5e615.html" title="幽暗沼泽">幽暗沼泽</a>, <a href="p-156193387bc71c75f505.html" title="凛冽雪山">凛冽雪山</a>,或 <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td>150
+</td></tr>
+<tr>
+<td>army_goblin
+</td>
+<td>"部落在发起进攻"
+</td>
+<td>"部落在撤退."
+</td>
+<td><a href="p-9d5ce60be807ae13498b.html" title="丑地精">丑地精</a>, <a href="p-440f49671e99164315e3.html" title="丑地精狂战士">丑地精狂战士</a> 与 <a href="p-12e29dba51068fb584d2.html" title="丑地精萨满">丑地精萨满</a>
+</td>
+<td data-sort-value="4"><a href="p-483538232016e17e86f2.html" title="冰霜龙母">冰霜龙母</a>
+</td>
+<td data-sort-value="5"><a href="p-398464ae70d7dad80188.html" title="亚格鲁斯">亚格鲁斯</a>
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>,或 <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td>120
+</td></tr>
+<tr>
+<td>army_gjall
+</td>
+<td>“怎么了，加尔？！”
+</td>
+<td>“再见，加尔。”
+</td>
+<td><a href="p-f018cb729d59b13d1f4e.html" title="加尔">加尔</a> 与 <a href="p-98c95268220bddfe87be.html" title="壁虱幼虫">壁虱幼虫</a>
+</td>
+<td data-sort-value="5"><a href="p-398464ae70d7dad80188.html" title="亚格鲁斯">亚格鲁斯</a>
+</td>
+<td data-sort-value="6"><a href="p-879687ceb6851d62d031.html" title="蛊虫之后">蛊虫之后</a>
+</td>
+<td><a href="p-803ba5ee8e70c4ee75f7.html" title="迷雾之地">迷雾之地</a>
+</td>
+<td>90
+</td></tr>
+<tr>
+<td>army_seekers
+</td>
+<td>“它们找上了你。”
+</td>
+<td>“搜寻结束了。”
+</td>
+<td><a href="p-c465c70b79b24e4f7c1b.html" title="邪蛛探索者">邪蛛探索者</a>, <a href="p-44d657ae1afd1497c503.html" title="邪蛛幼雏">邪蛛幼雏</a> 与 <a href="p-d638ee2f46a405dd2f5c.html" title="邪蛛士兵">邪蛛士兵</a>
+</td>
+<td data-sort-value="5"><a href="p-398464ae70d7dad80188.html" title="亚格鲁斯">亚格鲁斯</a>
+</td>
+<td data-sort-value="6"><a href="p-879687ceb6851d62d031.html" title="蛊虫之后">蛊虫之后</a>
+</td>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>, <a href="p-803ba5ee8e70c4ee75f7.html" title="迷雾之地">迷雾之地</a>, <a href="p-78051eec1c5071da80d7.html" title="灰烬之地">灰烬之地</a>,或 <a href="p-aeea3b383fcf4f2f3c67.html" title="极北之地">极北之地</a>
+</td>
+<td>90
+</td></tr>
+<tr>
+<td>army_charred
+</td>
+<td>"亡灵军队行军."
+</td>
+<td>"军队回防."
+</td>
+<td><a href="p-42b0bedf2737ab2cba46.html" title="灰烬僵尸">灰烬僵尸</a>, <a href="p-b88f49c50094a29b876f.html" title="灰烬射手">焦骨射手</a> 与 <a href="p-e91837e0deb55a18a7c9.html" title="灰烬战士">灰烬战士</a>
+</td>
+<td><a href="p-879687ceb6851d62d031.html" title="蛊虫之后">蛊虫之后</a>
+</td>
+<td><a href="p-816e9a6b76bb85197818.html" title="青焰龙王">青焰龙王</a>
+</td>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>, <a href="p-803ba5ee8e70c4ee75f7.html" title="迷雾之地">迷雾之地</a>, <a href="p-78051eec1c5071da80d7.html" title="灰烬之地">灰烬之地</a>,或 <a href="p-aeea3b383fcf4f2f3c67.html" title="极北之地">极北之地</a>
+</td>
+<td>90
+</td></tr>
+<tr>
+<td>army_charredspawners
+</td>
+<td>"亡灵已被召唤."
+</td>
+<td>“亡者再次归于沉寂。”
+</td>
+<td><a href="p-8c0453320ff81336c4bc.html" title="苦难之碑">苦难之碑</a> （袭击结束后也不会消失）
+</td>
+<td><a href="p-879687ceb6851d62d031.html" title="蛊虫之后">蛊虫之后</a>
+</td>
+<td><a href="p-816e9a6b76bb85197818.html" title="青焰龙王">青焰龙王</a>
+</td>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>, <a href="p-803ba5ee8e70c4ee75f7.html" title="迷雾之地">迷雾之地</a>, <a href="p-78051eec1c5071da80d7.html" title="灰烬之地">灰烬之地</a>,或 <a href="p-aeea3b383fcf4f2f3c67.html" title="极北之地">极北之地</a>
+</td>
+<td>90
+</td></tr>
+<tr>
+<td>army_jotuns
+</td>
+<td>"巨人已经找到你."
+</td>
+<td>"巨人撤退."
+</td>
+<td><a href="p-5b85dd09166fd038e337.html" title="巨人战士">巨人战士</a> 与 <a href="p-81efe84f7d78a374de44.html" title="厄妖">厄妖</a>
+</td>
+<td><a href="p-5b85dd09166fd038e337.html" title="巨人战士">巨人战士</a> 或 <a href="p-f11d50d821c9fe22ce51.html" title="巨人巫师">巨人巫师</a>
+</td>
+<td><a href="p-5ca34aad858e8834fded.html" title="凌冽·芬布尔使者">凌冽·芬布尔使者</a>
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-0410aab66e3f48e5e615.html" title="幽暗沼泽">幽暗沼泽</a>, <a href="p-156193387bc71c75f505.html" title="凛冽雪山">凛冽雪山</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>, <a href="p-803ba5ee8e70c4ee75f7.html" title="迷雾之地">迷雾之地</a> 或 <a href="p-aeea3b383fcf4f2f3c67.html" title="极北之地">极北之地</a>
+</td>
+<td>90
+</td></tr>
+<tr>
+<td>army_elakingar
+</td>
+<td>"来自下面的敌人,……"
+</td>
+<td>"它们回到洞穴中……"
+</td>
+<td><a href="p-81efe84f7d78a374de44.html" title="厄妖">厄妖</a> 与 <a href="p-e2b3f27d6fca99302aa8.html" title="无眼者">无眼者</a>
+</td>
+<td><a href="p-e2b3f27d6fca99302aa8.html" title="无眼者">无眼者</a>
+</td>
+<td><a href="p-5ca34aad858e8834fded.html" title="凌冽·芬布尔使者">凌冽·芬布尔使者</a>
+</td>
+<td><a href="p-aeea3b383fcf4f2f3c67.html" title="极北之地">极北之地</a>
+</td>
+<td>90
+</td></tr>
+<tr>
+<td>森林巨怪
+</td>
+<td>"地面正在晃动."
+</td>
+<td>“震动逐渐平息。”
+</td>
+<td><a href="p-9bac25686c53aa859d61.html" title="巨魔">巨魔</a>
+</td>
+<td data-sort-value="2.1"><a href="p-9bac25686c53aa859d61.html" title="巨魔">巨魔</a> 与 <a href="p-ca3280d30e1fda946d1a.html" title="古树长老">古树长老</a>
+</td>
+<td data-sort-value="1.0E+17">
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-0410aab66e3f48e5e615.html" title="幽暗沼泽">幽暗沼泽</a>,或 <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td>80
+</td></tr>
+<tr>
+<td>软泥怪
+</td>
+<td>“沼泽中飘来一股恶臭……”
+</td>
+<td>"味道飘散了."
+</td>
+<td><a href="p-24bafb0b2477f80fafd0.html" title="软泥怪">软泥怪</a> 与 <a href="p-12400ad0838ff0fa04b1.html" title="大型软泥怪">大型软泥怪</a>
+</td>
+<td data-sort-value="3"><a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a>
+</td>
+<td data-sort-value="1.0E+17">
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-0410aab66e3f48e5e615.html" title="幽暗沼泽">幽暗沼泽</a>,或 <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td>120
+</td></tr>
+<tr>
+<td>幽灵
+</td>
+<td>“你感到脊背发凉……”
+</td>
+<td>“它们暂时被驱逐了……”
+</td>
+<td><a href="p-df1bc4984a055e10b286.html" title="幽灵">幽灵</a> 与 <a href="p-c781316c9ff4beaaf1e8.html" title="鬼魅">鬼魅</a>
+</td>
+<td><a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a>
+</td>
+<td>
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-0410aab66e3f48e5e615.html" title="幽暗沼泽">幽暗沼泽</a>, <a href="p-156193387bc71c75f505.html" title="凛冽雪山">凛冽雪山</a>,或 <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td>150
+</td></tr>
+<tr>
+<td>骷髅怪
+</td>
+<td>“骷髅的突袭！”
+</td>
+<td>“骷髅厌倦了战斗。”
+</td>
+<td><a href="p-ea5f6bdc79b884c397d6.html" title="骷髅怪">骷髅怪</a> 与 <a href="p-8d7b2e4882044d922d62.html" title="腐臭遗骸">腐臭遗骸</a>
+</td>
+<td data-sort-value="3"><a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a>
+</td>
+<td data-sort-value="1.0E+17">
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-0410aab66e3f48e5e615.html" title="幽暗沼泽">幽暗沼泽</a>, <a href="p-156193387bc71c75f505.html" title="凛冽雪山">凛冽雪山</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>,或 <a href="p-803ba5ee8e70c4ee75f7.html" title="迷雾之地">迷雾之地</a>
+</td>
+<td>120
+</td></tr>
+<tr>
+<td>焰灵
+</td>
+<td>“空气中弥漫着硫磺气味……”
+</td>
+<td>"味道散去了."
+</td>
+<td><a href="p-690671ff0febe865c611.html" title="焰灵">焰灵</a>
+</td>
+<td data-sort-value="3.2"><a href="p-690671ff0febe865c611.html" title="焰灵">焰灵</a> 与 <a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a>
+</td>
+<td data-sort-value="1.0E+17">
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-0410aab66e3f48e5e615.html" title="幽暗沼泽">幽暗沼泽</a>,或 <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td>120
+</td></tr>
+<tr>
+<td>狼
+</td>
+<td>“你正在被追猎……”
+</td>
+<td>“追猎结束了。”
+</td>
+<td><a href="p-ea858afbf837aae71461.html" title="狼">狼</a>
+</td>
+<td data-sort-value="3"><a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a>
+</td>
+<td data-sort-value="1.0E+17">
+</td>
+<td><a href="p-156193387bc71c75f505.html" title="凛冽雪山">凛冽雪山</a> 或 <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td>120
+</td></tr>
+<tr>
+<td>邪蝠
+</td>
+<td>“你搅动了大锅。”
+</td>
+<td>“大锅恢复平静。”
+</td>
+<td><a href="p-f2813a523c21f6654fc4.html" title="邪蝠">邪蝠</a>
+</td>
+<td data-sort-value="3.1"><a href="p-f2813a523c21f6654fc4.html" title="邪蝠">邪蝠</a> 与 <a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a>
+</td>
+<td data-sort-value="1.0E+17">
+</td>
+<td>任意
+</td>
+<td>120
+</td></tr>
+<tr>
+<td>hildirboss1
+</td>
+<td>“她正紧追着你！”
+</td>
+<td>"她被烧伤了."
+</td>
+<td><a href="p-929a2b40551ead4abd16.html" title="布伦娜">布伦娜</a>, <a href="p-ea5f6bdc79b884c397d6.html" title="骷髅怪">骷髅怪</a>、以及 <a href="p-8d7b2e4882044d922d62.html" title="腐臭遗骸">腐臭遗骸</a>
+</td>
+<td><a href="p-6789ac95e9d8aed0a004.html" title="希尔德的宝箱">黄铜宝箱</a> 返回到 <a href="p-441cd56eacbb1fc689a9.html" title="希尔德">希尔德</a>
+</td>
+<td>
+</td>
+<td>任意
+</td>
+<td>90
+</td></tr>
+<tr>
+<td>hildirboss2
+</td>
+<td>"你感到了一股寒意"
+</td>
+<td>"你可以放松警惕了."
+</td>
+<td><a href="p-914164a5c1139a096548.html" title="盖尔哈法">盖尔哈法</a>, <a href="p-134c1125a5e029dae10d.html" title="芬里">芬里</a>、以及 <a href="p-2787ea728b28387177aa.html" title="狂信徒">狂信徒</a>
+</td>
+<td><a href="p-6789ac95e9d8aed0a004.html" title="希尔德的宝箱">银 宝箱</a> 返回到 <a href="p-441cd56eacbb1fc689a9.html" title="希尔德">希尔德</a>
+</td>
+<td>
+</td>
+<td>任意
+</td>
+<td>90
+</td></tr>
+<tr>
+<td>hildirboss3
+</td>
+<td>"他们可是兄弟啊，大哥."
+</td>
+<td>“你又一次打破了规矩……”
+</td>
+<td><a href="p-1e6dc9ac4767bb09dca9.html" title="吉尔与吞格尔">吉尔 与 吞格尔</a>, <a href="p-9d5ce60be807ae13498b.html" title="丑地精">丑地精</a>、以及 <a href="p-440f49671e99164315e3.html" title="丑地精狂战士">丑地精狂战士</a>
+</td>
+<td><a href="p-6789ac95e9d8aed0a004.html" title="希尔德的宝箱">青铜 宝箱</a> 返回到 <a href="p-441cd56eacbb1fc689a9.html" title="希尔德">希尔德</a>
+</td>
+<td>
+</td>
+<td>任意
+</td>
+<td>90
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading3"><h3 id="Player-initiated_events">玩家主动触发的事件</h3></div>
+<div class="sample-table-scroll"><table class="wikitable">
+<tbody><tr>
+<th>事件名称
+</th>
+<th>开始消息
+</th>
+<th>结束提示
+</th>
+<th>生物
+</th>
+<th data-sort-type="number">触发条件
+</th>
+<th data-sort-type="number">结束条件
+</th>
+<th data-sort-type="number">生态区
+</th>
+<th>持续时间（秒）
+</th></tr>
+<tr>
+<td><a href="p-8641b1aa063ce6e4ca83.html" title="巨人侵略">巨人侵略</a>
+</td>
+<td>"巨人进军"
+</td>
+<td>
+</td>
+<td><a href="p-f11d50d821c9fe22ce51.html" title="巨人巫师">巨人巫师</a>, <a href="p-5b85dd09166fd038e337.html" title="巨人战士">巨人战士</a> 与 <a href="p-81efe84f7d78a374de44.html" title="厄妖">厄妖</a>
+</td>
+<td>摧毁 <a href="p-2c3e40087c8659f22dac.html" title="邪恶之冰">邪恶之冰</a> 在 <a href="p-b90b3ce3ea35ac4d9cf3.html" title="莫克哈拉">莫克哈拉</a>
+</td>
+<td>摧毁 <a href="p-2c3e40087c8659f22dac.html" title="邪恶之冰">邪恶之冰</a> 位于入侵中心的
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="青青草原">青青草原</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="黑暗林山">黑暗林山</a>, <a href="p-0410aab66e3f48e5e615.html" title="幽暗沼泽">幽暗沼泽</a>, <a href="p-156193387bc71c75f505.html" title="凛冽雪山">凛冽雪山</a>,或 <a href="p-2f14fd616ff9904ca1c3.html" title="北境平原">北境平原</a>
+</td>
+<td>无限，直至事件结束
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading3"><h3 id="Player-based_requirements">基于玩家进度的条件</h3></div>
+<p>选择基于玩家进度的事件时，可出现的事件与基于世界进度的事件相同，但解锁和禁用条件不同。</p>
+<ul><li>满足任一要求即可解锁事件。
+<ul><li>例如，获得<a href="p-9048ee852ad9fd0a254a.html" title="沼泽钥匙">沼泽钥匙</a>即可解锁巨魔事件，即使尚未击杀任何巨魔。</li></ul></li>
+<li>满足任一要求即可禁用事件。
+<ul><li>例如，大多数首领事件会在获得下一个<a href="p-b8e0a74433a1176e439f.html" title="遗弃者能力">放逐之力</a>或首领掉落物后禁用。</li></ul></li></ul>
+<div class="sample-table-scroll"><table class="wikitable sortable">
+<tbody><tr>
+<th>事件名称
+</th>
+<th>必须击败的敌人
+</th>
+<th>所需放逐之力
+</th>
+<th>所需项目
+</th>
+<th>必须尚未获得的放逐之力
+</th>
+<th>必须尚未获得的物品
+</th></tr>
+<tr>
+<td>army_eikthyr
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>赤血灵鹿之力
+</td>
+<td><a href="p-53ce13b84c34826ecdb8.html" title="鹿角镐">鹿角镐</a>, <a href="p-dba0dea0584b2923f40c.html" title="青铜镐">青铜镐</a>, <a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Meadows" title="赤血灵鹿战利品">赤血灵鹿战利品</a>, <a href="p-33d4b0a276701e9c4057.html" title="硬鹿角">硬鹿角</a> 或 <a href="p-ff96df936e42f069f82f.html" title="铁镐">铁镐</a>
+</td></tr>
+<tr>
+<td>army_theelder
+</td>
+<td>
+</td>
+<td>赤血灵鹿之力
+</td>
+<td><a href="p-53ce13b84c34826ecdb8.html" title="鹿角镐">鹿角镐</a>, <a href="p-dba0dea0584b2923f40c.html" title="青铜镐">青铜镐</a> <a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Meadows" title="赤血灵鹿战利品">赤血灵鹿战利品</a>, <a href="p-33d4b0a276701e9c4057.html" title="硬鹿角">硬鹿角</a> 或 <a href="p-ff96df936e42f069f82f.html" title="铁镐">铁镐</a>
+</td>
+<td>古树长老之力
+</td>
+<td><a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html" title="古树长老战利品">古树长老战利品</a> 或 <a href="p-9048ee852ad9fd0a254a.html" title="沼泽钥匙">沼泽钥匙</a>
+</td></tr>
+<tr>
+<td>army_bonemass
+</td>
+<td>
+</td>
+<td>古树长老之力
+</td>
+<td><a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html" title="古树长老战利品">古树长老战利品</a> 或 <a href="p-9048ee852ad9fd0a254a.html" title="沼泽钥匙">沼泽钥匙</a>
+</td>
+<td>邪骨恶灵能力
+</td>
+<td><a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Swamp" title="邪骨恶灵战利品">邪骨恶灵战利品</a> 或 <a href="p-60e4daffb5de9c2270ec.html" title="愿望骨">愿望骨</a>
+</td></tr>
+<tr>
+<td>army_moder
+</td>
+<td>
+</td>
+<td>邪骨恶灵能力
+</td>
+<td><a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Swamp" title="邪骨恶灵战利品">邪骨恶灵战利品</a> 或 <a href="p-60e4daffb5de9c2270ec.html" title="愿望骨">愿望骨</a>
+</td>
+<td>冰霜龙母能力
+</td>
+<td><a href="p-0f37637232d4dab162e6.html" title="龙之泪">龙之泪</a> 或 <a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Mountain" title="冰霜龙母战利品">冰霜龙母战利品</a>
+</td></tr>
+<tr>
+<td>army_goblin
+</td>
+<td>
+</td>
+<td>
+</td>
+<td><a href="p-0f37637232d4dab162e6.html" title="龙之泪">龙之泪</a> 或 <a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Mountain" title="冰霜龙母战利品">冰霜龙母战利品</a>
+</td>
+<td>亚格鲁斯之力
+</td>
+<td><a href="p-c22c7fcb0f4b21912f23.html" title="裂魂">裂魂</a> 或 <a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Plains" title="亚格鲁斯战利品">亚格鲁斯战利品</a>
+</td></tr>
+<tr>
+<td>army_gjall
+</td>
+<td>
+</td>
+<td>
+</td>
+<td><a href="p-c22c7fcb0f4b21912f23.html" title="裂魂">裂魂</a>, <a href="p-af3c5d7c08fbc5312b7b.html" title="冥火">冥火</a> 或 <a href="p-23a2134a342f76b06d2f.html" title="冥火之光">冥火之光</a>
+</td>
+<td>蛊虫之后之力
+</td>
+<td><a class="mw-redirect" href="p-148c837566db80d01943.html" title="蛊虫之后物品">蛊虫之后物品</a>
+</td></tr>
+<tr>
+<td>army_seekers
+</td>
+<td>
+</td>
+<td>
+</td>
+<td><a href="p-c22c7fcb0f4b21912f23.html" title="裂魂">裂魂</a>, <a href="p-af3c5d7c08fbc5312b7b.html" title="冥火">冥火</a> 或 <a href="p-23a2134a342f76b06d2f.html" title="冥火之光">冥火之光</a>
+</td>
+<td>蛊虫之后之力
+</td>
+<td><a class="mw-redirect" href="p-148c837566db80d01943.html" title="蛊虫之后物品">蛊虫之后物品</a>
+</td></tr>
+<tr>
+<td>army_charred
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>army_charredspawners
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>森林巨怪
+</td>
+<td><a href="p-9bac25686c53aa859d61.html" title="巨魔">巨魔</a> 与 <a href="p-ca3280d30e1fda946d1a.html" title="古树长老">古树长老</a>
+</td>
+<td>
+</td>
+<td><a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html" title="古树长老战利品">古树长老战利品</a> 或 <a href="p-9048ee852ad9fd0a254a.html" title="沼泽钥匙">沼泽钥匙</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>软泥怪
+</td>
+<td>
+</td>
+<td>邪骨恶灵能力
+</td>
+<td><a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Swamp" title="邪骨恶灵战利品">邪骨恶灵战利品</a> 或 <a href="p-60e4daffb5de9c2270ec.html" title="愿望骨">愿望骨</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>幽灵
+</td>
+<td>
+</td>
+<td>邪骨恶灵能力
+</td>
+<td><a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Swamp" title="邪骨恶灵战利品">邪骨恶灵战利品</a> 或 <a href="p-60e4daffb5de9c2270ec.html" title="愿望骨">愿望骨</a>
+</td>
+<td>冰霜龙母能力
+</td>
+<td><a href="p-0f37637232d4dab162e6.html" title="龙之泪">龙之泪</a> 或 <a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Mountain" title="冰霜龙母战利品">冰霜龙母战利品</a>
+</td></tr>
+<tr>
+<td>骷髅怪
+</td>
+<td>
+</td>
+<td>邪骨恶灵能力
+</td>
+<td><a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Swamp" title="邪骨恶灵战利品">邪骨恶灵战利品</a> 或 <a href="p-60e4daffb5de9c2270ec.html" title="愿望骨">愿望骨</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>焰灵
+</td>
+<td><a href="p-690671ff0febe865c611.html" title="焰灵">焰灵</a> 与 <a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a>
+</td>
+<td>
+</td>
+<td><a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Swamp" title="邪骨恶灵战利品">邪骨恶灵战利品</a> 或 <a href="p-60e4daffb5de9c2270ec.html" title="愿望骨">愿望骨</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>狼
+</td>
+<td>
+</td>
+<td>邪骨恶灵能力
+</td>
+<td><a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Swamp" title="邪骨恶灵战利品">邪骨恶灵战利品</a> 或 <a href="p-60e4daffb5de9c2270ec.html" title="愿望骨">愿望骨</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>邪蝠
+</td>
+<td><a href="p-f2813a523c21f6654fc4.html" title="邪蝠">邪蝠</a> 与 <a href="p-df85e96a2da62ca98ee9.html" title="邪骨恶灵">邪骨恶灵</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>hildirboss1
+</td>
+<td><a href="p-929a2b40551ead4abd16.html" title="布伦娜">布伦娜</a>
+</td>
+<td>
+</td>
+<td><a href="p-6789ac95e9d8aed0a004.html" title="希尔德的宝箱">黄铜宝箱</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>hildirboss2
+</td>
+<td><a href="p-914164a5c1139a096548.html" title="盖尔哈法">盖尔哈法</a>
+</td>
+<td>
+</td>
+<td><a href="p-6789ac95e9d8aed0a004.html" title="希尔德的宝箱">银 宝箱</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>hildirboss3
+</td>
+<td><a href="p-1e6dc9ac4767bb09dca9.html" title="吉尔与吞格尔">吉尔与吞格尔</a>
+</td>
+<td>
+</td>
+<td><a href="p-6789ac95e9d8aed0a004.html" title="希尔德的宝箱">青铜 宝箱</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading2"><h2 id="Spawning_mechanics">生成机制</h2></div>
+<ul><li>敌人可在任何生态区、天气或昼夜时段生成。</li>
+<li>生成的敌人始终处于追猎模式，更容易锁定目标，也更难失去敌意。</li>
+<li>“最大生成数”表示数量上限，以及事件开始时尝试生成的数量。</li>
+<li>除非另有说明，“抑制距离”为10米。</li></ul>
+<div class="sample-table-scroll"><table class="mw-collapsible mw-collapsed wikitable">
+<tbody><tr>
+<th>名称
+</th>
+<th>机会
+</th>
+<th>间隔
+</th>
+<th>最大生成数
+</th>
+<th>最低海拔
+</th>
+<th>其他
+</th></tr>
+<tr>
+<td>army_eikthyr
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-6b27a97151bbf20fa8b0.html" title="蜥蜴精">蜥蜴精</a>
+</td>
+<td>100 %
+</td>
+<td>20s
+</td>
+<td>2
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-bf10a5ee1fab92a8db98.html" title="鬓猪">鬓猪</a>
+</td>
+<td>100 %
+</td>
+<td>20s
+</td>
+<td>2
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>army_theelder
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-f4709a9359f1def796bc.html" title="灰矮人">灰矮人</a>
+</td>
+<td>100 %
+</td>
+<td>5s
+</td>
+<td>6
+</td>
+<td>0m
+</td>
+<td>无抑制距离，群体1-3只，群体半径3米。
+</td></tr>
+<tr>
+<td><a href="p-f3aed59448e859ce563b.html" title="灰矮人萨满">灰矮人萨满</a>
+</td>
+<td>100 %
+</td>
+<td>5s
+</td>
+<td>1
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-ba16540902bdc96359b7.html" title="灰矮人暴徒">灰矮人暴徒</a>
+</td>
+<td>100 %
+</td>
+<td>5s
+</td>
+<td>1
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-d1b08118de3909fa8022.html" title="灰宝宝">灰矮人幼体</a>
+</td>
+<td>100 %
+</td>
+<td>5s
+</td>
+<td>4
+</td>
+<td>0m
+</td>
+<td>无抑制距离，群体1-3只，群体半径3米。
+</td></tr>
+<tr>
+<td>army_bonemass
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>强制沼泽雨天环境
+</td></tr>
+<tr>
+<td><a href="p-3ae89e8a8fe1c4a5aec2.html" title="尸鬼">尸鬼</a>
+</td>
+<td>100 %
+</td>
+<td>5s
+</td>
+<td>3
+</td>
+<td>-1 m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-ea5f6bdc79b884c397d6.html" title="骷髅怪">骷髅怪</a>
+</td>
+<td>100 %
+</td>
+<td>5s
+</td>
+<td>6
+</td>
+<td>-1 m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>army_moder
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>强制雪天环境
+</td></tr>
+<tr>
+<td><a href="p-6aed8812d68d8790c628.html" title="霜龙">霜龙</a>
+</td>
+<td>100 %
+</td>
+<td>10s
+</td>
+<td>3
+</td>
+<td>-1 m
+</td>
+<td>最大坡度90，离地偏移10米。
+</td></tr>
+<tr>
+<td>army_goblin
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-9d5ce60be807ae13498b.html" title="丑地精">丑地精</a>
+</td>
+<td>58.2 %
+</td>
+<td>10s
+</td>
+<td>8
+</td>
+<td>0m
+</td>
+<td>群体1-4只，群体半径1米
+</td></tr>
+<tr>
+<td><a href="p-440f49671e99164315e3.html" title="丑地精狂战士">丑地精狂战士</a>
+</td>
+<td>47 %
+</td>
+<td>20s
+</td>
+<td>2
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-12e29dba51068fb584d2.html" title="丑地精萨满">丑地精萨满</a>
+</td>
+<td>47 %
+</td>
+<td>20s
+</td>
+<td>1
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>army_gjall
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-f018cb729d59b13d1f4e.html" title="加尔">加尔</a>
+</td>
+<td>100 %
+</td>
+<td>40s
+</td>
+<td>1
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-98c95268220bddfe87be.html" title="壁虱幼虫">壁虱幼虫</a>
+</td>
+<td>100 %
+</td>
+<td>20s
+</td>
+<td>4
+</td>
+<td>0m
+</td>
+<td>0-2星
+</td></tr>
+<tr>
+<td>army_seekers
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-c465c70b79b24e4f7c1b.html" title="邪蛛探索者">邪蛛探索者</a>
+</td>
+<td>100 %
+</td>
+<td>35s
+</td>
+<td>3
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-44d657ae1afd1497c503.html" title="邪蛛幼雏">邪蛛幼雏</a>
+</td>
+<td>100 %
+</td>
+<td>20s
+</td>
+<td>8
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>army_charred
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-b88f49c50094a29b876f.html" title="灰烬射手">灰烬射手</a>
+</td>
+<td>100 %
+</td>
+<td>50s
+</td>
+<td>3
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-42b0bedf2737ab2cba46.html" title="灰烬僵尸">灰烬僵尸</a>
+</td>
+<td>100 %
+</td>
+<td>40s
+</td>
+<td>3
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-e91837e0deb55a18a7c9.html" title="灰烬战士">灰烬战士</a>
+</td>
+<td>100 %
+</td>
+<td>50s
+</td>
+<td>2
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>army_charredspawners
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-8c0453320ff81336c4bc.html" title="苦难之碑">苦难之碑</a>
+</td>
+<td>100 %
+</td>
+<td>60s
+</td>
+<td>3
+</td>
+<td>0m
+</td>
+<td>50米生成抑制距离
+</td></tr>
+<tr>
+<td><a href="p-42b0bedf2737ab2cba46.html" title="灰烬僵尸">灰烬僵尸</a>
+</td>
+<td>100 %
+</td>
+<td>40s
+</td>
+<td>3
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>狼
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-ea858afbf837aae71461.html" title="狼">狼</a>
+</td>
+<td>100 %
+</td>
+<td>2s
+</td>
+<td>6
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>骷髅怪
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-ea5f6bdc79b884c397d6.html" title="骷髅怪">骷髅怪</a>
+</td>
+<td>100 %
+</td>
+<td>10s
+</td>
+<td>20
+</td>
+<td>-1 m
+</td>
+<td>群体4-6只，群体半径4米
+</td></tr>
+<tr>
+<td><a href="p-8d7b2e4882044d922d62.html" title="腐臭遗骸">腐臭遗骸</a>
+</td>
+<td>54 %
+</td>
+<td>15s
+</td>
+<td>1
+</td>
+<td>-1 m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>软泥怪
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>强制雷暴环境
+</td></tr>
+<tr>
+<td><a href="p-24bafb0b2477f80fafd0.html" title="软泥怪">软泥怪</a>
+</td>
+<td>100 %
+</td>
+<td>2s
+</td>
+<td>5
+</td>
+<td>-1 m
+</td>
+<td>群体1-3只，群体半径1米
+</td></tr>
+<tr>
+<td><a href="p-12400ad0838ff0fa04b1.html" title="大型软泥怪">大型软泥怪</a>
+</td>
+<td>100 %
+</td>
+<td>10s
+</td>
+<td>2
+</td>
+<td>-1 m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>幽灵
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>强制幽灵环境
+</td></tr>
+<tr>
+<td><a href="p-df1bc4984a055e10b286.html" title="幽灵">幽灵</a>
+</td>
+<td>100 %
+</td>
+<td>10s
+</td>
+<td>3
+</td>
+<td>-1 m
+</td>
+<td>最大坡度90，离地偏移10米。
+</td></tr>
+<tr>
+<td><a href="p-c781316c9ff4beaaf1e8.html" title="鬼魅">鬼魅</a>
+</td>
+<td>100 %
+</td>
+<td>10s
+</td>
+<td>2
+</td>
+<td>-1 m
+</td>
+<td>最大坡度90，离地偏移10米。
+</td></tr>
+<tr>
+<td>森林巨怪
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-9bac25686c53aa859d61.html" title="巨魔">巨魔</a>
+</td>
+<td>100 %
+</td>
+<td>20s
+</td>
+<td>2
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>焰灵
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>强制灰烬雨环境
+</td></tr>
+<tr>
+<td><a href="p-690671ff0febe865c611.html" title="焰灵">焰灵</a>
+</td>
+<td>100 %
+</td>
+<td>2s
+</td>
+<td>4
+</td>
+<td>1m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>邪蝠
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-f2813a523c21f6654fc4.html" title="邪蝠">邪蝠</a>
+</td>
+<td>100 %
+</td>
+<td>10s
+</td>
+<td>10
+</td>
+<td>任何地点
+</td>
+<td>群体2-4只，群体半径4米，最大坡度90。
+</td></tr>
+<tr>
+<td>hildirboss1
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-929a2b40551ead4abd16.html" title="布伦娜">布伦娜</a>
+</td>
+<td>100 %
+</td>
+<td>100s
+</td>
+<td>1
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-ea5f6bdc79b884c397d6.html" title="骷髅怪">骷髅怪</a>
+</td>
+<td>100 %
+</td>
+<td>20s
+</td>
+<td>4
+</td>
+<td>0m
+</td>
+<td>群体1-2只，群体半径1米，星级1-2。
+</td></tr>
+<tr>
+<td><a href="p-8d7b2e4882044d922d62.html" title="腐臭遗骸">腐臭遗骸</a>
+</td>
+<td>100 %
+</td>
+<td>100s
+</td>
+<td>1
+</td>
+<td>0m
+</td>
+<td>1-2星
+</td></tr>
+<tr>
+<td>hildirboss2
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-914164a5c1139a096548.html" title="盖尔哈法">盖尔哈法</a>
+</td>
+<td>100 %
+</td>
+<td>100s
+</td>
+<td>1
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-134c1125a5e029dae10d.html" title="芬里">芬里</a>
+</td>
+<td>100 %
+</td>
+<td>30s
+</td>
+<td>3
+</td>
+<td>0m
+</td>
+<td>群体1-2只，群体半径1米，星级1-2。
+</td></tr>
+<tr>
+<td><a href="p-2787ea728b28387177aa.html" title="狂信徒">狂信徒</a>
+</td>
+<td>100 %
+</td>
+<td>100s
+</td>
+<td>1
+</td>
+<td>0m
+</td>
+<td>1-2星
+</td></tr>
+<tr>
+<td>hildirboss3
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-1e6dc9ac4767bb09dca9.html" title="吉尔与吞格尔">吉尔与吞格尔</a>
+</td>
+<td>100 %
+</td>
+<td>100s
+</td>
+<td>1
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-9d5ce60be807ae13498b.html" title="丑地精">丑地精</a>
+</td>
+<td>100 %
+</td>
+<td>20s
+</td>
+<td>4
+</td>
+<td>0m
+</td>
+<td>群体1-2只，群体半径1米，星级1-2。
+</td></tr>
+<tr>
+<td><a href="p-440f49671e99164315e3.html" title="丑地精狂战士">丑地精狂战士</a>
+</td>
+<td>100 %
+</td>
+<td>100s
+</td>
+<td>1
+</td>
+<td>0m
+</td>
+<td>1-2星
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading2"><h2 id="Notes">说明</h2></div>
+<ul><li>事件区域半径96米，显著大于可见红圈的64米半径。
+<ul><li>多人游戏中，只要任意玩家位于事件区域内，事件计时就会推进。</li>
+<li>不过，只有<a href="p-a53aa373c5e23e694a54.html" title="区域">区域</a>的拥有者位于事件区域内时，才会生成事件敌人。</li></ul></li>
+<li>事件不会针对地下城内的玩家触发。同样，即使地下城位于事件区域内，身处其中也不会推进事件。</li>
+<li>新事件触发时，若已有事件正在进行，先前事件会自动结束。</li>
+<li>生态区检查采用玩家所在位置的准确生态区，可在展开的小地图上悬停查看，而非根据区域角点计算的平均生态区；后者显示在较小的小地图上。</li>
+<li><a href="p-a6d7eeb25f1fe9854a8b.html" title="玩家基地">基地建筑</a> 会抑制生物生成，影响事件期间敌人的生成位置。基地建筑覆盖足够大时，可能完全阻止敌人生成。
+<ul><li>敌人在距玩家40-80米处生成，因此可能出现在事件区域之外。</li></ul></li>
+<li>游戏不会记录生物的死亡原因。因此，即使玩家尽力避免击杀某种生物以阻止相关事件，环境因素，例如焰灵走入水中，或相邻生态区的战斗，例如牦牛与巨魔交战，仍可能为该世界或玩家解锁这些事件。</li>
+<li>事件敌人以“追猎模式”生成，始终处于警戒，并能获知200米内玩家的位置。</li>
+<li>生成<a href="p-24bafb0b2477f80fafd0.html" title="软泥怪">软泥怪</a>和<a href="p-12400ad0838ff0fa04b1.html" title="大型软泥怪">大型软泥怪</a>的事件不会损伤建筑，因此玩家关好门后便不会有危险。</li>
+<li>驯服生物很容易在事件中被杀死。例如，“你搅动了大锅”事件会生成蝙蝠，对圈养在没有屋顶的围栏内的弱小驯服生物，尤其是野猪，特别危险。</li></ul>
+<div class="sample-table-scroll"><table class="navbox mw-collapsible mw-collapsed" data-collapsetext="Hide" data-expandtext="Show"><tbody><tr class="navbox-title"><th colspan="2" scope="col"><div class="navbox-title-pad navbox-title-padleft navbox-title-padright"><a href="p-edd2287afad9be012dee.html" title="分类：游戏机制">机制</a></div></th></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">攻略</th><td class="navbox-list"><div class="hlist"><a href="how-to-play.html" title="入门玩法">入门玩法</a> • <a href="p-58565db394dcbacc0ec7.html" title="流程攻略">流程攻略</a> • <a href="p-e70bc5798f8391942dd6.html" title="敌对生物攻略">敌对生物攻略</a> • <a href="p-19e667dbe36cd74e7c1b.html" title="被动生物攻略">被动生物攻略</a> • <a href="p-afc73fba07d15f960daf.html" title="首领攻略">首领攻略</a> • <a href="p-a1b6af2b7d7d4bfef86e.html" title="专用服务器">专用服务器</a> • <a href="p-c3af076f92c5ed8dcb0d.html" title="故障排查">故障排查</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">玩家</th><td class="navbox-list"><div class="hlist"><a href="p-64aee8c6cbd026d9ea92.html" title="玩家">玩家</a> • <a href="p-55898449eb74fb2e348d.html" title="生命值">生命值</a> • <a href="p-cc350ea3393968f7cd7c.html" title="耐力">耐力</a> • <a href="p-332e6a85b4285ff8858c.html" title="埃达之能">埃达之能</a> • <a href="p-2608729251008c9658e7.html" title="血怒">血怒</a> • <a href="p-fcd6fea72de7e6c09ca2.html" title="死亡">死亡</a> • <a href="p-b8e0a74433a1176e439f.html" title="遗弃者能力">遗弃者能力</a> • <a href="p-66d0f523a379b2de6f8d.html" title="技能">技能</a> • <a href="p-f57eddb4e027139d853f.html" title="状态效果">状态效果</a> • <a href="p-5954d0c13f55417f74fb.html" title="移动速度">移动速度</a> • <a href="p-ed1a5a81b8121ad13a87.html" title="魔法">魔法</a> • <a href="p-79cea8ff2ba190bbb1bd.html" title="钓鱼">钓鱼</a> • <a href="p-e9d7b76127dca2c7d07e.html" title="乘骑">乘骑</a> • <a href="p-12ff393b061d94ebc405.html" title="睡眠">睡眠</a> • <a href="p-25521701981e1ad3ad97.html" title="表情">表情</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">战斗</th><td class="navbox-list"><div class="hlist"><a href="p-0c874f581a4534f15f1e.html" title="伤害">伤害类型</a> • <a href="p-e931ec535f307a5c6add.html" title="伤害机制">伤害机制</a> • <a href="p-bb0db9f7893c418a1de3.html" title="击退">击退</a> • <a href="p-aeaeee06ac36a10d7822.html" title="阵营">阵营</a> • <a href="p-4e7c41331a4464ad6e07.html" title="生物感知">生物感知</a> • <a href="p-5ac03ba6efdc56d5b7b5.html" title="生物行为">生物行为</a> • <a href="p-37015441396c962e2e96.html" title="掉落物">掉落物</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">生成</th><td class="navbox-list"><div class="hlist"><a href="p-36ff87e1502da8a1d740.html" title="生成机制">生成机制</a> • <a href="p-3a6396c120925fdde8d2.html" title="生成点">生成点</a> • <a href="p-60958b009a9e0b5dd0b6.html" title="生成区域">生成区域</a> • <a class="mw-selflink selflink">事件</a> • <a href="p-47373e84723cece15749.html" title="生物等级">生物等级</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">建材</th><td class="navbox-list"><div class="hlist"><a href="building.html" title="建材">建材</a> • <a href="p-99b60de679e8976fc592.html" title="建筑稳定性">建筑稳定性</a> • <a href="p-fa8d84566676ee2ee662.html" title="遮蔽">遮蔽</a> • <a href="p-040d4645676f60263590.html" title="舒适度">舒适度</a> • <a href="p-a6d7eeb25f1fe9854a8b.html" title="玩家基地">玩家基地</a> • <a href="p-29b52bfcccd01518e9de.html" title="烟雾">烟雾</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">界面</th><td class="navbox-list"><div class="hlist"><a href="p-758f487fe8e9fcc59cec.html" title="物品栏">物品栏</a> • <a class="mw-redirect" href="crafting.html" title="制作菜单">制作菜单</a> • <a href="p-be176b0015c424b78e9f.html" title="地图">地图</a> • <a href="p-c40c747ee79e90e16e46.html" title="状态界面">状态界面</a> • <a href="p-799c269135742a36ae48.html" title="控制">控制</a> • <a href="p-2ef15ac2866f955969bd.html" title="开发者控制台">开发者控制台</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">世界</th><td class="navbox-list"><div class="hlist"><a href="p-9e471951a1b4106e54be.html" title="环境">环境</a> • <a href="p-8a27b0cad26bc97071ab.html" title="世界修改器">世界修改器</a> • <a href="p-2af8986090a5b9ad83ec.html" title="世界种子">世界种子</a> • <a href="p-577cfab98de598e55bee.html" title="世界进度标记">世界进度标记</a> • <a href="p-a53aa373c5e23e694a54.html" title="区域">区域</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">杂项</th><td class="navbox-list"><div class="hlist"><a href="p-74cf2bc63fe122206c82.html" title="成就">成就</a> • <a href="p-1964260e2e296c33c3f3.html" title="季节活动">季节活动</a> • <a href="p-6eb00b4b2614a144d41c.html" title="音乐">音乐</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">开发</th><td class="navbox-list"><div class="hlist"><a href="p-a6df11e706c514f13d6f.html" title="版本历史">版本历史</a> • <a href="p-4696ff19d71c753885a5.html" title="未来内容">未来内容</a></div></td></tr></tbody></table></div>
+</div></section><section data-language="en" hidden="" id="sample-en"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><figure class="mw-default-size" typeof="mw:File/Thumb"><a class="mw-file-description" href="../assets/07665bf0e7a5a9b06549.png"><img class="mw-file-element" data-file-height="1440" data-file-width="2560" decoding="async" height="169" loading="eager" src="../assets/07665bf0e7a5a9b06549.png" width="300"/></a><figcaption>The event "Eikthyr rallies the creatures of the forest." is started.</figcaption></figure>
+<p>Randomly happening events cause lots of enemies to spawn around the players. Progressing in the game world by defeating bosses causes harder events to appear. Events can be world-based or player-based depending on the world modifier settings in use. World-based events are the default mode.
+</p><p>For most events to end, a player must stay in the active event area until the timer runs out. The event timer is paused if there are no players in the event area (except for the "You are being hunted..." event).
+</p><p>Every 46 minutes there is a 20% chance for a random event;
+</p>
+<ul><li>Available events are based on which enemies have been <a href="p-577cfab98de598e55bee.html" title="Global Keys">defeated</a> in the game world.
+<ul><li>Most events require defeating a boss to become available (see Enabled by column).</li>
+<li>Some events are permanently disabled after defeating a boss (see Disabled by column).</li>
+<li>Unless player-based raids is enabled, if a raid lists two mobs (e.g. Troll and The Elder), both those mobs must have died on that world for the raid to be enabled.</li></ul></li>
+<li>If player based raids are enabled:
+<ul><li>Most events are based on which <a href="p-b8e0a74433a1176e439f.html" title="Forsaken power">Forsaken powers</a> and materials the player has acquired.</li>
+<li>Some events also check which enemies the player has defeated.</li></ul></li>
+<li>For each event, check that any of the players fulfills the following conditions:
+<ul><li>The player is in the required biome (see Biome column).</li>
+<li>The player is not in a dungeon.</li>
+<li>The player is within 40 meters of at least 3 <a href="p-a6d7eeb25f1fe9854a8b.html" title="Player base">base structures</a>. This is not required for the "You are being hunted..." event.</li></ul></li>
+<li>Select a random event from possible events (if any).</li>
+<li>Select a random player from valid players and start the event at the player's position.</li></ul>
+<div aria-labelledby="mw-toc-heading" class="toc" id="en-toc" role="navigation"><div class="toctitle" dir="ltr" lang="en"><h2 id="en-mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#en-List_of_events"><span class="tocnumber">1</span> <span class="toctext">List of events</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#en-World-based_event_requirements"><span class="tocnumber">1.1</span> <span class="toctext">World-based event requirements</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#en-Player-initiated_events"><span class="tocnumber">1.2</span> <span class="toctext">Player-initiated events</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#en-Player-based_requirements"><span class="tocnumber">1.3</span> <span class="toctext">Player-based requirements</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#en-Spawning_mechanics"><span class="tocnumber">2</span> <span class="toctext">Spawning mechanics</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#en-Notes"><span class="tocnumber">3</span> <span class="toctext">Notes</span></a></li>
+</ul>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="en-List_of_events">List of events</h2></div>
+<div class="mw-heading mw-heading3"><h3 id="en-World-based_event_requirements">World-based event requirements</h3></div>
+<div class="sample-table-scroll"><table class="wikitable">
+<tbody><tr>
+<th>Event Name
+</th>
+<th>Start message
+</th>
+<th>End message
+</th>
+<th>Creatures
+</th>
+<th data-sort-type="number">Enabled by
+</th>
+<th data-sort-type="number">Disabled by
+</th>
+<th data-sort-type="number">Biome(s)
+</th>
+<th>Duration (Seconds)
+</th></tr>
+<tr>
+<td>army_eikthyr
+</td>
+<td>"Eikthyr rallies the creatures of the forest."
+</td>
+<td>"The creatures are calming down."
+</td>
+<td><a href="p-bf10a5ee1fab92a8db98.html" title="Boar">Boars</a> and <a href="p-6b27a97151bbf20fa8b0.html" title="Neck">Necks</a>
+</td>
+<td data-sort-value="0">Start of the world
+</td>
+<td data-sort-value="1"><a href="p-a8dc2a05596fceca7a2d.html" title="Eikthyr">Eikthyr</a>
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a> or <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>
+</td>
+<td>90
+</td></tr>
+<tr>
+<td>army_theelder
+</td>
+<td>"The forest is moving..."
+</td>
+<td>"The forest rests again."
+</td>
+<td><a href="p-f4709a9359f1def796bc.html" title="Greydwarf">Greydwarfs</a>, <a href="p-ba16540902bdc96359b7.html" title="Greydwarf Brute">Greydwarf Brutes</a> and <a href="p-f3aed59448e859ce563b.html" title="Greydwarf Shaman">Greydwarf Shamans</a>
+</td>
+<td data-sort-value="1"><a href="p-a8dc2a05596fceca7a2d.html" title="Eikthyr">Eikthyr</a>
+</td>
+<td data-sort-value="2"><a href="p-ca3280d30e1fda946d1a.html" title="The Elder">The Elder</a>
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-0410aab66e3f48e5e615.html" title="Swamp">Swamp</a>, or <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td>120
+</td></tr>
+<tr>
+<td>army_bonemass
+</td>
+<td>"A foul smell from the swamp..."
+</td>
+<td>"The smell is gone."
+</td>
+<td><a href="p-3ae89e8a8fe1c4a5aec2.html" title="Draugr">Draugr</a> and <a href="p-ea5f6bdc79b884c397d6.html" title="Skeleton">Skeletons</a>
+</td>
+<td data-sort-value="2"><a href="p-ca3280d30e1fda946d1a.html" title="The Elder">The Elder</a>
+</td>
+<td data-sort-value="3"><a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a>
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-0410aab66e3f48e5e615.html" title="Swamp">Swamp</a>, <a href="p-156193387bc71c75f505.html" title="Mountain">Mountain</a>, or <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td>150
+</td></tr>
+<tr>
+<td>army_moder
+</td>
+<td>"A cold wind blows from the mountains."
+</td>
+<td>"The cold wind is gone."
+</td>
+<td><a href="p-6aed8812d68d8790c628.html" title="Drake">Drakes</a>
+<p>(Also applies <a class="mw-redirect" href="p-c2134a04ae76a365ceea.html" title="Freezing Effect">Freezing</a> on the area)
+</p>
+</td>
+<td data-sort-value="3"><a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a>
+</td>
+<td data-sort-value="4"><a href="p-483538232016e17e86f2.html" title="Moder">Moder</a>
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-0410aab66e3f48e5e615.html" title="Swamp">Swamp</a>, <a href="p-156193387bc71c75f505.html" title="Mountain">Mountain</a>, or <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td>150
+</td></tr>
+<tr>
+<td>army_goblin
+</td>
+<td>"The horde is attacking!"
+</td>
+<td>"The horde is retreating."
+</td>
+<td><a href="p-9d5ce60be807ae13498b.html" title="Fuling">Fulings</a>, <a href="p-440f49671e99164315e3.html" title="Fuling Berserker">Fuling Berserkers</a> and <a href="p-12e29dba51068fb584d2.html" title="Fuling Shaman">Fuling Shamans</a>
+</td>
+<td data-sort-value="4"><a href="p-483538232016e17e86f2.html" title="Moder">Moder</a>
+</td>
+<td data-sort-value="5"><a href="p-398464ae70d7dad80188.html" title="Yagluth">Yagluth</a>
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, or <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td>120
+</td></tr>
+<tr>
+<td>army_gjall
+</td>
+<td>"What's up, Gjall?!"
+</td>
+<td>"Good bye Gjall."
+</td>
+<td><a href="p-f018cb729d59b13d1f4e.html" title="Gjall">Gjall</a> and <a href="p-98c95268220bddfe87be.html" title="Tick">Ticks</a>
+</td>
+<td data-sort-value="5"><a href="p-398464ae70d7dad80188.html" title="Yagluth">Yagluth</a>
+</td>
+<td data-sort-value="6"><a href="p-879687ceb6851d62d031.html" title="The Queen">The Queen</a>
+</td>
+<td><a href="p-803ba5ee8e70c4ee75f7.html" title="Mistlands">Mistlands</a>
+</td>
+<td>90
+</td></tr>
+<tr>
+<td>army_seekers
+</td>
+<td>"They sought you out."
+</td>
+<td>"The search is over."
+</td>
+<td><a href="p-c465c70b79b24e4f7c1b.html" title="Seeker">Seekers</a>, <a href="p-44d657ae1afd1497c503.html" title="Seeker Brood">Seeker Broods</a> and <a href="p-d638ee2f46a405dd2f5c.html" title="Seeker Soldier">Seeker Soldiers</a>
+</td>
+<td data-sort-value="5"><a href="p-398464ae70d7dad80188.html" title="Yagluth">Yagluth</a>
+</td>
+<td data-sort-value="6"><a href="p-879687ceb6851d62d031.html" title="The Queen">The Queen</a>
+</td>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>, <a href="p-803ba5ee8e70c4ee75f7.html" title="Mistlands">Mistlands</a>, <a href="p-78051eec1c5071da80d7.html" title="Ashlands">Ashlands</a>, or <a href="p-aeea3b383fcf4f2f3c67.html" title="Deep North">Deep North</a>
+</td>
+<td>90
+</td></tr>
+<tr>
+<td>army_charred
+</td>
+<td>"The undead army marches."
+</td>
+<td>"The army retreats."
+</td>
+<td><a href="p-42b0bedf2737ab2cba46.html" title="Charred Twitcher">Charred Twitchers</a>, <a href="p-b88f49c50094a29b876f.html" title="Charred Marksman">Charred Marksmen</a> and <a href="p-e91837e0deb55a18a7c9.html" title="Charred Warrior">Charred Warriors</a>
+</td>
+<td><a href="p-879687ceb6851d62d031.html" title="The Queen">The Queen</a>
+</td>
+<td><a href="p-816e9a6b76bb85197818.html" title="Fader">Fader</a>
+</td>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>, <a href="p-803ba5ee8e70c4ee75f7.html" title="Mistlands">Mistlands</a>, <a href="p-78051eec1c5071da80d7.html" title="Ashlands">Ashlands</a>, or <a href="p-aeea3b383fcf4f2f3c67.html" title="Deep North">Deep North</a>
+</td>
+<td>90
+</td></tr>
+<tr>
+<td>army_charredspawners
+</td>
+<td>"The dead have been summoned."
+</td>
+<td>"The dead lie still once more."
+</td>
+<td><a href="p-8c0453320ff81336c4bc.html" title="Monument of Torment">Monument of Torments</a> (won't despawn even after the raid is over)
+</td>
+<td><a href="p-879687ceb6851d62d031.html" title="The Queen">The Queen</a>
+</td>
+<td><a href="p-816e9a6b76bb85197818.html" title="Fader">Fader</a>
+</td>
+<td><a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>, <a href="p-803ba5ee8e70c4ee75f7.html" title="Mistlands">Mistlands</a>, <a href="p-78051eec1c5071da80d7.html" title="Ashlands">Ashlands</a>, or <a href="p-aeea3b383fcf4f2f3c67.html" title="Deep North">Deep North</a>
+</td>
+<td>90
+</td></tr>
+<tr>
+<td>army_jotuns
+</td>
+<td>"The Jotun have found you."
+</td>
+<td>"The Jotun withdraw."
+</td>
+<td><a href="p-5b85dd09166fd038e337.html" title="Krigen">Krigens</a> and <a href="p-81efe84f7d78a374de44.html" title="Elaking">Elakings</a>
+</td>
+<td><a href="p-5b85dd09166fd038e337.html" title="Krigen">Krigen</a> or <a href="p-f11d50d821c9fe22ce51.html" title="Hexen">Hexen</a>
+</td>
+<td><a href="p-5ca34aad858e8834fded.html" title="Kall Fimbulbringer">Kall Fimbulbringer</a>
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-0410aab66e3f48e5e615.html" title="Swamp">Swamp</a>, <a href="p-156193387bc71c75f505.html" title="Mountain">Mountain</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>, <a href="p-803ba5ee8e70c4ee75f7.html" title="Mistlands">Mistlands</a> or <a href="p-aeea3b383fcf4f2f3c67.html" title="Deep North">Deep North</a>
+</td>
+<td>90
+</td></tr>
+<tr>
+<td>army_elakingar
+</td>
+<td>"They emerge from below..."
+</td>
+<td>"They return to their burrows..."
+</td>
+<td><a href="p-81efe84f7d78a374de44.html" title="Elaking">Elakings</a> and <a href="p-e2b3f27d6fca99302aa8.html" title="Eyeless One">Eyeless Ones</a>
+</td>
+<td><a href="p-e2b3f27d6fca99302aa8.html" title="Eyeless One">Eyeless One</a>
+</td>
+<td><a href="p-5ca34aad858e8834fded.html" title="Kall Fimbulbringer">Kall Fimbulbringer</a>
+</td>
+<td><a href="p-aeea3b383fcf4f2f3c67.html" title="Deep North">Deep North</a>
+</td>
+<td>90
+</td></tr>
+<tr>
+<td>foresttrolls
+</td>
+<td>"The ground is shaking."
+</td>
+<td>"The shakes starts to fade."
+</td>
+<td><a href="p-9bac25686c53aa859d61.html" title="Troll">Trolls</a>
+</td>
+<td data-sort-value="2.1"><a href="p-9bac25686c53aa859d61.html" title="Troll">Troll</a> and <a href="p-ca3280d30e1fda946d1a.html" title="The Elder">The Elder</a>
+</td>
+<td data-sort-value="1.0E+17">
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-0410aab66e3f48e5e615.html" title="Swamp">Swamp</a>, or <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td>80
+</td></tr>
+<tr>
+<td>blobs
+</td>
+<td>"A foul smell from the swamp..."
+</td>
+<td>"The smell is gone."
+</td>
+<td><a href="p-24bafb0b2477f80fafd0.html" title="Blob">Blobs</a> and <a href="p-12400ad0838ff0fa04b1.html" title="Oozer">Oozers</a>
+</td>
+<td data-sort-value="3"><a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a>
+</td>
+<td data-sort-value="1.0E+17">
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-0410aab66e3f48e5e615.html" title="Swamp">Swamp</a>, or <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td>120
+</td></tr>
+<tr>
+<td>ghosts
+</td>
+<td>"You feel a chill down your spine..."
+</td>
+<td>"They have been banished, for now..."
+</td>
+<td><a href="p-df1bc4984a055e10b286.html" title="Ghost">Ghosts</a> and <a href="p-c781316c9ff4beaaf1e8.html" title="Wraith">Wraiths</a>
+</td>
+<td><a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a>
+</td>
+<td>
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-0410aab66e3f48e5e615.html" title="Swamp">Swamp</a>, <a href="p-156193387bc71c75f505.html" title="Mountain">Mountain</a>, or <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td>150
+</td></tr>
+<tr>
+<td>skeletons
+</td>
+<td>"A skeleton surprise!"
+</td>
+<td>"Skeletons are tired of fighting."
+</td>
+<td><a href="p-ea5f6bdc79b884c397d6.html" title="Skeleton">Skeletons</a> and <a href="p-8d7b2e4882044d922d62.html" title="Rancid Remains">Rancid Remains</a>
+</td>
+<td data-sort-value="3"><a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a>
+</td>
+<td data-sort-value="1.0E+17">
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-0410aab66e3f48e5e615.html" title="Swamp">Swamp</a>, <a href="p-156193387bc71c75f505.html" title="Mountain">Mountain</a>, <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>, or <a href="p-803ba5ee8e70c4ee75f7.html" title="Mistlands">Mistlands</a>
+</td>
+<td>120
+</td></tr>
+<tr>
+<td>surtlings
+</td>
+<td>"There's a smell of sulfur in the air..."
+</td>
+<td>"The smell is fading."
+</td>
+<td><a href="p-690671ff0febe865c611.html" title="Surtling">Surtlings</a>
+</td>
+<td data-sort-value="3.2"><a href="p-690671ff0febe865c611.html" title="Surtling">Surtling</a> and <a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a>
+</td>
+<td data-sort-value="1.0E+17">
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-0410aab66e3f48e5e615.html" title="Swamp">Swamp</a>, or <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td>120
+</td></tr>
+<tr>
+<td>wolves
+</td>
+<td>"You are being hunted..."
+</td>
+<td>"The hunt is over."
+</td>
+<td><a href="p-ea858afbf837aae71461.html" title="Wolf">Wolves</a>
+</td>
+<td data-sort-value="3"><a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a>
+</td>
+<td data-sort-value="1.0E+17">
+</td>
+<td><a href="p-156193387bc71c75f505.html" title="Mountain">Mountain</a> or <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td>120
+</td></tr>
+<tr>
+<td>bats
+</td>
+<td>"You stirred the cauldron."
+</td>
+<td>"The cauldron calms."
+</td>
+<td><a href="p-f2813a523c21f6654fc4.html" title="Bat">Bats</a>
+</td>
+<td data-sort-value="3.1"><a href="p-f2813a523c21f6654fc4.html" title="Bat">Bat</a> and <a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a>
+</td>
+<td data-sort-value="1.0E+17">
+</td>
+<td>Any
+</td>
+<td>120
+</td></tr>
+<tr>
+<td>hildirboss1
+</td>
+<td>"She's hot on your tail!"
+</td>
+<td>"She got burnt."
+</td>
+<td><a href="p-929a2b40551ead4abd16.html" title="Brenna">Brenna</a>, <a href="p-ea5f6bdc79b884c397d6.html" title="Skeleton">Skeletons</a>, and <a href="p-8d7b2e4882044d922d62.html" title="Rancid Remains">Rancid Remains</a>
+</td>
+<td><a href="p-6789ac95e9d8aed0a004.html" title="Hildir's Chests">Brass Chest</a> returned to <a href="p-441cd56eacbb1fc689a9.html" title="Hildir">Hildir</a>
+</td>
+<td>
+</td>
+<td>Any
+</td>
+<td>90
+</td></tr>
+<tr>
+<td>hildirboss2
+</td>
+<td>"You get the chills..."
+</td>
+<td>"You can chill out."
+</td>
+<td><a href="p-914164a5c1139a096548.html" title="Geirrhafa">Geirrhafa</a>, <a href="p-134c1125a5e029dae10d.html" title="Fenring">Fenrings</a>, and <a href="p-2787ea728b28387177aa.html" title="Cultist">Cultists</a>
+</td>
+<td><a href="p-6789ac95e9d8aed0a004.html" title="Hildir's Chests">Silver Chest</a> returned to <a href="p-441cd56eacbb1fc689a9.html" title="Hildir">Hildir</a>
+</td>
+<td>
+</td>
+<td>Any
+</td>
+<td>90
+</td></tr>
+<tr>
+<td>hildirboss3
+</td>
+<td>"They were bros, man."
+</td>
+<td>"You broke the code... again."
+</td>
+<td><a href="p-1e6dc9ac4767bb09dca9.html" title="Zil &amp; Thungr">Zil and Thungr</a>, <a href="p-9d5ce60be807ae13498b.html" title="Fuling">Fulings</a>, and <a href="p-440f49671e99164315e3.html" title="Fuling Berserker">Fuling Berserkers</a>
+</td>
+<td><a href="p-6789ac95e9d8aed0a004.html" title="Hildir's Chests">Bronze Chest</a> returned to <a href="p-441cd56eacbb1fc689a9.html" title="Hildir">Hildir</a>
+</td>
+<td>
+</td>
+<td>Any
+</td>
+<td>90
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading3"><h3 id="en-Player-initiated_events">Player-initiated events</h3></div>
+<div class="sample-table-scroll"><table class="wikitable">
+<tbody><tr>
+<th>Event Name
+</th>
+<th>Start message
+</th>
+<th>End message
+</th>
+<th>Creatures
+</th>
+<th data-sort-type="number">Started by
+</th>
+<th data-sort-type="number">Ended by
+</th>
+<th data-sort-type="number">Biome(s)
+</th>
+<th>Duration (Seconds)
+</th></tr>
+<tr>
+<td><a href="p-8641b1aa063ce6e4ca83.html" title="Jotun Invasion">Jotun Invasion</a>
+</td>
+<td>"The Jotun advance"
+</td>
+<td>
+</td>
+<td><a href="p-f11d50d821c9fe22ce51.html" title="Hexen">Hexen</a>, <a href="p-5b85dd09166fd038e337.html" title="Krigen">Krigen</a> and <a href="p-81efe84f7d78a374de44.html" title="Elaking">Elaking</a>
+</td>
+<td>Destroying <a href="p-2c3e40087c8659f22dac.html" title="Malicious Ice">Malicious Ice</a> in <a href="p-b90b3ce3ea35ac4d9cf3.html" title="Mörkhalla">Mörkhalla</a>
+</td>
+<td>Destroying <a href="p-2c3e40087c8659f22dac.html" title="Malicious Ice">Malicious Ice</a> in the center of the invasion
+</td>
+<td><a href="p-286d1cb12daf5f2bc914.html" title="Meadows">Meadows</a>, <a href="p-60a4e61f87d8c52a3c15.html" title="Black Forest">Black Forest</a>, <a href="p-0410aab66e3f48e5e615.html" title="Swamp">Swamp</a>, <a href="p-156193387bc71c75f505.html" title="Mountain">Mountain</a>, or <a href="p-2f14fd616ff9904ca1c3.html" title="Plains">Plains</a>
+</td>
+<td>Unlimited (until ended)
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading3"><h3 id="en-Player-based_requirements">Player-based requirements</h3></div>
+<p>The events available when player-based events are selected are the same as for world-based events but with different requirements to enable and disable them.
+</p>
+<ul><li>Events are enabled by fulfilling any of the requirements.
+<ul><li>For example Trolls are enabled by gaining a <a href="p-9048ee852ad9fd0a254a.html" title="Swamp Key">Swamp Key</a> even when no Trolls have been killed.</li></ul></li>
+<li>Events are disabled by fulfilling any of the requirements.
+<ul><li>For example most boss events are disabled by either acquiring the next <a href="p-b8e0a74433a1176e439f.html" title="Forsaken power">Forsaken power</a> or a boss drop.</li></ul></li></ul>
+<div class="sample-table-scroll"><table class="wikitable sortable">
+<tbody><tr>
+<th>Event Name
+</th>
+<th>Required defeat
+</th>
+<th>Required Forsaken power
+</th>
+<th>Required item
+</th>
+<th>Not required Forsaken power
+</th>
+<th>Not required item
+</th></tr>
+<tr>
+<td>army_eikthyr
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>Eikthyr power
+</td>
+<td><a href="p-53ce13b84c34826ecdb8.html" title="Antler Pickaxe">Antler Pickaxe</a>, <a href="p-dba0dea0584b2923f40c.html" title="Bronze Pickaxe">Bronze Pickaxe</a>, <a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Meadows" title="Eikthyr Trophy">Eikthyr Trophy</a>, <a href="p-33d4b0a276701e9c4057.html" title="Hard Antler">Hard Antler</a> or <a href="p-ff96df936e42f069f82f.html" title="Iron Pickaxe">Iron Pickaxe</a>
+</td></tr>
+<tr>
+<td>army_theelder
+</td>
+<td>
+</td>
+<td>Eikthyr power
+</td>
+<td><a href="p-53ce13b84c34826ecdb8.html" title="Antler Pickaxe">Antler Pickaxe</a>, <a href="p-dba0dea0584b2923f40c.html" title="Bronze Pickaxe">Bronze Pickaxe</a> <a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Meadows" title="Eikthyr Trophy">Eikthyr Trophy</a>, <a href="p-33d4b0a276701e9c4057.html" title="Hard Antler">Hard Antler</a> or <a href="p-ff96df936e42f069f82f.html" title="Iron Pickaxe">Iron Pickaxe</a>
+</td>
+<td>Elder power
+</td>
+<td><a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html" title="The Elder Trophy">The Elder Trophy</a> or <a href="p-9048ee852ad9fd0a254a.html" title="Swamp Key">Swamp Key</a>
+</td></tr>
+<tr>
+<td>army_bonemass
+</td>
+<td>
+</td>
+<td>Elder power
+</td>
+<td><a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html" title="The Elder Trophy">The Elder Trophy</a> or <a href="p-9048ee852ad9fd0a254a.html" title="Swamp Key">Swamp Key</a>
+</td>
+<td>Bonemass power
+</td>
+<td><a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Swamp" title="Bonemass Trophy">Bonemass Trophy</a> or <a href="p-60e4daffb5de9c2270ec.html" title="Wishbone">Wishbone</a>
+</td></tr>
+<tr>
+<td>army_moder
+</td>
+<td>
+</td>
+<td>Bonemass power
+</td>
+<td><a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Swamp" title="Bonemass Trophy">Bonemass Trophy</a> or <a href="p-60e4daffb5de9c2270ec.html" title="Wishbone">Wishbone</a>
+</td>
+<td>Moder power
+</td>
+<td><a href="p-0f37637232d4dab162e6.html" title="Dragon Tear">Dragon Tear</a> or <a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Mountain" title="Moder Trophy">Moder Trophy</a>
+</td></tr>
+<tr>
+<td>army_goblin
+</td>
+<td>
+</td>
+<td>
+</td>
+<td><a href="p-0f37637232d4dab162e6.html" title="Dragon Tear">Dragon Tear</a> or <a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Mountain" title="Moder Trophy">Moder Trophy</a>
+</td>
+<td>Yagluth power
+</td>
+<td><a href="p-c22c7fcb0f4b21912f23.html" title="Torn Spirit">Torn Spirit</a> or <a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Plains" title="Yagluth Trophy">Yagluth Trophy</a>
+</td></tr>
+<tr>
+<td>army_gjall
+</td>
+<td>
+</td>
+<td>
+</td>
+<td><a href="p-c22c7fcb0f4b21912f23.html" title="Torn Spirit">Torn Spirit</a>, <a href="p-af3c5d7c08fbc5312b7b.html" title="Wisp">Wisp</a> or <a href="p-23a2134a342f76b06d2f.html" title="Wisplight">Wisplight</a>
+</td>
+<td>Queen power
+</td>
+<td><a class="mw-redirect" href="p-148c837566db80d01943.html" title="Queen drop">Queen drop</a>
+</td></tr>
+<tr>
+<td>army_seekers
+</td>
+<td>
+</td>
+<td>
+</td>
+<td><a href="p-c22c7fcb0f4b21912f23.html" title="Torn Spirit">Torn Spirit</a>, <a href="p-af3c5d7c08fbc5312b7b.html" title="Wisp">Wisp</a> or <a href="p-23a2134a342f76b06d2f.html" title="Wisplight">Wisplight</a>
+</td>
+<td>Queen power
+</td>
+<td><a class="mw-redirect" href="p-148c837566db80d01943.html" title="Queen drop">Queen drop</a>
+</td></tr>
+<tr>
+<td>army_charred
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>army_charredspawners
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>foresttrolls
+</td>
+<td><a href="p-9bac25686c53aa859d61.html" title="Troll">Troll</a> and <a href="p-ca3280d30e1fda946d1a.html" title="The Elder">The Elder</a>
+</td>
+<td>
+</td>
+<td><a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html" title="The Elder Trophy">The Elder Trophy</a> or <a href="p-9048ee852ad9fd0a254a.html" title="Swamp Key">Swamp Key</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>blobs
+</td>
+<td>
+</td>
+<td>Bonemass power
+</td>
+<td><a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Swamp" title="Bonemass Trophy">Bonemass Trophy</a> or <a href="p-60e4daffb5de9c2270ec.html" title="Wishbone">Wishbone</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>ghosts
+</td>
+<td>
+</td>
+<td>Bonemass power
+</td>
+<td><a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Swamp" title="Bonemass Trophy">Bonemass Trophy</a> or <a href="p-60e4daffb5de9c2270ec.html" title="Wishbone">Wishbone</a>
+</td>
+<td>Moder power
+</td>
+<td><a href="p-0f37637232d4dab162e6.html" title="Dragon Tear">Dragon Tear</a> or <a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Mountain" title="Moder Trophy">Moder Trophy</a>
+</td></tr>
+<tr>
+<td>skeletons
+</td>
+<td>
+</td>
+<td>Bonemass power
+</td>
+<td><a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Swamp" title="Bonemass Trophy">Bonemass Trophy</a> or <a href="p-60e4daffb5de9c2270ec.html" title="Wishbone">Wishbone</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>surtlings
+</td>
+<td><a href="p-690671ff0febe865c611.html" title="Surtling">Surtling</a> and <a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a>
+</td>
+<td>
+</td>
+<td><a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Swamp" title="Bonemass Trophy">Bonemass Trophy</a> or <a href="p-60e4daffb5de9c2270ec.html" title="Wishbone">Wishbone</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>wolves
+</td>
+<td>
+</td>
+<td>Bonemass power
+</td>
+<td><a class="mw-redirect" href="p-8a925df9f049ff4ed5d8.html#Swamp" title="Bonemass Trophy">Bonemass Trophy</a> or <a href="p-60e4daffb5de9c2270ec.html" title="Wishbone">Wishbone</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>bats
+</td>
+<td><a href="p-f2813a523c21f6654fc4.html" title="Bat">Bat</a> and <a href="p-df85e96a2da62ca98ee9.html" title="Bonemass">Bonemass</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>hildirboss1
+</td>
+<td><a href="p-929a2b40551ead4abd16.html" title="Brenna">Brenna</a>
+</td>
+<td>
+</td>
+<td><a href="p-6789ac95e9d8aed0a004.html" title="Hildir's Chests">Brass Chest</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>hildirboss2
+</td>
+<td><a href="p-914164a5c1139a096548.html" title="Geirrhafa">Geirrhafa</a>
+</td>
+<td>
+</td>
+<td><a href="p-6789ac95e9d8aed0a004.html" title="Hildir's Chests">Silver Chest</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>hildirboss3
+</td>
+<td><a href="p-1e6dc9ac4767bb09dca9.html" title="Zil &amp; Thungr">Zil &amp; Thungr</a>
+</td>
+<td>
+</td>
+<td><a href="p-6789ac95e9d8aed0a004.html" title="Hildir's Chests">Bronze Chest</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading2"><h2 id="en-Spawning_mechanics">Spawning mechanics</h2></div>
+<ul><li>Enemies can spawn in any biome, weather or time of the day.</li>
+<li>Spawned enemies are always in the hunt mode (easier targeting, harder to drop aggro).</li>
+<li>"Max spawn" means the max amount and how many spawns are attempted when the event starts.</li>
+<li>"Suppression distance" is 10 meters, unless otherwise specified.</li></ul>
+<div class="sample-table-scroll"><table class="mw-collapsible mw-collapsed wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Chance
+</th>
+<th>Interval
+</th>
+<th>Max spawn
+</th>
+<th>Minimum altitude
+</th>
+<th>Other
+</th></tr>
+<tr>
+<td>army_eikthyr
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-6b27a97151bbf20fa8b0.html" title="Neck">Neck</a>
+</td>
+<td>100 %
+</td>
+<td>20s
+</td>
+<td>2
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-bf10a5ee1fab92a8db98.html" title="Boar">Boar</a>
+</td>
+<td>100 %
+</td>
+<td>20s
+</td>
+<td>2
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>army_theelder
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-f4709a9359f1def796bc.html" title="Greydwarf">Greydwarf</a>
+</td>
+<td>100 %
+</td>
+<td>5s
+</td>
+<td>6
+</td>
+<td>0m
+</td>
+<td>No suppression distance, group 1-3 with 3m radius
+</td></tr>
+<tr>
+<td><a href="p-f3aed59448e859ce563b.html" title="Greydwarf Shaman">Greydwarf Shaman</a>
+</td>
+<td>100 %
+</td>
+<td>5s
+</td>
+<td>1
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-ba16540902bdc96359b7.html" title="Greydwarf Brute">Greydwarf Brute</a>
+</td>
+<td>100 %
+</td>
+<td>5s
+</td>
+<td>1
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-d1b08118de3909fa8022.html" title="Greyling">Greylling</a>
+</td>
+<td>100 %
+</td>
+<td>5s
+</td>
+<td>4
+</td>
+<td>0m
+</td>
+<td>No suppression distance, group 1-3 with 3m radius
+</td></tr>
+<tr>
+<td>army_bonemass
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>Forces swamprain environment
+</td></tr>
+<tr>
+<td><a href="p-3ae89e8a8fe1c4a5aec2.html" title="Draugr">Draugr</a>
+</td>
+<td>100 %
+</td>
+<td>5s
+</td>
+<td>3
+</td>
+<td>-1 m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-ea5f6bdc79b884c397d6.html" title="Skeleton">Skeleton</a>
+</td>
+<td>100 %
+</td>
+<td>5s
+</td>
+<td>6
+</td>
+<td>-1 m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>army_moder
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>Forces snow environment
+</td></tr>
+<tr>
+<td><a href="p-6aed8812d68d8790c628.html" title="Drake">Drake</a>
+</td>
+<td>100 %
+</td>
+<td>10s
+</td>
+<td>3
+</td>
+<td>-1 m
+</td>
+<td>90 max tilt, 10m offset from ground
+</td></tr>
+<tr>
+<td>army_goblin
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-9d5ce60be807ae13498b.html" title="Fuling">Fuling</a>
+</td>
+<td>58.2 %
+</td>
+<td>10s
+</td>
+<td>8
+</td>
+<td>0m
+</td>
+<td>Group 1-4 with 1m radius
+</td></tr>
+<tr>
+<td><a href="p-440f49671e99164315e3.html" title="Fuling Berserker">Fuling Berserker</a>
+</td>
+<td>47 %
+</td>
+<td>20s
+</td>
+<td>2
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-12e29dba51068fb584d2.html" title="Fuling Shaman">Fuling Shaman</a>
+</td>
+<td>47 %
+</td>
+<td>20s
+</td>
+<td>1
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>army_gjall
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-f018cb729d59b13d1f4e.html" title="Gjall">Gjall</a>
+</td>
+<td>100 %
+</td>
+<td>40s
+</td>
+<td>1
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-98c95268220bddfe87be.html" title="Tick">Tick</a>
+</td>
+<td>100 %
+</td>
+<td>20s
+</td>
+<td>4
+</td>
+<td>0m
+</td>
+<td>0-2 stars
+</td></tr>
+<tr>
+<td>army_seekers
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-c465c70b79b24e4f7c1b.html" title="Seeker">Seeker</a>
+</td>
+<td>100 %
+</td>
+<td>35s
+</td>
+<td>3
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-44d657ae1afd1497c503.html" title="Seeker Brood">Seeker Brood</a>
+</td>
+<td>100 %
+</td>
+<td>20s
+</td>
+<td>8
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>army_charred
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-b88f49c50094a29b876f.html" title="Charred Marksman">Charred Marksman</a>
+</td>
+<td>100 %
+</td>
+<td>50s
+</td>
+<td>3
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-42b0bedf2737ab2cba46.html" title="Charred Twitcher">Charred Twitcher</a>
+</td>
+<td>100 %
+</td>
+<td>40s
+</td>
+<td>3
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-e91837e0deb55a18a7c9.html" title="Charred Warrior">Charred Warrior</a>
+</td>
+<td>100 %
+</td>
+<td>50s
+</td>
+<td>2
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>army_charredspawners
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-8c0453320ff81336c4bc.html" title="Monument of Torment">Monument of Torment</a>
+</td>
+<td>100 %
+</td>
+<td>60s
+</td>
+<td>3
+</td>
+<td>0m
+</td>
+<td>50m suppression distance
+</td></tr>
+<tr>
+<td><a href="p-42b0bedf2737ab2cba46.html" title="Charred Twitcher">Charred Twitcher</a>
+</td>
+<td>100 %
+</td>
+<td>40s
+</td>
+<td>3
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>wolves
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-ea858afbf837aae71461.html" title="Wolf">Wolf</a>
+</td>
+<td>100 %
+</td>
+<td>2s
+</td>
+<td>6
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>skeletons
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-ea5f6bdc79b884c397d6.html" title="Skeleton">Skeleton</a>
+</td>
+<td>100 %
+</td>
+<td>10s
+</td>
+<td>20
+</td>
+<td>-1 m
+</td>
+<td>Group 4-6 with 4m radius
+</td></tr>
+<tr>
+<td><a href="p-8d7b2e4882044d922d62.html" title="Rancid Remains">Rancid Remains</a>
+</td>
+<td>54 %
+</td>
+<td>15s
+</td>
+<td>1
+</td>
+<td>-1 m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>blobs
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>Forces thunderstorm
+</td></tr>
+<tr>
+<td><a href="p-24bafb0b2477f80fafd0.html" title="Blob">Blob</a>
+</td>
+<td>100 %
+</td>
+<td>2s
+</td>
+<td>5
+</td>
+<td>-1 m
+</td>
+<td>Group 1-3 with 1m radius
+</td></tr>
+<tr>
+<td><a href="p-12400ad0838ff0fa04b1.html" title="Oozer">Oozer</a>
+</td>
+<td>100 %
+</td>
+<td>10s
+</td>
+<td>2
+</td>
+<td>-1 m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>ghosts
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>Forces ghosts environment
+</td></tr>
+<tr>
+<td><a href="p-df1bc4984a055e10b286.html" title="Ghost">Ghost</a>
+</td>
+<td>100 %
+</td>
+<td>10s
+</td>
+<td>3
+</td>
+<td>-1 m
+</td>
+<td>90 max tilt, 10m offset from ground
+</td></tr>
+<tr>
+<td><a href="p-c781316c9ff4beaaf1e8.html" title="Wraith">Wraith</a>
+</td>
+<td>100 %
+</td>
+<td>10s
+</td>
+<td>2
+</td>
+<td>-1 m
+</td>
+<td>90 max tilt, 10m offset from ground
+</td></tr>
+<tr>
+<td>foresttrolls
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-9bac25686c53aa859d61.html" title="Troll">Troll</a>
+</td>
+<td>100 %
+</td>
+<td>20s
+</td>
+<td>2
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>surtlings
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>Forces ashrain environment
+</td></tr>
+<tr>
+<td><a href="p-690671ff0febe865c611.html" title="Surtling">Surtling</a>
+</td>
+<td>100 %
+</td>
+<td>2s
+</td>
+<td>4
+</td>
+<td>1m
+</td>
+<td>
+</td></tr>
+<tr>
+<td>bats
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-f2813a523c21f6654fc4.html" title="Bat">Bat</a>
+</td>
+<td>100 %
+</td>
+<td>10s
+</td>
+<td>10
+</td>
+<td>Anywhere
+</td>
+<td>Group 2-4 with 4m radius, 90 max tilt
+</td></tr>
+<tr>
+<td>hildirboss1
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-929a2b40551ead4abd16.html" title="Brenna">Brenna</a>
+</td>
+<td>100 %
+</td>
+<td>100s
+</td>
+<td>1
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-ea5f6bdc79b884c397d6.html" title="Skeleton">Skeleton</a>
+</td>
+<td>100 %
+</td>
+<td>20s
+</td>
+<td>4
+</td>
+<td>0m
+</td>
+<td>Groups 1-2 with 1m radius, 1-2 stars
+</td></tr>
+<tr>
+<td><a href="p-8d7b2e4882044d922d62.html" title="Rancid Remains">Rancid Remains</a>
+</td>
+<td>100 %
+</td>
+<td>100s
+</td>
+<td>1
+</td>
+<td>0m
+</td>
+<td>1-2 stars
+</td></tr>
+<tr>
+<td>hildirboss2
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-914164a5c1139a096548.html" title="Geirrhafa">Geirrhafa</a>
+</td>
+<td>100 %
+</td>
+<td>100s
+</td>
+<td>1
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-134c1125a5e029dae10d.html" title="Fenring">Fenring</a>
+</td>
+<td>100 %
+</td>
+<td>30s
+</td>
+<td>3
+</td>
+<td>0m
+</td>
+<td>Groups 1-2 with 1m radius, 1-2 stars
+</td></tr>
+<tr>
+<td><a href="p-2787ea728b28387177aa.html" title="Cultist">Cultist</a>
+</td>
+<td>100 %
+</td>
+<td>100s
+</td>
+<td>1
+</td>
+<td>0m
+</td>
+<td>1-2 stars
+</td></tr>
+<tr>
+<td>hildirboss3
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-1e6dc9ac4767bb09dca9.html" title="Zil &amp; Thungr">Zil &amp; Thungr</a>
+</td>
+<td>100 %
+</td>
+<td>100s
+</td>
+<td>1
+</td>
+<td>0m
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="p-9d5ce60be807ae13498b.html" title="Fuling">Fuling</a>
+</td>
+<td>100 %
+</td>
+<td>20s
+</td>
+<td>4
+</td>
+<td>0m
+</td>
+<td>Groups 1-2 with 1m radius, 1-2 stars
+</td></tr>
+<tr>
+<td><a href="p-440f49671e99164315e3.html" title="Fuling Berserker">Fuling Berserker</a>
+</td>
+<td>100 %
+</td>
+<td>100s
+</td>
+<td>1
+</td>
+<td>0m
+</td>
+<td>1-2 stars
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading2"><h2 id="en-Notes">Notes</h2></div>
+<ul><li>The event area (96 meters radius) is significantly bigger than the visual red circle (64 meters radius).
+<ul><li>In multiplayer, the event timer ticks when any of the players are in the event area.</li>
+<li>However event enemies are only spawned when the <a href="p-a53aa373c5e23e694a54.html" title="Zones">zone</a> owner is in the event area.</li></ul></li>
+<li>Events won't trigger for players who are inside dungeons. Similarly being in a dungeon won't progress events even when inside the event area.</li>
+<li>If an event is already running when a new one triggers, the previous event will automatically end.</li>
+<li>The biome check uses the exact biome at the player's position (which can be seen when hovering the bigger minimap) instead of the average biome based on zone corners (which can be seen on the smaller minimap).</li>
+<li><a href="p-a6d7eeb25f1fe9854a8b.html" title="Player base">Base structures</a> suppress spawns which affect where enemies can spawn during the events. Large coverage of base structures may completely prevent enemy spawning.
+<ul><li>Enemies are spawned 40-80 meters from players which allows them to spawn outside the event area.</li></ul></li>
+<li>The source of death for a creature is not tracked. Therefore, despite a player's best efforts to not kill a certain creature to avoid certain events, the environment (e.g. a Surtling walking into water) or a neighboring biome (Lox fighting a Troll) can unlock those events for that world or player.</li>
+<li>Event enemies spawn in "hunt mode" which makes them always alerted and also know where players are located within 200 meters.</li>
+<li>An event spawning <a href="p-24bafb0b2477f80fafd0.html" title="Blob">Blobs</a> and <a href="p-12400ad0838ff0fa04b1.html" title="Oozer">Oozers</a> can't deal damage to structures, so players that close their doors are not in any danger.</li>
+<li>Tamed creatures can easily be killed during events. For example, the "stirred the cauldron" event which spawns bats is especially dangerous for weaker tamed creatures (such as Boars) held in pens not covered by a roof.</li></ul>
+<div class="sample-table-scroll"><table class="navbox mw-collapsible mw-collapsed" data-collapsetext="Hide" data-expandtext="Show"><tbody><tr class="navbox-title"><th colspan="2" scope="col"><div class="navbox-title-pad navbox-title-padleft navbox-title-padright"><a href="p-edd2287afad9be012dee.html" title="Category:Mechanics">Mechanics</a></div></th></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Guides</th><td class="navbox-list"><div class="hlist"><a href="how-to-play.html" title="How to play">How to play</a> • <a href="p-58565db394dcbacc0ec7.html" title="Progression guide">Progression guide</a> • <a href="p-e70bc5798f8391942dd6.html" title="Aggressive creature strategies">Aggressive creature strategies</a> • <a href="p-19e667dbe36cd74e7c1b.html" title="Passive creature strategies">Passive creature strategies</a> • <a href="p-afc73fba07d15f960daf.html" title="Boss strategies">Boss strategies</a> • <a href="p-a1b6af2b7d7d4bfef86e.html" title="Dedicated servers">Dedicated servers</a> • <a href="p-c3af076f92c5ed8dcb0d.html" title="Troubleshooting">Troubleshooting</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Player</th><td class="navbox-list"><div class="hlist"><a href="p-64aee8c6cbd026d9ea92.html" title="Player">Player</a> • <a href="p-55898449eb74fb2e348d.html" title="Health">Health</a> • <a href="p-cc350ea3393968f7cd7c.html" title="Stamina">Stamina</a> • <a href="p-332e6a85b4285ff8858c.html" title="Eitr">Eitr</a> • <a href="p-2608729251008c9658e7.html" title="Adrenaline">Adrenaline</a> • <a href="p-fcd6fea72de7e6c09ca2.html" title="Death">Death</a> • <a href="p-b8e0a74433a1176e439f.html" title="Forsaken power">Forsaken power</a> • <a href="p-66d0f523a379b2de6f8d.html" title="Skills">Skills</a> • <a href="p-f57eddb4e027139d853f.html" title="Status effects">Status effects</a> • <a href="p-5954d0c13f55417f74fb.html" title="Movement speed">Movement speed</a> • <a href="p-ed1a5a81b8121ad13a87.html" title="Magic">Magic</a> • <a href="p-79cea8ff2ba190bbb1bd.html" title="Fishing">Fishing</a> • <a href="p-e9d7b76127dca2c7d07e.html" title="Riding">Riding</a> • <a href="p-12ff393b061d94ebc405.html" title="Sleeping">Sleeping</a> • <a href="p-25521701981e1ad3ad97.html" title="Emotes">Emotes</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Combat</th><td class="navbox-list"><div class="hlist"><a href="p-0c874f581a4534f15f1e.html" title="Damage">Damage types</a> • <a href="p-e931ec535f307a5c6add.html" title="Damage mechanics">Damage mechanics</a> • <a href="p-bb0db9f7893c418a1de3.html" title="Knockback">Knockback</a> • <a href="p-aeaeee06ac36a10d7822.html" title="Factions">Factions</a> • <a href="p-4e7c41331a4464ad6e07.html" title="Creature senses">Creature senses</a> • <a href="p-5ac03ba6efdc56d5b7b5.html" title="Creature AI">Creature AI</a> • <a href="p-37015441396c962e2e96.html" title="Drops">Drops</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Spawning</th><td class="navbox-list"><div class="hlist"><a href="p-36ff87e1502da8a1d740.html" title="Spawning mechanics">Spawning mechanics</a> • <a href="p-3a6396c120925fdde8d2.html" title="Spawn points">Spawn points</a> • <a href="p-60958b009a9e0b5dd0b6.html" title="Spawn zones">Spawn zones</a> • <a class="mw-selflink selflink">Events</a> • <a href="p-47373e84723cece15749.html" title="Creature level">Creature level</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Building</th><td class="navbox-list"><div class="hlist"><a href="building.html" title="Building">Building</a> • <a href="p-99b60de679e8976fc592.html" title="Building stability">Building stability</a> • <a href="p-fa8d84566676ee2ee662.html" title="Cover">Cover</a> • <a href="p-040d4645676f60263590.html" title="Comfort">Comfort</a> • <a href="p-a6d7eeb25f1fe9854a8b.html" title="Player base">Player base</a> • <a href="p-29b52bfcccd01518e9de.html" title="Smoke">Smoke</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">UI</th><td class="navbox-list"><div class="hlist"><a href="p-758f487fe8e9fcc59cec.html" title="Inventory">Inventory</a> • <a class="mw-redirect" href="crafting.html" title="Crafting menu">Crafting menu</a> • <a href="p-be176b0015c424b78e9f.html" title="Map">Map</a> • <a href="p-c40c747ee79e90e16e46.html" title="HUD">HUD</a> • <a href="p-799c269135742a36ae48.html" title="Controls">Controls</a> • <a href="p-2ef15ac2866f955969bd.html" title="Developer console">Developer console</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">World</th><td class="navbox-list"><div class="hlist"><a href="p-9e471951a1b4106e54be.html" title="Environment">Environment</a> • <a href="p-8a27b0cad26bc97071ab.html" title="World Modifiers">World Modifiers</a> • <a href="p-2af8986090a5b9ad83ec.html" title="World seed">World seed</a> • <a href="p-577cfab98de598e55bee.html" title="Global Keys">Global Keys</a> • <a href="p-a53aa373c5e23e694a54.html" title="Zones">Zones</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Misc</th><td class="navbox-list"><div class="hlist"><a href="p-74cf2bc63fe122206c82.html" title="Achievements">Achievements</a> • <a href="p-1964260e2e296c33c3f3.html" title="Seasonal events">Seasonal events</a> • <a href="p-6eb00b4b2614a144d41c.html" title="Music">Music</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Development</th><td class="navbox-list"><div class="hlist"><a href="p-a6df11e706c514f13d6f.html" title="Version history">Version history</a> • <a href="p-4696ff19d71c753885a5.html" title="Future content">Future content</a></div></td></tr></tbody></table></div>
+</div></section><footer data-language="zh">来源：<a href="https://valheim.weirdgloop.org/w/Events">事件原文（需联网）</a>；保存修订号 58599。中文为本地译文。<p>原站内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名—非商业性使用—相同方式共享 3.0（CC BY-NC-SA 3.0）</a>许可；<a href="https://meta.weirdgloop.org/w/Licensing">可能适用额外条款</a>。背景与装饰素材来自原版维基，并已保存到本地。</p></footer><footer data-language="en" hidden="">Source: <a href="https://valheim.weirdgloop.org/w/Events">Events original (online)</a>; saved revision 58599. Chinese is a local translation. <p>Content on this site is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a>; <a href="https://meta.weirdgloop.org/w/Licensing">additional terms may apply</a>. Backgrounds and decorative assets from the original wiki are stored locally.</p></footer></main></body></html>

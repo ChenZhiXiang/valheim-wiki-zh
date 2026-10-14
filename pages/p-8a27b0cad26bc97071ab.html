@@ -1,0 +1,775 @@
+<!doctype html><html data-wiki-root=".." lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>世界修改器 · 英灵神殿离线维基</title><link rel="stylesheet" href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-0.css"><link rel="stylesheet" href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-1.css"><link rel="stylesheet" href="../assets/sample.css"><script defer src="../assets/search.js"></script><script defer src="../assets/sample.js"></script></head><body class="skin-vector"><nav class="sample-toolbar"><strong  data-ui-zh="英灵神殿 · 离线维基" data-ui-en="Valheim · Offline Wiki">英灵神殿 · 离线维基</strong><a href="creatures.html" data-local-page="true" data-ui-zh="生物" data-ui-en="Creatures">生物</a><a href="how-to-play.html" data-local-page="true" data-ui-zh="入门玩法" data-ui-en="How to play">入门玩法</a><a href="biomes.html" data-local-page="true" data-ui-zh="生物群系" data-ui-en="Biomes">生物群系</a><a href="weapons.html" data-local-page="true" data-ui-zh="武器" data-ui-en="Weapons">武器</a><a href="food.html" data-local-page="true" data-ui-zh="食物" data-ui-en="Food">食物</a><a href="armor.html" data-local-page="true" data-ui-zh="护甲" data-ui-en="Armor">护甲</a><a href="crafting.html" data-local-page="true" data-ui-zh="制作" data-ui-en="Crafting">制作</a><a href="building.html" data-local-page="true" data-ui-zh="建材" data-ui-en="Building">建材</a><button id="sample-language" aria-pressed="false">切换英文</button><a href="#sample-toc" data-ui-zh="本页目录" data-ui-en="Contents">本页目录</a><form id="sample-search-form" role="search"><label for=sample-search data-ui-zh="站内搜索" data-ui-en="Site search">站内搜索</label><input id="sample-search" type="search" autocomplete="off" data-placeholder-zh="输入中文或英文" data-placeholder-en="Search in Chinese or English" placeholder="输入中文或英文"><button type=submit data-ui-zh="搜索" data-ui-en="Search">搜索</button></form></nav><main class="sample-shell"><h1 id="sample-title" data-ui-zh="世界修改器" data-ui-en="World Modifiers">世界修改器</h1><p class="sample-note" data-ui-zh="本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。" data-ui-en="This offline edition supports Chinese and English site search. Links marked ↗ require internet. Chinese uses the supplied glossary; each source revision is shown below.">本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。</p><section id="sample-search-results" aria-live="polite" hidden></section><nav id="sample-toc" class="sample-contents"><div data-language="zh"><a href="#mw-toc-heading">目录</a><a href="#Modifiers">修正值</a><a href="#Combat_Settings">战斗 设置</a><a href="#Death_Penalty">死亡惩罚</a><a href="#Resource_Rate">资源倍率</a><a href="#Raid_Settings">突袭设置</a><a href="#Portal_Settings">传送门 设置</a><a href="#Hammer-mode">工具锤- 模式</a><a href="#No_Build_Cost">无建造成本</a><a href="#Passive_enemies">温顺敌人</a><a href="#Player_based_raids">根据玩家进度突袭</a><a href="#No_Map">无地图</a><a href="#Fire_Hazards">火灾</a><a href="#Global_keys">世界进度标记</a><a href="#Notes">说明</a><a href="#Achievements">成就</a></div><div data-language="en" hidden><a href="#en-mw-toc-heading">Contents</a><a href="#en-Modifiers">Modifiers</a><a href="#en-Combat_Settings">Combat Settings</a><a href="#en-Death_Penalty">Death Penalty</a><a href="#en-Resource_Rate">Resource Rate</a><a href="#en-Raid_Settings">Raid Settings</a><a href="#en-Portal_Settings">Portal Settings</a><a href="#en-Hammer-mode">Hammer-mode</a><a href="#en-No_Build_Cost">No Build Cost</a><a href="#en-Passive_enemies">Passive enemies</a><a href="#en-Player_based_raids">Player based raids</a><a href="#en-No_Map">No Map</a><a href="#en-Fire_Hazards">Fire Hazards</a><a href="#en-Global_keys">Global keys</a><a href="#en-Notes">Notes</a><a href="#en-Achievements">Achievements</a></div></nav><section id="sample-zh" data-language="zh"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><p><b>世界修改器</b>可定制参数增减挑战，位于加入世界界面，也可<a class="external text sample-online" data-online="true" href="https://github.com/GameServerManagers/LinuxGSM/issues/4328" rel="noopener noreferrer" target="_blank">专用服务器</a>命令行或<a href="p-2ef15ac2866f955969bd.html" title="开发者控制台">游戏内F5控制台</a>开发命令设置。</p>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a class="mw-file-description" href="../assets/4b5dff2b21b03f229e57.png"><img class="mw-file-element" data-file-height="590" data-file-width="491" decoding="async" height="360" loading="eager" src="../assets/4b5dff2b21b03f229e57.png" width="300"/></a><figcaption>游戏中的世界修改器菜单</figcaption></figure>
+<p>除参数滑块，还有简单、困难、硬核、休闲、锤子及沉浸预设。</p><p>改难度不阻止<a href="p-74cf2bc63fe122206c82.html" title="成就">成就</a>，仅部分成就要求特定修正，详下<a href="#Achievements">§ 成就</a>。</p>
+<div aria-labelledby="mw-toc-heading" class="toc" id="toc" role="navigation"><div class="toctitle" dir="ltr" lang="en"><h2 id="mw-toc-heading">目录</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Modifiers"><span class="tocnumber">1</span> <span class="toctext">修正值</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Combat_Settings"><span class="tocnumber">1.1</span> <span class="toctext">战斗 设置</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Death_Penalty"><span class="tocnumber">1.2</span> <span class="toctext">死亡惩罚</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Resource_Rate"><span class="tocnumber">1.3</span> <span class="toctext">资源倍率</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Raid_Settings"><span class="tocnumber">1.4</span> <span class="toctext">突袭设置</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Portal_Settings"><span class="tocnumber">1.5</span> <span class="toctext">传送门 设置</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Hammer-mode"><span class="tocnumber">1.6</span> <span class="toctext">工具锤- 模式</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#No_Build_Cost"><span class="tocnumber">1.7</span> <span class="toctext">无建造成本</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Passive_enemies"><span class="tocnumber">1.8</span> <span class="toctext">温顺敌人</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Player_based_raids"><span class="tocnumber">1.9</span> <span class="toctext">根据玩家进度突袭</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#No_Map"><span class="tocnumber">1.10</span> <span class="toctext">无地图</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Fire_Hazards"><span class="tocnumber">1.11</span> <span class="toctext">火灾</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="#Global_keys"><span class="tocnumber">2</span> <span class="toctext">世界进度标记</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="#Notes"><span class="tocnumber">3</span> <span class="toctext">说明</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="#Achievements"><span class="tocnumber">4</span> <span class="toctext">成就</span></a></li>
+</ul>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="Modifiers">修正值</h2></div>
+<div class="mw-heading mw-heading3"><h3 id="Combat_Settings">战斗 设置</h3></div>
+<p>具体各难度效果如下：</p>
+<div class="sample-table-scroll"><table class="wikitable">
+<tbody><tr>
+<th>
+</th>
+<th>玩家 伤害 (%)
+</th>
+<th>敌人伤害 (%)
+</th>
+<th>敌人速度和大小(%)
+</th>
+<th>敌人等级上升率(%)
+</th></tr>
+<tr>
+<th>轻松模式
+</th>
+<td>125
+</td>
+<td>50
+</td>
+<td>90
+</td>
+<td>100
+</td></tr>
+<tr>
+<th>简单模式
+</th>
+<td>110
+</td>
+<td>75
+</td>
+<td>90
+</td>
+<td>100
+</td></tr>
+<tr>
+<th>正常模式
+</th>
+<td>100
+</td>
+<td>100
+</td>
+<td>100
+</td>
+<td>100
+</td></tr>
+<tr>
+<th>困难模式
+</th>
+<td>85
+</td>
+<td>150
+</td>
+<td>110
+</td>
+<td>120
+</td></tr>
+<tr>
+<th>极难
+</th>
+<td>70
+</td>
+<td>200
+</td>
+<td>120
+</td>
+<td>140
+</td></tr></tbody></table></div>
+<p><b>困难模式</b>及<b>极难</b>更容易生成高级敌人。</p><p>玩家伤害百分比修正不显示于背包伤害范围或命中数字。</p>
+<div class="mw-heading mw-heading3"><h3 id="Death_Penalty">死亡惩罚</h3></div>
+<p><b>死亡惩罚</b>滑块影响<a href="p-fcd6fea72de7e6c09ca2.html" title="死亡">死亡</a>的多方面，独立因素包括：</p>
+<ul><li><b>设备</b>，死亡时穿戴或使用的背包物品。</li>
+<li><b>物品栏</b>，以及所有未穿戴或未使用的其他物品</li>
+<li><b>技能丧失</b>,减为:全部 <a href="p-66d0f523a379b2de6f8d.html" title="技能">技能</a> 玩家的等级
+<ul><li>百分比为损失总技能等级的比例。</li>
+<li>损失不取整，会设原本不可达的小数等级，显示虽截断小数。</li>
+<li>按降低后的等级重算升级需求，进度归零；此进度损失<i>不会</i>受死亡惩罚设置影响。</li>
+<li><b>示例</b>：<a class="mw-redirect" href="p-ec303764d3c247f15bb1.html" title="奔跑">奔跑</a>等级70，升71进度一半，简单死亡惩罚下死亡。损失70的2.5%，<a class="mw-redirect" href="p-ec303764d3c247f15bb1.html" title="奔跑">奔跑</a>有效等级68.25，界面68。重算下一等级69.25经验，进度0。</li></ul></li></ul>
+<p><br/>
+</p>
+<div class="sample-table-scroll"><table class="wikitable">
+<tbody><tr>
+<th>
+</th>
+<th>说明
+</th>
+<th>设备
+</th>
+<th>物品栏
+</th>
+<th>技能丧失
+</th></tr>
+<tr>
+<th>休闲模式
+</th>
+<td>你不会丢失已穿着的装备，技能丢失相对正常模式较少。
+</td>
+<td><font color="green">保持原样</font>
+</td>
+<td><font color="yellow">已丢弃</font>
+</td>
+<td>1%
+</td></tr>
+<tr>
+<th>轻松模式
+</th>
+<td>你会掉落所有物品，技能丢失比正常模式低很多。
+</td>
+<td><font color="yellow">已丢弃</font>
+</td>
+<td><font color="yellow">已丢弃</font>
+</td>
+<td>1%
+</td></tr>
+<tr>
+<th>简单模式
+</th>
+<td>你会掉落所有物品，技能丢失比正常模式低。
+</td>
+<td><font color="yellow">已丢弃</font>
+</td>
+<td><font color="yellow">已丢弃</font>
+</td>
+<td>2.5%
+</td></tr>
+<tr>
+<th>正常模式
+</th>
+<td>你会掉落所有物品，技能丢失正常。
+</td>
+<td><font color="yellow">已丢弃</font>
+</td>
+<td><font color="yellow">已丢弃</font>
+</td>
+<td>5%
+</td></tr>
+<tr>
+<th>困难模式
+</th>
+<td>已装备的物品会掉落，其他随身物品会永久丢失，技能丢失更快。
+</td>
+<td><font color="yellow">已丢弃</font>
+</td>
+<td><font color="red">被摧毁</font>
+</td>
+<td>7.5%
+</td></tr>
+<tr>
+<th>硬核模式
+</th>
+<td>你会永久失去随身物品和技能。
+</td>
+<td><font color="red">被摧毁</font>
+</td>
+<td><font color="red">被摧毁</font>
+</td>
+<td>100%
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading3"><h3 id="Resource_Rate">资源倍率</h3></div>
+<p>范围为正常生物及世界可搜刮对象掉落的<b>0.5x</b>至<b>3x</b>，鱼等少数例外，是否有意未知。</p>
+<div class="mw-heading mw-heading3"><h3 id="Raid_Settings">突袭设置</h3></div>
+<p>控制袭基地频率，即使EventRate无，夜间袭击仍发生。</p>
+<div class="sample-table-scroll"><table class="wikitable">
+<tbody><tr>
+<th>
+</th>
+<th><a href="p-577cfab98de598e55bee.html" title="世界进度标记">EventRate</a> (%)
+</th>
+<th>袭击间隔（分钟）
+</th>
+<th>袭击概率（%）
+</th></tr>
+<tr>
+<th>无
+</th>
+<td>0
+</td>
+<td>-
+</td>
+<td>-
+</td></tr>
+<tr>
+<th>更少
+</th>
+<td>200
+</td>
+<td>92
+</td>
+<td>10
+</td></tr>
+<tr>
+<th>少
+</th>
+<td>150
+</td>
+<td>69
+</td>
+<td>13.33
+</td></tr>
+<tr>
+<th>正常模式
+</th>
+<td>100
+</td>
+<td>46
+</td>
+<td>20
+</td></tr>
+<tr>
+<th>更多
+</th>
+<td>60
+</td>
+<td>27.6
+</td>
+<td>33.33
+</td></tr>
+<tr>
+<th>更多
+</th>
+<td>30
+</td>
+<td>13.8
+</td>
+<td>66.67
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading3"><h3 id="Portal_Settings">传送门 设置</h3></div>
+<ul><li>传送物品——允许所有物品通过<a href="p-b65ffe0cec61786d5d09.html" title="传送门">传送门</a>传送，无需<a href="p-b369a95d0828a4dde5d9.html" title="传送门 - 石">传送门 - 石</a></li>
+<li>普通：按标准规则限制不可传送物品</li>
+<li>无首领传送：首领活动时传送不可用。</li>
+<li>无传送门：世界中完全禁止使用传送门</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Hammer-mode">工具锤- 模式</h3></div>
+<ul><li>允许免费建造任何可用锤子建造的物品。</li>
+<li>在制作站制作装备的<b>不影响消耗</b>。</li>
+<li>锤子模式拆木石堆会消失，<b>，但不提供那50件物品</b>通常返还材料，无论原先是否正常模式制作。</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="No_Build_Cost">无建造成本</h3></div>
+<ul><li>建筑无需材料，但仍须正常解锁配方。</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Passive_enemies">温顺敌人</h3></div>
+<ul><li>敌对生物不会在没有挑衅的情况下主动攻击。</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Player_based_raids">根据玩家进度突袭</h3></div>
+<ul><li>袭击按个人进度，而非服务器击败首领。希望不同进度玩家更友好，建议此设置。</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="No_Map">无地图</h3></div>
+<ul><li>你将无法使用<a href="p-be176b0015c424b78e9f.html" title="地图">地图</a>或小地图。这会使游戏比原定设计更难。</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Fire_Hazards">火灾</h3></div>
+<ul><li>木头可全世界燃烧蔓延，不仅灰烬之地。</li></ul>
+<div class="mw-heading mw-heading2"><h2 id="Global_keys">世界进度标记</h2></div>
+<p>修正保存于<a href="p-577cfab98de598e55bee.html" title="世界进度标记">世界进度标记</a>，控制台设置移除键也可控制。百分比键按值除100读取，未设置倍率键为1.0。</p><p>Game.UpdateWorldRates读取以下倍率键，乘对应速率。ResourceRate缩放符合条件掉量，不改变数据排除类型。EventRate乘间隔、除概率，值高则更少事件且每次更不易触发；零阻止常规检查。</p>
+<div class="sample-table-scroll"><table class="wikitable">
+<tbody><tr>
+<th>钥匙</th>
+<th>乘数适用于:
+</th></tr>
+<tr>
+<td><code>PlayerDamage</code></td>
+<td>玩家对非玩家角色造成的伤害
+</td></tr>
+<tr>
+<td><code>EnemyDamage</code></td>
+<td>非玩家角色对非玩家角色造成的伤害
+</td></tr>
+<tr>
+<td><code>ResourceRate</code></td>
+<td>符合条件的资源和战利品掉落数量
+</td></tr>
+<tr>
+<td><code>StaminaRate</code>, <code>EitrRate</code>, <code>DurabilityRate</code>, <code>FoodRate</code>, <code>AdrenalineRate</code>, <code>MoveStaminaRate</code>, <code>StaminaRegenRate</code></td>
+<td>对应的资源、恢复或消耗速率
+</td></tr>
+<tr>
+<td><code>SkillGainRate</code></td>
+<td>技能收益
+</td></tr>
+<tr>
+<td><code>SkillReductionRate</code></td>
+<td>普通死亡时的技能削减
+</td></tr>
+<tr>
+<td><code>EnemySpeedSize</code></td>
+<td>敌方速度与大小
+</td></tr>
+<tr>
+<td><code>EnemyLevelUpRate</code></td>
+<td>敌人等级- 上升的概率
+</td></tr>
+<tr>
+<td><code>CarryWeightRate</code></td>
+<td>负重
+</td></tr>
+<tr>
+<td><code>EventRate</code></td>
+<td>随机事件间隔和概率
+</td></tr></tbody></table></div>
+<p>可设置以下键以修改游戏行为：
+</p>
+<ul><li>AllPiecesUnlocked：设置后解锁所有建筑部件。</li>
+<li>AllRecipesUnlocked：设置后解锁所有配方。</li>
+<li>DeathDeleteItems：死亡删除全部物品，除非设置DeathDeleteUnequipped或DeathKeepEquip。</li>
+<li>DeathDeleteUnequipped：死亡删除未装备物品。</li>
+<li>DeathKeepEquip：设置后死亡时保留已装备物品。</li>
+<li>DeathSkillsReset：设置后死亡时失去所有技能。</li>
+<li>DungeonBuild：设置后允许在地牢中建造。</li>
+<li>Fire：设置后启用火灾危险。</li>
+<li>NoBuildCost：设置后建造不消耗资源。</li>
+<li>NoCraftCost：设置后制作不消耗资源。</li>
+<li>NoBossPortals：设置后无法在首领附近使用传送门。</li>
+<li>NoMap：设置后无法使用地图。</li>
+<li>NoPortals：设置后无法使用传送门。</li>
+<li>NoWorkbench：设置后无需工作台即可建造。</li>
+<li>PassiveMobs：设置后敌人保持被动。</li>
+<li>PlayerEvents：事件条件采用个人键。</li>
+<li>TeleportAll：设置后所有物品均可传送。</li></ul>
+<p>可用以下键对游戏设置施加倍率：
+</p>
+<ul><li>EnemyDamage</li>
+<li>EnemyLevelUpRate</li>
+<li>EnemySpeedSize</li>
+<li>EventRate</li>
+<li>MoveStaminaRate</li>
+<li>PlayerDamage</li>
+<li>ResourceRate</li>
+<li>SkillGainRate</li>
+<li>SkillReductionRate</li>
+<li>StaminaRate</li>
+<li>StaminaRegenRate</li>
+<li>EitrRate</li>
+<li>DurabilityRate</li>
+<li>FoodRate</li>
+<li>AdrenalineRate</li>
+<li>CarryWeightRate</li></ul>
+<p>倍率键默认100，例如玩家伤害提高50%，使用<b>setkey PlayerDamage 150</b>。</p><p>世界等级可用于尚未完成的新游戏+功能：
+</p>
+<ul><li>WorldLevel [value]</li>
+<li>WorldLevelLockedTools：工具等级检查同时检查世界等级。</li></ul>
+<div class="mw-heading mw-heading2"><h2 id="Notes">说明</h2></div>
+<ul><li>世界修改器在以下更新中加入： <a href="p-441cd56eacbb1fc689a9.html" title="希尔德">希尔德的请求</a> 更新
+<ul><li>滑块正常时，玩法大致同更新前。</li></ul></li>
+<li>资源倍率向上取整，因此敌人、浆果等多数掉落1.5x实际等于2x。</li>
+<li>资源倍率不影响鱼、战利品和首领掉落物</li>
+<li>若使用F5控制台将世界修改器从普通改为其他设置，目前已知恢复普通的唯一方法是将整体模式重置为普通。
+<ul><li>例如setworldmodifier portals casual将传送设休闲。</li>
+<li>setworldmodifier portals normal无法恢复正常。</li>
+<li>目前仅setworldpreset default重置全部修正，会重置所有setworldmodifier键。</li></ul></li></ul>
+<div class="mw-heading mw-heading2"><h2 id="Achievements">成就</h2></div>
+<ul><li><b>无地图</b>:
+<ul><li><span typeof="mw:File"><a href="p-74cf2bc63fe122206c82.html" title="成就"><img class="mw-file-element" data-file-height="256" data-file-width="256" decoding="async" height="64" loading="eager" src="../assets/7cb9953b0142064fd148.jpg" width="64"/></a></span><b>探路者</b> • <i>"在没有地图的情况下朝四个方位远行。"</i></li></ul></li>
+<li><b>预设</b>：普通、困难或极难
+<ul><li><span typeof="mw:File"><a href="p-74cf2bc63fe122206c82.html" title="成就"><img class="mw-file-element" data-file-height="256" data-file-width="256" decoding="async" height="64" loading="eager" src="../assets/526231794226e67e05b0.jpg" width="64"/></a></span><b>超强维京人</b> • <i>"击败正常或以上难度的所有boss。"</i></li></ul></li>
+<li><b>预设</b>：困难或极难
+<ul><li><span typeof="mw:File"><a href="p-74cf2bc63fe122206c82.html" title="成就"><img class="mw-file-element" data-file-height="256" data-file-width="256" decoding="async" height="64" loading="eager" src="../assets/c3fa29f6bed60ccf53e7.jpg" width="64"/></a></span><b>狩猎大师</b> • <i>“在困难难度下击杀每一种生物。”</i></li>
+<li><span typeof="mw:File"><a href="p-74cf2bc63fe122206c82.html" title="成就"><img class="mw-file-element" data-file-height="256" data-file-width="256" decoding="async" height="64" loading="eager" src="../assets/0a6c06497ae77586e87b.jpg" width="64"/></a></span><b>最强维京人</b> • <i>“困难难度击败全部首领。”</i></li></ul></li></ul>
+<div class="sample-table-scroll"><table class="navbox mw-collapsible mw-collapsed" data-collapsetext="Hide" data-expandtext="Show"><tbody><tr class="navbox-title"><th colspan="2" scope="col"><div class="navbox-title-pad navbox-title-padleft navbox-title-padright"><a href="p-edd2287afad9be012dee.html" title="分类：游戏机制">机制</a></div></th></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">攻略</th><td class="navbox-list"><div class="hlist"><a href="how-to-play.html" title="入门玩法">入门玩法</a> • <a href="p-58565db394dcbacc0ec7.html" title="流程攻略">流程攻略</a> • <a href="p-e70bc5798f8391942dd6.html" title="敌对生物攻略">敌对生物攻略</a> • <a href="p-19e667dbe36cd74e7c1b.html" title="被动生物攻略">被动生物攻略</a> • <a href="p-afc73fba07d15f960daf.html" title="首领攻略">首领攻略</a> • <a href="p-a1b6af2b7d7d4bfef86e.html" title="专用服务器">专用服务器</a> • <a href="p-c3af076f92c5ed8dcb0d.html" title="故障排查">故障排查</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">玩家</th><td class="navbox-list"><div class="hlist"><a href="p-64aee8c6cbd026d9ea92.html" title="玩家">玩家</a> • <a href="p-55898449eb74fb2e348d.html" title="生命值">生命值</a> • <a href="p-cc350ea3393968f7cd7c.html" title="耐力">耐力</a> • <a href="p-332e6a85b4285ff8858c.html" title="埃达之能">埃达之能</a> • <a href="p-2608729251008c9658e7.html" title="血怒">血怒</a> • <a href="p-fcd6fea72de7e6c09ca2.html" title="死亡">死亡</a> • <a href="p-b8e0a74433a1176e439f.html" title="遗弃者能力">遗弃者能力</a> • <a href="p-66d0f523a379b2de6f8d.html" title="技能">技能</a> • <a href="p-f57eddb4e027139d853f.html" title="状态效果">状态效果</a> • <a href="p-5954d0c13f55417f74fb.html" title="移动速度">移动速度</a> • <a href="p-ed1a5a81b8121ad13a87.html" title="魔法">魔法</a> • <a href="p-79cea8ff2ba190bbb1bd.html" title="钓鱼">钓鱼</a> • <a href="p-e9d7b76127dca2c7d07e.html" title="乘骑">乘骑</a> • <a href="p-12ff393b061d94ebc405.html" title="睡眠">睡眠</a> • <a href="p-25521701981e1ad3ad97.html" title="表情">表情</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">战斗</th><td class="navbox-list"><div class="hlist"><a href="p-0c874f581a4534f15f1e.html" title="伤害">伤害类型</a> • <a href="p-e931ec535f307a5c6add.html" title="伤害机制">伤害机制</a> • <a href="p-bb0db9f7893c418a1de3.html" title="击退">击退</a> • <a href="p-aeaeee06ac36a10d7822.html" title="阵营">阵营</a> • <a href="p-4e7c41331a4464ad6e07.html" title="生物感知">生物感知</a> • <a href="p-5ac03ba6efdc56d5b7b5.html" title="生物行为">生物行为</a> • <a href="p-37015441396c962e2e96.html" title="掉落物">掉落物</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">生成</th><td class="navbox-list"><div class="hlist"><a href="p-36ff87e1502da8a1d740.html" title="生成机制">生成机制</a> • <a href="p-3a6396c120925fdde8d2.html" title="生成点">生成点</a> • <a href="p-60958b009a9e0b5dd0b6.html" title="生成区域">生成区域</a> • <a href="p-8d14f6e72de8f18ab1ee.html" title="事件">事件</a> • <a href="p-47373e84723cece15749.html" title="生物等级">生物等级</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">建材</th><td class="navbox-list"><div class="hlist"><a href="building.html" title="建材">建材</a> • <a href="p-99b60de679e8976fc592.html" title="建筑稳定性">建筑稳定性</a> • <a href="p-fa8d84566676ee2ee662.html" title="遮蔽">遮蔽</a> • <a href="p-040d4645676f60263590.html" title="舒适度">舒适度</a> • <a href="p-a6d7eeb25f1fe9854a8b.html" title="玩家基地">玩家基地</a> • <a href="p-29b52bfcccd01518e9de.html" title="烟雾">烟雾</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">界面</th><td class="navbox-list"><div class="hlist"><a href="p-758f487fe8e9fcc59cec.html" title="物品栏">物品栏</a> • <a class="mw-redirect" href="crafting.html" title="制作菜单">制作菜单</a> • <a href="p-be176b0015c424b78e9f.html" title="地图">地图</a> • <a href="p-c40c747ee79e90e16e46.html" title="状态界面">状态界面</a> • <a href="p-799c269135742a36ae48.html" title="控制">控制</a> • <a href="p-2ef15ac2866f955969bd.html" title="开发者控制台">开发者控制台</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">世界</th><td class="navbox-list"><div class="hlist"><a href="p-9e471951a1b4106e54be.html" title="环境">环境</a> • <a class="mw-selflink selflink">世界修改器</a> • <a href="p-2af8986090a5b9ad83ec.html" title="世界种子">世界种子</a> • <a href="p-577cfab98de598e55bee.html" title="世界进度标记">世界进度标记</a> • <a href="p-a53aa373c5e23e694a54.html" title="区域">区域</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">杂项</th><td class="navbox-list"><div class="hlist"><a href="p-74cf2bc63fe122206c82.html" title="成就">成就</a> • <a href="p-1964260e2e296c33c3f3.html" title="季节活动">季节活动</a> • <a href="p-6eb00b4b2614a144d41c.html" title="音乐">音乐</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">开发</th><td class="navbox-list"><div class="hlist"><a href="p-a6df11e706c514f13d6f.html" title="版本历史">版本历史</a> • <a href="p-4696ff19d71c753885a5.html" title="未来内容">未来内容</a></div></td></tr></tbody></table></div>
+
+
+
+</div></section><section id="sample-en" data-language="en" hidden><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><p><b>World Modifiers</b> allow the player to customize a variety of parameters to increase or decrease the challenge of the game. They can be found on the Join World screen.  Modifiers can also be set on a <a class="external text sample-online" data-online="true" href="https://github.com/GameServerManagers/LinuxGSM/issues/4328" rel="noopener noreferrer" target="_blank">dedicated server</a> via command line, or using devcommands in the <a href="p-2ef15ac2866f955969bd.html" title="Developer console">in-game F5 console</a>. 
+</p>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a class="mw-file-description" href="../assets/4b5dff2b21b03f229e57.png"><img class="mw-file-element" data-file-height="590" data-file-width="491" decoding="async" height="360" loading="eager" src="../assets/4b5dff2b21b03f229e57.png" width="300"/></a><figcaption>The World Modifiers menu as it appears in-game</figcaption></figure>
+<p>As well as sliders for each of the changeable parameters, there are also a selection of difficulty presets: Easy, Hard, Hardcore, Casual, Hammer mode, and Immersive.
+</p><p>Changing the difficulty settings does not prevent obtaining <a href="p-74cf2bc63fe122206c82.html" title="Achievements">achievements</a>. Only select achievements are gated behind specific World Modifiers, see <a href="#en-Achievements">§ Achievements</a> below.
+</p>
+<div aria-labelledby="mw-toc-heading" class="toc" id="en-toc" role="navigation"><div class="toctitle" dir="ltr" lang="en"><h2 id="en-mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#en-Modifiers"><span class="tocnumber">1</span> <span class="toctext">Modifiers</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#en-Combat_Settings"><span class="tocnumber">1.1</span> <span class="toctext">Combat Settings</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#en-Death_Penalty"><span class="tocnumber">1.2</span> <span class="toctext">Death Penalty</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#en-Resource_Rate"><span class="tocnumber">1.3</span> <span class="toctext">Resource Rate</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#en-Raid_Settings"><span class="tocnumber">1.4</span> <span class="toctext">Raid Settings</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#en-Portal_Settings"><span class="tocnumber">1.5</span> <span class="toctext">Portal Settings</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#en-Hammer-mode"><span class="tocnumber">1.6</span> <span class="toctext">Hammer-mode</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#en-No_Build_Cost"><span class="tocnumber">1.7</span> <span class="toctext">No Build Cost</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#en-Passive_enemies"><span class="tocnumber">1.8</span> <span class="toctext">Passive enemies</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#en-Player_based_raids"><span class="tocnumber">1.9</span> <span class="toctext">Player based raids</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#en-No_Map"><span class="tocnumber">1.10</span> <span class="toctext">No Map</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#en-Fire_Hazards"><span class="tocnumber">1.11</span> <span class="toctext">Fire Hazards</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="#en-Global_keys"><span class="tocnumber">2</span> <span class="toctext">Global keys</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="#en-Notes"><span class="tocnumber">3</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="#en-Achievements"><span class="tocnumber">4</span> <span class="toctext">Achievements</span></a></li>
+</ul>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="en-Modifiers">Modifiers</h2></div>
+<div class="mw-heading mw-heading3"><h3 id="en-Combat_Settings">Combat Settings</h3></div>
+<p>In concrete terms, the following are the effects of each difficulty setting:
+</p>
+<div class="sample-table-scroll"><table class="wikitable">
+<tbody><tr>
+<th>
+</th>
+<th>Player Damage (%)
+</th>
+<th>Enemy Damage (%)
+</th>
+<th>Enemy Speed &amp; Size (%)
+</th>
+<th>Enemy Level Up Rate (%)
+</th></tr>
+<tr>
+<th>Very Easy
+</th>
+<td>125
+</td>
+<td>50
+</td>
+<td>90
+</td>
+<td>100
+</td></tr>
+<tr>
+<th>Easy
+</th>
+<td>110
+</td>
+<td>75
+</td>
+<td>90
+</td>
+<td>100
+</td></tr>
+<tr>
+<th>Normal
+</th>
+<td>100
+</td>
+<td>100
+</td>
+<td>100
+</td>
+<td>100
+</td></tr>
+<tr>
+<th>Hard
+</th>
+<td>85
+</td>
+<td>150
+</td>
+<td>110
+</td>
+<td>120
+</td></tr>
+<tr>
+<th>Very Hard
+</th>
+<td>70
+</td>
+<td>200
+</td>
+<td>120
+</td>
+<td>140
+</td></tr></tbody></table></div>
+<p>In <b>Hard</b> and <b>Very Hard</b> settings, there is a higher probability of spawning high-level enemies.
+</p><p>Player Damage (%) modifications are not reflected in the values shown on the screen, either in weapon damage ranges in the inventory or upon successful hits to a creature.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Death_Penalty">Death Penalty</h3></div>
+<p>The <b>death penalty</b> slider affects several aspects of what happens to a player character upon <a href="p-fcd6fea72de7e6c09ca2.html" title="Death">Death</a>. Independent factors include:
+</p>
+<ul><li><b>Equipment</b>, the inventory items that are worn or in use at the moment the player dies</li>
+<li><b>Inventory</b>, all other items that weren't worn or in use</li>
+<li><b>Skill loss</b>, a reduction to all <a href="p-66d0f523a379b2de6f8d.html" title="Skills">Skill</a> levels for the player
+<ul><li>The listed percentage is the portion of total skill level value lost</li>
+<li>The loss is not rounded, and new, otherwise unattainable decimal levels will be set, even though the decimals are truncated</li>
+<li>Every skill's next level requirement is recalculated for the new, reduced level and progress is set to zero -- this progress loss is <i>not</i> impacted by the death penalty settings</li>
+<li><b>Example</b>: A player's <a class="mw-redirect" href="p-ec303764d3c247f15bb1.html" title="Run">Run</a> skill is 70, halfway to 71, and they die on the "easy" death penalty setting. 2.5% of the level value of 70 is lost and the new, effective level for the <a class="mw-redirect" href="p-ec303764d3c247f15bb1.html" title="Run">Run</a> skill is set to 68.25, visualized in the UI as 68. The required experience to the next level, 69.25, is calculated and progress towards it is set to 0.</li></ul></li></ul>
+<p><br/>
+</p>
+<div class="sample-table-scroll"><table class="wikitable">
+<tbody><tr>
+<th>
+</th>
+<th>Description
+</th>
+<th>Equipment
+</th>
+<th>Inventory
+</th>
+<th>Skill loss
+</th></tr>
+<tr>
+<th>Casual
+</th>
+<td>You do not drop equipped gear, and skills are reduced a lot less than on normal mode.
+</td>
+<td><font color="green">Kept</font>
+</td>
+<td><font color="yellow">Dropped</font>
+</td>
+<td>1%
+</td></tr>
+<tr>
+<th>Very easy
+</th>
+<td>You drop all items, and skills are reduced a lot less than on normal mode.
+</td>
+<td><font color="yellow">Dropped</font>
+</td>
+<td><font color="yellow">Dropped</font>
+</td>
+<td>1%
+</td></tr>
+<tr>
+<th>Easy
+</th>
+<td>You drop all items, and skills are reduced less than on normal mode.
+</td>
+<td><font color="yellow">Dropped</font>
+</td>
+<td><font color="yellow">Dropped</font>
+</td>
+<td>2.5%
+</td></tr>
+<tr>
+<th>Normal
+</th>
+<td>You drop all items, and skills are reduced normally.
+</td>
+<td><font color="yellow">Dropped</font>
+</td>
+<td><font color="yellow">Dropped</font>
+</td>
+<td>5%
+</td></tr>
+<tr>
+<th>Hard
+</th>
+<td>Equipped items are dropped, the rest of your inventory is lost permanently, and skills are reduced faster.
+</td>
+<td><font color="yellow">Dropped</font>
+</td>
+<td><font color="red">Destroyed</font>
+</td>
+<td>7.5%
+</td></tr>
+<tr>
+<th>Hardcore
+</th>
+<td>You lose all carried items and skills permanently.
+</td>
+<td><font color="red">Destroyed</font>
+</td>
+<td><font color="red">Destroyed</font>
+</td>
+<td>100%
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading3"><h3 id="en-Resource_Rate">Resource Rate</h3></div>
+<p>Ranges from <b>0.5x</b> to <b>3x</b> normal drop rate from mobs and lootable objects in the world. There are a few exceptions (not sure if intentional) such as fish.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Raid_Settings">Raid Settings</h3></div>
+<p>Governs how often enemies may raid your base, although night raids will still occur even when setting the EventRate to none.
+</p>
+<div class="sample-table-scroll"><table class="wikitable">
+<tbody><tr>
+<th>
+</th>
+<th><a href="p-577cfab98de598e55bee.html" title="Global Keys">EventRate</a> (%)
+</th>
+<th>Raid Interval (min)
+</th>
+<th>Raid Chance (%)
+</th></tr>
+<tr>
+<th>None
+</th>
+<td>0
+</td>
+<td>-
+</td>
+<td>-
+</td></tr>
+<tr>
+<th>Much less
+</th>
+<td>200
+</td>
+<td>92
+</td>
+<td>10
+</td></tr>
+<tr>
+<th>Less
+</th>
+<td>150
+</td>
+<td>69
+</td>
+<td>13.33
+</td></tr>
+<tr>
+<th>Normal
+</th>
+<td>100
+</td>
+<td>46
+</td>
+<td>20
+</td></tr>
+<tr>
+<th>More
+</th>
+<td>60
+</td>
+<td>27.6
+</td>
+<td>33.33
+</td></tr>
+<tr>
+<th>Much more
+</th>
+<td>30
+</td>
+<td>13.8
+</td>
+<td>66.67
+</td></tr></tbody></table></div>
+<div class="mw-heading mw-heading3"><h3 id="en-Portal_Settings">Portal Settings</h3></div>
+<ul><li>Portal items - Allows all items to be teleported through <a href="p-b65ffe0cec61786d5d09.html" title="Portal">Portals</a>, not requiring a <a href="p-b369a95d0828a4dde5d9.html" title="Portal Stone">Portal Stone</a></li>
+<li>Normal - Non-portalable items apply as standard</li>
+<li>No boss portals - Portals aren't available when a boss is active</li>
+<li>No portals - No portals are allowed at all in the world</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Hammer-mode">Hammer-mode</h3></div>
+<ul><li>Allows no-build cost on any item buildable with a hammer.</li>
+<li><b>Doesn't affect the cost</b> of making gear at a crafting station.</li>
+<li>Deconstructing a log pile or rock pile while in hammer-mode will cause the stack to disappear <b>without giving the 50 items</b> it would usually give (regardless of being originally crafted while in non-hammer-mode).</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-No_Build_Cost">No Build Cost</h3></div>
+<ul><li>Build pieces require no materials to build. You still need to discover recipes as per usual.</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Passive_enemies">Passive enemies</h3></div>
+<ul><li>Enemies won't attack until you provoke them.</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Player_based_raids">Player based raids</h3></div>
+<ul><li>Raids are based on the progress of each individual player, rather than on which bosses have been killed on the server. This setting is recommended if you want the game to be slightly friendlier to players with different progress.</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-No_Map">No Map</h3></div>
+<ul><li>You will not have access to the <a href="p-be176b0015c424b78e9f.html" title="Map">map</a> or the minimap. This makes the game harder than intended.</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Fire_Hazards">Fire Hazards</h3></div>
+<ul><li>Wood can catch fire and spread throughout the whole world, not just in the Ashlands.</li></ul>
+<div class="mw-heading mw-heading2"><h2 id="en-Global_keys">Global keys</h2></div>
+<p>World modifiers are stored in <a href="p-577cfab98de598e55bee.html" title="Global Keys">Global Keys</a>. Console commands can be used to set or remove keys which provides another way to set world modifiers. The game reads percentage-valued keys as the key value divided by 100; an unset scalar key therefore has a multiplier of 1.0.
+</p><p>The following scalar keys are read by `Game.UpdateWorldRates` and multiply the corresponding rate. `ResourceRate` scales eligible drop amounts and leaves the item-type exclusions defined by the game data unchanged. `EventRate` multiplies event intervals and divides event chances, so higher values make events less frequent but less likely at each check; zero prevents the regular event check.
+</p>
+<div class="sample-table-scroll"><table class="wikitable">
+<tbody><tr>
+<th>Key</th>
+<th>Multiplier applies to
+</th></tr>
+<tr>
+<td><code>PlayerDamage</code></td>
+<td>Damage dealt by players to non-player characters
+</td></tr>
+<tr>
+<td><code>EnemyDamage</code></td>
+<td>Damage dealt by non-player characters to non-player characters
+</td></tr>
+<tr>
+<td><code>ResourceRate</code></td>
+<td>Eligible resource and loot drop amounts
+</td></tr>
+<tr>
+<td><code>StaminaRate</code>, <code>EitrRate</code>, <code>DurabilityRate</code>, <code>FoodRate</code>, <code>AdrenalineRate</code>, <code>MoveStaminaRate</code>, <code>StaminaRegenRate</code></td>
+<td>Their corresponding resource, regeneration, or drain rates
+</td></tr>
+<tr>
+<td><code>SkillGainRate</code></td>
+<td>Skill gain
+</td></tr>
+<tr>
+<td><code>SkillReductionRate</code></td>
+<td>Skill reduction on ordinary death
+</td></tr>
+<tr>
+<td><code>EnemySpeedSize</code></td>
+<td>Enemy speed and size
+</td></tr>
+<tr>
+<td><code>EnemyLevelUpRate</code></td>
+<td>Enemy level-up probability
+</td></tr>
+<tr>
+<td><code>CarryWeightRate</code></td>
+<td>Carry weight
+</td></tr>
+<tr>
+<td><code>EventRate</code></td>
+<td>Random-event intervals and chances
+</td></tr></tbody></table></div>
+<p>Following keys can be set to modify game behavior:
+</p>
+<ul><li>AllPiecesUnlocked: If set, all pieces are unlocked.</li>
+<li>AllRecipesUnlocked: If set, all recipes are unlocked.</li>
+<li>DeathDeleteItems: If set, all items are deleted on death (unless DeathDeleteUnequipped or  DeathKeepEquip is set).</li>
+<li>DeathDeleteUnequipped: If set, unequipped items are deleted on death.</li>
+<li>DeathKeepEquip: If set, equipped items are kept on death.</li>
+<li>DeathSkillsReset: If set, all skills are lost on death.</li>
+<li>DungeonBuild: If set, can build in dungeons.</li>
+<li>Fire: If set, fire hazards is enabled.</li>
+<li>NoBuildCost: if set, building is free.</li>
+<li>NoCraftCost: If set, crafting is free.</li>
+<li>NoBossPortals: If set, portals can't be used near bosses.</li>
+<li>NoMap: If set, map can't be used.</li>
+<li>NoPortals: If set, portals can't be used.</li>
+<li>NoWorkbench: If set, can build without workbench.</li>
+<li>PassiveMobs: If set, enemies are passive.</li>
+<li>PlayerEvents: If set, events use player-specific keys when checking event requirements.</li>
+<li>TeleportAll: If set, all items can be teleported.</li></ul>
+<p>Following keys can be used to multiply a game setting:
+</p>
+<ul><li>EnemyDamage</li>
+<li>EnemyLevelUpRate</li>
+<li>EnemySpeedSize</li>
+<li>EventRate</li>
+<li>MoveStaminaRate</li>
+<li>PlayerDamage</li>
+<li>ResourceRate</li>
+<li>SkillGainRate</li>
+<li>SkillReductionRate</li>
+<li>StaminaRate</li>
+<li>StaminaRegenRate</li>
+<li>EitrRate</li>
+<li>DurabilityRate</li>
+<li>FoodRate</li>
+<li>AdrenalineRate</li>
+<li>CarryWeightRate</li></ul>
+<p>Each scalar key has a default value of 100. For example to increase player damage by 50%, use command <b>setkey PlayerDamage 150</b>
+</p><p>World level can be used for unfinished NewGame+ feature:
+</p>
+<ul><li>WorldLevel [value]</li>
+<li>WorldLevelLockedTools: If set, tool tier check also checks the world level.</li></ul>
+<div class="mw-heading mw-heading2"><h2 id="en-Notes">Notes</h2></div>
+<ul><li>World Modifiers were introduced in the <a href="p-441cd56eacbb1fc689a9.html" title="Hildir">Hildir's Request</a> update
+<ul><li>With sliders set to Normal, the game will play much as it did before the patch.</li></ul></li>
+<li>The Resource Rate modifier does round up, so 1.5x is effectively equal to 2x for various drops such as from enemies, berry bushes and so on.</li>
+<li>Resource rate does not affect Fish, Trophies and boss drops</li>
+<li>If using the F5 console to change a world modifier from normal, the only currently known way to reset to normal is to reset the overall mode to normal.
+<ul><li>For example, portals are changed to casual using <code>setworldmodifier portals casual</code></li>
+<li>To return them to "normal" is not possible using <code>setworldmodifier portals normal</code></li>
+<li>The only way currently is to reset all modifiers <code>setworldpreset default</code> which would reset ALL keys set by <code>setworldmodifier</code></li></ul></li></ul>
+<div class="mw-heading mw-heading2"><h2 id="en-Achievements">Achievements</h2></div>
+<ul><li><b>No Map</b>:
+<ul><li><div class="descriptionbox achievement"><span typeof="mw:File"><a href="p-74cf2bc63fe122206c82.html" title="Achievements"><img class="mw-file-element" data-file-height="256" data-file-width="256" decoding="async" height="64" loading="eager" src="../assets/7cb9953b0142064fd148.jpg" width="64"/></a></span><b><a href="p-74cf2bc63fe122206c82.html#The_Pathfinder" title="Achievements">The Pathfinder</a></b> • <i>"Travel far in all four directions, without using a map."</i></div></li></ul></li>
+<li><b>Presets</b>: Normal, Hard or Very Hard
+<ul><li><div class="descriptionbox achievement"><span typeof="mw:File"><a href="p-74cf2bc63fe122206c82.html" title="Achievements"><img class="mw-file-element" data-file-height="256" data-file-width="256" decoding="async" height="64" loading="eager" src="../assets/526231794226e67e05b0.jpg" width="64"/></a></span><b><a href="p-74cf2bc63fe122206c82.html#The_Tough_Viking" title="Achievements">The Tough Viking</a></b> • <i>"Defeat all bosses on normal difficulty or higher."</i></div></li></ul></li>
+<li><b>Presets</b>: Hard or Very Hard
+<ul><li><div class="descriptionbox achievement"><span typeof="mw:File"><a href="p-74cf2bc63fe122206c82.html" title="Achievements"><img class="mw-file-element" data-file-height="256" data-file-width="256" decoding="async" height="64" loading="eager" src="../assets/c3fa29f6bed60ccf53e7.jpg" width="64"/></a></span><b><a href="p-74cf2bc63fe122206c82.html#The_Master_Hunter" title="Achievements">The Master Hunter</a></b> • <i>"Kill every kind of creature on hard difficulty."</i></div></li>
+<li><div class="descriptionbox achievement"><span typeof="mw:File"><a href="p-74cf2bc63fe122206c82.html" title="Achievements"><img class="mw-file-element" data-file-height="256" data-file-width="256" decoding="async" height="64" loading="eager" src="../assets/0a6c06497ae77586e87b.jpg" width="64"/></a></span><b><a href="p-74cf2bc63fe122206c82.html#The_Toughest_Viking" title="Achievements">The Toughest Viking</a></b> • <i>"Defeat all bosses on hard difficulty."</i></div></li></ul></li></ul>
+<div class="sample-table-scroll"><table class="navbox mw-collapsible mw-collapsed" data-collapsetext="Hide" data-expandtext="Show"><tbody><tr class="navbox-title"><th colspan="2" scope="col"><div class="navbox-title-pad navbox-title-padleft navbox-title-padright"><a href="p-edd2287afad9be012dee.html" title="Category:Mechanics">Mechanics</a></div></th></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Guides</th><td class="navbox-list"><div class="hlist"><a href="how-to-play.html" title="How to play">How to play</a> • <a href="p-58565db394dcbacc0ec7.html" title="Progression guide">Progression guide</a> • <a href="p-e70bc5798f8391942dd6.html" title="Aggressive creature strategies">Aggressive creature strategies</a> • <a href="p-19e667dbe36cd74e7c1b.html" title="Passive creature strategies">Passive creature strategies</a> • <a href="p-afc73fba07d15f960daf.html" title="Boss strategies">Boss strategies</a> • <a href="p-a1b6af2b7d7d4bfef86e.html" title="Dedicated servers">Dedicated servers</a> • <a href="p-c3af076f92c5ed8dcb0d.html" title="Troubleshooting">Troubleshooting</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Player</th><td class="navbox-list"><div class="hlist"><a href="p-64aee8c6cbd026d9ea92.html" title="Player">Player</a> • <a href="p-55898449eb74fb2e348d.html" title="Health">Health</a> • <a href="p-cc350ea3393968f7cd7c.html" title="Stamina">Stamina</a> • <a href="p-332e6a85b4285ff8858c.html" title="Eitr">Eitr</a> • <a href="p-2608729251008c9658e7.html" title="Adrenaline">Adrenaline</a> • <a href="p-fcd6fea72de7e6c09ca2.html" title="Death">Death</a> • <a href="p-b8e0a74433a1176e439f.html" title="Forsaken power">Forsaken power</a> • <a href="p-66d0f523a379b2de6f8d.html" title="Skills">Skills</a> • <a href="p-f57eddb4e027139d853f.html" title="Status effects">Status effects</a> • <a href="p-5954d0c13f55417f74fb.html" title="Movement speed">Movement speed</a> • <a href="p-ed1a5a81b8121ad13a87.html" title="Magic">Magic</a> • <a href="p-79cea8ff2ba190bbb1bd.html" title="Fishing">Fishing</a> • <a href="p-e9d7b76127dca2c7d07e.html" title="Riding">Riding</a> • <a href="p-12ff393b061d94ebc405.html" title="Sleeping">Sleeping</a> • <a href="p-25521701981e1ad3ad97.html" title="Emotes">Emotes</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Combat</th><td class="navbox-list"><div class="hlist"><a href="p-0c874f581a4534f15f1e.html" title="Damage">Damage types</a> • <a href="p-e931ec535f307a5c6add.html" title="Damage mechanics">Damage mechanics</a> • <a href="p-bb0db9f7893c418a1de3.html" title="Knockback">Knockback</a> • <a href="p-aeaeee06ac36a10d7822.html" title="Factions">Factions</a> • <a href="p-4e7c41331a4464ad6e07.html" title="Creature senses">Creature senses</a> • <a href="p-5ac03ba6efdc56d5b7b5.html" title="Creature AI">Creature AI</a> • <a href="p-37015441396c962e2e96.html" title="Drops">Drops</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Spawning</th><td class="navbox-list"><div class="hlist"><a href="p-36ff87e1502da8a1d740.html" title="Spawning mechanics">Spawning mechanics</a> • <a href="p-3a6396c120925fdde8d2.html" title="Spawn points">Spawn points</a> • <a href="p-60958b009a9e0b5dd0b6.html" title="Spawn zones">Spawn zones</a> • <a href="p-8d14f6e72de8f18ab1ee.html" title="Events">Events</a> • <a href="p-47373e84723cece15749.html" title="Creature level">Creature level</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Building</th><td class="navbox-list"><div class="hlist"><a href="building.html" title="Building">Building</a> • <a href="p-99b60de679e8976fc592.html" title="Building stability">Building stability</a> • <a href="p-fa8d84566676ee2ee662.html" title="Cover">Cover</a> • <a href="p-040d4645676f60263590.html" title="Comfort">Comfort</a> • <a href="p-a6d7eeb25f1fe9854a8b.html" title="Player base">Player base</a> • <a href="p-29b52bfcccd01518e9de.html" title="Smoke">Smoke</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">UI</th><td class="navbox-list"><div class="hlist"><a href="p-758f487fe8e9fcc59cec.html" title="Inventory">Inventory</a> • <a class="mw-redirect" href="crafting.html" title="Crafting menu">Crafting menu</a> • <a href="p-be176b0015c424b78e9f.html" title="Map">Map</a> • <a href="p-c40c747ee79e90e16e46.html" title="HUD">HUD</a> • <a href="p-799c269135742a36ae48.html" title="Controls">Controls</a> • <a href="p-2ef15ac2866f955969bd.html" title="Developer console">Developer console</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">World</th><td class="navbox-list"><div class="hlist"><a href="p-9e471951a1b4106e54be.html" title="Environment">Environment</a> • <a class="mw-selflink selflink">World Modifiers</a> • <a href="p-2af8986090a5b9ad83ec.html" title="World seed">World seed</a> • <a href="p-577cfab98de598e55bee.html" title="Global Keys">Global Keys</a> • <a href="p-a53aa373c5e23e694a54.html" title="Zones">Zones</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Misc</th><td class="navbox-list"><div class="hlist"><a href="p-74cf2bc63fe122206c82.html" title="Achievements">Achievements</a> • <a href="p-1964260e2e296c33c3f3.html" title="Seasonal events">Seasonal events</a> • <a href="p-6eb00b4b2614a144d41c.html" title="Music">Music</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Development</th><td class="navbox-list"><div class="hlist"><a href="p-a6df11e706c514f13d6f.html" title="Version history">Version history</a> • <a href="p-4696ff19d71c753885a5.html" title="Future content">Future content</a></div></td></tr></tbody></table></div>
+
+
+
+</div></section><footer data-language="zh">来源：<a href="https://valheim.weirdgloop.org/w/World_Modifiers">世界修改器原文（需联网）</a>；保存修订号 60318。中文为本地译文。<p>原站内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名—非商业性使用—相同方式共享 3.0（CC BY-NC-SA 3.0）</a>许可；<a href="https://meta.weirdgloop.org/w/Licensing">可能适用额外条款</a>。背景与装饰素材来自原版维基，并已保存到本地。</p></footer><footer data-language="en" hidden>Source: <a href="https://valheim.weirdgloop.org/w/World_Modifiers">World Modifiers original (online)</a>; saved revision 60318. Chinese is a local translation. <p>Content on this site is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a>; <a href="https://meta.weirdgloop.org/w/Licensing">additional terms may apply</a>. Backgrounds and decorative assets from the original wiki are stored locally.</p></footer></main></body></html>

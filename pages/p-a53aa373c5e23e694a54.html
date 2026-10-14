@@ -1,0 +1,186 @@
+<!doctype html><html data-wiki-root=".." lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>区域 · 英灵神殿离线维基</title><link rel="stylesheet" href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-0.css"><link rel="stylesheet" href="../assets/Creatures%20-%20Valheim%20Wiki_files/reading-1.css"><link rel="stylesheet" href="../assets/sample.css"><script defer src="../assets/search.js"></script><script defer src="../assets/sample.js"></script></head><body class="skin-vector"><nav class="sample-toolbar"><strong  data-ui-zh="英灵神殿 · 离线维基" data-ui-en="Valheim · Offline Wiki">英灵神殿 · 离线维基</strong><a href="creatures.html" data-local-page="true" data-ui-zh="生物" data-ui-en="Creatures">生物</a><a href="how-to-play.html" data-local-page="true" data-ui-zh="入门玩法" data-ui-en="How to play">入门玩法</a><a href="biomes.html" data-local-page="true" data-ui-zh="生物群系" data-ui-en="Biomes">生物群系</a><a href="weapons.html" data-local-page="true" data-ui-zh="武器" data-ui-en="Weapons">武器</a><a href="food.html" data-local-page="true" data-ui-zh="食物" data-ui-en="Food">食物</a><a href="armor.html" data-local-page="true" data-ui-zh="护甲" data-ui-en="Armor">护甲</a><a href="crafting.html" data-local-page="true" data-ui-zh="制作" data-ui-en="Crafting">制作</a><a href="building.html" data-local-page="true" data-ui-zh="建材" data-ui-en="Building">建材</a><button id="sample-language" aria-pressed="false">切换英文</button><a href="#sample-toc" data-ui-zh="本页目录" data-ui-en="Contents">本页目录</a><form id="sample-search-form" role="search"><label for=sample-search data-ui-zh="站内搜索" data-ui-en="Site search">站内搜索</label><input id="sample-search" type="search" autocomplete="off" data-placeholder-zh="输入中文或英文" data-placeholder-en="Search in Chinese or English" placeholder="输入中文或英文"><button type=submit data-ui-zh="搜索" data-ui-en="Search">搜索</button></form></nav><main class="sample-shell"><h1 id="sample-title" data-ui-zh="区域" data-ui-en="Zones">区域</h1><p class="sample-note" data-ui-zh="本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。" data-ui-en="This offline edition supports Chinese and English site search. Links marked ↗ require internet. Chinese uses the supplied glossary; each source revision is shown below.">本地离线版支持中英文站内搜索。带 ↗ 的链接需联网；中文采用用户词表，各页来源版本见页脚。</p><section id="sample-search-results" aria-live="polite" hidden></section><nav id="sample-toc" class="sample-contents"><div data-language="zh"><a href="#mw-toc-heading">目录</a><a href="#Zone_biome">区域生态区</a><a href="#Zone_types">区域类型</a><a href="#Generated_zones">已生成区域</a><a href="#Loaded_zones">已装入区域</a><a href="#Active_zones">已激活 区域</a><a href="#Current_zones">当前区域</a><a href="#Inactive_zones">未激活 区域</a><a href="#Distance">距离</a></div><div data-language="en" hidden><a href="#en-mw-toc-heading">Contents</a><a href="#en-Zone_biome">Zone biome</a><a href="#en-Zone_types">Zone types</a><a href="#en-Generated_zones">Generated zones</a><a href="#en-Loaded_zones">Loaded zones</a><a href="#en-Active_zones">Active zones</a><a href="#en-Current_zones">Current zones</a><a href="#en-Inactive_zones">Inactive zones</a><a href="#en-Distance">Distance</a></div></nav><section id="sample-zh" data-language="zh"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><p>世界由多个区域组成，区域决定哪些地方加载并处于活动状态。每个区域大小为64米x64米。</p>
+<div aria-labelledby="mw-toc-heading" class="toc" id="toc" role="navigation"><div class="toctitle" dir="ltr" lang="en"><h2 id="mw-toc-heading">目录</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Zone_biome"><span class="tocnumber">1</span> <span class="toctext">区域生态区</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Zone_types"><span class="tocnumber">2</span> <span class="toctext">区域类型</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Generated_zones"><span class="tocnumber">2.1</span> <span class="toctext">已生成区域</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Loaded_zones"><span class="tocnumber">2.2</span> <span class="toctext">已装入区域</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Active_zones"><span class="tocnumber">2.3</span> <span class="toctext">已激活 区域</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Current_zones"><span class="tocnumber">2.4</span> <span class="toctext">当前区域</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Inactive_zones"><span class="tocnumber">2.5</span> <span class="toctext">未激活 区域</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Distance"><span class="tocnumber">3</span> <span class="toctext">距离</span></a></li>
+</ul>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="Zone_biome">区域生态区</h2></div>
+<p>生态区信息保存在区域角点。所有角点的生态区相同时，视为完整生态区；否则视为边缘生态区。</p><p>某个位置的生态区取决于其与区域角点的距离。对每个角点，计算该位置到其对角角点的距离，取三次方，再将相同生态区的数值相加。总值最高的生态区就是该位置的生态区。</p><p>例如:
+</p>
+<ul><li>1种生态区：该生态区占区域的100%。</li>
+<li>2种生态区各占2个角点：每种生态区占区域的50%。</li>
+<li>1种生态区占3个角点：主要生态区约占区域的80%。</li>
+<li>1种生态区占两个角点，另2种各占1个角点：主要生态区约占区域的55%。</li>
+<li>4种生态区：每种占区域的25%。</li></ul>
+<p>检查当前生态区变化的位置，可利用生态区判断区域中心。</p>
+<div class="mw-heading mw-heading2"><h2 id="Zone_types">区域类型</h2></div>
+<div class="mw-heading mw-heading3"><h3 id="Generated_zones">已生成区域</h3></div>
+<p>游戏会生成每位玩家周围9 x 9个区域，放置预先生成的地点，如废弃房屋、地下城入口，以及树木、岩石和植物等植被。生成后，大多数对象会从游戏世界卸载；这里指Unity预制体，而非ZDO。</p><p>地点会在<b>服务器</b>上完整生成，随后以幽灵模式销毁，只留下用于网络同步的ZDO。地点代理是在服务器上创建、代表地点的ZDO，会在客户端显示，除自身存在外几乎不进行其他网络操作。</p>
+<div class="mw-collapsible mw-collapsed" data-collapsetext="Hide ZDO details" data-expandtext="Show ZDO details">
+<p><b>ZDO</b>，即区域数据对象（Zone Data Object或Zeta-Delta Object），用于网络同步，保持客户端与服务器之间的数据一致。ZDO是唯一能够通过RoutedRpc调用，在`client &lt;-&gt; server &lt;-&gt; client`之间直接进行`object &lt;-&gt; object`通信的机制。</p><p>数据以经过哈希处理的键值对形式保存在多个字典中。支持的数据类型为float、Vector3、Quaternion、int、long、string和byte[]。其他数据包括ZDOConnection，用于传送门互连、生成实体与父生成器关联等，以及持久化标记、远距离标记、ZDO优先级类型、预制体哈希、拥有者、修订号、位置、区域索引和旋转。所有这些数据都会序列化到网络数据包或世界存档文件中，并从中反序列化。</p><p><b>变化 :</b>
+</p>
+<ul><li>补丁0.216.9
+<ul><li>结合数据设计对ZDO进行了大规模优化，显著减少内存占用和网络带宽需求。</li></ul></li></ul>
+</div>
+<ul><li><a href="p-0b68483166e56e881aed.html" title="霍尔德">霍尔德</a>被发现。</li>
+<li>地点被放置，此后genloc命令无法再移动它们。</li>
+<li>树木已经初始化与可见。</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Loaded_zones">已装入区域</h3></div>
+<p>游戏加载每位玩家周围5 x 5个区域。区域每隔0.1秒加载一个，因此加载所有附近区域最多需要2.5秒。超出5 x 5范围的区域会在10秒后移除。</p>
+<ul><li>生物和其他对象初始化。</li>
+<li>建筑等静态对象可见。</li>
+<li>地形初始化并显示；180米以外使用低质量地形。</li>
+<li>敌人数量上限根据这些区域内的生物计算。</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Active_zones">已激活 区域</h3></div>
+<p>游戏激活每位玩家周围3 x 3个区域。
+</p>
+<ul><li>生物可见，能够移动和攻击。</li>
+<li>生物进食、被驯服并繁殖。</li>
+<li>若当前是白天，设定为白天消失的生物会消失。</li>
+<li>食物被烹饪。</li>
+<li>为<a href="p-2dc9e8c16804bb7b3bfa.html" title="战利品宝箱">珍宝箱</a>生成战利品。</li>
+<li>“不活动区域”中列出的行为。</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Current_zones">当前区域</h3></div>
+<p>包含玩家的区域视为当前区域，只有当前区域内的生成器才会激活。</p><p>进入新区域时经常会生成更多敌人，因为生成器的冷却时间按区域分别记录。</p>
+<div class="mw-heading mw-heading3"><h3 id="Inactive_zones">未激活 区域</h3></div>
+<p>游戏记录自上次活动以来经过的时间，使不活动区域中的动作也能积累“进度”。区域重新激活时，这些动作才实际执行。</p>
+<ul><li><a href="p-59d4cc5f6fa0a833f0f1.html" title="蜂房">蜂房</a>、<a href="p-fa122c4ed88fb2acfb18.html" title="高炉">高炉</a>、<a href="p-82e0da97aaccc783ff13.html" title="木炭窑">木炭窑</a>、<a href="p-a3ff2ed3cbd64ace9b1c.html" title="发酵桶">发酵桶</a>、<a href="p-4c85ecaec998a3fc5f2c.html" title="冶炼炉">冶炼炉</a>、<a href="p-feeedebfee67630b51c2.html" title="纺车">纺车</a>和<a href="p-d09d618ec3d29dea2ff6.html" title="风车">风车</a>继续工作。</li>
+<li>生物恢复生命值。</li>
+<li>生成器冷却结束。</li>
+<li>幼体长大。</li>
+<li>驯服生物的进食效果到期。</li>
+<li>植物与 树木长大了。</li>
+<li>浆果和其他可采集物重新生成。</li>
+<li>火源和火把的燃料耗尽。</li>
+<li>来自<a class="mw-redirect" href="p-0790ec5648c1aaf08864.html" title="火焰喷口">火焰喷口</a>的<a href="p-690671ff0febe865c611.html" title="焰灵">焰灵</a>重新生成。</li>
+<li>掉落物消失。</li></ul>
+<p>上述行为也受睡眠影响。
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Distance">距离</h2></div>
+<p>对象实际生成的距离取决于方向及玩家在区域内的位置。</p>
+<ul><li>位于区域中心时：向西、北、东、南各288米，对角方向407米。</li>
+<li>位于区域角点时：主方向256或320米，对角方向362或453米。</li></ul>
+<p>对象实际加载的距离取决于方向及玩家在区域内的位置。</p>
+<ul><li>位于区域中心时：向西、北、东、南各160米，对角方向226米。</li>
+<li>位于区域角点时：主方向128或192米，对角方向181或272米。</li></ul>
+<p>对象实际保持活动的距离取决于方向及玩家在区域内的位置。</p>
+<ul><li>位于区域中心时：向西、北、东、南各96米，对角方向136米。</li>
+<li>位于区域角点时：主方向64或128米，对角方向91或181米。</li></ul>
+<p>因此，总体而言，最远181米外仍可能有活动。
+<br/>
+</p>
+<div class="sample-table-scroll"><table class="navbox mw-collapsible mw-collapsed" data-collapsetext="Hide" data-expandtext="Show"><tbody><tr class="navbox-title"><th colspan="2" scope="col"><div class="navbox-title-pad navbox-title-padleft navbox-title-padright"><a href="p-edd2287afad9be012dee.html" title="分类：游戏机制">机制</a></div></th></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">攻略</th><td class="navbox-list"><div class="hlist"><a href="how-to-play.html" title="入门玩法">入门玩法</a> • <a href="p-58565db394dcbacc0ec7.html" title="流程攻略">流程攻略</a> • <a href="p-e70bc5798f8391942dd6.html" title="敌对生物攻略">敌对生物攻略</a> • <a href="p-19e667dbe36cd74e7c1b.html" title="被动生物攻略">被动生物攻略</a> • <a href="p-afc73fba07d15f960daf.html" title="首领攻略">首领攻略</a> • <a href="p-a1b6af2b7d7d4bfef86e.html" title="专用服务器">专用服务器</a> • <a href="p-c3af076f92c5ed8dcb0d.html" title="故障排查">故障排查</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">玩家</th><td class="navbox-list"><div class="hlist"><a href="p-64aee8c6cbd026d9ea92.html" title="玩家">玩家</a> • <a href="p-55898449eb74fb2e348d.html" title="生命值">生命值</a> • <a href="p-cc350ea3393968f7cd7c.html" title="耐力">耐力</a> • <a href="p-332e6a85b4285ff8858c.html" title="埃达之能">埃达之能</a> • <a href="p-2608729251008c9658e7.html" title="血怒">血怒</a> • <a href="p-fcd6fea72de7e6c09ca2.html" title="死亡">死亡</a> • <a href="p-b8e0a74433a1176e439f.html" title="遗弃者能力">遗弃者能力</a> • <a href="p-66d0f523a379b2de6f8d.html" title="技能">技能</a> • <a href="p-f57eddb4e027139d853f.html" title="状态效果">状态效果</a> • <a href="p-5954d0c13f55417f74fb.html" title="移动速度">移动速度</a> • <a href="p-ed1a5a81b8121ad13a87.html" title="魔法">魔法</a> • <a href="p-79cea8ff2ba190bbb1bd.html" title="钓鱼">钓鱼</a> • <a href="p-e9d7b76127dca2c7d07e.html" title="乘骑">乘骑</a> • <a href="p-12ff393b061d94ebc405.html" title="睡眠">睡眠</a> • <a href="p-25521701981e1ad3ad97.html" title="表情">表情</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">战斗</th><td class="navbox-list"><div class="hlist"><a href="p-0c874f581a4534f15f1e.html" title="伤害">伤害类型</a> • <a href="p-e931ec535f307a5c6add.html" title="伤害机制">伤害机制</a> • <a href="p-bb0db9f7893c418a1de3.html" title="击退">击退</a> • <a href="p-aeaeee06ac36a10d7822.html" title="阵营">阵营</a> • <a href="p-4e7c41331a4464ad6e07.html" title="生物感知">生物感知</a> • <a href="p-5ac03ba6efdc56d5b7b5.html" title="生物行为">生物行为</a> • <a href="p-37015441396c962e2e96.html" title="掉落物">掉落物</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">生成</th><td class="navbox-list"><div class="hlist"><a href="p-36ff87e1502da8a1d740.html" title="生成机制">生成机制</a> • <a href="p-3a6396c120925fdde8d2.html" title="生成点">生成点</a> • <a href="p-60958b009a9e0b5dd0b6.html" title="生成区域">生成区域</a> • <a href="p-8d14f6e72de8f18ab1ee.html" title="事件">事件</a> • <a href="p-47373e84723cece15749.html" title="生物等级">生物等级</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">建材</th><td class="navbox-list"><div class="hlist"><a href="building.html" title="建材">建材</a> • <a href="p-99b60de679e8976fc592.html" title="建筑稳定性">建筑稳定性</a> • <a href="p-fa8d84566676ee2ee662.html" title="遮蔽">遮蔽</a> • <a href="p-040d4645676f60263590.html" title="舒适度">舒适度</a> • <a href="p-a6d7eeb25f1fe9854a8b.html" title="玩家基地">玩家基地</a> • <a href="p-29b52bfcccd01518e9de.html" title="烟雾">烟雾</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">界面</th><td class="navbox-list"><div class="hlist"><a href="p-758f487fe8e9fcc59cec.html" title="物品栏">物品栏</a> • <a class="mw-redirect" href="crafting.html" title="制作菜单">制作菜单</a> • <a href="p-be176b0015c424b78e9f.html" title="地图">地图</a> • <a href="p-c40c747ee79e90e16e46.html" title="状态界面">状态界面</a> • <a href="p-799c269135742a36ae48.html" title="控制">控制</a> • <a href="p-2ef15ac2866f955969bd.html" title="开发者控制台">开发者控制台</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">世界</th><td class="navbox-list"><div class="hlist"><a href="p-9e471951a1b4106e54be.html" title="环境">环境</a> • <a href="p-8a27b0cad26bc97071ab.html" title="世界修改器">世界修改器</a> • <a href="p-2af8986090a5b9ad83ec.html" title="世界种子">世界种子</a> • <a href="p-577cfab98de598e55bee.html" title="世界进度标记">世界进度标记</a> • <a class="mw-selflink selflink">区域</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">杂项</th><td class="navbox-list"><div class="hlist"><a href="p-74cf2bc63fe122206c82.html" title="成就">成就</a> • <a href="p-1964260e2e296c33c3f3.html" title="季节活动">季节活动</a> • <a href="p-6eb00b4b2614a144d41c.html" title="音乐">音乐</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">开发</th><td class="navbox-list"><div class="hlist"><a href="p-a6df11e706c514f13d6f.html" title="版本历史">版本历史</a> • <a href="p-4696ff19d71c753885a5.html" title="未来内容">未来内容</a></div></td></tr></tbody></table></div>
+
+
+
+</div></section><section id="sample-en" data-language="en" hidden><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><p>The world consists of zones that determine which areas are loaded and active. Each zone has a size of 64 meters x 64 meters.
+</p>
+<div aria-labelledby="mw-toc-heading" class="toc" id="en-toc" role="navigation"><div class="toctitle" dir="ltr" lang="en"><h2 id="en-mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#en-Zone_biome"><span class="tocnumber">1</span> <span class="toctext">Zone biome</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#en-Zone_types"><span class="tocnumber">2</span> <span class="toctext">Zone types</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#en-Generated_zones"><span class="tocnumber">2.1</span> <span class="toctext">Generated zones</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#en-Loaded_zones"><span class="tocnumber">2.2</span> <span class="toctext">Loaded zones</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#en-Active_zones"><span class="tocnumber">2.3</span> <span class="toctext">Active zones</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#en-Current_zones"><span class="tocnumber">2.4</span> <span class="toctext">Current zones</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#en-Inactive_zones"><span class="tocnumber">2.5</span> <span class="toctext">Inactive zones</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#en-Distance"><span class="tocnumber">3</span> <span class="toctext">Distance</span></a></li>
+</ul>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="en-Zone_biome">Zone biome</h2></div>
+<p>Biome information is stored in zone corners. If zone has the same biome in all of its corners then it's considered a full biome. Otherwise it's an edge biome.
+</p><p>The biome of a location is based on its distance to the zone corners. For each corner, get the distance from location to the opposing corner, cube and then sum the values for equal biomes. The biome with the highest value is the biome at that location. 
+</p><p>For example:
+</p>
+<ul><li>1 biome: The biome is 100% of the zone.</li>
+<li>2 biomes with 2 corners: Each biome is 50% of the zone.</li>
+<li>1 biome with 3 corners: The dominant biome is about 80% of the zone.</li>
+<li>1 biome with two corners, 2 biomes with 1 corner: The dominant biome is about 55% of the zone.</li>
+<li>4 biomes:  Each biome is 25% of the zone.</li></ul>
+<p>Biomes can be used to detect the middle of a zone by checking when the current biome changes.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="en-Zone_types">Zone types</h2></div>
+<div class="mw-heading mw-heading3"><h3 id="en-Generated_zones">Generated zones</h3></div>
+<p>The game generates 9 x 9 zones around each player which places pregenerated locations (abandoned houses, dungeons entraces, etc.) and vegetation (trees, rocks, plants). After generation, most objects are unloaded from the game world (Unity prefabs, not ZDO's). 
+</p><p>Locations are fully spawned on <b>servers</b> then subsequently destroyed (ghost mode). The only remaining part is the ZDO (for networking). Location proxies are location representative ZDO's created on the server that become visible on the client that otherwise do not have much network-related actions besides existing.
+</p>
+<div class="mw-collapsible mw-collapsed" data-collapsetext="Hide ZDO details" data-expandtext="Show ZDO details">
+<p><b>ZDO's</b> (Zone Data Object or Zeta-Delta Object) are objects used for networking. They keep data in sync between client and server. ZDO's are the only mechanism capable of direct `object &lt;-&gt; object` communication between`client &lt;-&gt; server &lt;-&gt; client` using RoutedRpc calls.
+</p><p>Data is stored in the form of hashed key-value pairs within several dictionaries. The supported data types are float, Vector3, Quaternion, int, long, string, byte[]. Additional data are ZDOConnection (for portal-portal linking, spawned entity parent-spawners, etc.), persistent, distant, zdo priority type, prefab hash, owner, revisions, position, sector and rotation. All this gets serialized and deserialized to network packets and/or world save file.
+</p><p><b>Changes:</b>
+</p>
+<ul><li>Patch 0.216.9
+<ul><li>Huge ZDO optimizations taking into account data design to drastically reduce memory usage and network bandwidth.</li></ul></li></ul>
+</div>
+<ul><li><a href="p-0b68483166e56e881aed.html" title="Haldor">Haldor</a> gets discovered.</li>
+<li>Locations get placed (genloc command can no longer move them).</li>
+<li>Trees are initialized and visible.</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Loaded_zones">Loaded zones</h3></div>
+<p>The game loads 5 x 5 zones around each player. Zones are loaded with an interval of 0.1 seconds so it can take up to 2.5 seconds to load every nearby zone. Zones out of the 5 x 5 range are removed after 10 seconds.
+</p>
+<ul><li>Creatures and other objects are initialized.</li>
+<li>Static objects like structures are visible.</li>
+<li>Terrain is initialized and visible (low quality terrain is used after 180 meters).</li>
+<li>Maximum enemy limit is counted from these zones.</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Active_zones">Active zones</h3></div>
+<p>The game activates 3 x 3 zones around each player.
+</p>
+<ul><li>Creatures are visible, move and attack.</li>
+<li>Creatures eat, tame and breed.</li>
+<li>Creatures set to despawn during the day will despawn if it's daytime.</li>
+<li>Food gets cooked.</li>
+<li>Loot gets generated to <a href="p-2dc9e8c16804bb7b3bfa.html" title="Loot chest">treasure chests</a>.</li>
+<li>Actions mentioned at "Inactive zones".</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="en-Current_zones">Current zones</h3></div>
+<p>The zones that contain a player are considered current zones. Only spawners in current zones are active.
+</p><p>Entering a new zone often spawns more enemies because the cooldown of spawners is tracked per zone.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="en-Inactive_zones">Inactive zones</h3></div>
+<p>The game keeps track of the last time since activity so actions can "progress" in inactive zones. The actions are executed when the zone becomes active.
+</p>
+<ul><li><a href="p-59d4cc5f6fa0a833f0f1.html" title="Beehive">Beehives</a>, <a href="p-fa122c4ed88fb2acfb18.html" title="Blast Furnace">Blast furnaces</a>, <a href="p-82e0da97aaccc783ff13.html" title="Charcoal Kiln">Charcoal kilns</a>,  <a href="p-a3ff2ed3cbd64ace9b1c.html" title="Fermenter">Fermenters</a>, <a href="p-4c85ecaec998a3fc5f2c.html" title="Smelter">Smelters</a>, <a href="p-feeedebfee67630b51c2.html" title="Spinning Wheel">Spinning wheels</a> and <a href="p-d09d618ec3d29dea2ff6.html" title="Windmill">Windmills</a> work.</li>
+<li>Creatures regenerate.</li>
+<li>Cooldown of spawners expires.</li>
+<li>Offsprings grow up.</li>
+<li>Tamed creature food expires.</li>
+<li>Plants and trees grow up.</li>
+<li>Berries and other pickables respawn.</li>
+<li>Fireplaces and torches run out.</li>
+<li><a href="p-690671ff0febe865c611.html" title="Surtling">Surtlings</a> from <a class="mw-redirect" href="p-0790ec5648c1aaf08864.html" title="Fire geysers">fire geysers</a> respawn.</li>
+<li>Dropped items despawn.</li></ul>
+<p>Above actions are also affected by sleeping.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="en-Distance">Distance</h2></div>
+<p>The actual distance where things are generated depends on the direction and player's position on the zone.
+</p>
+<ul><li>At center of a zone: 288 meters to west, north, east and south. 407 meters to diagonal directions.</li>
+<li>At corner of a zone: 256 or 320 meters to main directions. 362 or 453 meters to diagonal directions.</li></ul>
+<p>The actual distance where things are loaded depends on the direction and player's position on the zone.
+</p>
+<ul><li>At center of a zone: 160 meters to west, north, east and south. 226 meters to diagonal directions.</li>
+<li>At corner of a zone: 128 or 192  meters to main directions. 181 or 272 meters to diagonal directions.</li></ul>
+<p>The actual distance where things are active depends on the direction and player's position on the zone.
+</p>
+<ul><li>At center of a zone: 96 meters to west, north, east and south. 136  meters to diagonal directions.</li>
+<li>At corner of a zone: 64 or 128 meters to main directions. 91 or 181 meters to diagonal directions.</li></ul>
+<p>So overall there can be activity up to 181 meters away.
+<br/>
+</p>
+<div class="sample-table-scroll"><table class="navbox mw-collapsible mw-collapsed" data-collapsetext="Hide" data-expandtext="Show"><tbody><tr class="navbox-title"><th colspan="2" scope="col"><div class="navbox-title-pad navbox-title-padleft navbox-title-padright"><a href="p-edd2287afad9be012dee.html" title="Category:Mechanics">Mechanics</a></div></th></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Guides</th><td class="navbox-list"><div class="hlist"><a href="how-to-play.html" title="How to play">How to play</a> • <a href="p-58565db394dcbacc0ec7.html" title="Progression guide">Progression guide</a> • <a href="p-e70bc5798f8391942dd6.html" title="Aggressive creature strategies">Aggressive creature strategies</a> • <a href="p-19e667dbe36cd74e7c1b.html" title="Passive creature strategies">Passive creature strategies</a> • <a href="p-afc73fba07d15f960daf.html" title="Boss strategies">Boss strategies</a> • <a href="p-a1b6af2b7d7d4bfef86e.html" title="Dedicated servers">Dedicated servers</a> • <a href="p-c3af076f92c5ed8dcb0d.html" title="Troubleshooting">Troubleshooting</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Player</th><td class="navbox-list"><div class="hlist"><a href="p-64aee8c6cbd026d9ea92.html" title="Player">Player</a> • <a href="p-55898449eb74fb2e348d.html" title="Health">Health</a> • <a href="p-cc350ea3393968f7cd7c.html" title="Stamina">Stamina</a> • <a href="p-332e6a85b4285ff8858c.html" title="Eitr">Eitr</a> • <a href="p-2608729251008c9658e7.html" title="Adrenaline">Adrenaline</a> • <a href="p-fcd6fea72de7e6c09ca2.html" title="Death">Death</a> • <a href="p-b8e0a74433a1176e439f.html" title="Forsaken power">Forsaken power</a> • <a href="p-66d0f523a379b2de6f8d.html" title="Skills">Skills</a> • <a href="p-f57eddb4e027139d853f.html" title="Status effects">Status effects</a> • <a href="p-5954d0c13f55417f74fb.html" title="Movement speed">Movement speed</a> • <a href="p-ed1a5a81b8121ad13a87.html" title="Magic">Magic</a> • <a href="p-79cea8ff2ba190bbb1bd.html" title="Fishing">Fishing</a> • <a href="p-e9d7b76127dca2c7d07e.html" title="Riding">Riding</a> • <a href="p-12ff393b061d94ebc405.html" title="Sleeping">Sleeping</a> • <a href="p-25521701981e1ad3ad97.html" title="Emotes">Emotes</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Combat</th><td class="navbox-list"><div class="hlist"><a href="p-0c874f581a4534f15f1e.html" title="Damage">Damage types</a> • <a href="p-e931ec535f307a5c6add.html" title="Damage mechanics">Damage mechanics</a> • <a href="p-bb0db9f7893c418a1de3.html" title="Knockback">Knockback</a> • <a href="p-aeaeee06ac36a10d7822.html" title="Factions">Factions</a> • <a href="p-4e7c41331a4464ad6e07.html" title="Creature senses">Creature senses</a> • <a href="p-5ac03ba6efdc56d5b7b5.html" title="Creature AI">Creature AI</a> • <a href="p-37015441396c962e2e96.html" title="Drops">Drops</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Spawning</th><td class="navbox-list"><div class="hlist"><a href="p-36ff87e1502da8a1d740.html" title="Spawning mechanics">Spawning mechanics</a> • <a href="p-3a6396c120925fdde8d2.html" title="Spawn points">Spawn points</a> • <a href="p-60958b009a9e0b5dd0b6.html" title="Spawn zones">Spawn zones</a> • <a href="p-8d14f6e72de8f18ab1ee.html" title="Events">Events</a> • <a href="p-47373e84723cece15749.html" title="Creature level">Creature level</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Building</th><td class="navbox-list"><div class="hlist"><a href="building.html" title="Building">Building</a> • <a href="p-99b60de679e8976fc592.html" title="Building stability">Building stability</a> • <a href="p-fa8d84566676ee2ee662.html" title="Cover">Cover</a> • <a href="p-040d4645676f60263590.html" title="Comfort">Comfort</a> • <a href="p-a6d7eeb25f1fe9854a8b.html" title="Player base">Player base</a> • <a href="p-29b52bfcccd01518e9de.html" title="Smoke">Smoke</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">UI</th><td class="navbox-list"><div class="hlist"><a href="p-758f487fe8e9fcc59cec.html" title="Inventory">Inventory</a> • <a class="mw-redirect" href="crafting.html" title="Crafting menu">Crafting menu</a> • <a href="p-be176b0015c424b78e9f.html" title="Map">Map</a> • <a href="p-c40c747ee79e90e16e46.html" title="HUD">HUD</a> • <a href="p-799c269135742a36ae48.html" title="Controls">Controls</a> • <a href="p-2ef15ac2866f955969bd.html" title="Developer console">Developer console</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">World</th><td class="navbox-list"><div class="hlist"><a href="p-9e471951a1b4106e54be.html" title="Environment">Environment</a> • <a href="p-8a27b0cad26bc97071ab.html" title="World Modifiers">World Modifiers</a> • <a href="p-2af8986090a5b9ad83ec.html" title="World seed">World seed</a> • <a href="p-577cfab98de598e55bee.html" title="Global Keys">Global Keys</a> • <a class="mw-selflink selflink">Zones</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row alt"><th class="navbox-group" scope="row">Misc</th><td class="navbox-list"><div class="hlist"><a href="p-74cf2bc63fe122206c82.html" title="Achievements">Achievements</a> • <a href="p-1964260e2e296c33c3f3.html" title="Seasonal events">Seasonal events</a> • <a href="p-6eb00b4b2614a144d41c.html" title="Music">Music</a></div></td></tr><tr class="navbox-gutter"><td colspan="2"></td></tr><tr class="navbox-row"><th class="navbox-group" scope="row">Development</th><td class="navbox-list"><div class="hlist"><a href="p-a6df11e706c514f13d6f.html" title="Version history">Version history</a> • <a href="p-4696ff19d71c753885a5.html" title="Future content">Future content</a></div></td></tr></tbody></table></div>
+
+
+
+</div></section><footer data-language="zh">来源：<a href="https://valheim.weirdgloop.org/w/Zones">区域原文（需联网）</a>；保存修订号 58499。中文为本地译文。<p>原站内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名—非商业性使用—相同方式共享 3.0（CC BY-NC-SA 3.0）</a>许可；<a href="https://meta.weirdgloop.org/w/Licensing">可能适用额外条款</a>。背景与装饰素材来自原版维基，并已保存到本地。</p></footer><footer data-language="en" hidden>Source: <a href="https://valheim.weirdgloop.org/w/Zones">Zones original (online)</a>; saved revision 58499. Chinese is a local translation. <p>Content on this site is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a>; <a href="https://meta.weirdgloop.org/w/Licensing">additional terms may apply</a>. Backgrounds and decorative assets from the original wiki are stored locally.</p></footer></main></body></html>
