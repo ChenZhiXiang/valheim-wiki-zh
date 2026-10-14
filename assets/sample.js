@@ -4,7 +4,7 @@
 for(const [rel,file,type] of [['icon','Favicon.ico','image/x-icon'],['apple-touch-icon','Apple-touch-icon.png','image/png']]){
  let icon=document.head.querySelector('link[rel="'+rel+'"]');
  if(!icon){icon=document.createElement('link');icon.rel=rel;document.head.append(icon);}
- icon.type=type;icon.href=(document.documentElement.dataset.wikiRoot||'.')+'/assets/theme/'+file;
+ icon.type=type;icon.href=(document.documentElement.dataset.wikiRoot||'.')+'/assets/theme/'+file+(document.documentElement.dataset.siteVersion?'?v='+encodeURIComponent(document.documentElement.dataset.siteVersion):'');
 }
 let english=false;
 const toggle=document.querySelector('#sample-language');
