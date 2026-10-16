@@ -309,8 +309,11 @@ language(new URLSearchParams(location.search).get('lang')==='en'||location.hash.
   if(reference){if(previousDescription===null)reference.removeAttribute('aria-describedby');else reference.setAttribute('aria-describedby',previousDescription);}
   reference=null;
  }
+ document.addEventListener('sample-page-preview-show',hideReference);
+ document.addEventListener('sample-preview-settings-change',hideReference);
  function scheduleHide(){clearTimeout(hideTimer);hideTimer=setTimeout(hideReference,180);}
  function showReference(link) {
+  if(window.ValheimPreviewSettings?.references===false)return;
   let url,id;try{url=new URL(link.href);id=decodeURIComponent(url.hash.slice(1));}catch{return;}
   if(url.protocol!==location.protocol || url.host!==location.host || url.pathname!==location.pathname)return;
   const note=document.getElementById(id);if(!note)return;
@@ -321,6 +324,7 @@ language(new URLSearchParams(location.search).get('lang')==='en'||location.hash.
   for(const n of [content,...content.querySelectorAll('[id]')])n.removeAttribute('id');
   tooltip.replaceChildren(content);reference=link;previousDescription=link.getAttribute('aria-describedby');
   link.setAttribute('aria-describedby',(previousDescription?previousDescription+' ':'')+tooltip.id);tooltip.hidden=false;
+  document.dispatchEvent(new CustomEvent('sample-reference-preview-show',{detail:tooltip}));
   placeReference();
  }
  function placeReference() {
@@ -389,4 +393,139 @@ language(new URLSearchParams(location.search).get('lang')==='en'||location.hash.
   }else if(event.key==='Escape')hideReference();
  });
  document.addEventListener('sample-language-change',()=>{hideReference();if(dialog.open)dialog.close();});
+})();
+
+// 词条与引用预览共用设置；摘要按需从本站载入，兼容 file:// 和子目录部署。
+(function () {
+ const english=()=>document.documentElement.lang==='en';
+ const text=(zh,en)=>english()?en:zh;
+ const root=new URL((document.documentElement.dataset.wikiRoot||'.')+'/',location.href);
+ // 移除正文链接的原生 title 提示，避免白色小框与深色预览重叠。
+ // 无文字的图标链接保留无障碍名称；中英文正文同时处理，关闭预览也不恢复旧提示。
+ for(const node of document.querySelectorAll('#sample-zh a[title],#sample-en a[title],#sample-zh a [title],#sample-en a [title]')){
+  if(node.title&&!node.hasAttribute('aria-label')&&!node.textContent.trim())node.setAttribute('aria-label',node.title);
+  node.removeAttribute('title');
+ }
+ const storageKey='valheim-previews:'+root.pathname;
+ let preferences={pages:true,references:true};
+ try {
+  const saved=JSON.parse(localStorage.getItem(storageKey)||'null');
+  for(const key of ['pages','references'])if(typeof saved?.[key]==='boolean')preferences[key]=saved[key];
+ } catch { /* 存储不可用或旧数据损坏时继续使用默认设置。 */ }
+ window.ValheimPreviewSettings=preferences;
+ const popup=document.createElement('div');popup.id='sample-page-preview';popup.setAttribute('role','tooltip');popup.hidden=true;
+ const excerpt=document.createElement('a');excerpt.className='sample-preview-excerpt';
+ const settings=document.createElement('dialog');settings.id='sample-preview-settings';settings.setAttribute('aria-labelledby','sample-preview-settings-title');
+ const header=document.createElement('div');header.className='sample-preview-settings-header';
+ const close=document.createElement('button');close.type='button';close.className='sample-preview-close';close.textContent='×';
+ const heading=document.createElement('h2');heading.id='sample-preview-settings-title';
+ const save=document.createElement('button');save.type='button';save.className='sample-preview-save';header.append(close,heading,save);
+ const body=document.createElement('div');body.className='sample-preview-settings-body';
+ const fields={};
+ for(const key of ['pages','references']){
+  const label=document.createElement('label'),checkbox=document.createElement('input'),copy=document.createElement('span'),name=document.createElement('strong'),description=document.createElement('span');
+  checkbox.type='checkbox';checkbox.name=key;copy.append(name,description);label.append(checkbox,copy);body.append(label);fields[key]={checkbox,name,description};
+ }
+ const status=document.createElement('p');status.setAttribute('role','status');status.hidden=true;body.append(status);settings.append(header,body);
+ const entry=document.createElement('button');entry.id='sample-preview-options';entry.type='button';entry.setAttribute('aria-haspopup','dialog');
+ (document.querySelector('.sample-floating-tools')||document.body).append(entry);
+ document.body.append(popup,settings);
+ let active=null,descriptionBefore=null,showTimer,hideTimer,request=0,loading=null,settingsOpener=null;
+ function hide(){
+  clearTimeout(showTimer);clearTimeout(hideTimer);request++;popup.hidden=true;
+  if(active){if(descriptionBefore===null)active.removeAttribute('aria-describedby');else active.setAttribute('aria-describedby',descriptionBefore);}
+  active=null;
+ }
+ function scheduleHide(){clearTimeout(hideTimer);clearTimeout(showTimer);hideTimer=setTimeout(hide,180);}
+ function place(){
+  if(!active||popup.hidden)return;
+  const anchor=active.getBoundingClientRect(),box=popup.getBoundingClientRect();
+  if(anchor.bottom<0||anchor.top>innerHeight){hide();return;}
+  const left=Math.max(12,Math.min(innerWidth-box.width-12,anchor.left));
+  let top=anchor.bottom+8;if(top+box.height>innerHeight-12)top=anchor.top-box.height-8;
+  popup.style.left=left+'px';popup.style.top=Math.max(12,Math.min(innerHeight-box.height-12,top))+'px';
+ }
+ function load(){
+  if(window.VALHEIM_PAGE_PREVIEWS)return Promise.resolve(window.VALHEIM_PAGE_PREVIEWS);
+  if(loading)return loading;
+  loading=new Promise((resolve,reject)=>{
+   const script=document.createElement('script'),url=new URL('assets/page-previews.js',root);
+   if(document.documentElement.dataset.siteVersion)url.searchParams.set('v',document.documentElement.dataset.siteVersion);
+   script.src=url.href;
+   const timer=setTimeout(failed,12000);
+   function failed(){clearTimeout(timer);script.remove();loading=null;reject(new Error('Preview index unavailable'));}
+   script.onerror=failed;script.onload=()=>{clearTimeout(timer);if(window.VALHEIM_PAGE_PREVIEWS)resolve(window.VALHEIM_PAGE_PREVIEWS);else failed();};document.head.append(script);
+  });
+  return loading;
+ }
+ function target(node){
+  const link=node.closest?.('#sample-zh a[href],#sample-en a[href]');
+  if(!link||link.closest('.reference')||link.querySelector('img')||!link.getClientRects().length)return null;
+  const raw=link.getAttribute('href');if(!raw||raw.startsWith('#')||link.hasAttribute('download'))return null;
+  try {
+   const url=new URL(link.href),file=decodeURIComponent(url.pathname.split('/').pop());
+   if(url.protocol!==root.protocol||url.host!==root.host||!url.pathname.startsWith(root.pathname)||!file.endsWith('.html'))return null;
+   // 只接受本站根目录或 pages 下的页面，不把同名外部页面当作本站条目。
+   const relative=url.pathname.slice(root.pathname.length);
+   if(relative!==file&&relative!=='pages/'+file)return null;
+   return {link,file};
+  } catch {return null;}
+ }
+ async function show(item){
+  if(!preferences.pages||settings.open||document.querySelector('#sample-image-viewer[open]'))return;
+  if(active===item.link&&!popup.hidden){clearTimeout(hideTimer);return;}
+  hide();active=item.link;descriptionBefore=active.getAttribute('aria-describedby');const token=++request;
+  let docs;try{docs=await load();}catch{if(token===request)hide();return;}
+  if(token!==request||!preferences.pages||settings.open)return;
+  const record=Object.hasOwn(docs,item.file)?docs[item.file]:null,summary=record?.[english()?'en':'zh'];
+  if(!summary){hide();return;}
+  document.dispatchEvent(new Event('sample-page-preview-show'));
+  excerpt.href=active.href;excerpt.replaceChildren();
+  const title=record[english()?'titleEn':'titleZh'];
+  if(title&&summary.startsWith(title)){
+   const strong=document.createElement('strong');strong.textContent=title;excerpt.append(strong,document.createTextNode(summary.slice(title.length)));
+  }else excerpt.textContent=summary;
+  popup.replaceChildren(excerpt,gear());
+  active.setAttribute('aria-describedby',(descriptionBefore?descriptionBefore+' ':'')+popup.id);popup.hidden=false;place();
+ }
+ function openSettings(opener){
+  settingsOpener=opener;hide();document.dispatchEvent(new Event('sample-page-preview-show'));
+  for(const key of ['pages','references'])fields[key].checkbox.checked=preferences[key];
+  status.hidden=true;updateLabels();settings.showModal();close.focus();
+ }
+ function gear(){
+  const button=document.createElement('button');button.type='button';button.className='sample-preview-gear';button.textContent='⚙';
+  button.setAttribute('aria-label',text('预览设置','Preview settings'));button.setAttribute('aria-haspopup','dialog');
+  button.addEventListener('click',()=>openSettings(button));return button;
+ }
+ function updateLabels(){
+  heading.textContent=text('预览','Previews');save.textContent=text('保存','Save');close.setAttribute('aria-label',text('关闭','Close'));entry.textContent=text('预览设置','Preview settings');
+  fields.pages.name.textContent=text('页面预览','Page previews');fields.pages.description.textContent=text('阅读页面时，快速预览词条介绍。','Get quick previews of a topic while reading a page.');
+  fields.references.name.textContent=text('引用预览','Reference previews');fields.references.description.textContent=text('阅读页面时，快速预览引用内容。','Get quick previews of a reference while reading a page.');
+  for(const button of document.querySelectorAll('.sample-preview-gear')){button.setAttribute('aria-label',text('预览设置','Preview settings'));}
+ }
+ entry.addEventListener('click',()=>openSettings(entry));close.addEventListener('click',()=>settings.close());
+ save.addEventListener('click',()=>{
+  for(const key of ['pages','references'])preferences[key]=fields[key].checkbox.checked;
+  hide();document.dispatchEvent(new Event('sample-preview-settings-change'));
+  try{localStorage.setItem(storageKey,JSON.stringify(preferences));settings.close();}
+  catch{status.textContent=text('设置已在当前页面生效；浏览器禁止保存，下次打开将恢复默认。','Applied for this page. Browser storage is unavailable; settings will reset next time.');status.hidden=false;}
+ });
+ settings.addEventListener('click',event=>{if(event.target!==settings)return;const box=settings.getBoundingClientRect();if(event.clientX<box.left||event.clientX>box.right||event.clientY<box.top||event.clientY>box.bottom)settings.close();});
+ settings.addEventListener('close',()=>{const opener=settingsOpener;settingsOpener=null;(opener?.getClientRects().length?opener:entry).focus({preventScroll:true});});
+ document.addEventListener('mouseover',event=>{
+  const item=target(event.target);if(!item||item.link.contains(event.relatedTarget))return;
+  clearTimeout(hideTimer);clearTimeout(showTimer);showTimer=setTimeout(()=>show(item),300);
+ });
+ document.addEventListener('mouseout',event=>{const item=target(event.target);if(item&&!item.link.contains(event.relatedTarget))scheduleHide();});
+ document.addEventListener('focusin',event=>{const item=target(event.target);if(item)show(item);});
+ document.addEventListener('focusout',event=>{if(target(event.target))scheduleHide();});
+ document.addEventListener('click',event=>{if(target(event.target))hide();});
+ popup.addEventListener('mouseenter',()=>clearTimeout(hideTimer));popup.addEventListener('mouseleave',scheduleHide);
+ popup.addEventListener('focusin',()=>clearTimeout(hideTimer));popup.addEventListener('focusout',scheduleHide);
+ document.addEventListener('sample-reference-preview-show',event=>{hide();event.detail.append(gear());});
+ document.addEventListener('sample-language-change',()=>{hide();updateLabels();if(settings.open)settings.close();});
+ document.addEventListener('keydown',event=>{if(event.key==='Escape')hide();});
+ window.addEventListener('scroll',place,{passive:true});window.addEventListener('resize',place);
+ updateLabels();
 })();
