@@ -17,6 +17,17 @@ html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;background:#2
 .sample-shell table.navbox th:has(> .sample-collapse),.sample-shell table caption:has(> .sample-collapse){padding-inline-start:78px}
 .sample-shell table .sample-collapse{position:absolute;inset-inline-end:10px;top:50%;transform:translateY(-50%);float:none;margin:0;font-weight:normal;white-space:nowrap}
 
+/* 作者署名紧跟搜索区域；窄屏随工具栏自然换行。 */
+.sample-authors{display:flex;align-items:center;font-size:14px;line-height:1.6;white-space:nowrap}
+.sample-authors .sample-author{margin:0;display:flex;flex-direction:column;line-height:1.35}
+.sample-toolbar .sample-authors a{padding:0;border:0;background:none;text-decoration:underline}
+
+/* 快捷按钮固定在视口右下角，并避开移动设备的安全区域。 */
+.sample-floating-tools{position:fixed;right:max(20px,env(safe-area-inset-right));bottom:max(20px,env(safe-area-inset-bottom));z-index:120;display:flex;flex-direction:column;gap:8px;align-items:stretch}
+.sample-floating-tools button,.sample-floating-tools a{font:inherit;color:#fff;background:#713b20 url('theme/Valheim_button_texture.png') center/cover;border:1px solid #a87149;border-radius:5px;padding:10px 16px;cursor:pointer;box-shadow:0 3px 12px #0008;text-align:center;text-decoration:none}
+.sample-floating-tools :focus-visible{outline:2px solid #ffe0aa;outline-offset:2px}
+@media print{.sample-floating-tools{display:none!important}}
+
 /* 原版维基的背景、底纹和北欧装饰；路径相对于 assets/sample.css。 */
 @font-face{font-family:ValheimNorse;src:url('theme/Norse-webfont.woff2') format('woff2');font-display:swap}
 @font-face{font-family:ValheimNorse;src:url('theme/Norse-bold-webfont.woff2') format('woff2');font-weight:700;font-display:swap}
@@ -119,17 +130,6 @@ body.skin-vector{background-color:#101a1e;background-image:linear-gradient(rgba(
 /* 首页图标保留站点标识外观，并支持键盘聚焦。 */
 .sample-toolbar > a.sample-brand{padding:0;border:0;border-radius:0;background:none;box-shadow:none;text-shadow:none;font-weight:bold;color:#e8d5b4!important}
 .sample-toolbar > a.sample-brand:hover{filter:brightness(1.22);text-decoration:none}
-/* 作者署名紧跟搜索区域；窄屏随工具栏自然换行。 */
-.sample-authors{display:flex;align-items:center;font-size:14px;line-height:1.6;white-space:nowrap}
-.sample-authors .sample-author{margin:0;display:flex;flex-direction:column;line-height:1.35}
-.sample-toolbar .sample-authors a{padding:0;border:0;background:none;text-decoration:underline}
-
-/* 快捷按钮固定在视口右下角，并避开移动设备的安全区域。 */
-.sample-floating-tools{position:fixed;right:max(20px,env(safe-area-inset-right));bottom:max(20px,env(safe-area-inset-bottom));z-index:120;display:flex;flex-direction:column;gap:8px;align-items:stretch}
-.sample-floating-tools button,.sample-floating-tools a{font:inherit;color:#fff;background:#713b20 url('theme/Valheim_button_texture.png') center/cover;border:1px solid #a87149;border-radius:5px;padding:10px 16px;cursor:pointer;box-shadow:0 3px 12px #0008;text-align:center;text-decoration:none}
-.sample-floating-tools :focus-visible{outline:2px solid #ffe0aa;outline-offset:2px}
-@media print{.sample-floating-tools{display:none!important}}
-
 /* 沿用原站深色预览卡片与橙色设置按钮；浮窗保留可操作的齿轮区域。 */
 #sample-page-preview{position:fixed;z-index:200;box-sizing:border-box;width:320px;max-width:calc(100vw - 24px);padding:16px 16px 44px;color:#ddd;background:#202525;border:1px solid #363b3b;border-radius:2px;box-shadow:0 4px 16px #0006;font:14px/1.45 "Microsoft YaHei","Segoe UI",sans-serif}
 #sample-page-preview .sample-preview-excerpt{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:5;overflow:hidden;color:inherit;text-decoration:none;max-height:105px}
